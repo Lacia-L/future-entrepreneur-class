@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="杭州电子科技大学卓越学院 · 未来企业家班 25 届 · 经管类课程学习站">
+  <meta name="description" content="杭州电子科技大学卓越学院 · 未来企业家班 · 经管类课程学习站：24 门课程的知识点讲义、分章练习、模拟套卷、公式卡片">
   <title>未来企业家班 · 学习站</title>
-
-  <!-- KaTeX（公式渲染） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- 内联 favicon（奶酪方块） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='22' rx='6' fill='%23F5B942'/%3E%3Ccircle cx='11' cy='15' r='2.6' fill='%23E08A2E'/%3E%3Ccircle cx='19' cy='20' r='2.6' fill='%23E08A2E'/%3E%3Ccircle cx='22' cy='12' r='1.8' fill='%23E08A2E'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -25,62 +21,42 @@
         </div>
       </div>
       <div class="topbar-actions">
-        <button id="wrongBtn" class="icon-btn" type="button" title="错题本" aria-label="打开错题本">
-          📓<span id="wrongCount" class="badge" hidden>0</span>
-        </button>
         <button id="themeBtn" class="icon-btn" type="button" title="切换深浅色主题" aria-label="切换主题">🌙</button>
       </div>
     </div>
   </header>
 
-  <main id="app">
+  <main>
     <!-- ===== 首页视图 ===== -->
-    <section id="homeView" class="view" aria-label="课程列表">
-      <div class="hero">
+    <div id="home" class="view">
+      <section class="hero">
         <h1 class="hero-title">🍯 今天也要加油学</h1>
-        <p class="hero-sub">课程笔记 · 习题 · 错题本 · 公式卡，一处搞定</p>
+        <p class="hero-sub">24 门必修课程 · 知识点讲义 · 分章练习 · 模拟套卷 · 公式卡片，一处搞定</p>
         <div class="search-wrap">
           <span class="search-icon" aria-hidden="true">🔍</span>
           <input id="searchInput" class="search-input" type="search" placeholder="搜索课程、知识点、关键词…" autocomplete="off">
         </div>
-      </div>
+        <div class="cat-pills" id="catPills" role="tablist" aria-label="课程分类筛选"></div>
+      </section>
+
       <div class="course-grid" id="courseGrid"></div>
+
       <div class="empty-tip" id="searchEmpty" hidden>没有找到相关课程 🥲 换个关键词试试</div>
-    </section>
+    </div>
 
     <!-- ===== 课程详情视图 ===== -->
-    <section id="courseView" class="view" hidden aria-label="课程详情">
-      <button id="backBtn" class="back-btn" type="button">← 返回课程列表</button>
-      <div id="courseHead"></div>
-      <nav class="tabs" id="courseTabs" aria-label="课程栏目">
-        <button class="tab active" data-tab="lecture" type="button">知识点讲义</button>
-        <button class="tab" data-tab="exercises" type="button">习题题库</button>
-        <button class="tab" data-tab="variants" type="button">错题变式训练</button>
-        <button class="tab" data-tab="formulas" type="button">公式卡片</button>
-      </nav>
-      <div class="tab-body" id="tabBody"></div>
-    </section>
+    <div id="viewCourse" class="view" hidden></div>
   </main>
 
-  <!-- ===== 错题本弹窗 ===== -->
-  <div id="wrongModal" class="modal-mask" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-label="错题本">
-      <div class="modal-head">
-        <h3>📓 我的错题本</h3>
-        <button class="modal-close" id="wrongClose" type="button" aria-label="关闭">✕</button>
-      </div>
-      <div class="modal-body" id="wrongList"></div>
-    </div>
-  </div>
+  <footer class="footer">
+    <p>课程设置依据杭州电子科技大学卓越学院经管类实验班公开培养方案整理（数理编程、经管核心、思政通识、成长通识、创业特色五大类），教材为公开渠道常用教材参考，习题为学习站自编练习；以教务系统最新版培养方案与课堂要求为准。</p>
+  </footer>
 
-  <div class="toast" id="toast" hidden></div>
+  <button id="backTop" class="backtop" type="button" title="回到顶部" aria-label="回到顶部">↑</button>
 
-  <noscript>
-    <div style="padding:40px;text-align:center;font-family:sans-serif;">请启用 JavaScript 以使用本学习站。</div>
-  </noscript>
-
+  <script src="data/courses.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

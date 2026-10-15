@@ -1,0 +1,1214 @@
+{
+ "id": "daxueyingyu",
+ "name": "大学英语（精读/听说）",
+ "emoji": "🔤",
+ "category": "成长通识",
+ "desc": "从词根词缀到长难句，从精听 Shadowing 到四级作文：这门课是四六级、考研英语和未来专业文献的共同地基。",
+ "meta": [
+  "通识必修",
+  "笔试课程",
+  "英语",
+  "CET-4"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考",
+   "title": "《新视野大学英语（第三版）读写教程》",
+   "pub": "郑树棠 总主编 · 外语教学与研究出版社",
+   "note": "杭电官网公开渠道未查到本课程官方指定教材，以下为常用教材参考。该书是国内使用率最高的大学英语精读教材之一，按单元主题编排，配套中国大学MOOC《大学英语综合教程》。"
+  },
+  {
+   "role": "参考教材",
+   "title": "《新视野大学英语（第三版）视听说教程》",
+   "pub": "郑树棠 总主编 · 外语教学与研究出版社",
+   "note": "配套听说训练，对应本课程“听力与口语”模块；四级备考可辅以历年真题集。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "中国大学MOOC",
+   "name": "《大学英语综合教程1》",
+   "desc": "配套新视野《读写教程1》，讲解精读课文、词汇语法与阅读技巧，对应本课程第一、二章",
+   "url": "https://www.icourse163.org/course/detail.htm?cid=1206679837"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《大学英语视听说》",
+   "desc": "围绕听力策略、跟读模仿、口语表达训练，对应本课程第三章“听力与口语”",
+   "url": "https://www.icourse163.org/course/detail.htm?cid=1206800811"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《大学英语综合教程2》",
+   "desc": "进阶精读内容，词汇难度与四级靠拢，对应本课程第四至六章翻译、写作与四级备考（以实际开课页面为准）",
+   "url": "https://www.icourse163.org/course/detail.htm?cid=1206675852"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>《综合教程1》对应词汇语法（第一章）与阅读（第二章）；《视听说》对应听力口语（第三章）；《综合教程2》与历年真题对应翻译（第四章）、写作（第五章）与四级备考策略（第六章）。建议按“教材课文打基础+真题训练提分”双线推进。",
+ "modules": [
+  {
+   "index": "一",
+   "title": "词汇与语法基础",
+   "sub": "词汇靠“批量记忆”，语法靠“一个例句吃透”。",
+   "sections": [
+    {
+     "h4": "1. 词汇记忆方法",
+     "body": ""
+    },
+    {
+     "h4": "2. 核心语法",
+     "body": ""
+    }
+   ],
+   "terms": [
+    {
+     "name": "词根词缀记忆法",
+     "plain": "英语单词像搭积木：<b>前缀定方向、词根定意义、后缀定词性</b>。记住一个词根能串起一串词。通俗说：<b>背单词不是死记字母，而是背“零件”</b>。",
+     "example": "词根 spect＝看：inspect（向内看＝检查）、respect（反复看＝尊重）、prospect（向前看＝前景）、suspect（底下偷偷看＝怀疑）——记一个 spect，会四个词。"
+    },
+    {
+     "name": "虚拟语气（Subjunctive）",
+     "plain": "说“与事实相反”的话时用：<b>与现在相反用过去式</b>（If I were you…）；<b>与过去相反用 had done</b>（If I had studied…）。<b>标志词：if、wish、as if、suggest 后的从句</b>。",
+     "example": "If I <b>had taken</b> your advice, I <b>would not have made</b> that mistake.（“要是当初听了你的”＝事实是没听）——四级翻译写作高频考点。"
+    },
+    {
+     "name": "非谓语动词",
+     "plain": "一个句子只能有一个谓语动词，其余动词要“变身”：<b>doing</b>（主动/进行）、<b>done</b>（被动/完成）、<b>to do</b>（目的/将来）。<b>长难句看不懂时，先找谓语，其余动词基本都是非谓语</b>。",
+     "example": "<b>Walking</b> along the street, I met a friend.（Walking＝我主动走）；The book <b>written</b> by him is popular.（written＝书被写）。"
+    },
+    {
+     "name": "定语从句",
+     "plain": "修饰名词的从句，先行词是人用 <b>who/that</b>，是物用 <b>which/that</b>，表所属用 <b>whose</b>，表时间地点原因用 when/where/why。<b>非限制性定语从句用逗号隔开，不用 that</b>。",
+     "example": "The girl <b>who</b> is standing there is my classmate.（站在那的女孩是我同学）；He passed the exam, <b>which</b> made his parents happy.（这件事使父母开心——which 指代整件事）。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "阅读理解",
+   "sub": "阅读不是逐字翻译，而是带着目的找信息。",
+   "sections": [
+    {
+     "h4": "1. 阅读技巧",
+     "body": ""
+    },
+    {
+     "h4": "2. 题型拆解",
+     "body": ""
+    }
+   ],
+   "terms": [
+    {
+     "name": "略读（Skimming）与寻读（Scanning）",
+     "plain": "<b>略读</b>＝快速读首末段+每段首句，抓主旨；<b>寻读</b>＝眼睛像扫描枪，直奔数字、人名、大写词，找具体信息。<b>做题顺序：先略读知大意，再寻读找细节，最后回长句推理。</b>",
+     "example": "做阅读题：花1分钟读各段首句知道文章在讲“远程办公利弊”，然后直接看题目里的年份数字，回原文定位句子——不用全篇精读。"
+    },
+    {
+     "name": "长难句分析三步法",
+     "plain": "①找<b>谓语动词</b>（确定句子主干）；②找<b>连词/关系词</b>（拆出从句）；③<b>剥离修饰</b>（介词短语、插入语先括起来不看）。剩下的“主语+谓语+宾语”就是骨架。",
+     "example": "The study, conducted by researchers who tracked 2,000 students for five years, shows that sleep affects grades. 剥离插入语后：The study shows that sleep affects grades.（研究表明睡眠影响成绩）。"
+    },
+    {
+     "name": "阅读四大题型",
+     "plain": "<b>主旨题</b>（main idea）看首末段；<b>细节题</b>回原文定位；<b>推断题</b>（infer）选“原文推一步”的选项，不选原文照搬的；<b>词义题</b>看上下文猜。<b>干扰项套路：偷换概念、以偏概全、无中生有。</b>",
+     "example": "原文说“部分学生受益”，选项说“所有学生都受益”——以偏概全，直接排除。"
+    },
+    {
+     "name": "同义替换",
+     "plain": "正确答案几乎从不照抄原文，而是<b>换个说法</b>：原文 important → 答案 vital；原文 cause → 答案 lead to。<b>阅读找答案＝找“意思相同但词不同”的那句</b>。",
+     "example": "原文：Regular exercise reduces stress. 题目选项：Working out on a regular basis lowers pressure. ——reduce＝lower，stress＝pressure，这就是正确答案。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "听力与口语",
+   "sub": "听力靠“耳朵习惯”，口语靠“敢开口”。",
+   "sections": [
+    {
+     "h4": "1. 听力训练",
+     "body": ""
+    },
+    {
+     "h4": "2. 口语训练",
+     "body": ""
+    }
+   ],
+   "terms": [
+    {
+     "name": "精听与泛听",
+     "plain": "<b>精听</b>＝逐句听写，听懂每个词（练精度，每天15分钟）；<b>泛听</b>＝吃饭走路时放着当背景音（练语感，不限时长）。<b>精听提分快，泛听养耳朵，两者搭配</b>。",
+     "example": "精听材料：四级真题听力，一句一暂停写下来，对答案后跟读三遍；泛听材料：BBC 6 Minute English、美剧片段。"
+    },
+    {
+     "name": "跟读（Shadowing）",
+     "plain": "比原声慢半拍跟着读，模仿语音语调连读。<b>练的是“口腔肌肉记忆”</b>——你读不顺的句子，听的时候也反应不过来。",
+     "example": "四级新闻听力放一句、跟读一句，连读（如 not at all 读成 no-ta-tall）练熟，考试时耳朵立刻就能跟上。"
+    },
+    {
+     "name": "CET-4 听力题型",
+     "plain": "四级听力：<b>短篇新闻3篇</b>（抓开头）、<b>长对话2篇</b>（听问答处）、<b>听力篇章3篇</b>（首尾和转折处常设题）。<b>技巧：听到什么选什么（新闻题），转折词 but/however 后必出答案。</b>",
+     "example": "新闻题第一句往往就是主旨题答案；长对话中第二个说话人的观点题率极高。"
+    },
+    {
+     "name": "口语表达框架",
+     "plain": "开口卡壳时套框架：<b>观点句（I think…）→ 理由1（First…）→ 理由2（Besides…）→ 收尾（In a word…）</b>。<b>先求说清楚，再求说漂亮</b>。",
+     "example": "被问“线上学习好不好”：I think online learning is convenient. First, we can study anytime. Besides, we can replay difficult parts. In a word, it suits self-disciplined learners. ——30秒流畅答完。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "翻译（汉译英）",
+   "sub": "四级翻译考中国话题：把话说对，比说得华丽更重要。",
+   "sections": [
+    {
+     "h4": "1. 翻译标准与技巧",
+     "body": ""
+    },
+    {
+     "h4": "2. 常考主题",
+     "body": ""
+    }
+   ],
+   "terms": [
+    {
+     "name": "翻译标准：信、达、雅",
+     "plain": "<b>信</b>＝忠实原文意思；<b>达</b>＝译文通顺不生硬；<b>雅</b>＝文采。四级翻译先求<b>信达</b>——意思对、句子通，就是高分；别为了雅写出语法错误。",
+     "example": "“茶文化历史悠久”：×直译 tea culture history very long；√ Tea culture has a long history.（先把句子写对）。"
+    },
+    {
+     "name": "增词、减词与词类转换",
+     "plain": "中文多动词、英文多长句名词化：<b>词类转换</b>（动词→名词/形容词）；中文省略的主语英文要<b>增词</b>补上；重复啰嗦处<b>减词</b>。",
+     "example": "“他跑得快”→ He runs fast.（中文无主语也成立，英文必须补主语）；“学习汉语很重要”→ Learning Chinese is very important.（动词 learn 变动名词作主语）。"
+    },
+    {
+     "name": "中国文化特色词",
+     "plain": "四级翻译高频主题：<b>传统节日、饮食、建筑、旅游、科技发展</b>。特色词固定译法要背：饺子 dumplings、长城 the Great Wall、春节 the Spring Festival、高铁 high-speed trains、共享单车 shared bikes。",
+     "example": "“中秋节人们赏月吃月饼”→ On the Mid-Autumn Festival, people admire the full moon and eat mooncakes.（节日名大写、加 the）。"
+    },
+    {
+     "name": "长句处理：顺译与逆译",
+     "plain": "中文长句先<b>找主干</b>（谁做什么），再决定：英文语序与中文一致就<b>顺译</b>；英文习惯把时间地点状语放后，就<b>逆译</b>调整。<b>一个中文长句拆成两个英文短句最稳</b>。",
+     "example": "“西湖位于杭州，风景优美，每年吸引大量游客”→ The West Lake lies in Hangzhou. With beautiful scenery, it attracts a large number of tourists every year.（拆两句，用 with 连接）。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "写作",
+   "sub": "四级作文是“有模板的填空题”：结构对了，分就不会低。",
+   "sections": [
+    {
+     "h4": "1. 议论文结构",
+     "body": ""
+    },
+    {
+     "h4": "2. 应用文",
+     "body": ""
+    }
+   ],
+   "terms": [
+    {
+     "name": "三段式作文结构",
+     "plain": "<b>第一段</b>：引出话题+亮明观点（2句）；<b>第二段</b>：2–3个理由/例子（每句主题句+展开）；<b>第三段</b>：总结+建议（2句）。<b>字数120–180，写满三段就合格。</b>",
+     "example": "题目“大学生该不该做兼职”：段1 Nowadays many students do part-time jobs. I think it benefits us. 段2 First, it helps us learn time management. Besides, we can earn pocket money. 段3 In short, part-time jobs are rewarding if well planned."
+    },
+    {
+     "name": "过渡连接词",
+     "plain": "让文章“有骨架”的词：<b>递进</b> besides/furthermore；<b>转折</b> however/on the other hand；<b>举例</b> for example；<b>总结</b> in short/to conclude。<b>每段开头放一个，阅卷老师立刻看到结构。</b>",
+     "example": "段首：On the one hand… On the other hand… 对比两个观点；结尾：To conclude, I hold the view that…"
+    },
+    {
+     "name": "应用文格式（邀请信/通知）",
+     "plain": "<b>邀请信</b>：开头 I am writing to invite you to…；结尾 I would be honored if you could come. <b>通知</b>：标题 Notice，正文写时间地点活动，落款发通知单位。<b>格式分占比不小，称呼落款别漏。</b>",
+     "example": "邀请信：Dear Professor Smith, I am writing to invite you to our English Corner this Friday evening. It will be held in the Student Center at 7 p.m. We would be grateful if you could join us. Yours sincerely, Li Ming."
+    },
+    {
+     "name": "高分替换词",
+     "plain": "把小学词汇升级成四级词汇：good → beneficial；bad → harmful；many → a growing number of；important → vital；think → hold the view that。<b>一篇作文换3–5个，档次立刻上来</b>。",
+     "example": "× I think reading is good. √ I hold the view that reading is highly beneficial to students."
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "CET-4 备考策略",
+   "sub": "知己知彼：先算清分值账，再排复习计划。",
+   "sections": [
+    {
+     "h4": "1. 题型与分值",
+     "body": ""
+    },
+    {
+     "h4": "2. 备考计划",
+     "body": ""
+    }
+   ],
+   "terms": [
+    {
+     "name": "CET-4 题型与分值",
+     "plain": "总分710：<b>写作15%</b>（106.5）、<b>听力35%</b>（248.5）、<b>阅读35%</b>（248.5：词汇选词5%+长篇匹配10%+仔细阅读20%）、<b>翻译15%</b>（106.5）。<b>425 分过线＝听力阅读是大头，先保仔细阅读和听力篇章</b>。",
+     "example": "目标425：听力拿160、仔细阅读拿140、写作翻译拿120——比“每块都学一点”更聪明的是“保大分块”。"
+    },
+    {
+     "name": "备考三阶段计划",
+     "plain": "<b>基础期（考前2–3月）</b>：背四级词表+做精读；<b>强化期（考前1月）</b>：每周2套真题限时做；<b>冲刺期（考前1周）</b>：背作文模板+错题回顾。<b>真题＞模拟题，近5年真题至少刷2遍</b>。",
+     "example": "大二上考四级：9月开始每天背40词+1篇精读，10月每周一套真题，11月背模板练翻译。"
+    },
+    {
+     "name": "常见失分点",
+     "plain": "<b>听力</b>：没预读选项；<b>阅读</b>：纠结选词填空浪费时间；<b>写作</b>：跑题+字数不够；<b>翻译</b>：时态错、单复数错。<b>对策：听力放音前先扫选项；选词填空放最后做。</b>",
+     "example": "听力开始前的指令时间，把10个选项关键词划出来——听到数字/地点直接对应选项，命中率翻倍。"
+    },
+    {
+     "name": "答题时间分配",
+     "plain": "四级考试125分钟：<b>写作30分钟</b>（答题卡1收走前必须写完）→ <b>听力25分钟</b>（边听边涂卡，听力一结束就收答题卡1）→ <b>阅读40分钟</b>（仔细阅读20分钟、匹配15分钟、选词5分钟）→ <b>翻译30分钟</b>。<b>血泪教训：听力一结束立刻收卡，别想着最后涂。</b>",
+     "example": "很多人听力没涂卡就被收走——平时做真题就按流程练：放音结束前必须涂完。"
+    }
+   ]
+  }
+ ],
+ "formulas": [],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "词汇与语法基础",
+   "hint": "本章知识清单：词根词缀记忆法、虚拟语气、非谓语动词、定语从句。本章为语言知识章，题型以选择+填空为主。",
+   "knowledgePoints": [
+    "词根词缀记忆法",
+    "虚拟语气",
+    "非谓语动词",
+    "定语从句"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "词根词缀"
+     ],
+     "stem": "<span class=\"q-stem\">词根 spect 意为“看”，下列单词表示“检查、视察”的是（　）。</span>",
+     "options": [
+      "A. inspect",
+      "B. respect",
+      "C. prospect",
+      "D. suspect"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>inspect＝in（向内）+spect（看）＝检查；respect＝反复看＝尊重；prospect＝向前看＝前景；suspect＝偷偷看＝怀疑。<b>词根词缀法记一词串四词，效率最高。</b></p>",
+     "kp": "📎 知识点：词根词缀记忆法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "虚拟语气"
+     ],
+     "stem": "<span class=\"q-stem\">If I ___ you, I would take the job offer. 句中空格应填（　）。</span>",
+     "options": [
+      "A. am",
+      "B. was",
+      "C. were",
+      "D. be"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>与现在事实相反的虚拟语气：if 从句用过去式，be 动词一律用 <b>were</b>（不管人称）。“如果我是你”——事实是我不是你，所以虚拟。</p>",
+     "kp": "📎 知识点：虚拟语气"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "非谓语动词"
+     ],
+     "stem": "<span class=\"q-stem\">The book ___ by the professor is very popular. 空格应填（　）。</span>",
+     "options": [
+      "A. writing",
+      "B. written",
+      "C. to write",
+      "D. write"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>句子已有谓语 is，空格处需非谓语：书是“被教授写”的，被动完成用过去分词 <b>written</b>。doing 表主动，to do 表目的。</p>",
+     "kp": "📎 知识点：非谓语动词"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "定语从句"
+     ],
+     "stem": "<span class=\"q-stem\">The girl <span class=\"blank\">who/that</span> is standing there is my classmate.（站在那儿的女孩是我同学）——先行词为人，关系代词用 who/that。</span>",
+     "options": [],
+     "answer": "who / that",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>定语从句关系词口诀：人 who/that，物 which/that，所属 whose，时间 when、地点 where。<b>逗号后的非限制性从句不能用 that。</b></p>",
+     "kp": "📎 知识点：定语从句"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "阅读理解",
+   "hint": "本章知识清单：略读与寻读、长难句分析、阅读题型、同义替换。本章为技巧章，题型以选择+填空为主。",
+   "knowledgePoints": [
+    "略读寻读",
+    "长难句分析",
+    "阅读题型",
+    "同义替换"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "略读寻读"
+     ],
+     "stem": "<span class=\"q-stem\">为快速抓住文章主旨，最合适的做法是（　）。</span>",
+     "options": [
+      "A. 逐字逐句翻译全文",
+      "B. 略读：读首末段+每段首句",
+      "C. 先做题目再读文章",
+      "D. 只看文章标题"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>略读（Skimming）抓主旨＝首末段+段首句；找具体信息用寻读（Scanning）直奔数字人名。逐字翻译浪费时间。</p>",
+     "kp": "📎 知识点：略读与寻读"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "阅读题型",
+      "同义替换"
+     ],
+     "stem": "<span class=\"q-stem\">原文：Regular exercise reduces stress. 下列哪个选项最可能是正确答案？（　）。</span>",
+     "options": [
+      "A. Regular exercise reduces stress.（照抄原文）",
+      "B. Working out on a regular basis lowers pressure.",
+      "C. Exercise is the only way to reduce stress.",
+      "D. Stress comes from lack of exercise."
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>正确答案是同义替换：reduce＝lower，stress＝pressure，regular＝on a regular basis。A 照抄往往是陷阱；C“only”太绝对；D 无中生有。</p>",
+     "kp": "📎 知识点：同义替换 · 阅读题型"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "长难句分析"
+     ],
+     "stem": "<span class=\"q-stem\">分析长难句第一步：先找句子的 <span class=\"blank\">谓语动词</span>，第二步用连词/关系词拆出从句，第三步剥离介词短语和插入语等修饰成分。</span>",
+     "options": [],
+     "answer": "谓语动词",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>长难句套路：The study, conducted by researchers…, shows that…——剥离插入语，骨架是 The study shows that…。<b>非谓语、插入语都是纸老虎。</b></p>",
+     "kp": "📎 知识点：长难句分析三步法"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "听力与口语",
+   "hint": "本章知识清单：精听与泛听、跟读Shadowing、CET-4听力题型、口语表达框架。本章题型以选择+填空为主。",
+   "knowledgePoints": [
+    "精听泛听",
+    "跟读Shadowing",
+    "CET-4听力题型",
+    "口语表达框架"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "精听泛听"
+     ],
+     "stem": "<span class=\"q-stem\">下列听力训练方式中，最适合“逐句听写、听懂每个词”的是（　）。</span>",
+     "options": [
+      "A. 泛听当背景音",
+      "B. 精听",
+      "C. 只看答案",
+      "D. 不听只做阅读"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>精听练精度（每天15分钟，逐句听写对答案），泛听练语感（不限时）。精听提分更快。</p>",
+     "kp": "📎 知识点：精听与泛听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "CET-4听力题型"
+     ],
+     "stem": "<span class=\"q-stem\">四级听力中，答案最常出现在（　）。</span>",
+     "options": [
+      "A. 任何位置随机出现",
+      "B. 转折词 but/however 之后、新闻首句、问答的回答处",
+      "C. 录音最后一秒",
+      "D. 背景音效处"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>四级听力出题点：新闻首句（主旨）、长对话问答处、篇章的转折词后。放音前先扫选项划关键词。</p>",
+     "kp": "📎 知识点：CET-4 听力题型与技巧"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "口语表达框架"
+     ],
+     "stem": "<span class=\"q-stem\">口语答题卡壳时，最实用的框架是（　）。</span>",
+     "options": [
+      "A. 观点句 → First… → Besides… → In a word…",
+      "B. 想到哪说到哪",
+      "C. 长时间沉默",
+      "D. 说中文糊弄"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>观点→两条理由→收尾的框架，30秒流畅答完。先求说清楚，再求说漂亮。</p>",
+     "kp": "📎 知识点：口语表达框架"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "跟读Shadowing"
+     ],
+     "stem": "<span class=\"q-stem\">比原声慢半拍跟着读、模仿语音语调连读的训练方法叫 <span class=\"blank\">跟读（Shadowing）</span>，它练的是口腔肌肉记忆。</span>",
+     "options": [],
+     "answer": "跟读（Shadowing）",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>读不顺的句子听时也反应不过来——跟读同时提听力和口语。</p>",
+     "kp": "📎 知识点：跟读 Shadowing"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "翻译（汉译英）",
+   "hint": "本章知识清单：翻译标准信达雅、增词减词与词类转换、中国文化特色词、长句顺译逆译。本章大题为翻译段落题。",
+   "knowledgePoints": [
+    "翻译标准信达雅",
+    "增词减词与词类转换",
+    "中国文化特色词",
+    "长句处理"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "翻译标准"
+     ],
+     "stem": "<span class=\"q-stem\">四级汉译英的首要目标是（　）。</span>",
+     "options": [
+      "A. 用最华丽的大词",
+      "B. 意思准确、句子通顺（信达）",
+      "C. 尽量多用长难句",
+      "D. 每个字都对应翻译"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>先求信达再求雅：意思对、语法对就是高分。为了“雅”写出病句反而扣分。</p>",
+     "kp": "📎 知识点：翻译标准信、达、雅"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "特色词翻译"
+     ],
+     "stem": "<span class=\"q-stem\">“中秋节赏月吃月饼”最规范的英译是（　）。</span>",
+     "options": [
+      "A. Mid-Autumn day look moon eat moon cake",
+      "B. On the Mid-Autumn Festival, people admire the full moon and eat mooncakes.",
+      "C. Moon Festival see moon eat cake",
+      "D. During mid autumn, people watch the moon and eat moon-cake."
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>节日名大写加 the：the Mid-Autumn Festival；月饼 mooncake；补出主语 people。中式英语 A、C 直接扣分。</p>",
+     "kp": "📎 知识点：中国文化特色词翻译"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "词类转换"
+     ],
+     "stem": "<span class=\"q-stem\">“学习汉语很重要”译为 <span class=\"blank\">Learning Chinese is very important</span>（把动词“学习”转为动名词作主语）。</span>",
+     "options": [],
+     "answer": "Learning Chinese is very important",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>中文动词直接搬进英文要变动名词或不定式：Learn Chinese is important ✗；Learning Chinese is important ✓。</p>",
+     "kp": "📎 知识点：增词减词与词类转换"
+    },
+    {
+     "type": "翻译题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": [
+      "特色词",
+      "长句处理",
+      "词类转换"
+     ],
+     "stem": "<span class=\"q-stem\">将下面段落译成英语：西湖位于杭州，风景优美，每年吸引大量游客。许多游客喜欢在湖边散步，欣赏美丽的日落。</span>",
+     "options": [],
+     "answer": "The West Lake lies in Hangzhou. With beautiful scenery, it attracts a large number of tourists every year. Many visitors enjoy taking a walk around the lake and appreciating the beautiful sunset.",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>踩分点：</b>①The West Lake 专有名词大写；②“风景优美”不直译，用 With beautiful scenery 状语衔接；③a large number of 修饰 tourists；④enjoy doing 固定搭配；⑤中文流水句拆成两个英文句。</p>",
+     "kp": "📎 知识点：中国文化特色词 · 长句拆译 · 词类转换"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "写作",
+   "hint": "本章知识清单：三段式结构、过渡连接词、应用文格式、高分替换词。本章大题为写作题。",
+   "knowledgePoints": [
+    "三段式结构",
+    "过渡连接词",
+    "应用文格式",
+    "高分替换词"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "三段式结构"
+     ],
+     "stem": "<span class=\"q-stem\">四级议论文标准结构是（　）。</span>",
+     "options": [
+      "A. 一段写完",
+      "B. 三段：引出观点+理由展开+总结建议",
+      "C. 先讲结论再讲例子即可",
+      "D. 分越多段越好"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三段式：段1亮观点、段2给2–3个理由、段3总结。字数120–180，写满三段结构分就拿到。</p>",
+     "kp": "📎 知识点：三段式作文结构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "过渡连接词"
+     ],
+     "stem": "<span class=\"q-stem\">表示“转折”的连接词是（　）。</span>",
+     "options": [
+      "A. besides",
+      "B. however",
+      "C. for example",
+      "D. in short"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>besides 递进；however 转折；for example 举例；in short 总结。每段开头放一个连接词，结构立刻清晰。</p>",
+     "kp": "📎 知识点：过渡连接词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "应用文格式"
+     ],
+     "stem": "<span class=\"q-stem\">写英文邀请信时，结尾落款规范写法是（　）。</span>",
+     "options": [
+      "A. 不写落款",
+      "B. Yours sincerely, 加上署名",
+      "C. 写你的手机号",
+      "D. 写“再见”即可"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>应用文格式分不能丢：称呼—写信目的—时间地点—期待回复—落款 Yours sincerely, +署名。</p>",
+     "kp": "📎 知识点：应用文格式（邀请信/通知）"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "高分替换词"
+     ],
+     "stem": "<span class=\"q-stem\">写作升级：good → <span class=\"blank\">beneficial</span>；important → <span class=\"blank\">vital</span>；many → <span class=\"blank\">a growing number of</span>。</span>",
+     "options": [],
+     "answer": "beneficial；vital；a growing number of",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>一篇作文换3–5个升级词，档次立刻上来——但别为替换而替换，用对才有效。</p>",
+     "kp": "📎 知识点：高分替换词"
+    },
+    {
+     "type": "写作题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": [
+      "三段式",
+      "连接词",
+      "替换词"
+     ],
+     "stem": "<span class=\"q-stem\">作文题：On Part-time Jobs（大学生做兼职）。要求：120–180词，三段式，表明观点并给两条理由。请列出你的写作提纲（段1观点句、段2两条理由句、段3总结句）。</span>",
+     "options": [],
+     "answer": "段1：Nowadays a growing number of college students take part-time jobs. From my perspective, doing part-time jobs is beneficial if well planned. 段2：First, part-time jobs help us develop time management skills. Besides, we can earn pocket money and reduce the financial burden on our parents. 段3：In short, part-time jobs are rewarding. However, we should make sure part-time work never affects our studies.",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>提纲踩分点：</b>①段1亮明观点（beneficial if well planned 留余地）；②两条理由用 First/Besides 衔接；③替换词用了 a growing number of、beneficial；④结尾 In short 总结+补充让步（不影响学习）——辩证加分。</p>",
+     "kp": "📎 知识点：三段式结构 · 过渡连接词 · 高分替换词"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "CET-4 备考策略",
+   "hint": "本章知识清单：CET-4题型与分值、备考三阶段计划、常见失分点、答题时间分配。本章题型以选择+填空为主。",
+   "knowledgePoints": [
+    "CET-4分值",
+    "备考计划",
+    "常见失分点",
+    "答题时间分配"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "CET-4分值"
+     ],
+     "stem": "<span class=\"q-stem\">CET-4 总分710，下列哪部分占比最高？（　）。</span>",
+     "options": [
+      "A. 写作",
+      "B. 听力与阅读（各35%）",
+      "C. 翻译",
+      "D. 选词填空"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>听力35%（248.5）+阅读35%（248.5）是大头，写作翻译各15%。<b>保分策略：先死保仔细阅读和听力篇章。</b></p>",
+     "kp": "📎 知识点：CET-4 题型与分值"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "时间分配"
+     ],
+     "stem": "<span class=\"q-stem\">关于四级考试流程，下列说法正确的是（　）。</span>",
+     "options": [
+      "A. 听力结束后可以慢慢涂卡",
+      "B. 听力一结束就收答题卡1，听力必须边听边涂",
+      "C. 写作可以最后写",
+      "D. 选词填空应花最多时间"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>血泪教训：听力结束立刻收答题卡1</b>——平时练真题就要养成“边听边涂”的习惯。选词填空只占5%，放最后做。</p>",
+     "kp": "📎 知识点：答题时间分配"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "常见失分点"
+     ],
+     "stem": "<span class=\"q-stem\">下列哪项是四级写作翻译的常见失分原因？（　）。</span>",
+     "options": [
+      "A. 字数写够150词",
+      "B. 跑题、时态与单复数错误",
+      "C. 用了连接词",
+      "D. 分三段写"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>写作四大坑：跑题、字数不够、时态错、单复数错。对策：动笔前先列提纲扣题，写完留2分钟检查。</p>",
+     "kp": "📎 知识点：常见失分点"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "备考计划"
+     ],
+     "stem": "<span class=\"q-stem\">备考三阶段：考前2–3个月打 <span class=\"blank\">基础</span>（背单词+精读），考前1个月强化（每周2套真题），考前1周冲刺（背作文模板+错题回顾）。</span>",
+     "options": [],
+     "answer": "基础",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>真题＞模拟题，近5年真题至少刷2遍。</p>",
+     "kp": "📎 知识点：备考三阶段计划"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "大学英语综合模拟（满分 100 分 · 建议 100 分钟）",
+   "hint": "题型：一、词汇语法选择 8 题；二、完形/填空 4 题；三、翻译 1 题；四、写作提纲 1 题。覆盖第一至六章。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "词根词缀"
+     ],
+     "stem": "<span class=\"q-stem\">词根 port 意为“拿、运”，export 意为（　）。</span>",
+     "options": [
+      "A. 进口",
+      "B. 出口",
+      "C. 运输",
+      "D. 港口"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>ex（出去）+port（运）＝出口；im（进来）+port＝进口。记一词根串一串。</p>",
+     "kp": "📎 知识点：词根词缀记忆法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 2 题",
+     "tags": [
+      "听力技巧"
+     ],
+     "stem": "<span class=\"q-stem\">四级听力开始前最该做的是（　）。</span>",
+     "options": [
+      "A. 闭眼休息",
+      "B. 快速预读选项、划出关键词",
+      "C. 跟邻座聊天",
+      "D. 检查收音机有没有电"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>预读选项＝带着问题听，命中率翻倍。</p>",
+     "kp": "📎 知识点：CET-4 听力技巧"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 3 题",
+     "tags": [
+      "翻译标准"
+     ],
+     "stem": "<span class=\"q-stem\">四级翻译首要追求（　）。</span>",
+     "options": [
+      "A. 辞藻华丽",
+      "B. 意思准确、句子通顺",
+      "C. 多用生僻词",
+      "D. 逐字对译"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>先信达后雅，语法错误是最大扣分点。</p>",
+     "kp": "📎 知识点：翻译标准"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 4 题",
+     "tags": [
+      "CET-4分值"
+     ],
+     "stem": "<span class=\"q-stem\">四级425分过线，最值得优先保分的板块是（　）。</span>",
+     "options": [
+      "A. 选词填空（5%）",
+      "B. 仔细阅读与听力篇章（合计大分值）",
+      "C. 翻译最后一句",
+      "D. 作文开头"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>听力阅读各占35%，是提分主战场；选词填空性价比最低。</p>",
+     "kp": "📎 知识点：CET-4 题型与分值"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 5 题",
+     "tags": [
+      "虚拟语气"
+     ],
+     "stem": "<span class=\"q-stem\">If I had studied harder, I ___ the exam. 正确填空是（　）。</span>",
+     "options": [
+      "A. will pass",
+      "B. would have passed",
+      "C. pass",
+      "D. passed"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>与过去相反的虚拟：if 从句 had done，主句 would have done。“当初要是努力就过了”——事实是没过。</p>",
+     "kp": "📎 知识点：虚拟语气"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 6 题",
+     "tags": [
+      "非谓语"
+     ],
+     "stem": "<span class=\"q-stem\">___ from the top of the hill, the city looks beautiful. 句首空格填（　）。</span>",
+     "options": [
+      "A. See",
+      "B. Seeing",
+      "C. Seen",
+      "D. To see"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>城市是“被看”的，被动用过去分词 Seen。逻辑主语必须与主句主语一致。</p>",
+     "kp": "📎 知识点：非谓语动词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 7 题",
+     "tags": [
+      "阅读技巧"
+     ],
+     "stem": "<span class=\"q-stem\">阅读推断题的正确选项通常是（　）。</span>",
+     "options": [
+      "A. 原文原句照抄",
+      "B. 基于原文推一步、且不绝对化的选项",
+      "C. 比原文更夸张的结论",
+      "D. 原文没提的信息"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>推断题＝推一步，不照抄、不夸张、不无中生有。</p>",
+     "kp": "📎 知识点：阅读题型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "卷一 · 第 8 题",
+     "tags": [
+      "写作"
+     ],
+     "stem": "<span class=\"q-stem\">议论文结尾段最不该写的是（　）。</span>",
+     "options": [
+      "A. In short, ...",
+      "B. To conclude, I hold the view that...",
+      "C. 抛出全新的第三个论点展开两段",
+      "D. 重申观点+建议"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>结尾只做总结，不引入新论点——新论点是第二段的事。</p>",
+     "kp": "📎 知识点：三段式结构"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "定语从句"
+     ],
+     "stem": "<span class=\"q-stem\">先行词为物、逗号后非限制性从句，关系词用 <span class=\"blank\">which</span>（不能用 that）。</span>",
+     "options": [],
+     "answer": "which",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>非限制性定语从句补充说明，用逗号隔开，关系代词用 which。</p>",
+     "kp": "📎 知识点：定语从句"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 2 题",
+     "tags": [
+      "阅读技巧"
+     ],
+     "stem": "<span class=\"q-stem\">找文章主旨用 <span class=\"blank\">略读（Skimming）</span>，找具体数字信息用 <span class=\"blank\">寻读（Scanning）</span>。</span>",
+     "options": [],
+     "answer": "略读；寻读",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>先略读知大意，再寻读定位细节题。</p>",
+     "kp": "📎 知识点：略读与寻读"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 3 题",
+     "tags": [
+      "特色词"
+     ],
+     "stem": "<span class=\"q-stem\">高频翻译词汇：高铁 <span class=\"blank\">high-speed trains</span>，共享单车 <span class=\"blank\">shared bikes</span>，春节 <span class=\"blank\">the Spring Festival</span>。</span>",
+     "options": [],
+     "answer": "high-speed trains；shared bikes；the Spring Festival",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>中国话题特色词固定译法要背熟。</p>",
+     "kp": "📎 知识点：中国文化特色词"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 4 题",
+     "tags": [
+      "失分点"
+     ],
+     "stem": "<span class=\"q-stem\">四级听力结束即收答题卡，所以必须 <span class=\"blank\">边听边涂卡</span>，不能留到最后。</span>",
+     "options": [],
+     "answer": "边听边涂卡",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>每年都有人没涂卡被收走——流程要在平时练熟。</p>",
+     "kp": "📎 知识点：常见失分点"
+    },
+    {
+     "type": "翻译题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "特色词",
+      "长句拆译"
+     ],
+     "stem": "<span class=\"q-stem\">汉译英：端午节是中国传统节日之一，人们吃粽子、赛龙舟，纪念古代诗人屈原。</span>",
+     "options": [],
+     "answer": "The Dragon Boat Festival is one of the traditional Chinese festivals. On this day, people eat zongzi (rice dumplings) and hold dragon boat races to commemorate the ancient poet Qu Yuan.",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>踩分点：节日名大写；one of the + 名词复数；“纪念”用不定式 to commemorate 表目的；粽子可音译 zongzi 加括号解释。</p>",
+     "kp": "📎 知识点：中国文化特色词 · 长句处理"
+    },
+    {
+     "type": "写作题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "三段式",
+      "连接词"
+     ],
+     "stem": "<span class=\"q-stem\">作文题：On Online Learning。列出三段提纲（每段2句）。</span>",
+     "options": [],
+     "answer": "段1：Nowadays online learning has become increasingly popular. I believe it is a useful supplement to classroom study. 段2：First, we can learn anytime and anywhere. Besides, difficult parts can be watched repeatedly. 段3：In short, online learning benefits self-disciplined learners, but we should also stay focused.",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三段齐全+连接词（First/Besides/In short）+结尾辩证让步，120–180词即合格。</p>",
+     "kp": "📎 知识点：三段式结构 · 过渡连接词"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "大学英语综合模拟（满分 100 分 · 建议 100 分钟）",
+   "hint": "题型：一、词汇语法选择 8 题；二、填空 4 题；三、翻译 1 题；四、写作提纲 1 题。覆盖第一至六章（与卷一独立）。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "词根词缀"
+     ],
+     "stem": "<span class=\"q-stem\">前缀 un- 表示否定，happy 的反义词是（　）。</span>",
+     "options": [
+      "A. unhapply",
+      "B. unhappy",
+      "C. unhappiness",
+      "D. unhappyful"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>un- + happy＝unhappy；注意拼写只写一个 n。</p>",
+     "kp": "📎 知识点：词根词缀记忆法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 2 题",
+     "tags": [
+      "精听泛听"
+     ],
+     "stem": "<span class=\"q-stem\">吃饭走路时把英语材料当背景音放着，这种训练是（　）。</span>",
+     "options": [
+      "A. 精听",
+      "B. 泛听",
+      "C. 听力考试",
+      "D. 跟读"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>泛听养语感，不限时长；精听练精度。两者搭配。</p>",
+     "kp": "📎 知识点：精听与泛听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 3 题",
+     "tags": [
+      "应用文"
+     ],
+     "stem": "<span class=\"q-stem\">邀请信开头最规范的表达是（　）。</span>",
+     "options": [
+      "A. I am writing to invite you to…",
+      "B. Hey, come to my party.",
+      "C. You must come.",
+      "D. I want you."
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>应用文格式分：称呼+I am writing to invite you to…+时间地点+落款 Yours sincerely。</p>",
+     "kp": "📎 知识点：应用文格式"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 4 题",
+     "tags": [
+      "备考计划"
+     ],
+     "stem": "<span class=\"q-stem\">备考四级，最值得做的材料是（　）。</span>",
+     "options": [
+      "A. 各种模拟卷",
+      "B. 近5年真题至少刷2遍",
+      "C. 背词典",
+      "D. 只看美剧"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>真题＞模拟题，命题思路稳定。</p>",
+     "kp": "📎 知识点：备考三阶段计划"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 5 题",
+     "tags": [
+      "非谓语"
+     ],
+     "stem": "<span class=\"q-stem\">The ___ news made everyone ___. 正确选项是（　）。</span>",
+     "options": [
+      "A. exciting; exciting",
+      "B. excited; excited",
+      "C. exciting; excited",
+      "D. excited; exciting"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>-ing 修饰事物（news 令人兴奋），-ed 修饰人（人感到兴奋）。</p>",
+     "kp": "📎 知识点：非谓语动词（分词作形容词）"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 6 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "<span class=\"q-stem\">原文：The policy has a great influence on students. 正确答案同义替换可能是（　）。</span>",
+     "options": [
+      "A. The policy has a great influence on students.（照抄）",
+      "B. The policy greatly affects students.",
+      "C. The policy is useless.",
+      "D. Students influence the policy."
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>have a great influence on＝greatly affects——换个说法就是答案。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 7 题",
+     "tags": [
+      "连接词"
+     ],
+     "stem": "<span class=\"q-stem\">举例时用（　）引出。</span>",
+     "options": [
+      "A. however",
+      "B. for example",
+      "C. in short",
+      "D. besides"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>however 转折；for example 举例；in short 总结；besides 递进。</p>",
+     "kp": "📎 知识点：过渡连接词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "卷二 · 第 8 题",
+     "tags": [
+      "时间分配"
+     ],
+     "stem": "<span class=\"q-stem\">阅读40分钟最合理的分配是（　）。</span>",
+     "options": [
+      "A. 选词填空花20分钟",
+      "B. 仔细阅读20分钟、匹配15分钟、选词5分钟",
+      "C. 三篇平均分配",
+      "D. 先做完所有题再检查"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>选词填空只占5%，不能恋战；仔细阅读20分一道，优先保。</p>",
+     "kp": "📎 知识点：答题时间分配"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "口语框架"
+     ],
+     "stem": "<span class=\"q-stem\">口语答题框架：观点句 → First… → <span class=\"blank\">Besides…</span> → In a word…。</span>",
+     "options": [],
+     "answer": "Besides（第二理由）",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>先求说清楚再求说漂亮，框架帮你不卡壳。</p>",
+     "kp": "📎 知识点：口语表达框架"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 2 题",
+     "tags": [
+      "长难句"
+     ],
+     "stem": "<span class=\"q-stem\">剥离插入语后，The study, conducted by researchers, shows that… 的主干是 <span class=\"blank\">The study shows that…</span>。</span>",
+     "options": [],
+     "answer": "The study shows that…",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>长难句三步法：找谓语→拆从句→剥修饰。</p>",
+     "kp": "📎 知识点：长难句分析"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 3 题",
+     "tags": [
+      "虚拟语气"
+     ],
+     "stem": "<span class=\"q-stem\">与现在相反的虚拟语气中，be 动词一律用 <span class=\"blank\">were</span>。</span>",
+     "options": [],
+     "answer": "were",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>If I were you… 不管人称，be 都用 were。</p>",
+     "kp": "📎 知识点：虚拟语气"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 4 题",
+     "tags": [
+      "替换词"
+     ],
+     "stem": "<span class=\"q-stem\">写作升级：think → <span class=\"blank\">hold the view that</span>；bad → harmful。</span>",
+     "options": [],
+     "answer": "hold the view that",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>一篇作文换3–5个升级词即可，用对才加分。</p>",
+     "kp": "📎 知识点：高分替换词"
+    },
+    {
+     "type": "翻译题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "特色词",
+      "词类转换"
+     ],
+     "stem": "<span class=\"q-stem\">汉译英：越来越多的中国人喜欢在假期旅游，高铁让城市之间的出行变得更加方便。</span>",
+     "options": [],
+     "answer": "A growing number of Chinese people enjoy traveling during holidays. High-speed trains have made travel between cities much more convenient.",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>踩分点：a growing number of（升级词）；enjoy doing；high-speed trains；make sth + adj 结构。拆两句更稳。</p>",
+     "kp": "📎 知识点：中国文化特色词 · 词类转换"
+    },
+    {
+     "type": "写作题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "三段式",
+      "应用文"
+     ],
+     "stem": "<span class=\"q-stem\">写作题：写一封邀请信，邀请外教参加班级英语角。列出信的结构（称呼、开头句、活动安排、结尾、落款）。</span>",
+     "options": [],
+     "answer": "称呼：Dear Mr. Smith, 开头句：I am writing to invite you to our class English Corner. 活动安排：It will be held in our classroom this Friday from 7 to 9 p.m. We will discuss movie culture. 结尾：We would be greatly honored if you could join us. 落款：Yours sincerely, Li Ming.",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>应用文五要素：称呼—写信目的—时间地点活动—期待回复—落款，格式分不能丢。</p>",
+     "kp": "📎 知识点：应用文格式"
+    }
+   ]
+  }
+ ]
+}
