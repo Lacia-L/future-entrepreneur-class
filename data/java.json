@@ -1,0 +1,974 @@
+{
+ "id": "java",
+ "name": "Java 程序设计",
+ "emoji": "☕",
+ "category": "数理编程",
+ "desc": "Java 面向对象程序设计：从 main 方法、基本语法到类与对象、继承多态、异常集合与多线程——经管类学生用它写信息管理系统、做销售数据统计与成绩分析的基础语言。",
+ "meta": [
+  "学科大类基础课",
+  "经管类编程基础",
+  "笔试+上机"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考",
+   "title": "《Java 核心技术·卷 I：基础知识（原书第 12 版）》",
+   "pub": "凯·S. 霍斯特曼 著 · 机械工业出版社",
+   "note": "杭电官网公开渠道未查到官方指定教材，以下为常用教材参考。Java 经典厚黑学教材，体系完整、例题贴近工业界：语法基础、面向对象、集合、异常、多线程、Swing 一应俱全，适合作为课程主线参考书。"
+  },
+  {
+   "role": "参考教材",
+   "title": "《Java 语言程序设计（基础篇）》",
+   "pub": "梁勇（Y. Daniel Liang）著 · 机械工业出版社",
+   "note": "国际高校广泛采用的 Java 入门教材，讲解循序渐进、图示丰富，与浙大翁恺 MOOC 的零基础路线互为补充，适合经管类零基础学生自学。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "中国大学MOOC",
+   "name": "《零基础学Java语言》浙江大学（翁恺）",
+   "desc": "国家级口碑入门课，翁恺主讲，从 JDK 安装、第一个程序讲到数组、方法与对象，题型为选择/填空/编程，与本课程第一至三章高度对应",
+   "url": "https://www.icourse163.org/course/ZJU-1001541001"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《Java 程序设计》北京大学",
+   "desc": "面向有面向过程编程基础的学生，系统讲解面向对象、异常、集合等核心内容，适合作为本课程第四至六章的提高课程",
+   "url": "https://www.icourse163.org/course/PKU-1001941004"
+  },
+  {
+   "platform": "B站",
+   "name": "尚学堂 Java300 集（2022 版）零基础教程合集",
+   "desc": "B 站高播放零基础 Java 系统课，手把手图解，覆盖语法、面向对象、集合、多线程，适合配合上机练习查漏补缺",
+   "url": "https://www.bilibili.com/video/BV1qL411u7eE"
+  },
+  {
+   "platform": "抖音",
+   "name": "《大学期末 Java 速成课·防挂科》合集",
+   "desc": "抖音热门期末速成合集，用短视频串讲数据类型、类与对象等高频考点，适合考前快速过一遍（抖音平台，以合集实际更新为准）",
+   "url": "https://www.iesdouyin.com/share/video/7652667613268479275"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>浙大翁恺《零基础学Java语言》对应本课程第一至三章（开发环境与基本语法 → 数组与方法 → 面向对象入门）；北大《Java 程序设计》对应第四至六章（异常与常用类 → 集合框架 → 多线程与 IO）。经管类学习重点：类与对象、集合（ArrayList/HashMap）——足以编写“按门店统计销售额、按班级统计成绩分布”等信息管理小程序。",
+ "modules": [
+  {
+   "index": "一",
+   "title": "Java 语言入门与基础语法",
+   "sub": "装 JDK、写第一个 main：认识开发环境、基本数据类型与流程控制。",
+   "sections": [
+    {"h4": "1. 第一个 Java 程序", "body": "<div class=\"md\"><pre><code>public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}</code></pre></div>"},
+    {"h4": "2. 基本数据类型与流程控制", "body": "Java 有 8 种基本数据类型（byte/short/int/long/float/double/char/boolean）；变量先声明类型再赋值；if-else、switch、for/while 与 C 语言类似，每条语句以分号结尾。"}
+   ],
+   "terms": [
+    {
+     "name": "JDK / JRE / JVM",
+     "plain": "<b>JDK</b> 是开发工具箱（含编译器），<b>JRE</b> 是运行环境，<b>JVM</b> 是“Java 虚拟机”——负责把字节码跑起来。通俗说：<b>JDK 是“写作＋出版”的全套工具，JVM 是“翻译官”，让同一份 class 文件在 Windows、Mac 上都能跑。</b>",
+     "example": "写好 HelloWorld.java 后：javac HelloWorld.java 编译出 HelloWorld.class（靠 JDK），java HelloWorld 运行（靠 JRE/JVM）。"
+    },
+    {
+     "name": "main 方法（程序入口）",
+     "plain": "Java 程序从 <b>public static void main(String[] args)</b> 这一行开始执行，一个类里有且只有一个 main。通俗说：<b>main 就是“总入口”，JVM 启动时第一个找它。</b>",
+     "example": "System.out.println(\"...\") 是打印输出，相当于 C 的 printf；args 是命令行参数。"
+    },
+    {
+     "name": "8 种基本数据类型",
+     "plain": "<b>整数 byte/short/int/long、小数 float/double、字符 char、布尔 boolean</b>——共 8 种“原始抽屉”。通俗说：<b>不同抽屉放不同东西，整数抽屉里不能放 true。</b>",
+     "example": "int age = 20; double price = 3.5; boolean ok = true; char c = 'A';。String 不是基本类型，它是类。"
+    },
+    {
+     "name": "数组（Array）",
+     "plain": "一批同类型数据的“连续抽屉”，定义后<b>长度固定</b>，下标从 0 开始。通俗说：<b>一排编号的储物柜，第一个格子叫 0 号。</b>",
+     "example": "int[] a = new int[5]; 或 int[] a = {10,20,30,40,50}; 用 a[0] 访问第一个元素，a.length 得长度 5。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "面向对象基础",
+   "sub": "类是图纸，对象是按图纸造出来的实物：学会封装、构造方法与 this/static。",
+   "sections": [
+    {"h4": "1. 类与对象", "body": "<div class=\"md\"><pre><code>class Student {\n    String name;\n    void sayHi() {\n        System.out.println(\"我叫\" + name);\n    }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Student s = new Student();   // 造对象\n        s.name = \"贾天福\";\n        s.sayHi();\n    }\n}</code></pre></div>"},
+    {"h4": "2. 构造方法与 static", "body": "<b>构造方法</b>在 new 对象时自动调用，用于初始化对象；<b>static</b> 修饰的成员属于“类”而不属于某个对象，用类名直接调用。"}
+   ],
+   "terms": [
+    {
+     "name": "类与对象（Class & Object）",
+     "plain": "<b>类是“图纸”，对象是按图纸造出来的“实物”</b>。class 里定义属性（字段）和行为（方法）；new 一个对象就是照图纸造出一个具体的人。通俗说：<b>Student 类是“学生图纸”，new 出来的 s 是一个叫贾天福的具体学生。</b>",
+     "example": "Student s = new Student(); 之后 s.name、s.sayHi() 访问这个具体学生；再 new 一次就是另一个学生。"
+    },
+    {
+     "name": "构造方法（Constructor）",
+     "plain": "与类同名、<b>没有返回值类型</b>的方法，在 new 对象时自动调用，用来给属性赋初值。通俗说：<b>造对象时“顺手填好个人信息”的初始化步骤。</b>",
+     "example": "public Student(String n) { name = n; }，new Student(\"贾天福\") 一造出来 name 就是贾天福。"
+    },
+    {
+     "name": "封装（private + getter/setter）",
+     "plain": "把字段用 <b>private 藏起来</b>，只留 public 的 get/set 方法供外部读写——防止外部乱改数据。通俗说：<b>把抽屉锁进柜子，只留一个登记窗口。</b>",
+     "example": "private int age; 外面想改年龄必须调 setAge(int a)，方法里可以校验 a&gt;0，避免出现 -5 岁。"
+    },
+    {
+     "name": "this 与 static",
+     "plain": "<b>this 代表“当前对象自己”</b>（解决参数与字段同名的混淆）；<b>static 成员属于类</b>，所有对象共享一份，用 类名.成员 调用。通俗说：<b>this 是“我本人”，static 是“全班共用的那块黑板”。</b>",
+     "example": "setAge(int age) { this.age = age; }；static int count 统计全班人数，任何对象加一，大家看到的都变。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "继承、多态与接口",
+   "sub": "子类复用父类，重写方法表现个性：面向对象最强大的一章。",
+   "sections": [
+    {"h4": "1. 继承与方法重写", "body": "<div class=\"md\"><pre><code>class Person {\n    String name;\n    void sayHi() { System.out.println(\"Hi, \" + name); }\n}\nclass Student extends Person {\n    void study() { System.out.println(name + \" 在学习\"); }\n}</code></pre></div>"},
+    {"h4": "2. 抽象类与接口", "body": "<b>抽象类</b>用 abstract 修饰，不能 new，可有抽象方法；<b>接口</b>用 interface 定义，类用 implements 实现，Java 类只能单继承一个父类，但可实现多个接口。"}
+   ],
+   "terms": [
+    {
+     "name": "继承（extends）",
+     "plain": "子类用 extends 拿到父类所有的非 private 成员，<b>一份代码复用多次</b>。通俗说：<b>子类“白嫖”了父类的家产，还能自己添新本事。</b>注意 Java 是<b>单继承</b>：一个类只能有一个亲爹。",
+     "example": "Student extends Person，于是 Student 对象直接就有 name 属性和 sayHi() 方法，不用重写一遍。"
+    },
+    {
+     "name": "方法重写（@Override）",
+     "plain": "子类定义一个<b>与父类同名、同参数</b>的方法，覆盖父类版本。通俗说：<b>同一个招牌，儿子把里面的做法换成自己的。</b>注意区分“重载（同名不同参数）”。",
+     "example": "父类 sayHi() 说“Hi”，子类重写后说“学生你好”——调用时以子类版本为准。"
+    },
+    {
+     "name": "多态（Polymorphism）",
+     "plain": "<b>父类引用指向子类对象</b>，调用重写方法时表现出子类的行为。通俗说：<b>同一句“叫一声”，学生叫、老师叫，声音不一样。</b>",
+     "example": "Person p = new Student(); p.sayHi(); 实际执行的是 Student 重写后的版本——这就是向上转型的多态。"
+    },
+    {
+     "name": "抽象类与接口",
+     "plain": "<b>抽象类</b>是“半成品图纸”，含只有签名没有实现的抽象方法，不能直接 new；<b>接口</b>是“行为契约”，implements 后必须实现里面所有方法。通俗说：<b>抽象类像“半成品模板”，接口像“必须遵守的岗位守则”。</b>",
+     "example": "interface Runner { void run(); }；class Student implements Runner { public void run(){...} }——学生就“会跑”了。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "异常处理与常用类",
+   "sub": "程序出错别崩溃：try-catch 接住异常；String、包装类是天天要用的工具。",
+   "sections": [
+    {"h4": "1. 异常处理", "body": "<div class=\"md\"><pre><code>try {\n    int a = 10 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"除数不能为 0\");\n} finally {\n    System.out.println(\"无论是否出错都执行\");\n}</code></pre></div>"},
+    {"h4": "2. String 与 StringBuilder", "body": "<b>String 不可变</b>，拼接大量字符串时用 StringBuilder 更高效；包装类（Integer、Double）把基本类型包成对象。"}
+   ],
+   "terms": [
+    {
+     "name": "异常体系（Throwable）",
+     "plain": "所有异常的老祖宗是 <b>Throwable</b>，下面分两支：<b>Error</b>（系统级灾难，管不了）和 <b>Exception</b>（程序错误，可以 try-catch）。通俗说：<b>Exception 是“感冒发烧，能治”；Error 是“大厦塌了，程序员救不了”。</b>",
+     "example": "10/0 抛 ArithmeticException（算数异常）；数组下标越界抛 ArrayIndexOutOfBoundsException。"
+    },
+    {
+     "name": "try-catch-finally",
+     "plain": "<b>try 里放可能出错的代码，catch 抓住对应异常并处理，finally 无论出不出错都执行</b>（常用来关文件、释放资源）。通俗说：<b>try 是“试一下”，catch 是“出事了这么救”，finally 是“不管怎样都要收尾”。</b>",
+     "example": "即使 try 里 return 了，finally 也会先执行；只有 JVM 退出（System.exit）才挡得住 finally。"
+    },
+    {
+     "name": "String 与 StringBuilder",
+     "plain": "<b>String 一旦创建内容就不能改</b>，每次 “+” 拼接都会造新对象；<b>StringBuilder</b> 是可变的字符串容器，循环拼接效率高得多。通俗说：<b>String 是“写完不能改的贺卡”，StringBuilder 是“可反复涂改的草稿纸”。</b>",
+     "example": "循环拼 1 万次字符串用 StringBuilder sb.append(...)；若用 String s+=... 会疯狂造对象，慢且占内存。"
+    },
+    {
+     "name": "包装类（Wrapper）",
+     "plain": "把 8 种基本类型<b>包成类</b>：int→Integer、double→Double、boolean→Boolean。有了类就能调用方法、放进集合。通俗说：<b>把“裸数据”装进“对象盒子”，好跟集合框架打交道。</b>",
+     "example": "Integer.parseInt(\"123\") 把字符串转成整数；集合里只能放对象，所以装数字要用 Integer。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "集合框架",
+   "sub": "数组长度死板，集合能长能短：List 有序、Set 去重、Map 按名取值。",
+   "sections": [
+    {"h4": "1. List / Set / Map", "body": "<div class=\"md\"><pre><code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();\nlist.add(\"苹果\");\nlist.add(\"香蕉\");\nHashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();\nmap.put(\"苹果\", 5);\nint n = map.get(\"苹果\");   // n = 5</code></pre></div>"},
+    {"h4": "2. 遍历集合", "body": "for-each 循环 `for (String x : list) {...}` 逐个取出元素；泛型 &lt;String&gt; 指定集合里放什么类型，编译期防错。"}
+   ],
+   "terms": [
+    {
+     "name": "ArrayList（List 实现）",
+     "plain": "<b>有序、可重复、长度可变</b>的“动态数组”，用 add 加、get(i) 取、size() 看个数。通俗说：<b>“能自动变长的数组”，排队进场，谁先来谁在前。</b>",
+     "example": "list.add(\"苹果\"); list.add(\"苹果\"); 两个苹果都在，list.get(0) 是第一个苹果。"
+    },
+    {
+     "name": "HashSet（Set 实现）",
+     "plain": "<b>不重复、无序</b>的集合，重复元素自动只留一份。通俗说：<b>“签到表”——同一个人签一百次也只记一个名字。</b>",
+     "example": "往 HashSet 里 add 三次同一个学号，最后 size() 仍然是 1——天然去重，适合统计“有多少个不同客户”。"
+    },
+    {
+     "name": "HashMap（Map 实现）",
+     "plain": "<b>键值对（key-value）容器</b>：用 put(键, 值) 存、get(键) 取值，键不重复。通俗说：<b>“字典/通讯录”——按名字直接翻到号码，不用一页页找。</b>",
+     "example": "map.put(\"苹果\", 5); map.put(\"香蕉\", 3); 想知道苹果销量直接 map.get(\"苹果\") 得 5。"
+    },
+    {
+     "name": "泛型（Generic &lt;T&gt;）",
+     "plain": "在 <b>&lt;尖括号&gt;</b>里指定集合里放什么类型，编译器帮你把关。通俗说：<b>“这个抽屉只许放苹果，放香蕉就报错”。</b>",
+     "example": "ArrayList&lt;String&gt; 只能装字符串；不写泛型则默认为 Object，取出要强转，容易出错。"
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "多线程与输入输出",
+   "sub": "让程序“同时干几件事”，并能读写硬盘上的真实经管数据文件。",
+   "sections": [
+    {"h4": "1. 多线程两种实现方式", "body": "<div class=\"md\"><pre><code>class MyThread extends Thread {\n    public void run() {\n        System.out.println(\"子线程跑起来了\");\n    }\n}\nnew MyThread().start();   // 启动线程，自动调用 run()</code></pre></div>"},
+    {"h4": "2. 文件与流", "body": "<b>File</b> 类代表文件/目录路径；读字节用 FileInputStream、写字节用 FileOutputStream；按字符读写文本文件用 FileReader/FileWriter。流用完要 close。"}
+   ],
+   "terms": [
+    {
+     "name": "Thread 与 Runnable",
+     "plain": "写线程两条路：<b>继承 Thread 类</b>重写 run()，或<b>实现 Runnable 接口</b>再交给 Thread。run() 里写线程要干的活。通俗说：<b>run 是“干活内容”，start 才是“真的开工”。</b>",
+     "example": "直接调 run() 只是普通方法调用，不新开线程；必须 new MyThread().start() 才会并发执行。"
+    },
+    {
+     "name": "synchronized 同步",
+     "plain": "多个线程抢同一个数据时会出错，<b>synchronized 给方法/代码块“上锁”，同一时刻只放一个线程进来</b>。通俗说：<b>“公共厕所门”——一个人进去反锁，出来才放行下一个。</b>",
+     "example": "两个线程同时给 count++ 可能丢更新；加 synchronized 后排队执行，count 才准确。"
+    },
+    {
+     "name": "File 与流（Stream）",
+     "plain": "程序要处理真实报表：<b>File 定位文件 → 流按字节/字符读进内存或写出硬盘 → 用完 close</b>。通俗说：<b>流就是“水管”，一头接文件、一头接程序，数据像水一样流过来。</b>",
+     "example": "用 FileReader 逐行读 sales.txt 里的销售额，装进 ArrayList 再求平均——这就是迷你经管数据分析程序。"
+    }
+   ]
+  }
+ ],
+ "formulas": [],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "Java 语言入门与基础语法",
+   "hint": "本章知识清单：JDK/JRE/JVM · main 方法入口 · 8 种基本数据类型 · 数组与下标。以下 3 选择 + 1 填空 + 1 程序阅读题 + 1 编程题覆盖全部知识点。",
+   "knowledgePoints": ["JDK/JRE/JVM", "main方法", "基本数据类型", "数组下标"],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": ["JDK/JRE/JVM"],
+     "stem": "<span class=\"q-stem\">编译 Java 源文件生成 .class 文件，使用的命令是（　）。</span>",
+     "options": ["A. java HelloWorld", "B. javac HelloWorld.java", "C. run HelloWorld", "D. compile HelloWorld"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>javac</b> 是编译器，把 .java 源代码编译成 .class 字节码文件；编译成功后再用 <b>java HelloWorld</b>（不带 .class）运行。记忆：先“javac 翻译”，再“java 运行”。</p>",
+     "kp": "📎 知识点：JDK · 编译与运行命令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": ["main方法"],
+     "stem": "<span class=\"q-stem\">Java 应用程序的入口方法签名正确的是（　）。</span>",
+     "options": ["A. public void main(String args[])", "B. public static void main(String[] args)", "C. static main() {}", "D. public static int main()"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>固定签名 <b>public static void main(String[] args)</b>：public 让 JVM 能访问，static 不用 new 对象就能调，void 没有返回值，String[] args 接命令行参数。背不下来就照 B 默写。</p>",
+     "kp": "📎 知识点：main 方法签名"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": ["基本数据类型"],
+     "stem": "<span class=\"q-stem\">下列属于 Java 基本数据类型的是（　）。</span>",
+     "options": ["A. String", "B. Integer", "C. int", "D. ArrayList"],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>8 种基本类型是 byte/short/int/long/float/double/char/boolean。<b>String、Integer、ArrayList 都是类（引用类型）</b>——Integer 是 int 的“包装类盒子”，不是基本类型本身。</p>",
+     "kp": "📎 知识点：8 种基本数据类型"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["数组下标"],
+     "stem": "<span class=\"q-stem\">定义 int[] a = new int[5]; 后，数组下标的合法范围是 0 到 <span class=\"blank\">4</span>，a.length 的值是 5。</span>",
+     "options": [],
+     "answer": "4",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>长度为 5 的数组，下标从 0 开始，合法下标是 0,1,2,3,4——“第一号抽屉叫 0 号”。访问 a[5] 会抛 ArrayIndexOutOfBoundsException（下标越界异常）。</p>",
+     "kp": "📎 知识点：数组下标从 0 开始"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["程序阅读", "数组遍历"],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出结果：</span>\n                <div class=\"md\"><pre><code>int[] a = {10, 20, 30, 40, 50};\nint s = 0;\nfor (int i = 0; i &lt; a.length; i++) {\n    s = s + a[i];\n}\nSystem.out.println(s);</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>150</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>循环把 a[0]~a[4] 逐个累加：10+20+30+40+50 = 150。<b>累加器套路：s 先清 0，循环条件 i &lt; a.length（不是 &lt;=，否则越界）。</b>经管类比：5 个门店销售额存入数组，循环累加得总额。</p>",
+     "kp": "📎 知识点：数组遍历 · 累加器"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": ["编程", "流程控制"],
+     "stem": "<span class=\"q-stem\">编写程序：定义一个含 5 个成绩的数组 {85, 92, 78, 90, 66}，遍历求平均分并输出（结果保留整数即可）。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>public class Avg {\n    public static void main(String[] args) {\n        int[] scores = {85, 92, 78, 90, 66};\n        int sum = 0;\n        for (int i = 0; i &lt; scores.length; i++) {\n            sum = sum + scores[i];\n        }\n        System.out.println(sum / scores.length);\n    }\n}</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三步：<b>①累加器 sum 清 0；②for 循环把每个成绩加进 sum（总和 411）；③总和除以个数 5 得 82（整数除法截断）。</b>注意数组长度用 scores.length，不是写死 5——换数据不用改代码。</p>",
+     "kp": "📎 知识点：数组遍历求和 · 编程题"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "面向对象基础",
+   "hint": "本章知识清单：类与对象 · 构造方法 · 封装 private · this 引用 · static。以下 3 选择 + 1 填空 + 1 程序阅读题 + 1 简答题覆盖全部知识点。",
+   "knowledgePoints": ["类与对象", "构造方法", "封装", "this引用", "static"],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": ["类与对象"],
+     "stem": "<span class=\"q-stem\">关于类和对象，下列说法正确的是（　）。</span>",
+     "options": ["A. 类是实际存在的实体，对象是图纸", "B. 类是图纸，对象是按 new 造出来的具体实例", "C. 一个类只能 new 一个对象", "D. 对象不需要 new 就能用"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>类是“图纸”，对象是按图纸 new 出来的“实物”</b>。一个 Student 类可以 new 出无数个学生对象，各有各的名字。通俗说：图纸一张，大楼盖十栋。</p>",
+     "kp": "📎 知识点：类与对象的关系"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": ["构造方法"],
+     "stem": "<span class=\"q-stem\">关于构造方法，下列说法错误的是（　）。</span>",
+     "options": ["A. 方法名必须与类名完全相同", "B. 没有返回值类型（连 void 都不写）", "C. 在 new 对象时自动调用", "D. 必须手动调用才能执行"],
+     "answer": "<b>D</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>构造方法<b>在 new 对象时自动调用</b>，不用手动调，也不能手动调。它与类同名、无返回值类型，作用是给对象属性赋初值。D 说反了。</p>",
+     "kp": "📎 知识点：构造方法特征"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": ["封装"],
+     "stem": "<span class=\"q-stem\">把类的字段声明为 private，再提供 public 的 get/set 方法，这体现了面向对象的（　）。</span>",
+     "options": ["A. 继承", "B. 多态", "C. 封装", "D. 抽象"],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>封装＝把字段藏进 private，只留公开的读写窗口</b>，外部不能直接乱改——在 setAge 里可以校验年龄不能为负。继承 extends、多态父类引用指向子类对象，别混。</p>",
+     "kp": "📎 知识点：封装 private + getter/setter"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["static"],
+     "stem": "<span class=\"q-stem\">被 <span class=\"blank\">static</span> 修饰的成员属于类本身，被所有对象共享，可用“类名.成员”直接访问。</span>",
+     "options": [],
+     "answer": "static",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>static 成员存在“方法区”，全班共用一份。经典用途：static int count 统计一共 new 了多少个对象。main 方法本身就是 static——因为 JVM 不 new 对象就想调它。</p>",
+     "kp": "📎 知识点：static 成员属于类"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["程序阅读", "构造方法"],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>class Student {\n    String name;\n    public Student(String n) { name = n; }\n    void sayHi() { System.out.println(\"我叫\" + name); }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Student s = new Student(\"贾天福\");\n        s.sayHi();\n    }\n}</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>我叫贾天福</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>new Student(\"贾天福\") 时自动调用构造方法，把 name 初始化为“贾天福”；再调 s.sayHi() 打印。<b>构造方法就是“造对象时顺手填好信息”的初始化步骤。</b></p>",
+     "kp": "📎 知识点：构造方法初始化对象"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": ["this引用"],
+     "stem": "<span class=\"q-stem\">为什么 setAge 方法里常写成 this.age = age;？请说明 this 的含义。</span>",
+     "options": [],
+     "answer": "this 代表“当前对象自己”；当方法参数名与字段名同名时，this.age 指对象的字段，age 指参数，用 this 区分两者。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>private int age; setAge(int age) { this.age = age; } 里，<b>age 是参数，this.age 是这个对象自己的字段</b>。若不写 this，两边都等于参数自己赋值给自己，字段没变。通俗说：this 就是“我本人”，“我本人的年龄＝传进来的年龄”。</p>",
+     "kp": "📎 知识点：this 引用区分字段与参数"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "继承、多态与接口",
+   "hint": "本章知识清单：继承 extends · 方法重写 · 多态向上转型 · 抽象类 · 接口 implements。以下 3 选择 + 1 填空 + 1 程序阅读题 + 1 简答题覆盖全部知识点。",
+   "knowledgePoints": ["继承", "方法重写", "多态", "抽象类", "接口"],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": ["继承"],
+     "stem": "<span class=\"q-stem\">Java 中类继承父类使用的关键字是（　）。</span>",
+     "options": ["A. implements", "B. extends", "C. import", "D. super"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>extends 继承父类</b>，implements 实现接口——两个关键字千万别混。Java 类只能 extends 一个父类（单继承），但可 implements 多个接口。</p>",
+     "kp": "📎 知识点：继承关键字 extends"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": ["方法重写"],
+     "stem": "<span class=\"q-stem\">子类重新定义与父类同名、同参数的方法，称为（　）。</span>",
+     "options": ["A. 方法重载（Overload）", "B. 方法重写（Override）", "C. 方法递归", "D. 方法封装"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>重写（Override）</b>：子类把父类同名同参的方法“换成自己的实现”；<b>重载（Overload）</b>：同一个类里方法同名但参数列表不同。口诀：继承换实现叫重写，同类多签名叫重载。</p>",
+     "kp": "📎 知识点：方法重写 Override"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": ["接口"],
+     "stem": "<span class=\"q-stem\">关于接口，下列说法正确的是（　）。</span>",
+     "options": ["A. 类用 extends 实现接口", "B. 类实现接口用 implements，且必须实现接口中的抽象方法", "C. 接口可以直接 new", "D. 一个类只能实现一个接口"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>接口用 <b>interface</b> 定义，类用 <b>implements</b> 实现并<b>必须重写里面的抽象方法</b>；接口不能 new；一个类可实现多个接口（弥补单继承的不足）。</p>",
+     "kp": "📎 知识点：接口与 implements"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["多态"],
+     "stem": "<span class=\"q-stem\">Person p = new Student(); 这种“父类引用指向子类对象”的写法称为多态中的 <span class=\"blank\">向上转型</span>。</span>",
+     "options": [],
+     "answer": "向上转型",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>把子类对象“当父类看”叫向上转型——自动完成、安全。调用重写方法时，实际执行的是子类版本，这就是多态：同一句 p.sayHi()，学生叫、老师叫各不相同。</p>",
+     "kp": "📎 知识点：多态 · 向上转型"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["程序阅读", "方法重写"],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>class Person {\n    void sayHi() { System.out.println(\"Hi\"); }\n}\nclass Student extends Person {\n    void sayHi() { System.out.println(\"学生你好\"); }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Person p = new Student();\n        p.sayHi();\n    }\n}</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>学生你好</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>虽然 p 的类型是 Person（父类），但<b>实际 new 的是 Student 对象</b>，调用重写方法 sayHi() 时执行子类版本——这就是多态。“父类的牌子，子类的活”。</p>",
+     "kp": "📎 知识点：多态 · 重写方法动态绑定"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": ["抽象类"],
+     "stem": "<span class=\"q-stem\">抽象类和普通类有什么区别？抽象类能 new 对象吗？</span>",
+     "options": [],
+     "answer": "抽象类用 abstract 修饰，可以含只有签名没有实现的抽象方法；抽象类不能直接 new 对象，必须由子类继承并实现抽象方法后才能实例化。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>抽象类是“半成品图纸”：<b>普通类什么方法都有实现，抽象类允许留几个“空方法”逼子类去填</b>。因为它本身不完整，所以 new 不出来。通俗说：半成品蛋糕模子不能直接当蛋糕吃，得照它烤出完整蛋糕。</p>",
+     "kp": "📎 知识点：抽象类的特征"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "异常处理与常用类",
+   "hint": "本章知识清单：异常体系（Exception）· try-catch-finally · String 不可变 · StringBuilder · 包装类。以下 3 选择 + 1 填空 + 1 程序阅读题 + 1 简答题覆盖全部知识点。",
+   "knowledgePoints": ["异常体系", "try-catch-finally", "String不可变", "StringBuilder", "包装类"],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": ["异常体系"],
+     "stem": "<span class=\"q-stem\">Java 中所有程序异常类的父类是（　）。</span>",
+     "options": ["A. Error", "B. Exception", "C. Throwable", "D. RuntimeException"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>注意题干“程序异常类”：<b>Exception 是程序错误异常的父类</b>，可以 try-catch；Throwable 是它和 Error 共同的老祖宗。Error（如内存耗尽）是系统级灾难，程序员一般不处理。</p>",
+     "kp": "📎 知识点：异常体系 Exception"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": ["try-catch-finally"],
+     "stem": "<span class=\"q-stem\">关于 finally 块，下列说法正确的是（　）。</span>",
+     "options": ["A. 只有 try 出错时才执行", "B. 只有 try 正常结束时才执行", "C. 无论 try 是否出错（甚至 return），通常都会执行", "D. 可以单独写，不属于 try 结构"],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>finally 无论出不出错都执行</b>，常用来关文件、释放资源——“不管怎样都要收尾”。只有 JVM 直接退出（System.exit）才挡得住它。</p>",
+     "kp": "📎 知识点：finally 的执行时机"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": ["String不可变"],
+     "stem": "<span class=\"q-stem\">关于 String，下列说法正确的是（　）。</span>",
+     "options": ["A. String 对象创建后内容可以随意修改", "B. String 是不可变的，每次 + 拼接都会产生新对象", "C. String 和 StringBuilder 效率完全一样", "D. String 属于基本数据类型"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>String 一旦创建内容不可变</b>，反复 “+” 拼接会造一堆新对象，循环拼上万次性能很差；这种场景改用 StringBuilder。String 是类（引用类型），不是基本类型。</p>",
+     "kp": "📎 知识点：String 不可变性"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["包装类"],
+     "stem": "<span class=\"q-stem\">把字符串 \"123\" 转成 int ，使用 Integer 的静态方法 <span class=\"blank\">parseInt</span>（Integer.parseInt(\"123\")）。</span>",
+     "options": [],
+     "answer": "parseInt",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>包装类 Integer 把基本类型 int 包成对象，并提供转换工具：<b>Integer.parseInt(\"123\")</b> 得整数 123；反过来 Integer.toString(123) 转字符串。</p>",
+     "kp": "📎 知识点：包装类与基本类型转换"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["程序阅读", "try-catch-finally"],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>try {\n    int a = 10 / 0;\n    System.out.println(\"计算成功\");\n} catch (ArithmeticException e) {\n    System.out.println(\"捕获到异常\");\n} finally {\n    System.out.println(\"收尾\");\n}</code></pre></div>",
+     "options": [],
+     "answer": "依次输出 <code>捕获到异常</code> 和 <code>收尾</code>（“计算成功”不输出）。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>10/0 触发 ArithmeticException，<b>try 中出错点之后的语句（“计算成功”）不再执行</b>，跳到对应 catch 打印“捕获到异常”，最后 finally 必执行打印“收尾”。</p>",
+     "kp": "📎 知识点：try-catch-finally 执行流程"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": ["StringBuilder"],
+     "stem": "<span class=\"q-stem\">循环拼接 1 万次字符串，为什么推荐用 StringBuilder 而不是 String 的 “+”？</span>",
+     "options": [],
+     "answer": "String 不可变，每次 “+” 都新建一个对象；StringBuilder 是可变容器，在同一个对象上追加，避免频繁创建对象，内存与时间开销小得多。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>String 像“写完不能改的贺卡”，每加一个字就得重买一张新贺卡；StringBuilder 像“可反复涂改的草稿纸”。循环 1 万次用 “+” 会创建上万个临时对象、GC 忙死；用 sb.append() 全程只动一个对象。</p>",
+     "kp": "📎 知识点：String vs StringBuilder 性能"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "集合框架",
+   "hint": "本章知识清单：ArrayList（List）· HashSet（Set）· HashMap（Map）· 泛型 · 遍历。以下 4 选择 + 1 填空 + 1 程序阅读题 + 1 编程题覆盖全部知识点。",
+   "knowledgePoints": ["ArrayList", "HashSet", "HashMap", "泛型", "遍历"],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": ["ArrayList"],
+     "stem": "<span class=\"q-stem\">关于 ArrayList，下列说法正确的是（　）。</span>",
+     "options": ["A. 长度固定，不能增删", "B. 有序、可重复、长度可变", "C. 不允许存入重复元素", "D. 按键值对存储"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>ArrayList 是“能自动变长的数组”</b>：按加入顺序排列、允许重复、长度随 add/remove 自动伸缩。“不重复”是 HashSet 的特点，“键值对”是 HashMap 的特点。</p>",
+     "kp": "📎 知识点：List / ArrayList 特征"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": ["HashSet"],
+     "stem": "<span class=\"q-stem\">想对一批数据“自动去重”，最合适的集合是（　）。</span>",
+     "options": ["A. ArrayList", "B. HashSet", "C. HashMap", "D. 普通数组"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>HashSet 不存重复元素</b>——同一个对象 add 多次也只留一份，天然适合“去重”。场景：统计“来了多少个不同客户”，把客户号全 add 进 HashSet，size() 就是答案。</p>",
+     "kp": "📎 知识点：Set / HashSet 去重"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": ["HashMap"],
+     "stem": "<span class=\"q-stem\">HashMap 存储数据的方式是（　）。</span>",
+     "options": ["A. 有序队列", "B. 键值对（key-value），键不重复", "C. 不重复元素集合", "D. 固定长度数组"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>HashMap 是“字典/通讯录”</b>：put(键, 值) 存、get(键) 取值，键唯一。场景：map.put(\"苹果\", 5)，map.get(\"苹果\") 直接得 5，不用遍历。</p>",
+     "kp": "📎 知识点：Map / HashMap 键值对"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": ["泛型"],
+     "stem": "<span class=\"q-stem\">ArrayList&lt;String&gt; 中 &lt;String&gt; 的作用是（　）。</span>",
+     "options": ["A. 指定集合里只能存放字符串，编译期类型检查", "B. 提高运行速度", "C. 让集合长度可变", "D. 没有实际作用"],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>泛型 &lt;String&gt; 规定这个集合只装字符串</b>，编译器帮你把关，取出时不用强转。通俗说：“这个抽屉只许放苹果，放香蕉就报错”。</p>",
+     "kp": "📎 知识点：泛型 &lt;T&gt; 类型检查"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["遍历"],
+     "stem": "<span class=\"q-stem\">遍历 ArrayList&lt;String&gt; list 中每个元素，常用增强 for 循环写法：for (String s : <span class=\"blank\">list</span>) {...}。</span>",
+     "options": [],
+     "answer": "list",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>for-each 语法 `for (元素类型 变量 : 集合)` 逐个取出，不用写下标，最简洁。等价于 for (int i=0;i&lt;list.size();i++) 取 list.get(i)。</p>",
+     "kp": "📎 知识点：for-each 遍历集合"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["程序阅读", "HashMap"],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();\nmap.put(\"苹果\", 5);\nmap.put(\"香蕉\", 3);\nmap.put(\"苹果\", 8);\nSystem.out.println(map.get(\"苹果\"));</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>8</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Map 的<b>键不重复</b>：第二次 put(\"苹果\", 8) 会把原来的 5 覆盖掉。最后 get(\"苹果\") 得 8。<b>经管类比：同一商品销量重复录入，后录的覆盖先前的。</b></p>",
+     "kp": "📎 知识点：HashMap 键唯一 · put 覆盖"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": ["编程", "ArrayList", "遍历"],
+     "stem": "<span class=\"q-stem\">用 ArrayList 存入 5 个门店销售额 {12, 30, 8, 25, 18}，遍历求总销售额并输出。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>import java.util.ArrayList;\npublic class Sales {\n    public static void main(String[] args) {\n        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();\n        list.add(12);\n        list.add(30);\n        list.add(8);\n        list.add(25);\n        list.add(18);\n        int sum = 0;\n        for (int x : list) {\n            sum = sum + x;\n        }\n        System.out.println(sum);\n    }\n}</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三步：<b>①用 add 把 5 个销量装进 ArrayList&lt;Integer&gt;（装数字要用包装类 Integer）；②for-each 遍历累加 sum（总和 93）；③输出。</b>集合长度用 size()，取元素用 get(i) 或 for-each。</p>",
+     "kp": "📎 知识点：ArrayList 遍历求和 · 编程题"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "多线程与输入输出",
+   "hint": "本章知识清单：Thread/Runnable 两种实现 · start() 与 run() 区别 · synchronized 同步 · File 与字节流/字符流。本章为选修拔高内容，简答题为主，不设编程大题（考试中多线程编程综合题偏少）。",
+   "knowledgePoints": ["Thread与Runnable", "start与run", "synchronized", "File与流"],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": ["start与run"],
+     "stem": "<span class=\"q-stem\">启动一个新线程，正确的做法是（　）。</span>",
+     "options": ["A. 直接调用 run() 方法", "B. 调用 start() 方法，由 JVM 自动执行 run()", "C. 调用 new Thread() 即可", "D. 调用 execute() 方法"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>run() 只是线程要干的活；start() 才是“真的开工”</b>——它向 JVM 申请一条新线程，由新线程自动回调 run()。直接调 run() 只是普通方法调用，不并发。</p>",
+     "kp": "📎 知识点：start() 与 run() 的区别"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": ["Thread与Runnable"],
+     "stem": "<span class=\"q-stem\">Java 中创建线程的两种方式是（　）。</span>",
+     "options": ["A. 继承 Thread 类 或 实现 Runnable 接口", "B. 继承 Runnable 或 实现 Thread", "C. 实现 Exception 或 继承 Map", "D. new Thread() 和 new Runnable() 等价"],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>方式一：类 <b>extends Thread</b> 重写 run()；方式二：类 <b>implements Runnable</b> 实现 run()，再包给 new Thread(任务).start()。实现接口更灵活（不占掉唯一的父类名额）。</p>",
+     "kp": "📎 知识点：线程的两种实现方式"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": ["synchronized"],
+     "stem": "<span class=\"q-stem\">多个线程同时修改同一个变量导致结果错乱，通常用什么关键字解决？（　）</span>",
+     "options": ["A. static", "B. synchronized", "C. final", "D. abstract"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>synchronized 给代码“上锁”</b>：同一时刻只让一个线程进入这段代码，排队执行，避免两个线程同时 count++ 丢更新。像公共厕所门，进人反锁，出来才放行。</p>",
+     "kp": "📎 知识点：synchronized 线程同步"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["File与流"],
+     "stem": "<span class=\"q-stem\">按字节读写文件常用 FileInputStream（读）和 <span class=\"blank\">FileOutputStream</span>（写）；按字符读文本文件用 FileReader。</span>",
+     "options": [],
+     "answer": "FileOutputStream",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>字节流以 byte 为单位，适合图片等任意文件；字符流（FileReader/FileWriter）按字符处理文本，对中文更友好。流用完都要 close。</p>",
+     "kp": "📎 知识点：文件输入输出流"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": ["Thread与Runnable"],
+     "stem": "<span class=\"q-stem\">写出创建线程的两种方式，并说明为什么“实现 Runnable 接口”通常更推荐。</span>",
+     "options": [],
+     "answer": "①继承 Thread 类重写 run()；②实现 Runnable 接口实现 run()，再 new Thread(任务).start()。推荐 Runnable 是因为 Java 单继承，extends Thread 后就不能再继承别的类，而实现接口不占父类名额。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>extends Thread 简单，但一旦继承了 Thread 就失去了继承其他类的机会；implements Runnable 把“任务”和“线程”分开，一个任务可以被多个线程共用，更灵活。</p>",
+     "kp": "📎 知识点：两种线程方式对比"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": ["synchronized"],
+     "stem": "<span class=\"q-stem\">两个线程同时执行 count++，为什么会出现结果比预期小？加 synchronized 为什么就能解决？</span>",
+     "options": [],
+     "answer": "count++ 不是原子操作，分“读→改→写”三步，两线程可能同时读到旧值，各自加 1 后写回，丢失一次更新。synchronized 把这段代码锁住，同一时刻只一个线程执行，排队完成读改写，结果正确。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>假设 count=0，线程 A、B 同时读到 0，各自 +1 得 1，都写回 1——本应得 2，却变成 1。加锁后 A 先完整做完读改写（得 1）释放锁，B 再读（读到 1）改写成 2，结果正确。这就是线程安全。</p>",
+     "kp": "📎 知识点：线程安全与 synchronized 原理"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "全书综合模拟（满分 100 分 · 建议 90 分钟）",
+   "hint": "题型：一、选择题 8 题（每题 5 分，共 40 分）；二、填空题 2 题（每题 10 分，共 20 分）；三、程序阅读题 1 题（20 分）；四、编程题 1 题（20 分）。覆盖第一至六章全部核心知识点。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 1 题",
+     "tags": ["JDK/JRE/JVM"],
+     "stem": "<span class=\"q-stem\">编译 Java 源文件的命令是（　）。</span>",
+     "options": ["A. java", "B. javac", "C. javadoc", "D. jar"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>javac 编译 .java 为 .class；java 运行 .class。先翻译后运行。</p>",
+     "kp": "📎 知识点：编译与运行命令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 2 题",
+     "tags": ["main方法"],
+     "stem": "<span class=\"q-stem\">Java 程序入口方法正确的签名是（　）。</span>",
+     "options": ["A. public static void main(String[] args)", "B. void main()", "C. public int main(String a)", "D. static void Main()"],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>固定签名 public static void main(String[] args)，大小写敏感（main 不是 Main）。</p>",
+     "kp": "📎 知识点：main 方法签名"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 3 题",
+     "tags": ["基本数据类型"],
+     "stem": "<span class=\"q-stem\">下列属于基本数据类型的是（　）。</span>",
+     "options": ["A. String", "B. Integer", "C. double", "D. ArrayList"],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>8 种基本类型含 double；String、Integer、ArrayList 都是类。</p>",
+     "kp": "📎 知识点：基本数据类型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 4 题",
+     "tags": ["构造方法"],
+     "stem": "<span class=\"q-stem\">关于构造方法，正确的是（　）。</span>",
+     "options": ["A. 有返回值类型", "B. 与类同名、new 对象时自动调用", "C. 必须手动调用", "D. 名字任意"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>构造方法与类同名、无返回值类型、new 时自动调用完成初始化。</p>",
+     "kp": "📎 知识点：构造方法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 5 题",
+     "tags": ["方法重写"],
+     "stem": "<span class=\"q-stem\">子类重写父类方法，要求（　）。</span>",
+     "options": ["A. 方法名相同、参数列表不同", "B. 方法名与参数列表都与父类相同", "C. 返回值必须不同", "D. 必须加 static"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>重写＝同名同参；同名不同参叫重载。多态靠重写实现。</p>",
+     "kp": "📎 知识点：方法重写"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 6 题",
+     "tags": ["try-catch-finally"],
+     "stem": "<span class=\"q-stem\">finally 块的执行时机是（　）。</span>",
+     "options": ["A. 仅出错时", "B. 仅正常时", "C. 无论是否出错通常都执行", "D. 从不执行"],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>finally 必执行，用于释放资源；仅 JVM 退出能挡住。</p>",
+     "kp": "📎 知识点：finally 执行时机"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 7 题",
+     "tags": ["HashMap"],
+     "stem": "<span class=\"q-stem\">HashMap 中，同一个 key 再次 put 新 value 会（　）。</span>",
+     "options": ["A. 报错", "B. 保留旧值，新值被忽略", "C. 用新值覆盖旧值", "D. 存成两个值"],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>键唯一，重复 put 覆盖旧值。</p>",
+     "kp": "📎 知识点：HashMap 键唯一"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 8 题",
+     "tags": ["start与run"],
+     "stem": "<span class=\"q-stem\">真正启动新线程的方法是（　）。</span>",
+     "options": ["A. run()", "B. start()", "C. init()", "D. main()"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>start() 申请新线程并自动回调 run()；直接调 run() 不并发。</p>",
+     "kp": "📎 知识点：start 启动线程"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 1 题",
+     "tags": ["数组下标"],
+     "stem": "<span class=\"q-stem\">int[] a = new int[5]; 最后一个元素的下标是 <span class=\"blank\">4</span>。</span>",
+     "options": [],
+     "answer": "4",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>下标从 0 开始，长度 5 → 合法下标 0~4。</p>",
+     "kp": "📎 知识点：数组下标"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 2 题",
+     "tags": ["包装类"],
+     "stem": "<span class=\"q-stem\">Integer.parseInt(\"2026\") 的返回值类型是 <span class=\"blank\">int</span>，值为 2026。</span>",
+     "options": [],
+     "answer": "int",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>包装类静态方法把字符串解析为基本类型 int。</p>",
+     "kp": "📎 知识点：包装类转换"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 1 题",
+     "tags": ["程序阅读", "多态"],
+     "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>class Animal {\n    void shout() { System.out.println(\"叫\"); }\n}\nclass Dog extends Animal {\n    void shout() { System.out.println(\"汪汪\"); }\n}\npublic class Test {\n    public static void main(String[] args) {\n        Animal a = new Dog();\n        a.shout();\n    }\n}</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>汪汪</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>父类引用指向子类对象（向上转型），调用重写方法 shout() 时绑定子类版本——多态。</p>",
+     "kp": "📎 知识点：多态 · 方法重写"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "卷一 · 第 2 题",
+     "tags": ["编程", "HashMap"],
+     "stem": "<span class=\"q-stem\">用 HashMap 统计 4 种商品的销量：苹果 5、香蕉 3、苹果 8（后录入覆盖）、橘子 6，最后遍历输出每种商品的销量。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>import java.util.HashMap;\npublic class Count {\n    public static void main(String[] args) {\n        HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();\n        map.put(\"苹果\", 5);\n        map.put(\"香蕉\", 3);\n        map.put(\"苹果\", 8);\n        map.put(\"橘子\", 6);\n        for (String k : map.keySet()) {\n            System.out.println(k + \"：\" + map.get(k));\n        }\n    }\n}</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>要点：<b>①put 重复键“苹果”后值被覆盖为 8；②keySet() 取出所有键，for-each 遍历 get 取值。</b>最终输出 苹果：8、香蕉：3、橘子：6（顺序不保证）。这正是经管里“按商品汇总销售额”的迷你版。</p>",
+     "kp": "📎 知识点：HashMap 统计与遍历 · 编程题"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "全书综合模拟（满分 100 分 · 建议 90 分钟）",
+   "hint": "题型：一、选择题 8 题（每题 5 分，共 40 分）；二、填空题 2 题（每题 10 分，共 20 分）；三、程序阅读题 1 题（20 分）；四、编程题 1 题（20 分）。覆盖第一至六章全部核心知识点，与卷一题目相互独立。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 1 题",
+     "tags": ["注释"],
+     "stem": "<span class=\"q-stem\">Java 单行注释的写法是（　）。</span>",
+     "options": ["A. // 注释", "B. # 注释", "C. -- 注释", "D. &lt;!-- 注释 --&gt;"],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Java 有 // 单行 与 /* */ 多行两种注释；# 是脚本语言，&lt;!-- --&gt; 是 HTML。</p>",
+     "kp": "📎 知识点：注释写法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 2 题",
+     "tags": ["static"],
+     "stem": "<span class=\"q-stem\">关于 static 成员，正确的是（　）。</span>",
+     "options": ["A. 每个对象各有一份", "B. 属于类，所有对象共享一份", "C. 只能通过对象访问", "D. 不能在 main 里用"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>static 成员全班共享，用类名.成员访问；main 本身就是 static。</p>",
+     "kp": "📎 知识点：static 成员"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 3 题",
+     "tags": ["封装"],
+     "stem": "<span class=\"q-stem\">字段用 private 修饰并提供 get/set，体现了（　）。</span>",
+     "options": ["A. 封装", "B. 继承", "C. 多态", "D. 抽象"],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>封装＝隐藏字段、暴露受控的读写窗口。</p>",
+     "kp": "📎 知识点：封装"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 4 题",
+     "tags": ["接口"],
+     "stem": "<span class=\"q-stem\">类实现接口使用的关键字是（　）。</span>",
+     "options": ["A. extends", "B. implements", "C. import", "D. throws"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>extends 继承类，implements 实现接口，别混。</p>",
+     "kp": "📎 知识点：implements 接口"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 5 题",
+     "tags": ["String不可变"],
+     "stem": "<span class=\"q-stem\">循环中大量拼接字符串，推荐使用（　）。</span>",
+     "options": ["A. String 的 +", "B. StringBuilder", "C. char", "D. int"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>String 不可变，反复 + 造新对象；StringBuilder 可变高效。</p>",
+     "kp": "📎 知识点：StringBuilder"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 6 题",
+     "tags": ["HashSet"],
+     "stem": "<span class=\"q-stem\">HashSet 的特点是（　）。</span>",
+     "options": ["A. 有序可重复", "B. 不重复、常用于去重", "C. 键值对", "D. 长度固定"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Set 不重复，签到表模型，天然去重。</p>",
+     "kp": "📎 知识点：HashSet 去重"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 7 题",
+     "tags": ["Thread与Runnable"],
+     "stem": "<span class=\"q-stem\">实现 Runnable 接口时必须重写的方法是（　）。</span>",
+     "options": ["A. start()", "B. run()", "C. main()", "D. init()"],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Runnable 只规定一个 run()，里面写线程任务。</p>",
+     "kp": "📎 知识点：Runnable 接口"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 8 题",
+     "tags": ["异常体系"],
+     "stem": "<span class=\"q-stem\">下列属于程序异常（可用 try-catch 处理）的是（　）。</span>",
+     "options": ["A. Exception 及其子类", "B. 断电", "C. 硬盘物理损坏", "D. 关机"],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Exception 是程序错误，可捕获；硬件/系统灾难不归程序员 try-catch。</p>",
+     "kp": "📎 知识点：Exception 体系"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 1 题",
+     "tags": ["多态"],
+     "stem": "<span class=\"q-stem\">Father f = new Son(); 属于多态中的 <span class=\"blank\">向上转型</span>（自动完成）。</span>",
+     "options": [],
+     "answer": "向上转型",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>子类对象当父类引用看，调用重写方法表现子类行为。</p>",
+     "kp": "📎 知识点：向上转型"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 2 题",
+     "tags": ["File与流"],
+     "stem": "<span class=\"q-stem\">读文本文件内容，按字符读取常用 FileReader，写完后必须调用 <span class=\"blank\">close</span>() 关闭流。</span>",
+     "options": [],
+     "answer": "close",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>流是占用系统资源的“水管”，用完必须关，否则资源泄漏。</p>",
+     "kp": "📎 知识点：文件流关闭"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 1 题",
+     "tags": ["程序阅读", "try-catch-finally"],
+     "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>try {\n    System.out.println(\"A\");\n    int x = 5 / 1;\n    System.out.println(\"B\");\n} catch (ArithmeticException e) {\n    System.out.println(\"C\");\n} finally {\n    System.out.println(\"D\");\n}</code></pre></div>",
+     "options": [],
+     "answer": "依次输出 <code>A</code>、<code>B</code>、<code>D</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>5/1 不抛异常，try 正常跑完 A、B，没有进入 catch（C 不输出），最后 finally 必执行输出 D。</p>",
+     "kp": "📎 知识点：try-catch-finally 正常流程"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "卷二 · 第 2 题",
+     "tags": ["编程", "ArrayList", "遍历"],
+     "stem": "<span class=\"q-stem\">用 ArrayList 存入成绩 {88, 72, 95, 60, 100}，遍历输出最高分。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>import java.util.ArrayList;\npublic class Max {\n    public static void main(String[] args) {\n        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();\n        list.add(88);\n        list.add(72);\n        list.add(95);\n        list.add(60);\n        list.add(100);\n        int max = list.get(0);\n        for (int x : list) {\n            if (x &gt; max) max = x;\n        }\n        System.out.println(max);\n    }\n}</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>“打擂台”套路：<b>①先假设第一名 max = list.get(0)；②for-each 逐个比较，谁比 max 大就把 max 换成谁；③遍历完 max 就是最大值 100。</b>经管类比：从一批销售额中找出最高门店。</p>",
+     "kp": "📎 知识点：ArrayList 遍历求最值 · 编程题"
+    }
+   ]
+  }
+ ]
+}

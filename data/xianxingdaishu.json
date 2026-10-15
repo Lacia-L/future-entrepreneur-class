@@ -35,6 +35,18 @@
    "name": "《线性代数学习指导》同济大学",
    "desc": "同济《线性代数》MOOC 的配套习题课，每章给出知识要点、教学要求与例题精讲，适合刷题阶段使用（以实际开课页面为准）",
    "url": "https://www.icourse163.org/course/TONGJI-1003168003"
+  },
+  {
+   "platform": "B站",
+   "name": "《线性代数》教学视频 2.0版（同济版·宋浩老师）",
+   "desc": "B站UP主“宋浩老师官方” · 覆盖行列式、矩阵、向量、特征值与二次型，讲解通俗例题多，适合经管类学生入门线代",
+   "url": "https://www.bilibili.com/video/BV1h7pteyEww/"
+  },
+  {
+   "platform": "抖音",
+   "name": "一口气学完《线性代数》系列课",
+   "desc": "抖音知识账号 · 从行列式到方程组逐章精讲，主页附课程讲义，适合期末突击与专升本备考",
+   "url": "https://www.iesdouyin.com/share/video/7645253327084604708"
   }
  ],
  "callout": "<b>💡 公开课知识点归类：</b>同济 MOOC 与教材五章一一对应——第一部分（行列式）对应第 1 章；第二部分（矩阵及其运算）对应第 2 章；第三部分（初等变换与线性方程组）对应第 3 章；第四部分（向量组的线性相关性）对应第 4 章；第五部分（相似矩阵、二次型）对应第 5 章。经管类学习重点：矩阵运算与求逆、方程组解的判定（第 2、3 章），特征值部分掌握“特征方程求特征值、行列式等于特征值之积”即可。",
@@ -243,31 +255,85 @@
   }
  ],
  "formulas": [
-  {"title": "二阶行列式", "math": "\\(\\begin{vmatrix}a & b\\\\c & d\\end{vmatrix}=ad-bc\\)", "note": "主对角线相乘，减副对角线相乘。"},
-  {"title": "行列式按行展开", "math": "\\(D=a_{i1}A_{i1}+\\cdots+a_{in}A_{in}\\)，\\(A_{ij}=(-1)^{i+j}M_{ij}\\)", "note": "符号 \\((-1)^{i+j}\\) 别漏；优先选含 0 多的行展开。"},
-  {"title": "行列式常用性质", "math": "\\(|kA|=k^n|A|\\)，\\(|AB|=|A||B|\\)，两行成比例 ⇒ \\(|A|=0\\)", "note": "数乘要乘 n 次；矩阵乘积的行列式等于行列式的乘积。"},
-  {"title": "矩阵乘法", "math": "\\((AB)_{ij}=\\sum_k a_{ik}b_{kj}\\)，\\((m\\times s)(s\\times n)=m\\times n\\)", "note": "行乘列；A 的列数 = B 的行数才能乘。"},
-  {"title": "转置与逆的性质", "math": "\\((AB)^T=B^TA^T\\)，\\((AB)^{-1}=B^{-1}A^{-1}\\)", "note": "乘积的转置/逆都要“反着来”：先乘的后处理。"},
-  {"title": "伴随矩阵求逆", "math": "\\(AA^*=|A|E\\)，\\(A^{-1}=\\dfrac{A^*}{|A|}\\)（\\(|A|\\neq0\\)）", "note": "二阶巧记：主对角线对调、副对角线变号。"},
-  {"title": "解的判定", "math": "\\(AX=b\\)：有解 ⟺ \\(r(A)=r(A\\mid b)\\)；唯一解 ⟺ 秩等于 \\(n\\)", "note": "秩相等才有解；秩等于未知数数才唯一。"},
-  {"title": "齐次方程组", "math": "\\(AX=0\\) 有非零解 ⟺ \\(r(A)&lt;n\\)（方阵时 ⟺ \\(|A|=0\\)）", "note": "有冗余信息，未知数才有自由空间。"},
-  {"title": "特征方程", "math": "\\(|A-\\lambda E|=0\\)，\\(|A|=\\prod\\lambda_i\\)，\\(\\operatorname{tr}(A)=\\sum\\lambda_i\\)", "note": "行列式“乘出来”，迹“加出来”，可用于验算。"},
-  {"title": "二次型矩阵", "math": "\\(f=X^TAX\\)：平方项系数入对角元，交叉项系数的一半入对称位置", "note": "对应经管中的协方差矩阵与主成分分析。"}
+  {
+   "title": "二阶行列式",
+   "math": "\\(\\begin{vmatrix}a & b\\\\c & d\\end{vmatrix}=ad-bc\\)",
+   "note": "主对角线相乘，减副对角线相乘。"
+  },
+  {
+   "title": "行列式按行展开",
+   "math": "\\(D=a_{i1}A_{i1}+\\cdots+a_{in}A_{in}\\)，\\(A_{ij}=(-1)^{i+j}M_{ij}\\)",
+   "note": "符号 \\((-1)^{i+j}\\) 别漏；优先选含 0 多的行展开。"
+  },
+  {
+   "title": "行列式常用性质",
+   "math": "\\(|kA|=k^n|A|\\)，\\(|AB|=|A||B|\\)，两行成比例 ⇒ \\(|A|=0\\)",
+   "note": "数乘要乘 n 次；矩阵乘积的行列式等于行列式的乘积。"
+  },
+  {
+   "title": "矩阵乘法",
+   "math": "\\((AB)_{ij}=\\sum_k a_{ik}b_{kj}\\)，\\((m\\times s)(s\\times n)=m\\times n\\)",
+   "note": "行乘列；A 的列数 = B 的行数才能乘。"
+  },
+  {
+   "title": "转置与逆的性质",
+   "math": "\\((AB)^T=B^TA^T\\)，\\((AB)^{-1}=B^{-1}A^{-1}\\)",
+   "note": "乘积的转置/逆都要“反着来”：先乘的后处理。"
+  },
+  {
+   "title": "伴随矩阵求逆",
+   "math": "\\(AA^*=|A|E\\)，\\(A^{-1}=\\dfrac{A^*}{|A|}\\)（\\(|A|\\neq0\\)）",
+   "note": "二阶巧记：主对角线对调、副对角线变号。"
+  },
+  {
+   "title": "解的判定",
+   "math": "\\(AX=b\\)：有解 ⟺ \\(r(A)=r(A\\mid b)\\)；唯一解 ⟺ 秩等于 \\(n\\)",
+   "note": "秩相等才有解；秩等于未知数数才唯一。"
+  },
+  {
+   "title": "齐次方程组",
+   "math": "\\(AX=0\\) 有非零解 ⟺ \\(r(A)&lt;n\\)（方阵时 ⟺ \\(|A|=0\\)）",
+   "note": "有冗余信息，未知数才有自由空间。"
+  },
+  {
+   "title": "特征方程",
+   "math": "\\(|A-\\lambda E|=0\\)，\\(|A|=\\prod\\lambda_i\\)，\\(\\operatorname{tr}(A)=\\sum\\lambda_i\\)",
+   "note": "行列式“乘出来”，迹“加出来”，可用于验算。"
+  },
+  {
+   "title": "二次型矩阵",
+   "math": "\\(f=X^TAX\\)：平方项系数入对角元，交叉项系数的一半入对称位置",
+   "note": "对应经管中的协方差矩阵与主成分分析。"
+  }
  ],
  "chapters": [
   {
    "chapter": "第一章",
    "title": "行列式",
    "hint": "本章知识清单：行列式概念 · 二阶对角线法则 · 余子式与代数余子式 · 行列式性质 · 克莱姆法则。以下 2 选择 + 1 填空 + 1 大题（复合小问）覆盖全部知识点。",
-   "knowledgePoints": ["行列式概念", "二阶对角线法则", "余子式与代数余子式", "行列式性质", "克莱姆法则"],
+   "knowledgePoints": [
+    "行列式概念",
+    "二阶对角线法则",
+    "余子式与代数余子式",
+    "行列式性质",
+    "克莱姆法则"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["行列式概念", "二阶对角线法则"],
+     "tags": [
+      "行列式概念",
+      "二阶对角线法则"
+     ],
      "stem": "<span class=\"q-stem\">二阶行列式 \\(\\begin{vmatrix}1 & 2\\\\3 & 4\\end{vmatrix}\\) 的值为（　）。</span>",
-     "options": ["A. \\(-2\\)", "B. \\(2\\)", "C. \\(-1\\)", "D. \\(1\\)"],
+     "options": [
+      "A. \\(-2\\)",
+      "B. \\(2\\)",
+      "C. \\(-1\\)",
+      "D. \\(1\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>对角线法则：主对角线 \\(1\\times4=4\\)，副对角线 \\(2\\times3=6\\)，相减 \\(4-6=-2\\)。<b>口诀「主减副」</b>：左上到右下相乘，减去右上到左下相乘。行列式就是给方阵算出的“一个数”。</p>",
      "kp": "📎 知识点：行列式概念 · 二阶对角线法则"
@@ -276,9 +342,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["行列式性质"],
+     "tags": [
+      "行列式性质"
+     ],
      "stem": "<span class=\"q-stem\">若行列式 \\(D\\) 的某一行元素全为 0，则 \\(D\\) 等于（　）。</span>",
-     "options": ["A. \\(0\\)", "B. \\(1\\)", "C. 任意值", "D. 无法确定"],
+     "options": [
+      "A. \\(0\\)",
+      "B. \\(1\\)",
+      "C. 任意值",
+      "D. 无法确定"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>按全零行展开：每项都含一个 0，故 \\(D=0\\)。<b>性质速记：某行（列）全 0 ⟹ 行列式为 0；两行成比例 ⟹ 行列式为 0；两行互换 ⟹ 行列式变号。</b>好比一行全是 0，这一行对“总体积”的贡献就是 0。</p>",
      "kp": "📎 知识点：行列式的性质"
@@ -287,7 +360,9 @@
      "type": "填空题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["二阶对角线法则"],
+     "tags": [
+      "二阶对角线法则"
+     ],
      "stem": "<span class=\"q-stem\">\\(\\begin{vmatrix}a & b\\\\c & d\\end{vmatrix}=\\underline{\\hspace{5em}}\\)。</span>",
      "options": [],
      "answer": "\\(ad-bc\\)",
@@ -298,7 +373,11 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["余子式与代数余子式", "按行展开", "克莱姆法则"],
+     "tags": [
+      "余子式与代数余子式",
+      "按行展开",
+      "克莱姆法则"
+     ],
      "stem": "<span class=\"q-stem\">（1）计算三阶行列式 \\(D=\\begin{vmatrix}2 & 1\\\\1 & 2 & 1\\\\0 & 1 & 2\\end{vmatrix}\\)；（2）用克莱姆法则解方程组 \\(\\begin{cases}x_1+x_2=3\\\\x_1-x_2=1\\end{cases}\\)。</span>",
      "options": [],
      "answer": "（1）\\(D=4\\)；（2）\\(x_1=2,\\ x_2=1\\)。",
@@ -311,15 +390,27 @@
    "chapter": "第二章",
    "title": "矩阵及其运算",
    "hint": "本章知识清单：矩阵概念 · 矩阵乘法（行乘列） · 矩阵转置。以下 2 选择 + 1 填空 + 1 大题覆盖全部知识点。",
-   "knowledgePoints": ["矩阵概念", "矩阵乘法", "矩阵转置"],
+   "knowledgePoints": [
+    "矩阵概念",
+    "矩阵乘法",
+    "矩阵转置"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["矩阵概念", "矩阵乘法"],
+     "tags": [
+      "矩阵概念",
+      "矩阵乘法"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A\\) 为 \\(3\\times2\\) 矩阵，\\(B\\) 为 \\(2\\times4\\) 矩阵，则 \\(AB\\) 是（　）。</span>",
-     "options": ["A. \\(3\\times4\\) 矩阵", "B. \\(4\\times3\\) 矩阵", "C. \\(2\\times2\\) 矩阵", "D. 不可相乘"],
+     "options": [
+      "A. \\(3\\times4\\) 矩阵",
+      "B. \\(4\\times3\\) 矩阵",
+      "C. \\(2\\times2\\) 矩阵",
+      "D. 不可相乘"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>维度规律：\\((m\\times s)(s\\times n)=m\\times n\\)</b>——A 的列数 2 等于 B 的行数 2，「内维相等」可乘；结果取 A 的行数 3、B 的列数 4。<b>直观记法：中间相同的 s 消掉，留下外边两个数</b>。反过来 \\(BA\\) 则不可乘（B 的列 4 ≠ A 的行 3）。</p>",
      "kp": "📎 知识点：矩阵乘法 · 维度规律"
@@ -328,9 +419,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["矩阵转置"],
+     "tags": [
+      "矩阵转置"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A,B\\) 为同型矩阵，则 \\((AB)^T\\) 等于（　）。</span>",
-     "options": ["A. \\(A^TB^T\\)", "B. \\(B^TA^T\\)", "C. \\((AB)^{-1}\\)", "D. \\(AB\\)"],
+     "options": [
+      "A. \\(A^TB^T\\)",
+      "B. \\(B^TA^T\\)",
+      "C. \\((AB)^{-1}\\)",
+      "D. \\(AB\\)"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>转置的「穿脱法则」：<b>\\((AB)^T=B^TA^T\\)</b>——顺序要翻过来，与 \\((AB)^{-1}=B^{-1}A^{-1}\\) 同一个道理（先穿的后脱）。常见错误选 A。直观理解：AB 的 (i,j) 元转置后落到 (j,i) 位，正好对应 \\(B^TA^T\\) 的 (j,i) 元。</p>",
      "kp": "📎 知识点：矩阵转置的运算性质"
@@ -339,7 +437,10 @@
      "type": "填空题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["矩阵乘法", "运算律"],
+     "tags": [
+      "矩阵乘法",
+      "运算律"
+     ],
      "stem": "<span class=\"q-stem\">矩阵乘法一般不满足交换律，即 \\(AB\\) <span class=\"blank\">≠</span> \\(BA\\)（填 = 或 ≠）。</span>",
      "options": [],
      "answer": "≠",
@@ -350,7 +451,10 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["矩阵乘法", "矩阵转置"],
+     "tags": [
+      "矩阵乘法",
+      "矩阵转置"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A=\\begin{pmatrix}1 & 2\\\\0 & 1\\end{pmatrix}\\)，\\(B=\\begin{pmatrix}2 & 0\\\\1 & 1\\end{pmatrix}\\)，求 \\(AB\\) 与 \\((AB)^T\\)。</span>",
      "options": [],
      "answer": "\\(AB=\\begin{pmatrix}4 & 2\\\\1 & 1\\end{pmatrix}\\)；\\((AB)^T=\\begin{pmatrix}4 & 1\\\\2 & 1\\end{pmatrix}\\)。",
@@ -363,15 +467,28 @@
    "chapter": "第三章",
    "title": "逆矩阵与初等变换",
    "hint": "本章知识清单：逆矩阵定义 · 伴随矩阵 · 初等变换 · 矩阵的秩 · 可逆条件。以下 2 选择 + 1 填空 + 1 大题覆盖全部知识点。",
-   "knowledgePoints": ["逆矩阵定义", "伴随矩阵", "初等变换", "矩阵的秩", "可逆条件"],
+   "knowledgePoints": [
+    "逆矩阵定义",
+    "伴随矩阵",
+    "初等变换",
+    "矩阵的秩",
+    "可逆条件"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["逆矩阵定义"],
+     "tags": [
+      "逆矩阵定义"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A,B\\) 为同阶方阵，且 \\(AB=BA=E\\)，则（　）。</span>",
-     "options": ["A. \\(B=A^{-1}\\)", "B. \\(B=A\\)", "C. \\(B=E\\)", "D. \\(B\\) 无意义"],
+     "options": [
+      "A. \\(B=A^{-1}\\)",
+      "B. \\(B=A\\)",
+      "C. \\(B=E\\)",
+      "D. \\(B\\) 无意义"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>逆矩阵的定义就是「\\(AB=BA=E\\)」：B 就是 A 的逆。<b>通俗类比数的倒数</b>：\\(a\\cdot\\tfrac1a=1\\)，矩阵版 \\(A\\cdot A^{-1}=E\\)。注意必须两边都等于 E（单边成立一般不够）。</p>",
      "kp": "📎 知识点：逆矩阵的定义"
@@ -380,9 +497,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["矩阵的秩"],
+     "tags": [
+      "矩阵的秩"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A\\) 为 \\(3\\times4\\) 矩阵，则 \\(r(A)\\) 最大为（　）。</span>",
-     "options": ["A. \\(3\\)", "B. \\(4\\)", "C. \\(7\\)", "D. \\(12\\)"],
+     "options": [
+      "A. \\(3\\)",
+      "B. \\(4\\)",
+      "C. \\(7\\)",
+      "D. \\(12\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>矩阵的秩是「真正独立的行数（列数）」，不能超过行数或列数中的较小者：\\(r(A)\\leq\\min(m,n)=\\min(3,4)=3\\)。<b>秩好比数表里独立信息的条数</b>——3 行最多只有 3 条独立信息。</p>",
      "kp": "📎 知识点：矩阵的秩"
@@ -391,7 +515,10 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["伴随矩阵", "逆行列式"],
+     "tags": [
+      "伴随矩阵",
+      "逆行列式"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A\\) 为 3 阶方阵，\\(|A|=3\\)，则 \\(|A^{-1}|=\\) <span class=\"blank\">\\(\\dfrac13\\)</span>，\\(|A^*|=\\) <span class=\"blank\">\\(9\\)</span>。</span>",
      "options": [],
      "answer": "\\(|A^{-1}|=\\dfrac{1}{3}\\)；\\(|A^*|=9\\)",
@@ -402,7 +529,11 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["伴随矩阵", "求逆", "可逆条件"],
+     "tags": [
+      "伴随矩阵",
+      "求逆",
+      "可逆条件"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A=\\begin{pmatrix}1 & 2\\\\3 & 4\\end{pmatrix}\\)，用伴随矩阵法求 \\(A^{-1}\\)，并说明 A 可逆的理由。</span>",
      "options": [],
      "answer": "\\(A^{-1}=\\begin{pmatrix}-2 & 1\\\\\\dfrac{3}{2} & -\\dfrac{1}{2}\\end{pmatrix}\\)",
@@ -415,15 +546,25 @@
    "chapter": "第四章",
    "title": "线性方程组",
    "hint": "本章知识清单：非齐次方程组解的判定 · 齐次方程组。以下 1 选择 + 1 填空 + 1 大题覆盖全部知识点。",
-   "knowledgePoints": ["非齐次解判定", "齐次方程组"],
+   "knowledgePoints": [
+    "非齐次解判定",
+    "齐次方程组"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["齐次方程组"],
+     "tags": [
+      "齐次方程组"
+     ],
      "stem": "<span class=\"q-stem\">n 阶方阵 \\(A\\) 的齐次方程组 \\(AX=0\\) 有非零解的充要条件是（　）。</span>",
-     "options": ["A. \\(|A|=0\\)", "B. \\(|A|\\neq0\\)", "C. \\(A=E\\)", "D. \\(A\\) 满秩"],
+     "options": [
+      "A. \\(|A|=0\\)",
+      "B. \\(|A|\\neq0\\)",
+      "C. \\(A=E\\)",
+      "D. \\(A\\) 满秩"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>\\(AX=0\\) 必有零解；<b>有非零解 ⟺ \\(r(A)&lt;n\\)，对方阵即 \\(|A|=0\\)</b>（行列式为 0，A 不满秩、不可逆）。通俗说：方程数「管不住」未知数时，未知数就有自由空间，存在非零解。注意 \\(|A|\\neq0\\) 时只有唯一零解。</p>",
      "kp": "📎 知识点：齐次线性方程组有非零解的条件"
@@ -432,7 +573,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["非齐次解判定"],
+     "tags": [
+      "非齐次解判定"
+     ],
      "stem": "<span class=\"q-stem\">非齐次线性方程组 \\(AX=b\\) 有解的充要条件是系数矩阵的秩 <span class=\"blank\">等于</span> 增广矩阵 \\((A\\mid b)\\) 的秩。</span>",
      "options": [],
      "answer": "\\(r(A)=r(A\\mid b)\\)",
@@ -443,7 +586,10 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["非齐次解判定", "求解"],
+     "tags": [
+      "非齐次解判定",
+      "求解"
+     ],
      "stem": "<span class=\"q-stem\">判断方程组 \\(\\begin{cases}x_1+x_2=1\\\\x_1-x_2=3\\\\x_1+2x_2=0\\end{cases}\\) 是否有解；若有解，求出解。</span>",
      "options": [],
      "answer": "有唯一解：\\(x_1=2,\\ x_2=-1\\)。",
@@ -456,15 +602,27 @@
    "chapter": "第五章",
    "title": "向量组的线性相关性",
    "hint": "本章知识清单：线性表示 · 线性相关/无关 · 极大线性无关组。以下 2 选择 + 1 填空 + 1 大题覆盖全部知识点。",
-   "knowledgePoints": ["线性表示", "线性相关与无关", "极大无关组"],
+   "knowledgePoints": [
+    "线性表示",
+    "线性相关与无关",
+    "极大无关组"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["线性相关", "线性表示"],
+     "tags": [
+      "线性相关",
+      "线性表示"
+     ],
      "stem": "<span class=\"q-stem\">向量组 \\(\\alpha_1=(1,0,0)\\)，\\(\\alpha_2=(0,1,0)\\)，\\(\\alpha_3=(1,1,0)\\) 的线性相关性为（　）。</span>",
-     "options": ["A. 线性无关", "B. 线性相关，且 \\(\\alpha_3=\\alpha_1+\\alpha_2\\)", "C. 线性相关，且 \\(\\alpha_1=\\alpha_2+\\alpha_3\\)", "D. 无法判断"],
+     "options": [
+      "A. 线性无关",
+      "B. 线性相关，且 \\(\\alpha_3=\\alpha_1+\\alpha_2\\)",
+      "C. 线性相关，且 \\(\\alpha_1=\\alpha_2+\\alpha_3\\)",
+      "D. 无法判断"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>观察：\\(\\alpha_1+\\alpha_2=(1,0,0)+(0,1,0)=(1,1,0)=\\alpha_3\\)，即 \\(\\alpha_1+\\alpha_2-\\alpha_3=0\\)，系数不全为 0，故<b>线性相关</b>。<b>判断诀窍：能把其中一个向量写成其余向量的组合，就立刻判定相关</b>——α3 的信息完全由 α1、α2 拼出，是冗余向量。</p>",
      "kp": "📎 知识点：线性相关与无关的判定 · 线性表示"
@@ -473,9 +631,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["线性相关"],
+     "tags": [
+      "线性相关"
+     ],
      "stem": "<span class=\"q-stem\">已知 \\(\\alpha_1=(1,2)\\)，\\(\\alpha_2=(2,4)\\)，则两向量（　）。</span>",
-     "options": ["A. 线性无关", "B. 线性相关，且 \\(\\alpha_2=2\\alpha_1\\)", "C. 正交", "D. 相等"],
+     "options": [
+      "A. 线性无关",
+      "B. 线性相关，且 \\(\\alpha_2=2\\alpha_1\\)",
+      "C. 正交",
+      "D. 相等"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>\\(\\alpha_2=(2,4)=2\\times(1,2)=2\\alpha_1\\)，移项 \\(2\\alpha_1-\\alpha_2=0\\)，系数不全为 0。<b>两向量相关的简便判据：对应分量成比例</b>（\\(2:4=1:2\\)）——它们共线、信息完全重复，就像同一段路程的“2 倍放大版”。</p>",
      "kp": "📎 知识点：两向量线性相关 · 分量成比例"
@@ -484,7 +649,9 @@
      "type": "填空题",
      "difficulty": "hard",
      "number": "第 1 题",
-     "tags": ["极大无关组"],
+     "tags": [
+      "极大无关组"
+     ],
      "stem": "<span class=\"q-stem\">向量组 \\(\\alpha_1=(1,2)\\)，\\(\\alpha_2=(2,4)\\)，\\(\\alpha_3=(1,0)\\) 的一个极大线性无关组是 <span class=\"blank\">\\(\\{\\alpha_1,\\alpha_3\\}\\)</span>，向量组的秩为 <span class=\"blank\">\\(2\\)</span>。</span>",
      "options": [],
      "answer": "极大无关组 \\(\\{\\alpha_1,\\alpha_3\\}\\)（或 \\(\\{\\alpha_2,\\alpha_3\\}\\)）；秩为 2",
@@ -495,7 +662,9 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["线性表示"],
+     "tags": [
+      "线性表示"
+     ],
      "stem": "<span class=\"q-stem\">已知 \\(\\beta=(3,4)\\)，\\(\\alpha_1=(1,2)\\)，\\(\\alpha_2=(1,0)\\)，判断 \\(\\beta\\) 能否由 \\(\\alpha_1,\\alpha_2\\) 线性表示；若能，写出表示式。</span>",
      "options": [],
      "answer": "能表示：\\(\\beta=2\\alpha_1+\\alpha_2\\)。",
@@ -508,15 +677,27 @@
    "chapter": "第六章",
    "title": "特征值、特征向量与二次型",
    "hint": "本章知识清单：特征值与特征向量 · 相似对角化 · 二次型矩阵。以下 2 选择 + 1 填空 + 1 大题覆盖全部知识点。",
-   "knowledgePoints": ["特征值与特征向量", "相似对角化", "二次型矩阵"],
+   "knowledgePoints": [
+    "特征值与特征向量",
+    "相似对角化",
+    "二次型矩阵"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["特征值", "行列式"],
+     "tags": [
+      "特征值",
+      "行列式"
+     ],
      "stem": "<span class=\"q-stem\">设 3 阶方阵 \\(A\\) 的三个特征值为 \\(1,2,3\\)，则 \\(|A|\\) 等于（　）。</span>",
-     "options": ["A. \\(6\\)", "B. \\(9\\)", "C. \\(1\\)", "D. \\(2\\)"],
+     "options": [
+      "A. \\(6\\)",
+      "B. \\(9\\)",
+      "C. \\(1\\)",
+      "D. \\(2\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>重要结论：<b>方阵的行列式等于全部特征值之积</b>，即 \\(|A|=\\lambda_1\\lambda_2\\lambda_3=1\\times2\\times3=6\\)。同时迹（主对角线之和）等于特征值之和 \\(\\operatorname{tr}(A)=6\\)。<b>记忆：行列式「乘出来」，迹「加起来」。</b></p>",
      "kp": "📎 知识点：特征值与行列式的关系"
@@ -525,9 +706,16 @@
      "type": "选择题",
      "difficulty": "hard",
      "number": "第 2 题",
-     "tags": ["二次型矩阵"],
+     "tags": [
+      "二次型矩阵"
+     ],
      "stem": "<span class=\"q-stem\">二次型 \\(f=x_1^2+3x_2^2+2x_1x_2\\) 对应的对称矩阵是（　）。</span>",
-     "options": ["A. \\(\\begin{pmatrix}1 & 1\\\\1 & 3\\end{pmatrix}\\)", "B. \\(\\begin{pmatrix}1 & 2\\\\2 & 3\\end{pmatrix}\\)", "C. \\(\\begin{pmatrix}1 & 0\\\\0 & 3\\end{pmatrix}\\)", "D. \\(\\begin{pmatrix}0 & 1\\\\1 & 0\\end{pmatrix}\\)"],
+     "options": [
+      "A. \\(\\begin{pmatrix}1 & 1\\\\1 & 3\\end{pmatrix}\\)",
+      "B. \\(\\begin{pmatrix}1 & 2\\\\2 & 3\\end{pmatrix}\\)",
+      "C. \\(\\begin{pmatrix}1 & 0\\\\0 & 3\\end{pmatrix}\\)",
+      "D. \\(\\begin{pmatrix}0 & 1\\\\1 & 0\\end{pmatrix}\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>构造方法：<b>平方项系数放对角元，交叉项系数的一半放到两个对称位置</b>。\\(x_1^2\\) 系数 1 放 \\(a_{11}\\)，\\(x_2^2\\) 系数 3 放 \\(a_{22}\\)；交叉项 \\(2x_1x_2\\) 系数 2，一半为 1，放 \\(a_{12}=a_{21}=1\\)。选项 B 错在把 2 直接填进非对角元（那样交叉项会变成 \\(4x_1x_2\\)）。</p>",
      "kp": "📎 知识点：二次型的矩阵表示"
@@ -536,7 +724,9 @@
      "type": "填空题",
      "difficulty": "hard",
      "number": "第 1 题",
-     "tags": ["特征值性质"],
+     "tags": [
+      "特征值性质"
+     ],
      "stem": "<span class=\"q-stem\">设方阵 \\(A\\) 的特征值为 \\(1,-2,3\\)，则 \\(A^{-1}\\) 的特征值为 <span class=\"blank\">\\(1,-\\dfrac12,\\dfrac13\\)</span>，\\(\\operatorname{tr}(A)=\\) <span class=\"blank\">\\(2\\)</span>。</span>",
      "options": [],
      "answer": "\\(1,-\\dfrac12,\\dfrac13\\)；\\(\\operatorname{tr}(A)=2\\)",
@@ -547,7 +737,10 @@
      "type": "计算题",
      "difficulty": "hard",
      "number": "第 1 题",
-     "tags": ["特征值", "相似对角化"],
+     "tags": [
+      "特征值",
+      "相似对角化"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A=\\begin{pmatrix}1 & 2\\\\2 & 1\\end{pmatrix}\\)，求：（1）A 的全部特征值；（2）\\(|A|\\)；（3）判断 A 能否相似对角化，并说明理由。</span>",
      "options": [],
      "answer": "（1）\\(\\lambda_1=3,\\ \\lambda_2=-1\\)；（2）\\(|A|=-3\\)；（3）能对角化。",
@@ -567,9 +760,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷一 · 第 1 题",
-     "tags": ["二阶行列式"],
+     "tags": [
+      "二阶行列式"
+     ],
      "stem": "<span class=\"q-stem\">\\(\\begin{vmatrix}2 & 1\\\\0 & 3\\end{vmatrix}\\) 的值为（　）。</span>",
-     "options": ["A. \\(6\\)", "B. \\(5\\)", "C. \\(-6\\)", "D. \\(3\\)"],
+     "options": [
+      "A. \\(6\\)",
+      "B. \\(5\\)",
+      "C. \\(-6\\)",
+      "D. \\(3\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>对角线法则：主对角线 \\(2\\times3=6\\)，副对角线 \\(1\\times0=0\\)，相减 \\(6-0=6\\)。第二行含 0 时副对角线乘积自然消失。</p>",
      "kp": "📎 知识点：二阶对角线法则"
@@ -578,9 +778,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷一 · 第 2 题",
-     "tags": ["矩阵乘法"],
+     "tags": [
+      "矩阵乘法"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A\\) 为 \\(2\\times3\\) 矩阵，\\(B\\) 为 \\(3\\times1\\) 矩阵，则 \\(AB\\) 为（　）。</span>",
-     "options": ["A. \\(2\\times1\\) 矩阵", "B. \\(1\\times2\\) 矩阵", "C. \\(3\\times3\\) 矩阵", "D. 不可相乘"],
+     "options": [
+      "A. \\(2\\times1\\) 矩阵",
+      "B. \\(1\\times2\\) 矩阵",
+      "C. \\(3\\times3\\) 矩阵",
+      "D. 不可相乘"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>维度规律 \\((m\\times s)(s\\times n)=m\\times n\\)：\\((2\\times3)(3\\times1)\\Rightarrow 2\\times1\\)。</p>",
      "kp": "📎 知识点：矩阵乘法维度"
@@ -589,9 +796,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 3 题",
-     "tags": ["可逆条件"],
+     "tags": [
+      "可逆条件"
+     ],
      "stem": "<span class=\"q-stem\">方阵 \\(A\\) 可逆的充要条件是（　）。</span>",
-     "options": ["A. \\(|A|\\neq0\\)", "B. \\(|A|=0\\)", "C. \\(A\\) 为对称矩阵", "D. \\(A\\) 的元素全非零"],
+     "options": [
+      "A. \\(|A|\\neq0\\)",
+      "B. \\(|A|=0\\)",
+      "C. \\(A\\) 为对称矩阵",
+      "D. \\(A\\) 的元素全非零"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>可逆 ⟺ 行列式≠0 ⟺ 满秩 ⟺ 方程组只有唯一解</b>，四者同一件事。</p>",
      "kp": "📎 知识点：矩阵可逆的充要条件"
@@ -600,9 +814,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 4 题",
-     "tags": ["解判定"],
+     "tags": [
+      "解判定"
+     ],
      "stem": "<span class=\"q-stem\">非齐次方程组 \\(AX=b\\) 无解时，必有（　）。</span>",
-     "options": ["A. \\(r(A)&lt;r(A\\mid b)\\)", "B. \\(r(A)=r(A\\mid b)\\)", "C. \\(|A|\\neq0\\)", "D. \\(A\\) 满秩"],
+     "options": [
+      "A. \\(r(A)&lt;r(A\\mid b)\\)",
+      "B. \\(r(A)=r(A\\mid b)\\)",
+      "C. \\(|A|\\neq0\\)",
+      "D. \\(A\\) 满秩"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>无解的唯一情形：增广矩阵比系数矩阵多了一条独立信息（\\(r(A)&lt;r(A\\mid b)\\)），方程互相打架。</p>",
      "kp": "📎 知识点：非齐次方程组无解的判定"
@@ -611,9 +832,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 5 题",
-     "tags": ["线性相关"],
+     "tags": [
+      "线性相关"
+     ],
      "stem": "<span class=\"q-stem\">向量个数大于向量维数时，该向量组（　）。</span>",
-     "options": ["A. 必线性相关", "B. 必线性无关", "C. 可能相关也可能无关", "D. 秩为 0"],
+     "options": [
+      "A. 必线性相关",
+      "B. 必线性无关",
+      "C. 可能相关也可能无关",
+      "D. 秩为 0"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>“向量个数 > 维数” 必相关</b>：3 个二维向量，就像 3 个人进 2 间房，必有两人同屋——必然有一个能被另外两个拼出。</p>",
      "kp": "📎 知识点：线性相关的判据"
@@ -622,9 +850,16 @@
      "type": "选择题",
      "difficulty": "hard",
      "number": "卷一 · 第 6 题",
-     "tags": ["相似对角化"],
+     "tags": [
+      "相似对角化"
+     ],
      "stem": "<span class=\"q-stem\">下列关于实对称矩阵的结论，正确的是（　）。</span>",
-     "options": ["A. 必可相似对角化", "B. 特征值必为 0", "C. 行列式必为 0", "D. 秩为 1"],
+     "options": [
+      "A. 必可相似对角化",
+      "B. 特征值必为 0",
+      "C. 行列式必为 0",
+      "D. 秩为 1"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>实对称矩阵（\\(A^T=A\\)）的特征值全为实数，且一定可以相似对角化——这是经管协方差矩阵（天然实对称）能做主成分分析的前提。</p>",
      "kp": "📎 知识点：实对称矩阵 · 相似对角化"
@@ -633,7 +868,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷一 · 第 1 题",
-     "tags": ["行列式性质"],
+     "tags": [
+      "行列式性质"
+     ],
      "stem": "<span class=\"q-stem\">行列式某一行的所有元素乘以常数 \\(k\\)，则行列式的值变为原来的 <span class=\"blank\">\\(k\\) 倍</span>。</span>",
      "options": [],
      "answer": "\\(k\\) 倍",
@@ -644,7 +881,9 @@
      "type": "填空题",
      "difficulty": "hard",
      "number": "卷一 · 第 2 题",
-     "tags": ["特征值"],
+     "tags": [
+      "特征值"
+     ],
      "stem": "<span class=\"q-stem\">设方阵 \\(A\\) 的两个特征值为 \\(2,-3\\)，则 \\(|A|=\\) <span class=\"blank\">\\(-6\\)</span>。</span>",
      "options": [],
      "answer": "\\(-6\\)",
@@ -655,7 +894,10 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "卷一 · 第 1 题",
-     "tags": ["求逆", "解矩阵方程"],
+     "tags": [
+      "求逆",
+      "解矩阵方程"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A=\\begin{pmatrix}1 & 3\\\\2 & 4\\end{pmatrix}\\)，\\(b=\\begin{pmatrix}1\\\\0\\end{pmatrix}\\)。（1）求 \\(A^{-1}\\)；（2）解矩阵方程 \\(AX=b\\)。</span>",
      "options": [],
      "answer": "（1）\\(A^{-1}=\\begin{pmatrix}-2 & \\dfrac32\\\\1 & -\\dfrac12\\end{pmatrix}\\)；（2）\\(X=\\begin{pmatrix}-2\\\\1\\end{pmatrix}\\)。",
@@ -666,7 +908,11 @@
      "type": "计算题",
      "difficulty": "hard",
      "number": "卷一 · 第 2 题",
-     "tags": ["特征值", "特征向量", "对角化"],
+     "tags": [
+      "特征值",
+      "特征向量",
+      "对角化"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A=\\begin{pmatrix}2 & 1\\\\1 & 2\\end{pmatrix}\\)，求：（1）全部特征值；（2）各特征值对应的一个特征向量；（3）\\(|A|\\)。</span>",
      "options": [],
      "answer": "（1）\\(\\lambda_1=1,\\ \\lambda_2=3\\)；（2）\\(\\lambda=1\\) 对应 \\((1,-1)^T\\)，\\(\\lambda=3\\) 对应 \\((1,1)^T\\)；（3）\\(|A|=3\\)。",
@@ -684,9 +930,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷二 · 第 1 题",
-     "tags": ["二阶行列式"],
+     "tags": [
+      "二阶行列式"
+     ],
      "stem": "<span class=\"q-stem\">\\(\\begin{vmatrix}1 & 0\\\\2 & 3\\end{vmatrix}\\) 的值为（　）。</span>",
-     "options": ["A. \\(3\\)", "B. \\(1\\)", "C. \\(-3\\)", "D. \\(0\\)"],
+     "options": [
+      "A. \\(3\\)",
+      "B. \\(1\\)",
+      "C. \\(-3\\)",
+      "D. \\(0\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>主对角线 \\(1\\times3=3\\)，副对角线 \\(0\\times2=0\\)，\\(3-0=3\\)。第一行含 0，副对角线项自然为 0。</p>",
      "kp": "📎 知识点：二阶对角线法则"
@@ -695,9 +948,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷二 · 第 2 题",
-     "tags": ["逆矩阵性质"],
+     "tags": [
+      "逆矩阵性质"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A,B\\) 均可逆，则 \\((AB)^{-1}\\) 等于（　）。</span>",
-     "options": ["A. \\(A^{-1}B^{-1}\\)", "B. \\(B^{-1}A^{-1}\\)", "C. \\(AB\\)", "D. \\((BA)^{-1}\\)"],
+     "options": [
+      "A. \\(A^{-1}B^{-1}\\)",
+      "B. \\(B^{-1}A^{-1}\\)",
+      "C. \\(AB\\)",
+      "D. \\((BA)^{-1}\\)"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>「穿脱法则」：\\((AB)^{-1}=B^{-1}A^{-1}\\)——先乘的后逆。与转置 \\((AB)^T=B^TA^T\\) 同一个道理。</p>",
      "kp": "📎 知识点：乘积的逆 · 穿脱法则"
@@ -706,9 +966,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 3 题",
-     "tags": ["数乘矩阵行列式"],
+     "tags": [
+      "数乘矩阵行列式"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A\\) 为 2 阶方阵且 \\(|A|=2\\)，则 \\(|3A|\\) 等于（　）。</span>",
-     "options": ["A. \\(6\\)", "B. \\(18\\)", "C. \\(12\\)", "D. \\(9\\)"],
+     "options": [
+      "A. \\(6\\)",
+      "B. \\(18\\)",
+      "C. \\(12\\)",
+      "D. \\(9\\)"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>\\(|kA|=k^n|A|\\)：\\(|3A|=3^2\\times|A|=9\\times2=18\\)。<b>k 要乘到每一行，共 n 行，所以是 k 的 n 次方</b>，不是 k 倍。</p>",
      "kp": "📎 知识点：数乘矩阵的行列式"
@@ -717,9 +984,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 4 题",
-     "tags": ["解判定"],
+     "tags": [
+      "解判定"
+     ],
      "stem": "<span class=\"q-stem\">\\(n\\) 元非齐次方程组 \\(AX=b\\) 有唯一解的充要条件是（　）。</span>",
-     "options": ["A. \\(r(A)=r(A\\mid b)=n\\)", "B. \\(r(A)&lt;r(A\\mid b)\\)", "C. \\(|A|=0\\)", "D. \\(r(A)=1\\)"],
+     "options": [
+      "A. \\(r(A)=r(A\\mid b)=n\\)",
+      "B. \\(r(A)&lt;r(A\\mid b)\\)",
+      "C. \\(|A|=0\\)",
+      "D. \\(r(A)=1\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>唯一解 = 有解（秩相等）且没有自由未知数（秩 = 未知数个数 n）。秩小于 n 则有无穷多解。</p>",
      "kp": "📎 知识点：唯一解的判定"
@@ -728,9 +1002,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 5 题",
-     "tags": ["线性表示"],
+     "tags": [
+      "线性表示"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(\\alpha_1,\\alpha_2\\) 线性无关，则 \\(\\beta=2\\alpha_1-3\\alpha_2\\)（　）。</span>",
-     "options": ["A. 是 \\(\\alpha_1,\\alpha_2\\) 的线性组合", "B. 必为零向量", "C. 与 \\(\\alpha_1\\) 线性无关", "D. 无法判断"],
+     "options": [
+      "A. 是 \\(\\alpha_1,\\alpha_2\\) 的线性组合",
+      "B. 必为零向量",
+      "C. 与 \\(\\alpha_1\\) 线性无关",
+      "D. 无法判断"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>按定义，β 已经写成 \\(2\\alpha_1+(-3)\\alpha_2\\)，它<b>就是 α1、α2 的线性组合</b>，能由它们拼出来。</p>",
      "kp": "📎 知识点：线性组合的定义"
@@ -739,9 +1020,16 @@
      "type": "选择题",
      "difficulty": "hard",
      "number": "卷二 · 第 6 题",
-     "tags": ["二次型矩阵"],
+     "tags": [
+      "二次型矩阵"
+     ],
      "stem": "<span class=\"q-stem\">二次型 \\(f=3x_1^2+5x_2^2\\) 对应的对称矩阵对角元为（　）。</span>",
-     "options": ["A. \\(a_{11}=3,\\ a_{22}=5\\)", "B. \\(a_{11}=\\tfrac32,\\ a_{22}=\\tfrac52\\)", "C. \\(a_{11}=3,\\ a_{22}=3\\)", "D. \\(a_{12}=3\\)"],
+     "options": [
+      "A. \\(a_{11}=3,\\ a_{22}=5\\)",
+      "B. \\(a_{11}=\\tfrac32,\\ a_{22}=\\tfrac52\\)",
+      "C. \\(a_{11}=3,\\ a_{22}=3\\)",
+      "D. \\(a_{12}=3\\)"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>平方项系数直接放对角元：\\(a_{11}=3\\)，\\(a_{22}=5\\)；没有交叉项，非对角元为 0。矩阵为 \\(\\begin{pmatrix}3&0\\\\0&5\\end{pmatrix}\\)。</p>",
      "kp": "📎 知识点：二次型矩阵对角元"
@@ -750,7 +1038,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷二 · 第 1 题",
-     "tags": ["行列式性质"],
+     "tags": [
+      "行列式性质"
+     ],
      "stem": "<span class=\"q-stem\">交换行列式的两行，行列式的值 <span class=\"blank\">变号</span>（填“变号”或“不变”）。</span>",
      "options": [],
      "answer": "变号",
@@ -761,7 +1051,10 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷二 · 第 2 题",
-     "tags": ["极大无关组", "秩"],
+     "tags": [
+      "极大无关组",
+      "秩"
+     ],
      "stem": "<span class=\"q-stem\">向量组的秩就是其极大线性无关组所含向量的 <span class=\"blank\">个数</span>。</span>",
      "options": [],
      "answer": "个数",
@@ -772,7 +1065,11 @@
      "type": "计算题",
      "difficulty": "mid",
      "number": "卷二 · 第 1 题",
-     "tags": ["行列式", "可逆条件", "齐次方程组"],
+     "tags": [
+      "行列式",
+      "可逆条件",
+      "齐次方程组"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(A=\\begin{pmatrix}1 & 1 & 1\\\\2 & 3 & 4\\\\0 & 1 & 2\\end{pmatrix}\\)。（1）计算 \\(|A|\\)；（2）判断 A 是否可逆；（3）说明齐次方程组 \\(AX=0\\) 的解的情况。</span>",
      "options": [],
      "answer": "（1）\\(|A|=0\\)；（2）A 不可逆；（3）\\(AX=0\\) 有非零解。",
@@ -783,7 +1080,11 @@
      "type": "计算题",
      "difficulty": "hard",
      "number": "卷二 · 第 2 题",
-     "tags": ["线性表示", "二次型矩阵", "特征值"],
+     "tags": [
+      "线性表示",
+      "二次型矩阵",
+      "特征值"
+     ],
      "stem": "<span class=\"q-stem\">设 \\(\\alpha_1=(1,1)\\)，\\(\\alpha_2=(1,-1)\\)。（1）判断 \\(\\alpha_1,\\alpha_2\\) 是否线性无关；（2）把 \\(\\beta=(3,1)\\) 表示为 \\(\\alpha_1,\\alpha_2\\) 的线性组合；（3）写出二次型 \\(f=2x_1^2+4x_1x_2+2x_2^2\\) 的矩阵并求其特征值。</span>",
      "options": [],
      "answer": "（1）无关；（2）\\(\\beta=2\\alpha_1+\\alpha_2\\)；（3）矩阵 \\(\\begin{pmatrix}2 & 2\\\\2 & 2\\end{pmatrix}\\)，特征值 \\(\\lambda=0,4\\)。",

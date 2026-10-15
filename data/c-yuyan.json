@@ -3,9 +3,10 @@
  "name": "C语言程序设计",
  "emoji": "💻",
  "category": "数理编程",
- "desc": "C语言语法、分支循环、数组、函数与基本算法——经管数据处理与编程入门的第一门语言：会写“统计销售额、求平均、找最值”的小程序。",
+ "desc": "C语言语法、分支循环、数组、函数与基本算法——经管数据处理与编程入门的第一门语言：会写“统计销售额、求平均、找最值”的小程序。【定位说明】培养方案现行编程语言为 Java/Python，本课程作为补充/兴趣拓展内容保留，供想打好编程底层基础的同学自学参考。",
  "meta": [
-  "学科大类基础课（双语）",
+  "补充/兴趣课程",
+  "培养方案现行为 Java/Python",
   "笔试+上机"
  ],
  "textbook": [
@@ -34,6 +35,18 @@
    "name": "《C语言程序设计》浙江大学（翁恺、张高燕）",
    "desc": "以何钦铭、颜晖《C语言程序设计（第3版）》为基础的提高课程，覆盖函数、指针、结构等进阶内容（独立SPOC，以实际开课页面为准）",
    "url": "https://www.icourse163.org/spoc/course/ZJU-1001700011"
+  },
+  {
+   "platform": "B站",
+   "name": "【浙江大学】C语言入门与进阶 翁恺（全129讲）",
+   "desc": "浙大翁恺主讲的系统公开课，从C语言基础讲到函数、指针进阶，与本站章节体系对应",
+   "url": "https://www.bilibili.com/video/BV1ALSyBREDu/"
+  },
+  {
+   "platform": "抖音",
+   "name": "C语言从0到1系统课（零基础保姆级教学合集）",
+   "desc": "抖音平台C语言零基础系统教学合集，按章节持续更新，适合配合上机练习",
+   "url": "https://www.iesdouyin.com/share/video/7625303227231161663"
   }
  ],
  "callout": "<b>💡 公开课知识点归类：</b>浙大翁恺《程序设计入门——C语言》章节与教材对应——第 1–2 周（计算机与 C 语言、数据类型与表达式）对应教材第 1–2 章；第 3–4 周（分支与循环）对应第 3 章；第 5–6 周（数组）对应第 4 章；第 7 周（函数）对应第 5 章；进阶课《C语言程序设计》再覆盖指针与结构（第 6–7 章）。经管类学习重点：分支循环、数组、函数——足以编写“统计销售额、求平均、找出最值”等数据处理小程序。",
@@ -43,7 +56,10 @@
    "title": "C 程序入门",
    "sub": "第一个程序从 main 开始：认识程序结构、编译运行流程。",
    "sections": [
-    {"h4": "1. 第一个 C 程序", "body": "<div class=\"md\"><pre><code>#include &lt;stdio.h&gt;\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}</code></pre></div>"}
+    {
+     "h4": "1. 第一个 C 程序",
+     "body": "<div class=\"md\"><pre><code>#include &lt;stdio.h&gt;\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}</code></pre></div>"
+    }
    ],
    "terms": [
     {
@@ -63,7 +79,10 @@
    "title": "数据类型、常量与表达式",
    "sub": "程序要“存数据、算数据”：先认识变量、类型和常用运算。",
    "sections": [
-    {"h4": "1. 基本数据类型与运算", "body": "int 存整数、double 存小数、char 存字符；= 是赋值、== 才是判等；整数除法截断小数，% 取余数。"}
+    {
+     "h4": "1. 基本数据类型与运算",
+     "body": "int 存整数、double 存小数、char 存字符；= 是赋值、== 才是判等；整数除法截断小数，% 取余数。"
+    }
    ],
    "terms": [
     {
@@ -88,7 +107,10 @@
    "title": "分支与循环",
    "sub": "让程序“会判断、会重复”：这是程序设计的核心控制结构。",
    "sections": [
-    {"h4": "1. 分支与循环", "body": "<div class=\"md\"><pre><code>int s = 0, i;\nfor (i = 1; i &lt;= 10; i++) {\n    s = s + i;\n}\nprintf(\"%d\\n\", s);   /* 输出 55 */</code></pre></div>"}
+    {
+     "h4": "1. 分支与循环",
+     "body": "<div class=\"md\"><pre><code>int s = 0, i;\nfor (i = 1; i &lt;= 10; i++) {\n    s = s + i;\n}\nprintf(\"%d\\n\", s);   /* 输出 55 */</code></pre></div>"
+    }
    ],
    "terms": [
     {
@@ -118,7 +140,10 @@
    "title": "数组与字符串",
    "sub": "一批同类型数据的“集体抽屉”：批量处理 100 个学生成绩就靠它。",
    "sections": [
-    {"h4": "1. 一维与二维数组", "body": "<div class=\"md\"><pre><code>int a[5] = {10, 20, 30, 40, 50};\nprintf(\"%d\\n\", a[0]);   /* 输出 10 */</code></pre></div>"}
+    {
+     "h4": "1. 一维与二维数组",
+     "body": "<div class=\"md\"><pre><code>int a[5] = {10, 20, 30, 40, 50};\nprintf(\"%d\\n\", a[0]);   /* 输出 10 */</code></pre></div>"
+    }
    ],
    "terms": [
     {
@@ -143,7 +168,10 @@
    "title": "函数",
    "sub": "把一段常用代码“打包命名”，反复调用——程序模块化的基础。",
    "sections": [
-    {"h4": "1. 函数的定义与调用", "body": "<div class=\"md\"><pre><code>int max(int x, int y) {\n    if (x &gt; y) return x;\n    else       return y;\n}\nint main() {\n    printf(\"%d\\n\", max(3, 7));   /* 输出 7 */\n    return 0;\n}</code></pre></div>"}
+    {
+     "h4": "1. 函数的定义与调用",
+     "body": "<div class=\"md\"><pre><code>int max(int x, int y) {\n    if (x &gt; y) return x;\n    else       return y;\n}\nint main() {\n    printf(\"%d\\n\", max(3, 7));   /* 输出 7 */\n    return 0;\n}</code></pre></div>"
+    }
    ],
    "terms": [
     {
@@ -168,7 +196,10 @@
    "title": "指针与文件初步",
    "sub": "指针是 C 语言的灵魂；文件读写让程序能处理真实经管数据。",
    "sections": [
-    {"h4": "1. 指针与文件操作", "body": "<div class=\"md\"><pre><code>int a = 5;\nint *p;      /* 定义一个“指向 int 的指针” */\np = &amp;a;      /* p 存放 a 的内存地址 */\nprintf(\"%d\", *p);   /* 输出 5 */</code></pre></div>"}
+    {
+     "h4": "1. 指针与文件操作",
+     "body": "<div class=\"md\"><pre><code>int a = 5;\nint *p;      /* 定义一个“指向 int 的指针” */\np = &amp;a;      /* p 存放 a 的内存地址 */\nprintf(\"%d\", *p);   /* 输出 5 */</code></pre></div>"
+    }
    ],
    "terms": [
     {
@@ -190,15 +221,27 @@
    "chapter": "第一章",
    "title": "C 程序入门",
    "hint": "本章知识清单：main 函数 · 编译与链接 · 语句分号 · 转义字符。以下 2 选择 + 1 填空 + 1 程序改错题覆盖全部知识点。",
-   "knowledgePoints": ["main函数", "编译与链接", "分号", "转义字符"],
+   "knowledgePoints": [
+    "main函数",
+    "编译与链接",
+    "分号",
+    "转义字符"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["main函数"],
+     "tags": [
+      "main函数"
+     ],
      "stem": "<span class=\"q-stem\">一个 C 语言程序的执行入口是（　）。</span>",
-     "options": ["A. 第一个定义的函数", "B. main 函数", "C. printf 函数", "D. 文件的第一行注释"],
+     "options": [
+      "A. 第一个定义的函数",
+      "B. main 函数",
+      "C. printf 函数",
+      "D. 文件的第一行注释"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>C 程序有且只有一个 main 函数，<b>程序从 main 的第一条语句开始执行</b>，到 return 0 结束。无论代码里写了多少其他函数，电脑都先找 main——它就是“总入口”。</p>",
      "kp": "📎 知识点：C 程序结构 · main 函数"
@@ -207,9 +250,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "第 2 题",
-     "tags": ["分号"],
+     "tags": [
+      "分号"
+     ],
      "stem": "<span class=\"q-stem\">C 语言中每条语句结束的标志是（　）。</span>",
-     "options": ["A. 句号 “.”", "B. 分号 “;”", "C. 换行", "D. 大括号 “}”"],
+     "options": [
+      "A. 句号 “.”",
+      "B. 分号 “;”",
+      "C. 换行",
+      "D. 大括号 “}”"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>C 语言以<b>分号 “;”</b> 作为语句结束符，漏写分号是编译错误的第一大来源。类比：中文用句号断句，C 语言用分号断句。</p>",
      "kp": "📎 知识点：C 语言词法规则 · 分号"
@@ -218,7 +268,9 @@
      "type": "填空题",
      "difficulty": "easy",
      "number": "第 1 题",
-     "tags": ["转义字符"],
+     "tags": [
+      "转义字符"
+     ],
      "stem": "<span class=\"q-stem\">printf 中实现换行输出的转义字符是 <span class=\"blank\">\\n</span>（n 表示 newline）。</span>",
      "options": [],
      "answer": "\\n",
@@ -229,7 +281,11 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["改错", "分号", "编译"],
+     "tags": [
+      "改错",
+      "分号",
+      "编译"
+     ],
      "stem": "<span class=\"q-stem\">下面这段代码编译时报错，找出两处错误并改正：</span>\n                <div class=\"md\"><pre><code>#include &lt;stdio.h&gt;\nint main() {\n    int a = 5\n    printf(\"a=%d\\n\", a)\n    return 0;\n}</code></pre></div>",
      "options": [],
      "answer": "两处漏分号：<code>int a = 5;</code> 与 <code>printf(\"a=%d\\n\", a);</code> 末尾都缺 “;”。",
@@ -242,15 +298,28 @@
    "chapter": "第二章",
    "title": "数据类型、常量与表达式",
    "hint": "本章知识清单：基本数据类型 · = 与 == 区别 · 整数除法 · 取模 · 自增运算。以下 3 选择 + 1 填空 + 1 改错题覆盖全部知识点。",
-   "knowledgePoints": ["基本类型", "赋值与判等", "整数除法", "取模", "自增"],
+   "knowledgePoints": [
+    "基本类型",
+    "赋值与判等",
+    "整数除法",
+    "取模",
+    "自增"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["整数除法"],
+     "tags": [
+      "整数除法"
+     ],
      "stem": "<span class=\"q-stem\">执行 <code>int a = 5 / 2;</code> 后，a 的值是（　）。</span>",
-     "options": ["A. 2.5", "B. 2", "C. 3", "D. 1"],
+     "options": [
+      "A. 2.5",
+      "B. 2",
+      "C. 3",
+      "D. 1"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>两个 int 相除，<b>结果仍是 int，小数部分直接截断</b>：5/2 = 2（不是四舍五入成 3）。若要 2.5，必须写成 5.0 / 2。记忆：整数除整数＝“分了几整份，零头扔掉”。</p>",
      "kp": "📎 知识点：整数除法"
@@ -259,9 +328,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["取模"],
+     "tags": [
+      "取模"
+     ],
      "stem": "<span class=\"q-stem\">表达式 <code>5 % 2</code> 的值是（　）。</span>",
-     "options": ["A. 2", "B. 1", "C. 2.5", "D. 0"],
+     "options": [
+      "A. 2",
+      "B. 1",
+      "C. 2.5",
+      "D. 0"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>% 是<b>取模（取余数）</b>：5 除以 2 商 2 余 1，所以 5 % 2 = 1。经典用途：判断奇偶——n%2 为 1 是奇数、为 0 是偶数。</p>",
      "kp": "📎 知识点：取模运算符 %"
@@ -270,9 +346,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 3 题",
-     "tags": ["自增"],
+     "tags": [
+      "自增"
+     ],
      "stem": "<span class=\"q-stem\">执行 <code>int a = 3; a++;</code> 后，a 的值是（　）。</span>",
-     "options": ["A. 2", "B. 3", "C. 4", "D. 5"],
+     "options": [
+      "A. 2",
+      "B. 3",
+      "C. 4",
+      "D. 5"
+     ],
      "answer": "<b>C</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>a++ 等价于 a = a + 1，即“自增 1”。a 从 3 变成 4。在循环里常靠 i++ 让计数器每轮加 1。</p>",
      "kp": "📎 知识点：自增运算符 ++"
@@ -281,9 +364,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 4 题",
-     "tags": ["基本类型"],
+     "tags": [
+      "基本类型"
+     ],
      "stem": "<span class=\"q-stem\">下列变量定义正确的是（　）。</span>",
-     "options": ["A. <code>char c = \"A\";</code>", "B. <code>char c = 'A';</code>", "C. <code>double n = 100;</code> 后 n 是整数", "D. <code>int d = 3.5;</code>"],
+     "options": [
+      "A. <code>char c = \"A\";</code>",
+      "B. <code>char c = 'A';</code>",
+      "C. <code>double n = 100;</code> 后 n 是整数",
+      "D. <code>int d = 3.5;</code>"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>char 存单个字符，必须用单引号 'A'</b>；双引号 \"A\" 是字符串（含结束符）。int 存整数——给 int 赋 3.5 会被截断成 3。double 存小数，但 100 存进 double 仍是 100.0，不是整数类型。<b>记忆：不同抽屉放不同东西——整数抽屉、小数抽屉、字符抽屉。</b></p>",
      "kp": "📎 知识点：基本数据类型 int / double / char"
@@ -292,7 +382,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["赋值与判等"],
+     "tags": [
+      "赋值与判等"
+     ],
      "stem": "<span class=\"q-stem\">“判断 a 是否等于 5”应写成 if (<span class=\"blank\">a == 5</span>)，而不是 if (a = 5)。</span>",
      "options": [],
      "answer": "a == 5",
@@ -303,7 +395,10 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["改错", "赋值与判等"],
+     "tags": [
+      "改错",
+      "赋值与判等"
+     ],
      "stem": "<span class=\"q-stem\">下面代码想“当 a 等于 5 时输出 OK”，但逻辑有错误，请指出并改正：</span>\n                <div class=\"md\"><pre><code>int a = 3;\nif (a = 5) {\n    printf(\"OK\\n\");\n}</code></pre></div>",
      "options": [],
      "answer": "应把 if (a = 5) 改为 if (a == 5)。",
@@ -316,15 +411,27 @@
    "chapter": "第三章",
    "title": "分支与循环",
    "hint": "本章知识清单：if-else 配对 · switch 与 break · for 循环次数 · break 与 continue。以下 2 选择 + 1 填空 + 2 程序阅读题覆盖全部知识点。",
-   "knowledgePoints": ["if-else配对", "switch-break", "for次数", "break-continue"],
+   "knowledgePoints": [
+    "if-else配对",
+    "switch-break",
+    "for次数",
+    "break-continue"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["if-else配对"],
+     "tags": [
+      "if-else配对"
+     ],
      "stem": "<span class=\"q-stem\">C 语言中，else 与 if 的配对规则是（　）。</span>",
-     "options": ["A. 与最前面的 if 结合", "B. 与最近的、尚未配对的 if 结合", "C. 随机结合", "D. 与缩进对齐的 if 结合"],
+     "options": [
+      "A. 与最前面的 if 结合",
+      "B. 与最近的、尚未配对的 if 结合",
+      "C. 随机结合",
+      "D. 与缩进对齐的 if 结合"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>else 遵循“就近配对”：找前面最近的、还没有 else 的 if。</b>注意电脑不认缩进，缩进只是给人看的。避免歧义的最佳做法：凡嵌套就写花括号 {}。</p>",
      "kp": "📎 知识点：if-else 配对规则"
@@ -333,9 +440,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["for次数"],
+     "tags": [
+      "for次数"
+     ],
      "stem": "<span class=\"q-stem\"><code>for(i = 0; i &lt; 5; i++)</code> 的循环体执行次数是（　）。</span>",
-     "options": ["A. 4 次", "B. 5 次", "C. 6 次", "D. 无限次"],
+     "options": [
+      "A. 4 次",
+      "B. 5 次",
+      "C. 6 次",
+      "D. 无限次"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>i 依次取 0,1,2,3,4 共 5 个数，每数执行一次循环体——5 次。若写成 i&lt;=5 则执行 6 次。<b>&lt; 与 &lt;= 的差 1 是最常错点。</b></p>",
      "kp": "📎 知识点：for 循环执行次数"
@@ -344,7 +458,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["switch-break"],
+     "tags": [
+      "switch-break"
+     ],
      "stem": "<span class=\"q-stem\">switch 的每个 case 后面若不写 <span class=\"blank\">break</span>，程序会“穿透”继续执行下一个 case。</span>",
      "options": [],
      "answer": "break",
@@ -355,7 +471,10 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["程序阅读", "for循环"],
+     "tags": [
+      "程序阅读",
+      "for循环"
+     ],
      "stem": "<span class=\"q-stem\">阅读下面程序，写出输出结果：</span>\n                <div class=\"md\"><pre><code>int s = 0, i;\nfor (i = 1; i &lt;= 10; i++) {\n    s = s + i;\n}\nprintf(\"%d\\n\", s);</code></pre></div>",
      "options": [],
      "answer": "输出 <code>55</code>。",
@@ -366,7 +485,10 @@
      "type": "应用题",
      "difficulty": "hard",
      "number": "第 2 题",
-     "tags": ["程序阅读", "break-continue"],
+     "tags": [
+      "程序阅读",
+      "break-continue"
+     ],
      "stem": "<span class=\"q-stem\">阅读程序并写出输出：</span>\n                <div class=\"md\"><pre><code>for (i = 1; i &lt;= 5; i++) {\n    if (i == 3) continue;\n    if (i == 4) break;\n    printf(\"%d \", i);\n}</code></pre></div>",
      "options": [],
      "answer": "输出 <code>1 2</code>。",
@@ -379,15 +501,26 @@
    "chapter": "第四章",
    "title": "数组与字符串",
    "hint": "本章知识清单：下标从 0 开始 · 二维数组 · 字符串结束符 '\\0'。以下 1 选择 + 1 填空 + 1 程序阅读题覆盖全部知识点。",
-   "knowledgePoints": ["下标从0", "二维数组", "结束符"],
+   "knowledgePoints": [
+    "下标从0",
+    "二维数组",
+    "结束符"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["下标从0"],
+     "tags": [
+      "下标从0"
+     ],
      "stem": "<span class=\"q-stem\">定义 <code>int a[5];</code> 后，下列下标使用合法的是（　）。</span>",
-     "options": ["A. a[5]", "B. a[0] 到 a[4]", "C. a[1] 到 a[5]", "D. a[-1]"],
+     "options": [
+      "A. a[5]",
+      "B. a[0] 到 a[4]",
+      "C. a[1] 到 a[5]",
+      "D. a[-1]"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>5 个元素合法下标为 0,1,2,3,4——“第一号抽屉叫 0 号”。a[5]、a[-1] 都是越界，会读到垃圾值甚至崩溃。</p>",
      "kp": "📎 知识点：数组下标从 0 开始"
@@ -396,9 +529,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 2 题",
-     "tags": ["二维数组"],
+     "tags": [
+      "二维数组"
+     ],
      "stem": "<span class=\"q-stem\">定义 <code>int s[3][4];</code> 表示（　）。</span>",
-     "options": ["A. 3 行 4 列的表格", "B. 4 行 3 列的表格", "C. 3 个字符串", "D. 一个一维数组"],
+     "options": [
+      "A. 3 行 4 列的表格",
+      "B. 4 行 3 列的表格",
+      "C. 3 个字符串",
+      "D. 一个一维数组"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>第一维是行数、第二维是列数：3 行 4 列，用 s[行][列] 访问。<b>经管类比：3 个门店 × 4 种商品的销量表</b>，两重循环遍历求和。</p>",
      "kp": "📎 知识点：二维数组（行×列）"
@@ -407,7 +547,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["结束符"],
+     "tags": [
+      "结束符"
+     ],
      "stem": "<span class=\"q-stem\">执行 <code>strlen(\"Tom\")</code> 的结果是 <span class=\"blank\">3</span>（不含结尾的 '\\0'）。</span>",
      "options": [],
      "answer": "3",
@@ -418,7 +560,10 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["程序阅读", "数组遍历"],
+     "tags": [
+      "程序阅读",
+      "数组遍历"
+     ],
      "stem": "<span class=\"q-stem\">阅读程序，写出输出并说明循环的作用：</span>\n                <div class=\"md\"><pre><code>int a[5] = {10, 20, 30, 40, 50};\nint s = 0, i;\nfor (i = 0; i &lt; 5; i++) {\n    s = s + a[i];\n}\nprintf(\"%d\\n\", s);</code></pre></div>",
      "options": [],
      "answer": "输出 <code>150</code>。",
@@ -431,15 +576,26 @@
    "chapter": "第五章",
    "title": "函数",
    "hint": "本章知识清单：函数定义与调用 · 值传递 · 递归。以下 1 选择 + 1 填空 + 1 程序阅读题覆盖全部知识点。",
-   "knowledgePoints": ["函数调用", "值传递", "递归"],
+   "knowledgePoints": [
+    "函数调用",
+    "值传递",
+    "递归"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["值传递"],
+     "tags": [
+      "值传递"
+     ],
      "stem": "<span class=\"q-stem\">在 swap 函数里交换了两个形参的值，主程序中原来的两个变量（　）。</span>",
-     "options": ["A. 会被交换", "B. 不受影响（交换的只是复印件）", "C. 变成 0", "D. 编译报错"],
+     "options": [
+      "A. 会被交换",
+      "B. 不受影响（交换的只是复印件）",
+      "C. 变成 0",
+      "D. 编译报错"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>C 默认<b>值传递</b>：把实参复制一份交给函数，函数改的是“复印件”，原件不动。想真正交换必须传地址（指针）。<b>记忆：给的是复印件，随便涂，原件不变。</b></p>",
      "kp": "📎 知识点：值传递"
@@ -448,7 +604,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["递归"],
+     "tags": [
+      "递归"
+     ],
      "stem": "<span class=\"q-stem\">已知递归阶乘函数 fact(n) = n * fact(n-1)，出口 fact(1) = 1，则 fact(4) = <span class=\"blank\">24</span>。</span>",
      "options": [],
      "answer": "24",
@@ -459,7 +617,10 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["程序阅读", "函数调用"],
+     "tags": [
+      "程序阅读",
+      "函数调用"
+     ],
      "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>int max(int x, int y) {\n    if (x &gt; y) return x;\n    else       return y;\n}\nint main() {\n    printf(\"%d\\n\", max(3, 7));\n    return 0;\n}</code></pre></div>",
      "options": [],
      "answer": "输出 <code>7</code>。",
@@ -472,15 +633,25 @@
    "chapter": "第六章",
    "title": "指针与文件初步",
    "hint": "本章知识清单：指针（&amp; 与 *）· 文件操作三步曲。以下 1 选择 + 1 填空 + 1 简答题覆盖全部知识点。",
-   "knowledgePoints": ["指针", "文件操作"],
+   "knowledgePoints": [
+    "指针",
+    "文件操作"
+   ],
    "questions": [
     {
      "type": "选择题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["指针"],
+     "tags": [
+      "指针"
+     ],
      "stem": "<span class=\"q-stem\">若 <code>p = &amp;a;</code>，则 <code>*p</code> 表示（　）。</span>",
-     "options": ["A. a 的内存地址", "B. 地址 p 里存放的值（即 a 的值）", "C. 指针的类型", "D. a 的变量名"],
+     "options": [
+      "A. a 的内存地址",
+      "B. 地址 p 里存放的值（即 a 的值）",
+      "C. 指针的类型",
+      "D. a 的变量名"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>&amp;a 是“a 的门牌号”，p 存的就是这个地址；*p 是“按门牌号找到的房间里的东西”——即 a 的值。<b>变量是房间里的东西，指针是写着门牌号的纸条。</b></p>",
      "kp": "📎 知识点：指针 · 取地址与解引用"
@@ -489,7 +660,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "第 1 题",
-     "tags": ["文件操作"],
+     "tags": [
+      "文件操作"
+     ],
      "stem": "<span class=\"q-stem\">文件读写三步曲：<span class=\"blank\">fopen</span> 打开文件 → fscanf 读 / fprintf 写 → fclose 关闭。</span>",
      "options": [],
      "answer": "fopen",
@@ -500,7 +673,10 @@
      "type": "简答题",
      "difficulty": "hard",
      "number": "第 1 题",
-     "tags": ["指针", "值传递"],
+     "tags": [
+      "指针",
+      "值传递"
+     ],
      "stem": "<span class=\"q-stem\">为什么“用值传递无法交换主程序的两个变量，而传指针就可以”？请用一句话原理 + 一个调用例说明。</span>",
      "options": [],
      "answer": "值传递函数改的只是实参的复印件；传指针时函数拿到主程序变量的地址，用 *p 直接操作“原件”，故能真正交换。",
@@ -520,9 +696,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷一 · 第 1 题",
-     "tags": ["main函数"],
+     "tags": [
+      "main函数"
+     ],
      "stem": "<span class=\"q-stem\">C 程序的执行入口是（　）。</span>",
-     "options": ["A. main 函数", "B. 第一个函数", "C. printf", "D. #include"],
+     "options": [
+      "A. main 函数",
+      "B. 第一个函数",
+      "C. printf",
+      "D. #include"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>有且只有一个 main，程序从它第一行开始执行。</p>",
      "kp": "📎 知识点：main 函数"
@@ -531,9 +714,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷一 · 第 2 题",
-     "tags": ["转义字符"],
+     "tags": [
+      "转义字符"
+     ],
      "stem": "<span class=\"q-stem\">printf 中换行符是（　）。</span>",
-     "options": ["A. \\t", "B. \\n", "C. \\\\", "D. \\0"],
+     "options": [
+      "A. \\t",
+      "B. \\n",
+      "C. \\\\",
+      "D. \\0"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>\\n = newline 换行；\\t 制表符；\\0 字符串结束符。</p>",
      "kp": "📎 知识点：转义字符"
@@ -542,9 +732,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 3 题",
-     "tags": ["整数除法"],
+     "tags": [
+      "整数除法"
+     ],
      "stem": "<span class=\"q-stem\"><code>int a = 5 / 2;</code>，a 为（　）。</span>",
-     "options": ["A. 2.5", "B. 2", "C. 3", "D. 1"],
+     "options": [
+      "A. 2.5",
+      "B. 2",
+      "C. 3",
+      "D. 1"
+     ],
      "answer": "<b>B</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>整数除整数截断小数：5/2 = 2。</p>",
      "kp": "📎 知识点：整数除法"
@@ -553,9 +750,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 4 题",
-     "tags": ["if-else配对"],
+     "tags": [
+      "if-else配对"
+     ],
      "stem": "<span class=\"q-stem\">else 与 if 的配对规则是（　）。</span>",
-     "options": ["A. 最近的未配对 if", "B. 第一个 if", "C. 缩进对齐的 if", "D. 随机"],
+     "options": [
+      "A. 最近的未配对 if",
+      "B. 第一个 if",
+      "C. 缩进对齐的 if",
+      "D. 随机"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>就近配对，电脑不认缩进；嵌套时一律加花括号。</p>",
      "kp": "📎 知识点：if-else 配对"
@@ -564,9 +768,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 5 题",
-     "tags": ["下标从0"],
+     "tags": [
+      "下标从0"
+     ],
      "stem": "<span class=\"q-stem\"><code>int a[5];</code> 合法下标是（　）。</span>",
-     "options": ["A. a[0]~a[4]", "B. a[1]~a[5]", "C. a[0]~a[5]", "D. a[5]"],
+     "options": [
+      "A. a[0]~a[4]",
+      "B. a[1]~a[5]",
+      "C. a[0]~a[5]",
+      "D. a[5]"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>5 个元素下标 0~4，a[5] 越界。</p>",
      "kp": "📎 知识点：数组下标"
@@ -575,9 +786,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷一 · 第 6 题",
-     "tags": ["值传递"],
+     "tags": [
+      "值传递"
+     ],
      "stem": "<span class=\"q-stem\">swap 函数交换形参后，主程序变量（　）。</span>",
-     "options": ["A. 不变", "B. 被交换", "C. 变 0", "D. 随机"],
+     "options": [
+      "A. 不变",
+      "B. 被交换",
+      "C. 变 0",
+      "D. 随机"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>值传递改的是复印件，原件不动；要交换须传指针。</p>",
      "kp": "📎 知识点：值传递"
@@ -586,7 +804,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷一 · 第 1 题",
-     "tags": ["取模"],
+     "tags": [
+      "取模"
+     ],
      "stem": "<span class=\"q-stem\"><code>5 % 2</code> 的值是 <span class=\"blank\">1</span>；判断奇偶用 n % 2。</span>",
      "options": [],
      "answer": "1",
@@ -597,7 +817,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷一 · 第 2 题",
-     "tags": ["switch-break"],
+     "tags": [
+      "switch-break"
+     ],
      "stem": "<span class=\"q-stem\">switch 的 case 后忘记写 <span class=\"blank\">break</span> 会发生“穿透”。</span>",
      "options": [],
      "answer": "break",
@@ -608,7 +830,10 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "卷一 · 第 1 题",
-     "tags": ["程序阅读", "for循环"],
+     "tags": [
+      "程序阅读",
+      "for循环"
+     ],
      "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>int s = 0, i;\nfor (i = 1; i &lt;= 10; i++) s = s + i;\nprintf(\"%d\\n\", s);</code></pre></div>",
      "options": [],
      "answer": "<code>55</code>",
@@ -619,7 +844,11 @@
      "type": "应用题",
      "difficulty": "hard",
      "number": "卷一 · 第 2 题",
-     "tags": ["改错", "赋值与判等", "分号"],
+     "tags": [
+      "改错",
+      "赋值与判等",
+      "分号"
+     ],
      "stem": "<span class=\"q-stem\">改正下面代码中的三处错误（目标：a==5 时输出 OK）：</span>\n                <div class=\"md\"><pre><code>int a = 5\nif (a = 5) {\n    printf(\"OK\\n\")\n}</code></pre></div>",
      "options": [],
      "answer": "① int a = 5 后补 “;”；② if (a = 5) 改为 if (a == 5)；③ printf(...) 后补 “;”。",
@@ -637,9 +866,16 @@
      "type": "选择题",
      "difficulty": "easy",
      "number": "卷二 · 第 1 题",
-     "tags": ["注释"],
+     "tags": [
+      "注释"
+     ],
      "stem": "<span class=\"q-stem\">C 语言单行注释写法是（　）。</span>",
-     "options": ["A. // 注释", "B. # 注释", "C. -- 注释", "D. &lt;!-- 注释 --&gt;"],
+     "options": [
+      "A. // 注释",
+      "B. # 注释",
+      "C. -- 注释",
+      "D. &lt;!-- 注释 --&gt;"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>C 有 // 单行 与 /* */ 多行两种注释；# 是预处理，&lt;!-- --&gt; 是 HTML。</p>",
      "kp": "📎 知识点：注释写法"
@@ -648,9 +884,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 2 题",
-     "tags": ["自增"],
+     "tags": [
+      "自增"
+     ],
      "stem": "<span class=\"q-stem\"><code>int a = 3; a++;</code> 后 a 为（　）。</span>",
-     "options": ["A. 2", "B. 3", "C. 4", "D. 5"],
+     "options": [
+      "A. 2",
+      "B. 3",
+      "C. 4",
+      "D. 5"
+     ],
      "answer": "<b>C</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>a++ 等价 a = a + 1，3 → 4。</p>",
      "kp": "📎 知识点：自增 ++"
@@ -659,9 +902,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 3 题",
-     "tags": ["for次数"],
+     "tags": [
+      "for次数"
+     ],
      "stem": "<span class=\"q-stem\"><code>for(i = 0; i &lt; 5; i++)</code> 执行（　）。</span>",
-     "options": ["A. 5 次", "B. 4 次", "C. 6 次", "D. 10 次"],
+     "options": [
+      "A. 5 次",
+      "B. 4 次",
+      "C. 6 次",
+      "D. 10 次"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>i=0,1,2,3,4 共 5 轮；若 i&lt;=5 则 6 轮。</p>",
      "kp": "📎 知识点：for 执行次数"
@@ -670,9 +920,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 4 题",
-     "tags": ["结束符"],
+     "tags": [
+      "结束符"
+     ],
      "stem": "<span class=\"q-stem\">C 语言字符串以（　）结尾。</span>",
-     "options": ["A. '\\0'", "B. '\\n'", "C. ' ''", "D. 自动忽略"],
+     "options": [
+      "A. '\\0'",
+      "B. '\\n'",
+      "C. ' ''",
+      "D. 自动忽略"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>'\\0' 是结束标记，strlen 数到它为止。</p>",
      "kp": "📎 知识点：字符串结束符"
@@ -681,9 +938,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 5 题",
-     "tags": ["指针"],
+     "tags": [
+      "指针"
+     ],
      "stem": "<span class=\"q-stem\"><code>p = &amp;a;</code>，*p 表示（　）。</span>",
-     "options": ["A. a 的值", "B. a 的地址", "C. p 的类型", "D. a 的名字"],
+     "options": [
+      "A. a 的值",
+      "B. a 的地址",
+      "C. p 的类型",
+      "D. a 的名字"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>&amp;a 是门牌号存进 p；*p 是按门牌找到的东西 = a 的值。</p>",
      "kp": "📎 知识点：指针解引用"
@@ -692,9 +956,16 @@
      "type": "选择题",
      "difficulty": "mid",
      "number": "卷二 · 第 6 题",
-     "tags": ["递归"],
+     "tags": [
+      "递归"
+     ],
      "stem": "<span class=\"q-stem\">递归函数必须有（　），否则会无限递归崩溃。</span>",
-     "options": ["A. 边界出口（如 fact(1)=1）", "B. return 0", "C. printf", "D. 全局变量"],
+     "options": [
+      "A. 边界出口（如 fact(1)=1）",
+      "B. return 0",
+      "C. printf",
+      "D. 全局变量"
+     ],
      "answer": "<b>A</b>",
      "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>“剥洋葱”必须有芯——不再递归的边界条件。</p>",
      "kp": "📎 知识点：递归出口"
@@ -703,7 +974,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷二 · 第 1 题",
-     "tags": ["二维数组"],
+     "tags": [
+      "二维数组"
+     ],
      "stem": "<span class=\"q-stem\"><code>int s[3][4];</code> 表示 <span class=\"blank\">3 行 4 列</span> 的表格，用 s[行][列] 访问。</span>",
      "options": [],
      "answer": "3 行 4 列",
@@ -714,7 +987,9 @@
      "type": "填空题",
      "difficulty": "mid",
      "number": "卷二 · 第 2 题",
-     "tags": ["文件操作"],
+     "tags": [
+      "文件操作"
+     ],
      "stem": "<span class=\"q-stem\">文件操作三步曲：fopen → <span class=\"blank\">fscanf</span>（读）/ fprintf（写）→ fclose。</span>",
      "options": [],
      "answer": "fscanf",
@@ -725,7 +1000,10 @@
      "type": "应用题",
      "difficulty": "mid",
      "number": "卷二 · 第 1 题",
-     "tags": ["程序阅读", "函数调用"],
+     "tags": [
+      "程序阅读",
+      "函数调用"
+     ],
      "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>int max(int x, int y) {\n    if (x &gt; y) return x;\n    else       return y;\n}\nint main() {\n    printf(\"%d\\n\", max(3, 7));\n    return 0;\n}</code></pre></div>",
      "options": [],
      "answer": "<code>7</code>",
@@ -736,7 +1014,10 @@
      "type": "应用题",
      "difficulty": "hard",
      "number": "卷二 · 第 2 题",
-     "tags": ["编程", "循环"],
+     "tags": [
+      "编程",
+      "循环"
+     ],
      "stem": "<span class=\"q-stem\">编写程序：输入一个正整数 n，计算并输出 1+2+…+n 的和（如 n=10 时输出 55）。</span>",
      "options": [],
      "answer": "<div class=\"md\"><pre><code>#include &lt;stdio.h&gt;\nint main() {\n    int n, i, s = 0;\n    scanf(\"%d\", &amp;n);\n    for (i = 1; i &lt;= n; i++) {\n        s = s + i;\n    }\n    printf(\"%d\\n\", s);\n    return 0;\n}</code></pre></div>",

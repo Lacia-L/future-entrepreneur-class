@@ -1,0 +1,1407 @@
+{
+ "id": "python",
+ "name": "Python 程序设计",
+ "emoji": "🐍",
+ "category": "数理编程",
+ "desc": "Python 语法、数据结构、函数、文件与异常、pandas 数据分析入门——经管学生处理 Excel 销售报表、做办公自动化与经管量化分析的第一门编程语言。",
+ "meta": [
+  "学科大类基础课",
+  "经管类编程基础",
+  "笔试+上机"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考",
+   "title": "《Python 编程：从入门到实践（第 3 版）》",
+   "pub": "埃里克·马瑟斯 著 · 人民邮电出版社",
+   "note": "杭电官网公开渠道未查到官方指定教材，以下为常用教材参考。全球最畅销 Python 入门书之一，从“打印一句话”讲到 Web 应用与数据可视化项目，实战导向、语言通俗，适合零基础经管类学生自学。"
+  },
+  {
+   "role": "参考教材",
+   "title": "《Python 语言程序设计基础（第 2 版）》",
+   "pub": "嵩天、礼欣、黄天羽 著 · 高等教育出版社",
+   "note": "中国大学MOOC 嵩天团队配套教材，围绕“计算生态”组织内容，与北理工《Python 语言程序设计》慕课章节一一对应，适合配合视频课程与上机实验使用。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "中国大学MOOC",
+   "name": "《Python 语言程序设计》北京理工大学（嵩天、黄天羽）",
+   "desc": "国家级一流课程、国内最知名的 Python 入门慕课，五周讲清 Python 基本语法、控制结构、数据类型与函数，配套教材为嵩天《Python 语言程序设计基础》",
+   "url": "https://www.icourse163.org/course/BIT-268001"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《零基础学 Python 语言 CAP》北京理工大学（嵩天、黄天羽、礼欣）",
+   "desc": "面向编程零基础同学、以兴趣驱动的先修课程，不求最难、只要好玩儿，北理工等高校承认学分，适合入门前预热",
+   "url": "https://www.icourse163.org/course/BIT-1002058035"
+  },
+  {
+   "platform": "B站",
+   "name": "《全748集 Python 零基础全套教程》（2024 最新版合集）",
+   "desc": "B站热门 Python 入门教程合集：从环境搭建讲到基础语法、自动化办公与数据分析，适合作为视频陪练、边敲边学",
+   "url": "https://www.bilibili.com/video/BV1wJBXYsESR/"
+  },
+  {
+   "platform": "抖音",
+   "name": "《0 基础学习 Python，一条龙全套保姆级教程》系列合集",
+   "desc": "抖音博主“0 基础学 Python”系列合集：含学习路线、工具与学习文档，短视频碎片时间刷语法点，适合通勤预习复习",
+   "url": "https://www.iesdouyin.com/share/video/7601484553588444456"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>北理工嵩天《Python 语言程序设计》章节与本书对应——第 1 周（Python 基本语法、数据类型、表达式）对应第一模块；第 2 周（程序控制结构：分支与循环）对应第一模块后半；第 3 周（数据类型：列表、字典、字符串）对应第二模块；第 4 周（函数）对应第三模块；第 5 周（文件、第三方库概览）对应第四、五模块。经管类学习重点：基础语法 → 列表/字典 → 函数 → pandas 读 Excel 做销售分析——足以写出“统计销售额、求平均、按门店分组汇总”的自动化脚本。",
+ "formulas": [],
+ "modules": [
+  {
+   "index": "一",
+   "title": "Python 入门与基础语法",
+   "sub": "Python 是“解释执行”的语言：装好解释器，写完 .py 文件就能跑，先过变量、运算与三大控制结构。",
+   "sections": [
+    {
+     "h4": "1. 第一个 Python 程序与运行方式",
+     "body": "Python 是解释型语言：写完代码保存为 .py 文件，由解释器逐行翻译执行，不需要单独编译。常见两种运行方式——命令行执行脚本（python hello.py）与交互式环境（在 &gt;&gt;&gt; 后逐行输入立即看到结果）。"
+    },
+    {
+     "h4": "2. 变量与基本数据类型",
+     "body": "Python 是<b>动态类型</b>语言：变量不需要先声明类型，直接用 = 赋值即可，类型由右边的值自动决定。常用类型：int 整数、float 小数、str 字符串、bool 真假。"
+    },
+    {
+     "h4": "3. 常用运算符",
+     "body": "+ - * / 是常规四则；// 整除（只取整数部分）、% 取余数、** 乘方；一个 = 是赋值，两个 == 才是判等；and / or / not 是逻辑运算。"
+    },
+    {
+     "h4": "4. 缩进与流程控制",
+     "body": "<div class=\"md\"><pre><code>score = 85\nif score &gt;= 90:\n    print(\"优\")\nelif score &gt;= 60:\n    print(\"及格\")\nelse:\n    print(\"不及格\")\n\ns = 0\nfor i in range(1, 11):\n    s = s + i\nprint(s)   # 输出 55</code></pre></div>"
+    }
+   ],
+   "terms": [
+    {
+     "name": "解释器与脚本运行",
+     "plain": "我们写的 .py 文件叫源代码，电脑看不懂，要靠<b>解释器逐行翻译执行</b>。通俗说：<b>解释器就是“同声传译员”——你写一行，它当场翻一行、跑一行。</b>",
+     "example": "保存 hello.py 内容为 print(\"你好\")，在终端执行 python hello.py，屏幕立刻打印“你好”；也可以打开交互式环境直接输入 print(\"你好\") 回车即见结果。"
+    },
+    {
+     "name": "动态类型变量",
+     "plain": "Python 变量<b>不用提前声明类型</b>，赋值时“是什么类型就是什么类型”，而且中途可以改。通俗说：<b>抽屉不贴标签，放进去什么就是什么，还能随时换东西。</b>",
+     "example": "x = 10（此时 x 是整数）；x = \"abc\"（此时 x 变成字符串）——两句都合法，这在 C 语言里是不允许的。"
+    },
+    {
+     "name": "缩进即语法",
+     "plain": "Python <b>用缩进来划分代码块</b>（if 下面属于谁、for 里面有什么），不写花括号 {}。同一层必须缩进一致（习惯 4 个空格），缩进错了就报错。通俗说：<b>缩进就是 Python 的“段落格式”，格式错了，句子归属就乱了。</b>",
+     "example": "if score &gt;= 60: 下面那行 print 前面必须缩进 4 个空格；如果顶格写，它就不属于 if，无论条件是否成立都会执行。"
+    },
+    {
+     "name": "输入输出 input / print",
+     "plain": "<b>input() 负责“听”</b>（从键盘读入一串文字），<b>print() 负责“说”</b>（把内容显示到屏幕）。注意 input 读到的永远是字符串，要算数字得先 int() / float() 转换。",
+     "example": "age = input(\"请输入年龄：\") 拿到的是文本；score = float(input(\"请输入成绩：\")) 才能参与比较和计算。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "字符串与常用数据结构",
+   "sub": "经管数据成批来：列表装一串数、字典装“商品名→销量”的对应，字符串负责处理表头和备注。",
+   "sections": [
+    {
+     "h4": "1. 字符串方法与格式化",
+     "body": "字符串是“文本序列”：len() 求长度、upper() 转大写、strip() 去首尾空格、split() 按空格切分、f-string 用 f\"你好{name}\" 把变量嵌进句子。"
+    },
+    {
+     "h4": "2. list 列表（可变序列）",
+     "body": "<div class=\"md\"><pre><code>prices = [3.5, 12.0, 8.8]\nprices.append(9.9)      # 末尾追加\nprices[0]               # 第一个元素，下标从 0 开始\nlen(prices)             # 元素个数\nsum(prices)             # 求和 → 34.2\nprices.sort()           # 原地升序排列</code></pre></div>"
+    },
+    {
+     "h4": "3. tuple 元组与 set 集合",
+     "body": "元组 tuple 与列表类似但<b>不可修改</b>（像“盖章生效的合同”）；集合 set <b>自动去重、无序</b>，list(set(名单)) 是经典去重套路。"
+    },
+    {
+     "h4": "4. dict 字典（键值对）",
+     "body": "<div class=\"md\"><pre><code>sales = {\"苹果\": 1200, \"香蕉\": 800}\nsales[\"苹果\"]          # 取 1200\nsales[\"橙子\"] = 500    # 新增一个键值对\nfor name, v in sales.items():\n    print(name, v)</code></pre></div>"
+    }
+   ],
+   "terms": [
+    {
+     "name": "列表 list",
+     "plain": "<b>list 是一排“可伸缩的抽屉”</b>：元素按顺序排、下标从 0 开始，能随时 append 追加、按位置修改、用 len() 数个数。通俗说：<b>像一节火车车厢，乘客随时上下，第 1 号座位编号是 0。</b>",
+     "example": "scores = [88, 92, 75]：scores[0] 是 88；scores.append(95) 后变成 [88,92,75,95]；sum(scores)/len(scores) 就是平均分。"
+    },
+    {
+     "name": "字典 dict",
+     "plain": "<b>dict 是“查号台”：按键（key）直接取到值（value）</b>，不用关心排第几个。通俗说：<b>像通讯录——输入“张三”立刻翻出他的电话，不用一页页数。</b>",
+     "example": "sales[\"苹果\"] 直接拿苹果销量 1200；统计各门店销售额用 stores = {\"城东店\": 0, \"城西店\": 0}。"
+    },
+    {
+     "name": "f-string 格式化",
+     "plain": "在字符串前加 f，就能用 <b>{变量名}</b> 把变量嵌进句子。通俗说：<b>像填空模板——句子印好，空格里填进今天的数据。</b>",
+     "example": "name = \"城东店\"; rev = 12000; print(f\"{name}本月销售额为{rev}元\") → 输出“城东店本月销售额为12000元”。"
+    },
+    {
+     "name": "元组 tuple 与集合 set",
+     "plain": "<b>tuple 写在圆括号里，内容定死不能改</b>（适合存固定配置）；<b>set 写在花括号里，自动去重、不讲顺序</b>。通俗说：<b>tuple 是“打印好的菜单”，set 是“签到本——同一个人签到一百次也只记一个名”。</b>",
+     "example": "colors = {\"红\", \"蓝\", \"红\", \"红\"} → 实际只有 {\"红\", \"蓝\"}；把重复名单去重：list(set(名单))。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "函数与模块",
+   "sub": "把一段常用计算“打包命名”：写一次，处处调用——平均分、打折、等级判定都该做成函数。",
+   "sections": [
+    {
+     "h4": "1. 函数的定义与调用",
+     "body": "<div class=\"md\"><pre><code>def average(a, b):\n    \"\"\"求两个数的平均值\"\"\"\n    return (a + b) / 2\n\nprint(average(80, 90))   # 输出 85.0</code></pre></div>"
+    },
+    {
+     "h4": "2. 参数的种类",
+     "body": "<b>位置参数</b>按顺序传；<b>默认参数</b>在定义时给默认值（def f(x, p=1.0)）；<b>关键字参数</b>调用时写名字（f(p=0.8, x=10)）顺序无所谓。"
+    },
+    {
+     "h4": "3. 返回值与作用域",
+     "body": "<b>return 把结果送出</b>；不写 return 的函数返回 None。函数内部定义的变量是<b>局部变量</b>，出了函数就销毁，和外面同名变量互不干扰。"
+    },
+    {
+     "h4": "4. 模块与包的导入",
+     "body": "<b>模块就是一个 .py 文件</b>，里面是别人写好的函数库。import math 后用 math.sqrt(9)；from math import sqrt 后直接用 sqrt(9)。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "函数 def",
+     "plain": "用 <b>def 函数名(参数):</b> 定义一段可反复调用的代码，return 把结果“吐出来”。通俗说：<b>函数像一台榨汁机——放进水果（参数），榨出果汁（return 值）。</b>",
+     "example": "def average(a, b): return (a+b)/2；以后求任何两个数的平均都调 average(80, 90)，不用重写算式。"
+    },
+    {
+     "name": "默认参数与关键字参数",
+     "plain": "<b>默认参数</b>：调用时不传就用定义时的“出厂设置”；<b>关键字参数</b>：调用时写“参数名=值”，顺序乱了也不怕。通俗说：<b>默认参数是套餐里的默认搭配，关键字参数是“我要哪个写明白”。</b>",
+     "example": "def pay(price, discount=0.9): return price*discount；pay(100) 按 9 折收 90；pay(100, 0.8) 改 8 折收 80。"
+    },
+    {
+     "name": "作用域（局部 vs 全局）",
+     "plain": "函数里面建的变量是<b>局部变量</b>，只在函数内部存在；函数外面建的是全局变量。通俗说：<b>函数是“独立包间”，包间里的东西客人带走，不外流；想改全局变量要特意声明 global。</b>",
+     "example": "def f(): x = 10  # 局部 x；外面的 x = 1 不受影响——f() 里改的是包间里那份。"
+    },
+    {
+     "name": "模块与 import",
+     "plain": "<b>模块就是别人写好的 .py 工具箱</b>，用 import 借过来就能用里面的函数，不用自己造轮子。通俗说：<b>import 就是“借阅图书馆的工具书”。</b>",
+     "example": "import math 后 math.sqrt(9) 得 3.0、math.pi 是圆周率；import random 后 random.randint(1, 100) 随机报个数。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "文件操作与异常处理",
+   "sub": "真实经管数据在 Excel/txt 里：学会把报表读进程序、把结果写出去，并让程序“出错不崩溃”。",
+   "sections": [
+    {
+     "h4": "1. 用 with 读写文件",
+     "body": "<div class=\"md\"><pre><code>with open(\"sales.txt\", \"r\", encoding=\"utf-8\") as f:\n    lines = f.readlines()\n\nwith open(\"out.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"总计：12000 元\\n\")</code></pre></div>"
+    },
+    {
+     "h4": "2. 为什么写 encoding=\"utf-8\"",
+     "body": "Windows 记事本默认 GBK，程序默认按平台编码猜；<b>读中文文件时显式指定 encoding=\"utf-8\"</b> 是杜绝“乱码方块”的关键一步。"
+    },
+    {
+     "h4": "3. 异常处理 try-except-finally",
+     "body": "<div class=\"md\"><pre><code>try:\n    n = int(input(\"请输入人数：\"))\n    print(100 / n)\nexcept ValueError:\n    print(\"输入的不是数字！\")\nexcept ZeroDivisionError:\n    print(\"人数不能为 0！\")\nfinally:\n    print(\"计算结束\")</code></pre></div>"
+    }
+   ],
+   "terms": [
+    {
+     "name": "with open 自动关文件",
+     "plain": "open() 打开文件后必须关闭，<b>with 语句用完自动关门</b>，不怕中途报错把文件锁死。通俗说：<b>with 就是“自助寄存柜——你放东西进去，走的时候自动锁柜，不会忘记。”</b>",
+     "example": "with open(\"sales.txt\", encoding=\"utf-8\") as f: text = f.read()；缩进块结束后文件自动关闭，不用再写 f.close()。"
+    },
+    {
+     "name": "文件读写模式 r / w / a",
+     "plain": "<b>r 只读</b>（读报表）、<b>w 写入（会清空原文件！）</b>、<b>a 追加（在末尾接着写）</b>。通俗说：<b>r 是“只看不写”，w 是“拿新纸重抄”，a 是“在笔记本最后加一页”。</b>",
+     "example": "每月备份用 \"a\" 追加，历史记录一条不丢；用 \"w\" 覆盖时手一抖就把原报表冲掉了——这是最高频的血泪教训。"
+    },
+    {
+     "name": "异常 try-except",
+     "plain": "程序遇到意外（用户输入不是数字、文件不存在）会“崩溃退出”；<b>try 里放危险操作，except 接住错误并友好提示</b>。通俗说：<b>try 是“走钢丝”，except 是下面的安全网。</b>",
+     "example": "int(\"abc\") 会炸 ValueError；try 包住后程序不退出，改提示“请输入数字”，用户体验立刻专业。"
+    },
+    {
+     "name": "finally",
+     "plain": "<b>不管有没有出错，finally 里的代码一定执行</b>，常用来“收尾”：关文件、关数据库连接。通俗说：<b>“无论玩得多晚，出门前一定锁门。”</b>",
+     "example": "写程序里放“打印计算结束”，即使中途报错，这句也会执行——便于确认程序跑到了哪一步。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "数据分析入门",
+   "sub": "经管学生的核心战场：pandas 两列“销售额”几行代码出汇总，matplotlib 一张图给老板看。",
+   "sections": [
+    {
+     "h4": "1. numpy 数值计算基础",
+     "body": "numpy 的数组 ndarray 能对整列数同时做运算：arr = np.array([1,2,3])；arr*2 得 [2,4,6]；arr.mean() 求平均。通俗说：<b>列表要写循环才能整列乘 2，numpy 一句话搞定。</b>"
+    },
+    {
+     "h4": "2. pandas：Series 与 DataFrame",
+     "body": "<div class=\"md\"><pre><code>import pandas as pd\ndf = pd.read_csv(\"sales.csv\")   # 一张表\nprint(df.head())                # 看前 5 行\nprint(df[\"销售额\"].sum())        # 整列求和\nprint(df[\"销售额\"].mean())       # 整列平均\ndf.groupby(\"门店\")[\"销售额\"].sum()  # 按门店汇总</code></pre></div>"
+    },
+    {
+     "h4": "3. matplotlib 简单绘图",
+     "body": "<div class=\"md\"><pre><code>import matplotlib.pyplot as plt\nmonths = [\"1月\",\"2月\",\"3月\"]\nrevenue = [12, 15, 18]\nplt.plot(months, revenue)       # 折线图\nplt.title(\"月度销售额趋势\")\nplt.savefig(\"trend.png\")       # 存成图片</code></pre></div>"
+    }
+   ],
+   "terms": [
+    {
+     "name": "DataFrame（数据表）",
+     "plain": "<b>DataFrame 就是程序里的“Excel 表格”</b>：有行有列、列有名字，df[\"列名\"] 取出整列。通俗说：<b>把 Excel 整张表搬进内存，随便算。</b>",
+     "example": "读 sales.csv 后，df[\"销售额\"] 取出全部销售额这一列；df.shape 告诉你 (行数, 列数)。"
+    },
+    {
+     "name": "read_csv 读数据表",
+     "plain": "<b>pd.read_csv(\"文件.csv\") 一行把 CSV 报表变成 DataFrame</b>，比逐行 f.read() 方便一百倍。通俗说：<b>“点菜”——报文件名，整盘端上来。”</b>",
+     "example": "df = pd.read_csv(\"门店月报.csv\")；中文路径或乱码时补 encoding=\"utf-8\" 或 encoding=\"gbk\"。"
+    },
+    {
+     "name": "groupby 分组汇总",
+     "plain": "<b>groupby(\"列\")[\"数值列\"].sum() 就是“按类别加总”</b>：哪个店卖了多少、哪类商品利润几何。通俗说：<b>“先分班，再算每班总分”——Excel 里的数据透视表。</b>",
+     "example": "df.groupby(\"门店\")[\"销售额\"].sum() → 城东店 36000、城西店 28000，一行代码替代手动分表。"
+    },
+    {
+     "name": "matplotlib 绘图",
+     "plain": "<b>plt.plot 折线、plt.bar 柱状、plt.savefig 存图</b>：把数字变成老板看得懂的图。通俗说：<b>“数据是菜，图表是摆盘。”</b>",
+     "example": "plt.plot(月份, 销售额) 画出增长趋势线，plt.savefig(\"trend.png\") 直接插进周报。"
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "面向对象与综合应用",
+   "sub": "把“数据 + 操作数据的方法”打包成一类：成绩统计脚本、记账小程序就靠它组织代码。",
+   "sections": [
+    {
+     "h4": "1. 类与对象",
+     "body": "<div class=\"md\"><pre><code>class Student:\n    def __init__(self, name, score):\n        self.name = name      # 属性\n        self.score = score\n    def grade(self):\n        if self.score &gt;= 60:\n            return \"及格\"\n        return \"不及格\"\n\ns = Student(\"张三\", 85)\nprint(s.name, s.grade())   # 张三 及格</code></pre></div>"
+    },
+    {
+     "h4": "2. self 与 __init__",
+     "body": "<b>__init__ 是“出厂装配函数”，new 对象时自动跑</b>；<b>self 代表“当前这只对象自己”</b>，把属性挂在自己身上（self.name）。"
+    },
+    {
+     "h4": "3. 综合小项目：班级成绩统计脚本",
+     "body": "综合运用：用 list 存成绩 → 函数算平均/最高 → 文件写入结果。经管类常见作业：读入 20 个同学成绩，输出平均分、最高分及对应姓名，并存档。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "类与对象（class）",
+     "plain": "<b>类是“图纸”，对象是按图纸造出来的“实物”</b>。通俗说：<b>类是“汽车设计图”，Student(\"张三\",85) 造出的张三就是一辆真车。”</b>",
+     "example": "class Student 是图纸；s1 = Student(\"张三\",85)、s2 = Student(\"李四\",92) 是两辆车，各有各的名字和分数。"
+    },
+    {
+     "name": "__init__ 与 self",
+     "plain": "<b>__init__ 在“造对象那一刻”自动执行，负责给对象装属性</b>；<b>self 就是“这个对象自己”</b>——self.name 表示“我这辆车的车牌号”。通俗说：<b>__init__ 是新车下线时的装配线，self 是每辆车自己。”</b>",
+     "example": "Student(\"张三\", 85) 一落地，__init__ 就把 self.name 设为张三、self.score 设为 85。"
+    },
+    {
+     "name": "方法 method",
+     "plain": "<b>写在类里面的函数叫“方法”</b>，用 对象.方法() 调用，内部通过 self 访问本对象的数据。通俗说：<b>“车的功能”——对象自己会跑、会鸣笛。”</b>",
+     "example": "s.grade() 就是让张三这个对象自己报等级；不用再写 grade(s) 这种把对象传来传去的写法。"
+    },
+    {
+     "name": "综合应用：成绩统计脚本",
+     "plain": "<b>把前面五个模块串成一个小项目</b>：列表装数据、函数做计算、文件存结果、异常防输入炸机。通俗说：<b>“从零散零件到一辆能开的小车。”</b>",
+     "example": "scores = []；循环 input 录入 20 个成绩；mean = sum(scores)/len(scores)；with open(\"result.txt\",\"w\") 存档——这就是一个迷你成绩分析程序。"
+    }
+   ]
+  }
+ ],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "Python 入门与基础语法",
+   "hint": "本章知识清单：解释器与运行方式 · 动态类型与基本数据类型 · 运算符（// % **）· 缩进规则 · 分支与循环。以下 3 选择 + 2 填空 + 2 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "解释器与运行方式",
+    "变量与基本数据类型",
+    "运算符",
+    "缩进规则",
+    "分支与循环"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "解释器与运行方式"
+     ],
+     "stem": "<span class=\"q-stem\">关于 Python 的运行方式，下列说法正确的是（　）。</span>",
+     "options": [
+      "A. Python 是编译型语言，必须先编译成 .exe 才能运行",
+      "B. Python 是解释型语言，由解释器逐行翻译执行",
+      "C. Python 程序必须在手机上运行",
+      "D. Python 不能用命令行运行"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Python 是<b>解释型语言</b>：写完 .py 文件，解释器像同声传译一样逐行翻译执行，不用先编译。运行方式有两种：命令行 python hello.py 跑整个文件；交互式环境里逐行输入立刻看到结果。</p>",
+     "kp": "📎 知识点：Python 解释器与运行方式"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "变量与基本数据类型"
+     ],
+     "stem": "<span class=\"q-stem\">执行 <code>x = 10</code> 后再执行 <code>x = \"abc\"</code>，下列说法正确的是（　）。</span>",
+     "options": [
+      "A. 第二行报错，因为 x 已是整数",
+      "B. 合法，x 的类型动态地变成了字符串",
+      "C. x 同时既是整数又是字符串",
+      "D. x 变成空值"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Python 是<b>动态类型语言</b>：变量不用提前声明类型，赋值时是什么就是什么，中途还能换。抽屉不贴标签，放进去什么就是什么。这在 C 语言里是不允许的。</p>",
+     "kp": "📎 知识点：动态类型变量"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "运算符"
+     ],
+     "stem": "<span class=\"q-stem\">表达式 <code>7 // 2</code> 的值是（　）。</span>",
+     "options": [
+      "A. 3.5",
+      "B. 3",
+      "C. 4",
+      "D. 1"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>// 是整除</b>：只取整数部分、小数直接扔掉，7//2 = 3（注意不是四舍五入成 4）。对比：7/2 = 3.5（普通除法返回小数），7%2 = 1（取余数），7**2 = 49（乘方）。</p>",
+     "kp": "📎 知识点：整除 // 与取余 %"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "缩进规则"
+     ],
+     "stem": "<span class=\"q-stem\">Python 用 <span class=\"blank\">缩进</span>（习惯 4 个空格）来划分代码块，而不是花括号 {}。</span>",
+     "options": [],
+     "answer": "缩进",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Python 把缩进当成语法：if 下面那行 print 前面缩进 4 格才属于 if；顶格写就不属于 if，条件不满足也会执行。IndentationError（缩进错误）是初学者头号报错。</p>",
+     "kp": "📎 知识点：缩进即语法"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "分支与循环"
+     ],
+     "stem": "<span class=\"q-stem\"><code>range(1, 5)</code> 产生的整数序列是 <span class=\"blank\">1, 2, 3, 4</span>（含头不含尾）。</span>",
+     "options": [],
+     "answer": "1, 2, 3, 4",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>range(a, b) 是<b>“含头不含尾”</b>：从 a 数到 b-1。range(1,5) → 1,2,3,4 共 4 个数；若要含 5，得写 range(1, 6)。for i in range(1, 11) 正好循环 1~10。</p>",
+     "kp": "📎 知识点：range 与 for 循环"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "程序阅读",
+      "分支与循环"
+     ],
+     "stem": "<span class=\"q-stem\">阅读下面程序，写出输出结果：</span>\n                <div class=\"md\"><pre><code>s = 0\nfor i in range(1, 11):\n    s = s + i\nprint(s)</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>55</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>这是“累加器”套路：s 先清 0，for 让 i 从 1 走到 10（range(1,11) 含头不含尾，正好 1~10），每轮 s += i：s = 1+2+…+10 = 55。<b>经管类比：10 个月销售额逐月累加得全年总额。</b></p>",
+     "kp": "📎 知识点：for 循环 · 累加器"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "编程",
+      "分支与循环"
+     ],
+     "stem": "<span class=\"q-stem\">编写程序：从键盘输入一个百分制成绩 score（整数），按规则输出等级：≥90 输出“优”，60~89 输出“及格”，&lt;60 输出“不及格”。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>score = int(input(\"请输入成绩：\"))\nif score &gt;= 90:\n    print(\"优\")\nelif score &gt;= 60:\n    print(\"及格\")\nelse:\n    print(\"不及格\")</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三个要点：<b>① input 拿到的是字符串，必须 int() 转成数字才能比较；② 分支用 if-elif-else，条件从大到小写——先判 ≥90，剩下的再判 ≥60，顺序反了会把 95 误判成“及格”；③ 注意 if/elif/else 末尾的冒号和下方缩进。</b>测试：输入 95 → 优；输入 72 → 及格；输入 55 → 不及格。</p>",
+     "kp": "📎 知识点：if-elif-else 多分支 · input 类型转换"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "字符串与常用数据结构",
+   "hint": "本章知识清单：字符串方法与 f-string · 列表 list · 元组 tuple · 字典 dict · 集合 set。以下 4 选择 + 2 填空 + 2 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "字符串方法",
+    "f-string格式化",
+    "列表list",
+    "元组tuple",
+    "字典dict",
+    "集合set"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "字符串方法"
+     ],
+     "stem": "<span class=\"q-stem\"><code>len(\"Python\")</code> 的结果是（　）。</span>",
+     "options": [
+      "A. 5",
+      "B. 6",
+      "C. 7",
+      "D. 报错"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>len() 数字符串里的字符个数：P-y-t-h-o-n 共 6 个字符，所以 len(\"Python\") = 6。注意：len 数的是可见字符，不含任何引号。</p>",
+     "kp": "📎 知识点：字符串长度 len()"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "列表list"
+     ],
+     "stem": "<span class=\"q-stem\">已知 <code>prices = [3.5, 12.0, 8.8]</code>，下列结果正确的是（　）。</span>",
+     "options": [
+      "A. prices[0] 是 12.0",
+      "B. prices.append(9.9) 后列表长度变为 4",
+      "C. sum(prices) 等于 20.3",
+      "D. prices.sort() 会报错"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>列表<b>下标从 0 开始</b>，prices[0] = 3.5（不是 12.0），故 A 错；append 在末尾追加，长度由 3 变 4，B 对；sum(prices) = 3.5+12.0+8.8 = 24.3，选项 C 说 20.3，错误；sort() 是列表正常方法，不会报错，D 错。</p>",
+     "kp": "📎 知识点：列表 append / 下标 / 求和"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "字典dict"
+     ],
+     "stem": "<span class=\"q-stem\">已知 <code>sales = {\"苹果\": 1200, \"香蕉\": 800}</code>，取值正确的是（　）。</span>",
+     "options": [
+      "A. sales[0]",
+      "B. sales[\"苹果\"]",
+      "C. sales.苹果",
+      "D. sales(\"苹果\")"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>字典<b>按键取值</b>：sales[\"苹果\"] 得 1200。字典没有下标 0（不是列表），也不是函数调用。新增键值对写 sales[\"橙子\"] = 500；删键用 del sales[\"香蕉\"]。</p>",
+     "kp": "📎 知识点：字典按键取值"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "元组tuple"
+     ],
+     "stem": "<span class=\"q-stem\">关于元组 tuple，下列说法正确的是（　）。</span>",
+     "options": [
+      "A. 元组可以随时 append 元素",
+      "B. 元组一旦创建，元素不能修改",
+      "C. 元组用花括号 {} 表示",
+      "D. 元组不能用下标访问"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>tuple 写在圆括号里、<b>创建后不可修改</b>——像“打印好的菜单”，不能往上面加菜。它仍可用下标访问（t[0]），适合存固定配置，比列表更安全。</p>",
+     "kp": "📎 知识点：元组不可变"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "f-string格式化"
+     ],
+     "stem": "<span class=\"q-stem\">已知 <code>name = \"城东店\"</code>，<code>f\"{name}本月销售额为12000元\"</code> 的结果是 <span class=\"blank\">城东店本月销售额为12000元</span>。</span>",
+     "options": [],
+     "answer": "城东店本月销售额为12000元",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>字符串前加 f，{name} 就会被变量的值替换。这就是“填空模板”：句子印好，空格里填进今天的数据——比拼接字符串 + \"销售额\" + str(12000) 清爽得多。</p>",
+     "kp": "📎 知识点：f-string 变量插值"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "集合set"
+     ],
+     "stem": "<span class=\"q-stem\">把列表 <code>[\"张三\",\"李四\",\"张三\",\"王五\",\"张三\"]</code> 去重，一句写法是 list(<span class=\"blank\">set</span>(名单))。</span>",
+     "options": [],
+     "answer": "set",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>集合 set <b>自动去重、不讲顺序</b>：同一个人签到一百次也只记一个名。list(set(名单)) 先变集合去重、再变回列表，是面试和上机的经典一行流。注意结果顺序不保证。</p>",
+     "kp": "📎 知识点：set 去重套路"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "程序阅读",
+      "字典dict"
+     ],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>sales = {\"苹果\": 1200, \"香蕉\": 800, \"橙子\": 500}\ntotal = 0\nfor v in sales.values():\n    total = total + v\nprint(total)</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>2500</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>sales.values() 取出所有值：1200、800、500；循环累加 total = 1200+800+500 = 2500。<b>经管类比：三种水果销售额加总得当日总营业额。</b>更简洁的写法其实是 sum(sales.values())。</p>",
+     "kp": "📎 知识点：遍历字典 values() · 累加"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "编程",
+      "列表list"
+     ],
+     "stem": "<span class=\"q-stem\">编写程序：列表 <code>scores = [88, 92, 75, 95, 60]</code>，求最高分、最低分和平均分（保留 1 位小数）。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>scores = [88, 92, 75, 95, 60]\nprint(\"最高分：\", max(scores))\nprint(\"最低分：\", min(scores))\navg = sum(scores) / len(scores)\nprint(\"平均分：\", round(avg, 1))</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Python 内置三个帮手：<b>max() 找最大、min() 找最小、sum() 求和、len() 数个数</b>，不用写循环擂台赛。平均分 = 总分 ÷ 人数 = 410/5 = 82.0；round(x, 1) 保留 1 位小数。输出：最高分 95、最低分 60、平均分 82.0。</p>",
+     "kp": "📎 知识点：列表统计 max/min/sum/len · round"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "函数与模块",
+   "hint": "本章知识清单：函数定义与调用 · 默认参数/关键字参数 · return 与 None · 作用域 · 模块导入。以下 3 选择 + 1 填空 + 2 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "函数定义与调用",
+    "参数类型",
+    "返回值",
+    "作用域",
+    "模块导入"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "函数定义与调用"
+     ],
+     "stem": "<span class=\"q-stem\">Python 中定义函数的关键字是（　）。</span>",
+     "options": [
+      "A. function",
+      "B. def",
+      "C. func",
+      "D. define"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>用 <b>def 函数名(参数):</b> 定义函数，下一行缩进写函数体。def 是 define（定义）的缩写，后面记得加冒号。</p>",
+     "kp": "📎 知识点：def 定义函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "参数类型"
+     ],
+     "stem": "<span class=\"q-stem\">已知 <code>def pay(price, discount=0.9):</code>，则 <code>pay(100)</code> 的返回值是（　）。</span>",
+     "options": [
+      "A. 100",
+      "B. 90",
+      "C. 0.9",
+      "D. 报错，缺少 discount"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>默认参数</b>：调用时不传 discount，就用定义时的出厂设置 0.9。pay(100) = 100 × 0.9 = 90。若想 8 折就写 pay(100, 0.8) 或 pay(price=100, discount=0.8)。</p>",
+     "kp": "📎 知识点：默认参数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "返回值"
+     ],
+     "stem": "<span class=\"q-stem\">一个函数没有写 return 语句，调用它会得到（　）。</span>",
+     "options": [
+      "A. 0",
+      "B. 空字符串 \"\"",
+      "C. None",
+      "D. 报错"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>没有 return 的函数默认返回 <b>None</b>（“什么也没给”）。None 是一个特殊对象，表示空。如 print() 本身就没有返回值——a = print(\"x\") 后 a 是 None。</p>",
+     "kp": "📎 知识点：return 与 None"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "模块导入"
+     ],
+     "stem": "<span class=\"q-stem\">导入数学模块后，计算 √9 写成 math.<span class=\"blank\">sqrt</span>(9)，结果为 3.0。</span>",
+     "options": [],
+     "answer": "sqrt",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>import math 后，math.sqrt(9) = 3.0；math.pi 是圆周率；math.floor(3.7) = 3。也可以 from math import sqrt，之后直接 sqrt(9)。</p>",
+     "kp": "📎 知识点：import math · sqrt"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "程序阅读",
+      "函数定义与调用"
+     ],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>def average(a, b):\n    return (a + b) / 2\n\nr = average(80, 90)\nprint(r)</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>85.0</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>调用 average(80, 90)：形参 a=80、b=90，return (80+90)/2 = 85.0，赋值给 r 后打印。<b>函数像榨汁机：放进 80 和 90，榨出 85.0。</b>注意结果带 .0——Python 里 / 除法永远返回小数。</p>",
+     "kp": "📎 知识点：函数调用与返回值"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "简答",
+      "作用域"
+     ],
+     "stem": "<span class=\"q-stem\">阅读程序并回答问题：</span>\n                <div class=\"md\"><pre><code>x = 1\ndef f():\n    x = 10\n    print(x)\nf()\nprint(x)</code></pre></div>\n                <span class=\"q-stem\">(1) 两行 print 分别输出什么？(2) 为什么两次 x 的值不一样？</span>",
+     "options": [],
+     "answer": "(1) 先输出 <code>10</code>，再输出 <code>1</code>。(2) 函数内部的 x = 10 是<b>局部变量</b>，与函数外面的全局 x = 1 是两份互不干扰的存储。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>函数是“独立包间”</b>：里面那句 x = 10 创建的是包间里的局部 x，只在函数内部存在；调用 f() 打印的是包间里的 10；f() 结束后包间销毁，外面的全局 x = 1 原封不动，所以第二次打印仍是 1。想让函数改全局变量，必须在函数里先写 global x 声明——一般不推荐，容易乱。</p>",
+     "kp": "📎 知识点：局部变量与全局变量作用域"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "文件操作与异常处理",
+   "hint": "本章知识清单：open 读写模式 · with 语句 · 中文编码 utf-8 · try-except · finally。以下 3 选择 + 1 填空 + 2 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "文件读写open",
+    "with语句",
+    "编码",
+    "try-except异常",
+    "finally"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "文件读写open"
+     ],
+     "stem": "<span class=\"q-stem\"><code>open(\"data.txt\", \"r\")</code> 中 \"r\" 表示（　）。</span>",
+     "options": [
+      "A. 写入模式，覆盖原文件",
+      "B. 只读模式",
+      "C. 追加模式",
+      "D. 二进制删除模式"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>r = read 只读（默认模式）；w = write 写入，<b>会清空原文件</b>；a = append 追加到末尾。经管处理报表：读用 r，写汇总结果用 w，每月追加备份用 a。</p>",
+     "kp": "📎 知识点：文件打开模式 r / w / a"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "with语句"
+     ],
+     "stem": "<span class=\"q-stem\">用 with open(...) as f: 的最大好处是（　）。</span>",
+     "options": [
+      "A. 文件打开速度变快",
+      "B. 缩进块结束后自动关闭文件，不怕中途报错",
+      "C. 文件会自动加密",
+      "D. 可以同时打开两个文件"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>with 像自助寄存柜：用完自动锁柜关门，即使中途出错也能正确关闭文件，不用手写 f.close()，更不怕忘记关文件导致数据丢失。</p>",
+     "kp": "📎 知识点：with 上下文管理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "编码"
+     ],
+     "stem": "<span class=\"q-stem\">读取含中文的 txt 文件时，出现乱码方块，最该在 open() 里补的参数是（　）。</span>",
+     "options": [
+      "A. encoding=\"utf-8\"",
+      "B. mode=\"fast\"",
+      "C. size=\"large\"",
+      "D. color=\"black\""
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>乱码多半是<b>编码对不上</b>：文件是 utf-8 存的，程序却按 GBK 猜。解决：open(\"a.txt\", encoding=\"utf-8\")；若仍乱码，换 encoding=\"gbk\" 再试。显式写编码是读中文文件的标配动作。</p>",
+     "kp": "📎 知识点：utf-8 编码与乱码"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "finally"
+     ],
+     "stem": "<span class=\"q-stem\">try-except 结构中，无论是否出错都必定执行的收尾块是 <span class=\"blank\">finally</span>。</span>",
+     "options": [],
+     "answer": "finally",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>try 放危险操作，except 接住报错，<b>finally 必跑</b>——“无论玩多晚，出门一定锁门”。常用于关文件、释放连接等收尾工作。</p>",
+     "kp": "📎 知识点：try-except-finally 结构"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "程序阅读",
+      "文件读写open"
+     ],
+     "stem": "<span class=\"q-stem\">阅读下面代码，说明每一行的作用及最终结果：</span>\n                <div class=\"md\"><pre><code>with open(\"out.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"总计：12000 元\\n\")\n\nwith open(\"out.txt\", \"r\", encoding=\"utf-8\") as f:\n    print(f.read())</code></pre></div>",
+     "options": [],
+     "answer": "先以写入模式打开 out.txt 写入一行“总计：12000 元”并自动关闭；再以只读模式读出全部内容打印——屏幕输出 <code>总计：12000 元</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>第一段：\"w\" 模式新建（或清空）文件并写入一行，\\n 是换行；第二段：\"r\" 模式读出全文打印。<b>注意 w 模式会清空原文件</b>——这是“写覆盖、哭一天”的高频坑；想接着写历史用 \"a\" 追加。</p>",
+     "kp": "📎 知识点：with open 读写全过程"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "编程",
+      "try-except异常"
+     ],
+     "stem": "<span class=\"q-stem\">编写程序：请用户输入一个数字，计算它的倒数（1/n）并输出；若用户输入的不是数字或输入 0，程序不崩溃，分别提示“请输入数字！”和“不能除以 0！”，最后打印“计算结束”。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>try:\n    n = float(input(\"请输入数字：\"))\n    print(\"倒数：\", 1 / n)\nexcept ValueError:\n    print(\"请输入数字！\")\nexcept ZeroDivisionError:\n    print(\"不能除以 0！\")\nfinally:\n    print(\"计算结束\")</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>两类典型异常：<b>float(\"abc\") 抛 ValueError</b>（不是数字）；<b>1/0 抛 ZeroDivisionError</b>。try 里放两句危险操作，except 分别接住，finally 保证“计算结束”一定打印。测试：输入 abc → 提示请输入数字；输入 0 → 提示不能除以 0；输入 4 → 输出倒数 0.25。</p>",
+     "kp": "📎 知识点：多分支异常捕获 · finally 收尾"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "数据分析入门",
+   "hint": "本章知识清单：numpy 数组 · pandas DataFrame · read_csv 读表 · groupby 分组汇总 · matplotlib 绘图。以下 3 选择 + 1 填空 + 2 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "numpy数组",
+    "pandas DataFrame",
+    "read_csv",
+    "matplotlib绘图"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "pandas DataFrame"
+     ],
+     "stem": "<span class=\"q-stem\">约定俗成的 pandas 导入写法是（　）。</span>",
+     "options": [
+      "A. import pandas as pd",
+      "B. import panda as pa",
+      "C. load pandas",
+      "D. #include &lt;pandas&gt;"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>全社区约定 <b>import pandas as pd</b>（pd 是统一缩写，看到 pd.xxx 就知道在说 pandas）；numpy 的约定是 import numpy as np。用统一缩写方便抄代码、看别人的教程。</p>",
+     "kp": "📎 知识点：pandas 导入约定"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "read_csv"
+     ],
+     "stem": "<span class=\"q-stem\"><code>pd.read_csv(\"sales.csv\")</code> 的作用是（　）。</span>",
+     "options": [
+      "A. 删除一个 CSV 文件",
+      "B. 把 CSV 文件读成一个 DataFrame 表格",
+      "C. 把表格另存为 CSV",
+      "D. 检查 CSV 文件有没有病毒"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>read_csv 一行把 CSV 报表读成 DataFrame——“点菜：报文件名，整盘端上桌”。读进来后就能 df[\"列名\"] 取列、df.head() 看前 5 行。</p>",
+     "kp": "📎 知识点：pd.read_csv 读表"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "pandas DataFrame"
+     ],
+     "stem": "<span class=\"q-stem\">已知 df 是 DataFrame，<code>df[\"销售额\"].sum()</code> 的作用是（　）。</span>",
+     "options": [
+      "A. 把销售额列按字母排序",
+      "B. 求销售额这一列的总和",
+      "C. 删除销售额列",
+      "D. 求销售额的最大值"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>df[\"销售额\"] 取出整列，.sum() 整列求和——一句代码顶 Excel 里的 SUM 公式。配套：.mean() 平均、.max() 最大、.count() 计数、df.describe() 一键出全套统计。</p>",
+     "kp": "📎 知识点：DataFrame 列统计"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "numpy数组"
+     ],
+     "stem": "<span class=\"q-stem\">已知 <code>import numpy as np</code>，<code>np.array([1,2,3]).mean()</code> 的结果是 <span class=\"blank\">2.0</span>。</span>",
+     "options": [],
+     "answer": "2.0",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>numpy 数组可以整列直接运算：np.array([1,2,3])*2 得 [2,4,6]，.mean() 求平均 (1+2+3)/3 = 2.0。像“列表要写循环才能整列乘 2，numpy 一句话搞定”。</p>",
+     "kp": "📎 知识点：numpy 数组统计"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "程序阅读",
+      "pandas DataFrame"
+     ],
+     "stem": "<span class=\"q-stem\">阅读程序，说出这段经管分析脚本做了哪几件事：</span>\n                <div class=\"md\"><pre><code>import pandas as pd\ndf = pd.read_csv(\"sales.csv\")\nprint(df.head())\nprint(df[\"销售额\"].sum())\nprint(df.groupby(\"门店\")[\"销售额\"].sum())</code></pre></div>",
+     "options": [],
+     "answer": "① 读入 sales.csv 成表格；② 打印前 5 行检查数据；③ 求全部销售额总计；④ 按门店分组汇总各店销售额（相当于 Excel 数据透视表）。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>这是一个标准的“月报分析四步走”：<b>读表 → 瞄一眼（head）→ 算总账（sum）→ 分组比店（groupby）</b>。groupby 就是“先分班、再算每班总分”——一行代码替代手动分表透视。</p>",
+     "kp": "📎 知识点：pandas 读表 · 汇总 · groupby"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "简答",
+      "matplotlib绘图"
+     ],
+     "stem": "<span class=\"q-stem\">公司 1~3 月销售额分别为 12、15、18（万元）。请写出：(1) 用 matplotlib 画折线图展示趋势的关键代码；(2) 一句话说明这张图适合放进什么经管场景。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>import matplotlib.pyplot as plt\nmonths = [\"1月\", \"2月\", \"3月\"]\nrevenue = [12, 15, 18]\nplt.plot(months, revenue)\nplt.title(\"月度销售额趋势（万元）\")\nplt.savefig(\"trend.png\")</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三步：plt.plot(x 轴, y 轴) 画线 → plt.title() 加标题 → plt.savefig() 存成 png。<b>“数据是菜，图表是摆盘”</b>——这张折线图适合放进月度经营分析报告、给老板看增长趋势；给老板讲占比则把 plot 换成 plt.bar 柱状图。</p>",
+     "kp": "📎 知识点：matplotlib 折线图 · 经管可视化"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "面向对象与综合应用",
+   "hint": "本章知识清单：类与对象 · __init__ 与 self · 方法 method · 综合项目（成绩统计脚本）。以下 3 选择 + 1 填空 + 2 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "类与对象",
+    "__init__与self",
+    "方法",
+    "综合项目"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "类与对象"
+     ],
+     "stem": "<span class=\"q-stem\">关于“类”和“对象”，下列说法正确的是（　）。</span>",
+     "options": [
+      "A. 类是按图纸造出的实物",
+      "B. 类是图纸，对象是按图纸造出的实物",
+      "C. 一个类只能造一个对象",
+      "D. 对象比类更早出现"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p><b>类是“汽车设计图”，对象是造出来的真车</b>。Student 是图纸，s1 = Student(\"张三\", 85) 和 s2 = Student(\"李四\", 92) 就是两辆车，各有各的名字和分数——一个类可以造任意多个对象。</p>",
+     "kp": "📎 知识点：类与对象的关系"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "__init__与self"
+     ],
+     "stem": "<span class=\"q-stem\"><code>__init__</code> 方法的作用是（　）。</span>",
+     "options": [
+      "A. 删除对象",
+      "B. 创建对象时自动调用，给对象装初始属性",
+      "C. 打印对象",
+      "D. 定义类名"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>__init__ 是“出厂装配函数”：Student(\"张三\", 85) 一落地，它就自动跑，把 self.name 设为张三、self.score 设为 85。双下划线开头结尾，是 Python 的特殊方法。</p>",
+     "kp": "📎 知识点：__init__ 构造方法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "方法"
+     ],
+     "stem": "<span class=\"q-stem\">类里面的第一个参数 <code>self</code> 代表（　）。</span>",
+     "options": [
+      "A. 系统自己",
+      "B. 当前这个对象自己",
+      "C. 函数的返回值",
+      "D. 一个全局变量"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>self 就是“这个对象自己”——self.name 表示“我这辆车的车牌号”。调用 s.grade() 时，Python 自动把 s 传进 self，所以定义时写 self、调用时不用写。</p>",
+     "kp": "📎 知识点：self 的含义"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "__init__与self"
+     ],
+     "stem": "<span class=\"q-stem\">创建对象的写法：s = <span class=\"blank\">Student(\"张三\", 85)</span>（类名加括号传参）。</span>",
+     "options": [],
+     "answer": "Student(\"张三\", 85)",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>类名(参数) 就是“按图纸造车”：括号里的参数传给 __init__，造出一个具体对象。s.name 取到张三，s.score 取到 85。</p>",
+     "kp": "📎 知识点：实例化对象"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "程序阅读",
+      "类与对象"
+     ],
+     "stem": "<span class=\"q-stem\">阅读程序，写出输出：</span>\n                <div class=\"md\"><pre><code>class Student:\n    def __init__(self, name, score):\n        self.name = name\n        self.score = score\n    def grade(self):\n        if self.score &gt;= 60:\n            return \"及格\"\n        return \"不及格\"\n\ns = Student(\"张三\", 85)\nprint(s.name, s.grade())</code></pre></div>",
+     "options": [],
+     "answer": "输出 <code>张三 及格</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>Student(\"张三\", 85) 造出对象 s，__init__ 装好 name=张三、score=85；s.name 取出“张三”；调 s.grade() 时 self 就是 s 自己，85 ≥ 60 返回“及格”。<b>方法就是“对象自己的功能”——车自己会报状态。</b></p>",
+     "kp": "📎 知识点：类定义 · 属性访问 · 方法调用"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "编程",
+      "综合项目"
+     ],
+     "stem": "<span class=\"q-stem\">综合编程：定义一个 Book 类，属性为书名 name 和价格 price；方法 show() 返回形如“《活着》：39.5 元”的字符串。然后造两本书并打印。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>class Book:\n    def __init__(self, name, price):\n        self.name = name\n        self.price = price\n    def show(self):\n        return f\"《{self.name}》：{self.price} 元\"\n\nb1 = Book(\"活着\", 39.5)\nb2 = Book(\"Python入门\", 59.0)\nprint(b1.show())\nprint(b2.show())</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三件套：<b>__init__ 装属性（self.name / self.price）→ show 方法用 f-string 拼字符串 → 类名(参数) 造对象</b>。输出：“《活着》：39.5 元”“《Python入门》：59.0 元”。这就是把“数据 + 操作数据的方法”打包的最小模型，成绩统计脚本、记账小程序都是这个骨架。</p>",
+     "kp": "📎 知识点：类的综合实现"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "全书综合模拟（满分 100 分 · 建议 90 分钟）",
+   "hint": "题型：一、选择题 6 题（每题 5 分，共 30 分）；二、填空题 3 题（每题 6 分，共 18 分）；三、程序阅读/编程 3 题（共 52 分）。覆盖第一至六章全部核心知识点。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "解释器与运行方式"
+     ],
+     "stem": "<span class=\"q-stem\">Python 是一门（　）。</span>",
+     "options": [
+      "A. 编译型语言",
+      "B. 解释型语言",
+      "C. 机器语言",
+      "D. 只能在网页里跑的语言"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>解释器逐行翻译执行，写完 .py 文件直接跑，无需编译成 exe。</p>",
+     "kp": "📎 知识点：解释器与运行方式"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 2 题",
+     "tags": [
+      "运算符"
+     ],
+     "stem": "<span class=\"q-stem\"><code>7 // 2</code> 与 <code>7 % 2</code> 的结果分别是（　）。</span>",
+     "options": [
+      "A. 3 和 1",
+      "B. 3.5 和 1",
+      "C. 4 和 1",
+      "D. 3 和 3"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>// 整除取整 3；% 取余数 1。判断奇偶：n % 2 为 0 是偶数。</p>",
+     "kp": "📎 知识点：整除与取余"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 3 题",
+     "tags": [
+      "列表list"
+     ],
+     "stem": "<span class=\"q-stem\"><code>[1, 2, 3] * 2</code> 的结果是（　）。</span>",
+     "options": [
+      "A. [2, 4, 6]",
+      "B. [1, 2, 3, 1, 2, 3]",
+      "C. [1, 2, 3]",
+      "D. 报错"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>列表乘整数是“重复拼接”：[1,2,3]*2 = [1,2,3,1,2,3]。整列表逐元素乘 2 得 [2,4,6] 要用 numpy 或列表推导。</p>",
+     "kp": "📎 知识点：列表乘法语义"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 4 题",
+     "tags": [
+      "返回值"
+     ],
+     "stem": "<span class=\"q-stem\">没有 return 的函数返回（　）。</span>",
+     "options": [
+      "A. None",
+      "B. 0",
+      "C. \"\"",
+      "D. 报错"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>无 return 默认返回 None。a = print(\"x\") 后 a 就是 None。</p>",
+     "kp": "📎 知识点：返回值与 None"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 5 题",
+     "tags": [
+      "with语句"
+     ],
+     "stem": "<span class=\"q-stem\">读含中文的 txt 文件，为防乱码应写（　）。</span>",
+     "options": [
+      "A. open(\"a.txt\", encoding=\"utf-8\")",
+      "B. open(\"a.txt\", \"r\", encrypt=True)",
+      "C. open(\"a.txt\", \"gb\")",
+      "D. read(\"a.txt\")"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>显式指定 encoding=\"utf-8\" 是读中文文件的标配；乱码时换 gbk 试。</p>",
+     "kp": "📎 知识点：文件编码"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 6 题",
+     "tags": [
+      "pandas DataFrame"
+     ],
+     "stem": "<span class=\"q-stem\"><code>df.groupby(\"门店\")[\"销售额\"].sum()</code> 相当于 Excel 里的（　）。</span>",
+     "options": [
+      "A. 排序",
+      "B. 数据透视表（按门店汇总销售额）",
+      "C. 查找替换",
+      "D. 冻结窗格"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>groupby 先按门店分组、再对销售额求和——就是数据透视表“行：门店；值：销售额求和”。</p>",
+     "kp": "📎 知识点：groupby 分组汇总"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "缩进规则"
+     ],
+     "stem": "<span class=\"q-stem\">Python 用 <span class=\"blank\">缩进</span> 划分代码块，同一层缩进必须一致。</span>",
+     "options": [],
+     "answer": "缩进",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>缩进错了会报 IndentationError；建议统一 4 个空格。</p>",
+     "kp": "📎 知识点：缩进规则"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 2 题",
+     "tags": [
+      "参数类型"
+     ],
+     "stem": "<span class=\"q-stem\"><code>def pay(price, discount=0.9):</code> 中 discount 是 <span class=\"blank\">默认参数</span>，调用时不传就用 0.9。</span>",
+     "options": [],
+     "answer": "默认参数",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>默认参数给“出厂设置”，调用时可省略；pay(100) = 90。</p>",
+     "kp": "📎 知识点：默认参数"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 3 题",
+     "tags": [
+      "元组tuple"
+     ],
+     "stem": "<span class=\"q-stem\">元组创建后元素 <span class=\"blank\">不能修改</span>（可改/不可改），适合存放固定配置。</span>",
+     "options": [],
+     "answer": "不可修改",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>tuple 像“打印好的菜单”，定死不能加菜；用圆括号写。</p>",
+     "kp": "📎 知识点：元组不可变"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 1 题",
+     "tags": [
+      "程序阅读",
+      "分支与循环"
+     ],
+     "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>s = 0\nfor i in range(1, 11):\n    s = s + i\nprint(s)</code></pre></div>",
+     "options": [],
+     "answer": "<code>55</code>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>1+2+…+10 = 55。累加器套路：s 先清 0，每轮把 i 加进来。</p>",
+     "kp": "📎 知识点：for 循环累加"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "卷一 · 第 2 题",
+     "tags": [
+      "程序阅读",
+      "字典dict"
+     ],
+     "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>sales = {\"苹果\": 1200, \"香蕉\": 800}\nsales[\"橙子\"] = 500\nprint(sales[\"苹果\"] + sales[\"橙子\"])</code></pre></div>",
+     "options": [],
+     "answer": "<code>1700</code>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>新增键值对橙子=500；苹果 1200 + 橙子 500 = 1700。</p>",
+     "kp": "📎 知识点：字典新增与取值"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "卷一 · 第 3 题",
+     "tags": [
+      "编程",
+      "异常"
+     ],
+     "stem": "<span class=\"q-stem\">编写程序：循环请用户输入销售额（输入 q 结束），统计总销售额；若输入不是数字，提示“请输入数字”并继续，最后打印总额。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>total = 0\nwhile True:\n    x = input(\"请输入销售额（输入 q 结束）：\")\n    if x == \"q\":\n        break\n    try:\n        total = total + float(x)\n    except ValueError:\n        print(\"请输入数字！\")\nprint(\"总销售额：\", total)</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>四件套：<b>while True 无限循环 → 输入 q 用 break 跳出 → float(x) 包 try-except 防“手滑输错” → total 累加</b>。经管类比：店员把每笔营业额敲进收银机，敲错数字机器还不崩，最后出总账。</p>",
+     "kp": "📎 知识点：while + break + try-except 综合"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "全书综合模拟（满分 100 分 · 建议 90 分钟）",
+   "hint": "题型：一、选择题 6 题（每题 5 分，共 30 分）；二、填空题 3 题（每题 6 分，共 18 分）；三、程序阅读/编程 3 题（共 52 分）。与卷一相互独立，覆盖第一至六章全部核心知识点。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "变量与基本数据类型"
+     ],
+     "stem": "<span class=\"q-stem\"><code>print(\"2\" + \"3\")</code> 的输出是（　）。</span>",
+     "options": [
+      "A. 5",
+      "B. 23",
+      "C. 5.0",
+      "D. 报错"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>两个字符串相加是“拼接”：\"2\"+\"3\" = \"23\"。要算 5 必须 int(\"2\")+int(\"3\")。</p>",
+     "kp": "📎 知识点：字符串拼接"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 2 题",
+     "tags": [
+      "函数定义与调用"
+     ],
+     "stem": "<span class=\"q-stem\">定义函数的关键字是（　）。</span>",
+     "options": [
+      "A. def",
+      "B. function",
+      "C. func",
+      "D. define"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>def 函数名(参数): 开头，下一行缩进写函数体。</p>",
+     "kp": "📎 知识点：def 定义函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 3 题",
+     "tags": [
+      "集合set"
+     ],
+     "stem": "<span class=\"q-stem\">下列关于集合 set 的说法正确的是（　）。</span>",
+     "options": [
+      "A. 元素可以重复",
+      "B. 自动去重、不保证顺序",
+      "C. 用方括号 [] 表示",
+      "D. 可以用下标访问"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>set 自动去重、无序、不支持下标；list(set(名单)) 是经典去重一行流。</p>",
+     "kp": "📎 知识点：set 去重"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 4 题",
+     "tags": [
+      "模块导入"
+     ],
+     "stem": "<span class=\"q-stem\"><code>import math</code> 后，求 √16 应写（　）。</span>",
+     "options": [
+      "A. math.sqrt(16)",
+      "B. math.root(16)",
+      "C. math.sqr(16)",
+      "D. math(16)"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>math.sqrt(16) = 4.0；math.pi 圆周率；math.floor 向下取整。</p>",
+     "kp": "📎 知识点：math 模块函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 5 题",
+     "tags": [
+      "文件读写open"
+     ],
+     "stem": "<span class=\"q-stem\">想在文件末尾接着写历史记录，应使用的打开模式是（　）。</span>",
+     "options": [
+      "A. \"r\"",
+      "B. \"w\"",
+      "C. \"a\"",
+      "D. \"x\""
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>a = append 追加，不清空原文件；w 会清空——每月备份用 a 最安全。</p>",
+     "kp": "📎 知识点：文件模式 w / a 区别"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 6 题",
+     "tags": [
+      "__init__与self"
+     ],
+     "stem": "<span class=\"q-stem\">类中 __init__ 方法（　）。</span>",
+     "options": [
+      "A. 必须手动调用",
+      "B. 创建对象时自动调用，负责初始化属性",
+      "C. 只能写一次且不能有参数",
+      "D. 用于删除对象"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>实例化时自动执行，给对象装上 name、score 等初始属性。</p>",
+     "kp": "📎 知识点：__init__ 构造方法"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "分支与循环"
+     ],
+     "stem": "<span class=\"q-stem\"><code>range(1, 5)</code> 共产生 <span class=\"blank\">4</span> 个数（含头不含尾）。</span>",
+     "options": [],
+     "answer": "4",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>1,2,3,4 四个数；要含 5 得写 range(1,6)。</p>",
+     "kp": "📎 知识点：range 长度"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 2 题",
+     "tags": [
+      "f-string格式化"
+     ],
+     "stem": "<span class=\"q-stem\">name = \"城东店\"，<code>f\"{name}本月业绩大涨\"</code> 输出 <span class=\"blank\">城东店本月业绩大涨</span>。</span>",
+     "options": [],
+     "answer": "城东店本月业绩大涨",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>f-string 用 {变量} 填空，是拼接字符串最清爽的写法。</p>",
+     "kp": "📎 知识点：f-string 插值"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 3 题",
+     "tags": [
+      "finally"
+     ],
+     "stem": "<span class=\"blank\">finally</span> 块里的代码无论是否发生异常都会执行，常用于收尾。</span>",
+     "options": [],
+     "answer": "finally",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>try-except-finally：危险操作 → 接错 → 必跑收尾。</p>",
+     "kp": "📎 知识点：finally 必执行"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 1 题",
+     "tags": [
+      "程序阅读",
+      "函数定义与调用"
+     ],
+     "stem": "<span class=\"q-stem\">写出输出：</span>\n                <div class=\"md\"><pre><code>def average(a, b):\n    return (a + b) / 2\n\nprint(average(80, 90))</code></pre></div>",
+     "options": [],
+     "answer": "<code>85.0</code>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>(80+90)/2 = 85.0；/ 除法永远返回小数。</p>",
+     "kp": "📎 知识点：函数调用与返回值"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "mid",
+     "number": "卷二 · 第 2 题",
+     "tags": [
+      "程序阅读",
+      "作用域"
+     ],
+     "stem": "<span class=\"q-stem\">写出两行 print 的输出：</span>\n                <div class=\"md\"><pre><code>x = 1\ndef f():\n    x = 10\n    print(x)\nf()\nprint(x)</code></pre></div>",
+     "options": [],
+     "answer": "先输出 <code>10</code>，再输出 <code>1</code>。",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>函数内 x=10 是局部变量，只在包间里有效；外面全局 x=1 不受影响。</p>",
+     "kp": "📎 知识点：局部与全局作用域"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "卷二 · 第 3 题",
+     "tags": [
+      "编程",
+      "综合项目"
+     ],
+     "stem": "<span class=\"q-stem\">综合编程：定义一个 Account 记账类，属性为户主名 name 和余额 balance（初始 0）；方法 deposit(金额) 存款（余额增加并打印新余额）。造一个户主为“贾天福”的账户，存入 500 元，打印余额。</span>",
+     "options": [],
+     "answer": "<div class=\"md\"><pre><code>class Account:\n    def __init__(self, name):\n        self.name = name\n        self.balance = 0\n    def deposit(self, money):\n        self.balance = self.balance + money\n        print(f\"{self.name}存入{money}元，余额{self.balance}元\")\n\na = Account(\"贾天福\")\na.deposit(500)</code></pre></div>",
+     "explain": "<span class=\"ans-label\">详细解析</span>\n                <p>三件套：__init__ 装好 name 与 balance=0；deposit 方法通过 self.balance 更新余额；造对象后调方法。输出：“贾天福存入500元，余额500元”。这就是面向对象“把数据和操作打包”的最小模型，记账小程序再扩展 withdraw 取款、查询流水即可。</p>",
+     "kp": "📎 知识点：类的综合实现（记账类）"
+    }
+   ]
+  }
+ ]
+}
