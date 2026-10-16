@@ -1,0 +1,2936 @@
+{
+ "id": "yasi-tuofu",
+ "name": "雅思 / 托福（英语拓展）",
+ "emoji": "🌍",
+ "category": "成长通识",
+ "desc": "国际英语测试体系备考：雅思（IELTS）9 分制听说读写与托福（TOEFL iBT）120 分制四科，从考试认知、题型拆解到评分标准与备考规划，助力出国留学与国际化就业。",
+ "meta": [
+  "成长通识/英语拓展课程",
+  "出国留学与国际交流方向",
+  "听说读写四科"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考（雅思）",
+   "title": "《剑桥雅思真题》（Cambridge IELTS 4–19）",
+   "pub": "剑桥大学出版社 / 英国文化教育协会（BC）",
+   "note": "雅思考试命题方官方真题集，每套含 4 套完整学术类全真试题、听力原文、考官范文与点评，是备考第一手材料。"
+  },
+  {
+   "role": "主教材参考（托福）",
+   "title": "《The Official Guide to the TOEFL Test》（官方指南）",
+   "pub": "ETS（美国教育考试服务中心）",
+   "note": "托福官方指南，含四科题型详解、评分标准与官方样题。"
+  },
+  {
+   "role": "参考教材",
+   "title": "《雅思考试官方指南》/《雅思口语、写作话题库》",
+   "pub": "剑桥大学出版社 · 新东方等机构系列",
+   "note": "口语 P1-P3 题库与写作话题每季度更新，配合真题食用效果最佳。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "中国大学MOOC",
+   "name": "《雅思写作》华中农业大学",
+   "desc": "紧扣雅思写作评分标准：词汇资源、语法范围与精准度、连贯与衔接、任务回应四维度逐项讲解+高分范文分析",
+   "url": "https://www.icourse163.org/course/HZAU-1206704824"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《雅思口语》",
+   "desc": "15 单元覆盖口语三大板块、五大话题（人物/事物/媒体/事件/地点），以口语评分标准为依据",
+   "url": "https://www.icourse163.org/course/detail.htm?cid=1001532003"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《雅思英语》（以剑桥真题 4–14 授课）",
+   "desc": "以官方真题集为教材逐套精讲，含听力文本与写作考官范文",
+   "url": "https://www.icourse163.org/course/detail.htm?cid=1452728169"
+  },
+  {
+   "platform": "B站",
+   "name": "牛津在线英语口语课程 50 集（雅思托福同适用）",
+   "desc": "牛津在线英语口语全 50 集，覆盖发音、流利度、话题表达，雅思考前口语训练经典资源",
+   "url": "https://www.bilibili.com/opus/762104185528254488"
+  },
+  {
+   "platform": "抖音",
+   "name": "《雅思自学保姆级指南》（自学 7.5 分）",
+   "desc": "5.1 万赞：自学路径、听力精听法（BBC 每日听写）、刷题节奏与资料推荐",
+   "url": "https://www.iesdouyin.com/share/video/7640800097617382691"
+  },
+  {
+   "platform": "抖音",
+   "name": "《雅思零基础入门教程》198 集全",
+   "desc": "198 小时从零基础到 7+ 的完整系列，分九期发布，含阅读题型专项（Heading 等）",
+   "url": "https://www.iesdouyin.com/share/video/7579191499011738934"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>华农《雅思写作》与《雅思口语》分别对应本页第 4、5 章（写作四评分标准、口语三部分）；《雅思英语》以剑桥真题为纲，对应全科备考；B 站牛津口语 50 集适合 Part 1-3 表达训练；抖音自学指南与 198 集系列给出「目标分→词汇→刷题→模考」的完整备考路径（对应第 6 章）。",
+ "modules": [
+  {
+   "index": "一",
+   "title": "考试认知与评分体系",
+   "sub": "先搞清楚两门考试长什么样、怎么算分，再决定选哪个。",
+   "sections": [
+    {
+     "h4": "1. 雅思（IELTS）",
+     "body": "听说读写四科各 9 分，总分=四科平均（四舍五入到 0.5）。分<b>学术类（A）</b>与<b>培训类（G）</b>：留学选 A，移民/工作选 G。考试形式有纸笔与机考，口语为真人对话。"
+    },
+    {
+     "h4": "2. 托福（TOEFL iBT）",
+     "body": "四科各 30 分、总分 120，全程机考、口语对着电脑录音。北美院校多认可托福，英联邦多认可雅思，多数学校两种都接受——按目标院校要求选择。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "雅思 9 分制",
+     "plain": "雅思听说读写各科<b>1-9 分</b>，0.5 分为一档；<b>总分=四科平均后四舍五入到最近的 0.5</b>。留学申请常见要求：本科 6.0-6.5，硕士 6.5-7.0，名校常要 7.0+。",
+     "example": "四科成绩 听力 7.0、阅读 7.5、写作 6.0、口语 6.5，平均=6.75→总分<b>7.0</b>（6.75 进到 7.0，7.25 进到 7.5，规则是“往 0.5 档就近取整”）。"
+    },
+    {
+     "name": "学术类（A 类）与培训类（G 类）",
+     "plain": "<b>A 类</b>面向留学/学术场景（阅读用学术文章）；<b>G 类</b>面向移民/工作场景（阅读偏日常广告、通知）。口语写作话题也有差异。",
+     "example": "你申请英国硕士要考<b>A 类</b>雅思；家人办加拿大移民技术类可能要求<b>G 类</b>——两类阅读文本风格完全不同。"
+    },
+    {
+     "name": "托福 iBT 与雅思对照",
+     "plain": "托福 iBT 总分 <b>120</b>（四科各 30），雅思总分 9。两套分数可对照：雅思 6.5≈托福 79-93，雅思 7.0≈托福 94-101。选考哪个看目标学校。",
+     "example": "目标学校官网要求“托福 90 或雅思 6.5”——你口语不习惯对着电脑可以选雅思（真人对话），打字快不怕机考可以选托福。"
+    },
+    {
+     "name": "评分标准（写作/口语四大维度）",
+     "plain": "写作与口语都按<b>四个维度</b>评分：任务回应/完成度（TR/TA）、连贯与衔接（CC）、词汇资源（LR）、语法范围与准确性（GRA）；口语还要看发音（P）。每个维度单独给分再平均。",
+     "example": "作文“内容很对题、例子充分但句子全是简单句”，那么 TR 可能 7、LR 和 GRA 只有 5-6——四维要平衡，只练内容不练句型提不了分。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "听力（Listening）",
+   "sub": "雅思听力 40 题、约 30 分钟，四个 Section 难度递进，重在同义替换与精听。",
+   "sections": [
+    {
+     "h4": "1. 题型与 Section 分布",
+     "body": "Section 1 日常对话（填空：电话/租房/订票）、Section 2 独白（单选/地图）、Section 3 学术讨论（多选/匹配）、Section 4 学术讲座（填空）。答案词常被<b>同义替换</b>包裹。"
+    },
+    {
+     "h4": "2. 精听策略",
+     "body": "精听四步：裸听→看原文→跟读→复听。错题标记「听错/拼错/没听到」，统计错误类型针对性训练。机考有高亮功能，纸笔可速记。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "同义替换（Paraphrase）",
+     "plain": "题目里和听力原文里<b>意思相同但说法不同</b>的词/短语。听懂替换=听力的核心能力，答案词基本是被替换后的原词。",
+     "example": "题目说“students can use the library at any time”，原文说“the library is open 24/7 for students”——at any time 就是 24/7 的同义替换。"
+    },
+    {
+     "name": "信号词（Signal Words）",
+     "plain": "提示<b>答案即将出现</b>的词：转折（but/however）、强调（actually/especially）、举例（for example）、重复强调等。转折后往往是正确答案。",
+     "example": "听力里说“I'd love to go to the beach, <b>but</b> the weather forecast says rain”——题目问最后决定，答案在 but 后面（不去海滩）。"
+    },
+    {
+     "name": "地图题（Map Labelling）",
+     "plain": "根据独白中的方位描述<b>在地图上填地点</b>。关键是抓“参照点+方向+方位词”（opposite/next to/on the corner of）。",
+     "example": "原文：“The café is on the corner, <b>opposite</b> the main entrance.”——答案填在“正门对面那个角落”。"
+    },
+    {
+     "name": "精听（Intensive Listening）",
+     "plain": "把一段音频<b>反复听、逐句听懂</b>的训练法：先不暂停做题→看文本核对→跟读→再听一遍。比“听 10 段不管懂不懂”有效得多。",
+     "example": "每天精听 BBC 6 Minute English 一段：先听写、再对照文本、把生词和连读记进错题本——坚持 1 个月听力从 6 提到 7 是常见路径。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "阅读（Reading）",
+   "sub": "雅思阅读 3 篇文章 40 题、60 分钟，核心是定位+同义替换+时间管理。",
+   "sections": [
+    {
+     "h4": "1. 高频题型",
+     "body": "Heading 题（给段落选标题）、判断题（TRUE/FALSE/NOT GIVEN）、填空题（summary/句子/图表）、匹配题（人名/特征/句尾）。每种题型有对应套路。"
+    },
+    {
+     "h4": "2. 做题顺序与时间管理",
+     "body": "建议先读题再读文、按“细节题→主旨题”顺序做；每篇控制 20 分钟内：定位词找得快、同义替换认得准、纠结的题先跳过。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "Heading 题（段落小标题）",
+     "plain": "给每个段落选一个<b>概括大意的小标题</b>。做对的关键是抓每段的<b>主题句</b>（通常在段首/段尾）和反复出现的高频词，而不是抠细节。",
+     "example": "一段反复出现 “cost, expense, budget”，标题应选“The financial burden of the project”，而不是某一句的细节“A specific factory in 2010”。"
+    },
+    {
+     "name": "TRUE / FALSE / NOT GIVEN",
+     "plain": "判断题三态：<b>TRUE</b>=原文明确支持；<b>FALSE</b>=原文明确反驳；<b>NOT GIVEN</b>=原文根本没提/无法推断。最容易错的是把“没提”当“错”。",
+     "example": "原文“All students must wear uniforms.”，题目“Some students may wear casual clothes.”——原文说都穿校服，题目说可以穿便装，明确矛盾→<b>FALSE</b>；题目“Teachers also wear uniforms.”原文没提→<b>NOT GIVEN</b>。"
+    },
+    {
+     "name": "定位词（Locating Words）",
+     "plain": "在原文中<b>几乎不会变形的词</b>：专有名词、数字、时间、大写词。用它们快速找到答案所在段落，再解决同义替换。",
+     "example": "题目提到 “1830s” 或 “Professor Lin”——直接扫读找这个数字/人名，定位到段落后再精读周边 2-3 句。"
+    },
+    {
+     "name": "同义替换（阅读版）",
+     "plain": "题目用词与原文<b>意思相同、形式不同</b>：近义词、词性转换、概括化（具体→抽象）。阅读的 70% 考点都是它。",
+     "example": "原文 “the government subsidized solar panels”，题目 “solar panels received <b>financial support</b> from the state”——subsidized=financial support，这就是替换。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "写作（Writing）",
+   "sub": "雅思两篇作文：Task 1 图表 + Task 2 议论文，四标准逐项抓分。",
+   "sections": [
+    {
+     "h4": "1. Task 1 与 Task 2",
+     "body": "Task 1：150 词以上，描述图表（线/柱/饼/表/流程图/地图），只描述不解释原因；Task 2：250 词以上，对观点/问题发表议论，结构=引言-主体两段-结论。"
+    },
+    {
+     "h4": "2. 四标准拆解",
+     "body": "TR（回应题目+立场清晰+论点充分）；CC（分段合理+连接词自然）；LR（同义替换+地道搭配）；GRA（复杂句+时态语态正确）。少犯低级错误比炫技更重要。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "任务回应（Task Response）",
+     "plain": "写作评分第一标准：<b>完全回应题目</b>——立场明确、论点充分、论证切题。偏题或只复述题目都会扣分。",
+     "example": "题目问“是否同意免费大学教育”，你必须明确“同意/不同意/部分同意”并给理由+例子；只罗列“教育很重要”而没回应“免费”这个点，就是 TR 分低。"
+    },
+    {
+     "name": "连贯与衔接（Coherence & Cohesion）",
+     "plain": "全文<b>逻辑顺、分段清、连接自然</b>：每段一个中心句，段间用连接词（however/moreover/as a result）过渡，但不要机械堆砌。",
+     "example": "好的结构：引言（立场）→ 主体段1（论点+例证）→ 主体段2（论点+例证）→ 结论（重申）。每段开头一句主题句=coherence 高分基础。"
+    },
+    {
+     "name": "图表作文（Task 1）",
+     "plain": "描述数据变化与比较的作文：<b>总起→分项描述→（必要时）总结</b>，用对趋势词（rise/plummet/fluctuate/remain stable）与比较句。不写原因、不写个人观点。",
+     "example": "柱状图显示中英两国手机销量：写“UK sales rose steadily from 10m to 20m between 2015 and 2020, <b>while</b> China's figures <b>surged</b> from 40m to 90m”——趋势+对比句就够。"
+    },
+    {
+     "name": "词汇资源（Lexical Resource）",
+     "plain": "用词的<b>广度与准确度</b>：同义替换避免重复、用词地道（collocation）、不背“大词”硬塞。宁可准确简单，不要错误华丽。",
+     "example": "全文反复说 “important” 会扣 LR 分，换成 crucial/vital/significant 或短语 “play a key role in”；但要确定搭配正确，如 “make a decision”（不是 do a decision）。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "口语（Speaking）",
+   "sub": "雅思口语 11-14 分钟三部分，考的是“自然交流+结构化表达”。",
+   "sections": [
+    {
+     "h4": "1. 三部分结构",
+     "body": "Part 1（4-5 分钟）：日常话题问答（学习/家乡/爱好）；Part 2（3-4 分钟）：抽话题卡讲 1-2 分钟；Part 3（4-5 分钟）：就 Part 2 主题深入讨论（更抽象）。"
+    },
+    {
+     "h4": "2. 提分关键",
+     "body": "流利度＞完美语法：用连接词争取思考时间（well/actually/let me think）；话题卡按“是什么-为什么-例子-感受”结构讲满时间；Part 3 要能分点论证、给例子。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "话题卡（Cue Card / Part 2）",
+     "plain": "一张写有<b>主题和四个提示点</b>的卡片，你有 1 分钟准备、讲 1-2 分钟。提示点只做提纲，要自己展开细节。",
+     "example": "卡片：“Describe a person you admire. You should say: who he/she is; how you know him/her; what he/she has done; and explain why you admire him/her.”——按四提示点各讲 2-3 句 + 开头结尾，轻松撑满。"
+    },
+    {
+     "name": "流利度与连贯性（Fluency & Coherence）",
+     "plain": "口语评分第一维度：<b>说得顺、逻辑连</b>。不是不能停顿，而是用“思考填充语”自然过渡，别长时间卡壳。",
+     "example": "想不出词时说“That's a good question... Well, I'd say that... Actually, <b>let me think about that for a second</b>”——比沉默 5 秒分数高得多。"
+    },
+    {
+     "name": "Part 3 的深入讨论",
+     "plain": "考官就 Part 2 主题提<b>抽象问题</b>（如“为什么人们喜欢旅行？”），要求分点、对比、举例子，展示批判性思维。",
+     "example": "考官问“Do you think tourism has more benefits than drawbacks?”——答：“<b>On one hand</b>…economic benefits; <b>on the other hand</b>…environmental pressure; <b>overall</b>…depends on management.” 结构分点+总结。"
+    },
+    {
+     "name": "发音（Pronunciation）",
+     "plain": "雅思口语评分维度之一：<b>重音、连读、语调</b>清晰可懂。不要求英音美音，但要把词读准、句有轻重。",
+     "example": "“record”作名词读 /ˈrekɔːd/、作动词读 /rɪˈkɔːd/；读不准会把“a good record”说成“a good ri-kord”，影响可懂度。"
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "备考规划与综合策略",
+   "sub": "把目标分拆成词汇、真题、模考、错题四个闭环，按自己的时间表推进。",
+   "sections": [
+    {
+     "h4": "1. 目标分拆解",
+     "body": "先定目标总分，再定四科目标（如 7.0=听力 7.5+阅读 7.5+写作 6.5+口语 6.5）；薄弱科多分配时间。词汇目标：7 分≈7000-8000 词，每天新词+复习旧词。"
+    },
+    {
+     "h4": "2. 真题精刷与模考",
+     "body": "剑桥真题 4-19 从新到旧刷：前 8 套分题型精练，后 4 套整套计时模考。每次模考后做错题归类（词汇/定位/语法/逻辑），针对性补漏。托福同理用 TPO。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "目标分拆解法",
+     "plain": "把总分目标<b>拆成四科各自的目标分</b>，按差距分配学习时间，而不是笼统“我要 7 分”。",
+     "example": "目标 7.0：听力阅读强（目标 7.5）、写作口语弱（目标 6.5）→ 每天 2 小时中，写作口语占 1.2 小时，听力阅读 0.8 小时。"
+    },
+    {
+     "name": "错题本（Error Log）",
+     "plain": "把错题按<b>错误类型归类</b>（听错/拼错/同义替换没识别/定位错/超时）记录的笔记本。错题本比刷题量更重要。",
+     "example": "阅读错题 10 道里 7 道是“定位到了但同义替换没认出”→ 下周专项练同义替换；而不是盲目再做 10 篇。"
+    },
+    {
+     "name": "真题精刷 vs 泛刷",
+     "plain": "<b>精刷</b>=每套题吃透（对答案→看解析→背替换→重听/重读）；<b>泛刷</b>=做完对答案就扔。精刷 5 套的效果大于泛刷 20 套。",
+     "example": "同一套听力：第一次做题 30 分钟，然后精听 1 小时、把 20 个替换词记进本子——第二次做下一套时正确率明显提升，这就是精刷。"
+    },
+    {
+     "name": "机考与纸笔",
+     "plain": "雅思两种考试形式：<b>机考</b>=电脑答题（听力戴耳机、阅读可高亮、写作打字快者占优、出分快）；<b>纸笔</b>=传统填涂、写作手写。按个人习惯选择。",
+     "example": "打字快、怕手写潦草 → 选机考；习惯纸质涂卡、写字快 → 选纸笔。口语部分两种形式都是真人对话，只有托福是机录。"
+    }
+   ]
+  }
+ ],
+ "formulas": [
+  {
+   "title": "雅思总分计算",
+   "math": "\\text{总分} = \\text{四科平均分}，\\text{四舍五入到最近的 } 0.5",
+   "note": "如 6.75→7.0；7.25→7.5。单科 9 分封顶。"
+  },
+  {
+   "title": "托福总分",
+   "math": "\\text{总分} = R30 + L30 + S30 + W30 = 120",
+   "note": "听说读写四科各 30 分，机考。"
+  },
+  {
+   "title": "雅思-托福对照（近似）",
+   "math": "\\text{IELTS } 6.5 \\approx \\text{TOEFL } 79-93；\\quad 7.0 \\approx 94-101",
+   "note": "各校要求不同，以目标院校官方对照表为准。"
+  },
+  {
+   "title": "备考投入量（经验值）",
+   "math": "\\text{提升 } 0.5 \\text{ 分} \\approx 120\\text{-}200 \\text{ 学习小时}",
+   "note": "从 6.0 到 7.0 约需 400-600 小时有效学习。"
+  },
+  {
+   "title": "词汇量目标",
+   "math": "\\text{目标 7 分} \\approx 7000\\text{-}8000 \\text{ 词}",
+   "note": "6 分约 5000-6000 词；词汇是听说读写共同的地基。"
+  },
+  {
+   "title": "每日新词量",
+   "math": "\\text{每日新词} = \\dfrac{\\text{目标词量} - \\text{现有词量}}{\\text{备考天数}}",
+   "note": "配合艾宾浩斯复习曲线，新词+旧词复习比例 1:2。"
+  },
+  {
+   "title": "听力正确率→分数（40 题近似）",
+   "math": "\\text{错 } 0\\text{-}1\\text{ 题}\\to 8.5\\text{+}；\\text{错 } 3\\text{-}4\\to 7.5；\\text{错 } 6\\text{-}7\\to 7.0",
+   "note": "不同场次难度有浮动，为经验区间。"
+  },
+  {
+   "title": "阅读 20 分钟/篇分配",
+   "math": "\\text{读题 } 2\\text{ 分} + \\text{定位做题 } 15\\text{ 分} + \\text{检查 } 3\\text{ 分} = 20\\text{ 分}",
+   "note": "先做细节题、后做 Heading；卡住 1 分钟立即跳过。"
+  },
+  {
+   "title": "写作字数底线",
+   "math": "\\text{Task 1} \\ge 150 \\text{ 词}；\\text{Task 2} \\ge 250 \\text{ 词}",
+   "note": "字数不足会直接拉低 TR 分；建议 Task 2 写 270-300 词。"
+  },
+  {
+   "title": "口语 Part 2 结构",
+   "math": "\\text{开场} + \\text{四提示点各 } 2\\text{-}3 \\text{ 句} + \\text{结尾} \\approx 1.5\\text{-}2 \\text{ 分钟}",
+   "note": "准备 1 分钟列提纲，讲满时间不跑题。"
+  }
+ ],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "考试认知与评分体系",
+   "hint": "本章知识清单：雅思 9 分制、A/G 类、托福 iBT、雅思托福对照、四维评分标准。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "雅思9分制",
+    "A类与G类",
+    "托福iBT",
+    "雅思托福对照",
+    "评分标准"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "雅思总分计算规则是（　）。",
+     "options": [
+      "A. 四科直接相加",
+      "B. 四科平均后四舍五入到 0.5",
+      "C. 只算听说两科",
+      "D. 读写取最高分"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>总分=四科平均，四舍五入到最近的 0.5 档（如 6.75→7.0）。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "A类与G类"
+     ],
+     "stem": "申请英国硕士留学应报考（　）。",
+     "options": [
+      "A. G 类雅思",
+      "B. A 类雅思",
+      "C. 培训类托福",
+      "D. 只需考阅读"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>学术类（A）用于留学/学术；培训类（G）用于移民/工作。</p>",
+     "kp": "📎 知识点：A类与G类"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "托福iBT"
+     ],
+     "stem": "托福 iBT 的总分是（　）。",
+     "options": [
+      "A. 9 分",
+      "B. 30 分",
+      "C. 120 分",
+      "D. 100 分"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>托福四科（听说读写）各 30 分，合计 120 分。</p>",
+     "kp": "📎 知识点：托福iBT"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "评分标准"
+     ],
+     "stem": "雅思写作与口语都按四个维度评分，其中“任务回应”对应（　）。",
+     "options": [
+      "A. CC 连贯与衔接",
+      "B. LR 词汇资源",
+      "C. TR 任务回应",
+      "D. GRA 语法"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>TR=Task Response 任务回应：立场清晰、论点切题。四维=TR/CC/LR/GRA（口语另有发音）。</p>",
+     "kp": "📎 知识点：评分标准"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "雅思托福对照"
+     ],
+     "stem": "雅思 6.5 大约相当于托福（　）。",
+     "options": [
+      "A. 60-70",
+      "B. 79-93",
+      "C. 94-101",
+      "D. 110 以上"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>雅思 6.5≈托福 79-93；7.0≈94-101；对照表以目标院校官网为准。</p>",
+     "kp": "📎 知识点：雅思托福对照"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "托福iBT"
+     ],
+     "stem": "托福口语的考试形式是（　）。",
+     "options": [
+      "A. 真人对话",
+      "B. 对着电脑录音",
+      "C. 电话口试",
+      "D. 无口语"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>托福全程机考，口语对着电脑录音；雅思口语是真人对话。</p>",
+     "kp": "📎 知识点：托福iBT"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "四科成绩 7.0、7.5、6.0、6.5，雅思总分为（　）。",
+     "options": [
+      "A. 6.5",
+      "B. 7.0",
+      "C. 7.5",
+      "D. 6.75"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>平均=6.75，四舍五入到 0.5 档→<b>7.0</b>。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "四科成绩 8.0、8.0、6.5、7.0，雅思总分为（　）。",
+     "options": [
+      "A. 7.0",
+      "B. 7.25",
+      "C. 7.5",
+      "D. 8.0"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>平均=(8+8+6.5+7)/4=7.375→四舍五入到 0.5 档=<b>7.5</b>（7.25-7.375 进到 7.5）。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "评分标准"
+     ],
+     "stem": "一篇作文“内容切题、例子充分但句子全是简单句、词汇重复”，主要短板在（　）。",
+     "options": [
+      "A. TR 与 CC",
+      "B. LR 与 GRA",
+      "C. 只有 TR",
+      "D. 发音"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>内容（TR）好但词汇重复（LR）、句式单一（GRA）拉低分——四维要平衡。</p>",
+     "kp": "📎 知识点：评分标准"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "雅思托福对照"
+     ],
+     "stem": "选考雅思还是托福，最合理的判断依据是（　）。",
+     "options": [
+      "A. 雅思更简单",
+      "B. 目标院校的认可与要求+个人习惯",
+      "C. 托福更便宜",
+      "D. 随机选择"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>先看目标院校要求（北美多收托福、英联邦多收雅思），再结合打字/机考/口语习惯。</p>",
+     "kp": "📎 知识点：雅思托福对照"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "托福iBT"
+     ],
+     "stem": "托福 iBT 总分______分，四科各______分。",
+     "options": [],
+     "answer": "<b>120；30</b>",
+     "explain": "<p>托福四科（听说读写）各 30 分，合计 120 分，全程机考。</p>",
+     "kp": "📎 知识点：托福iBT"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "雅思单科满分为______分。",
+     "options": [],
+     "answer": "<b>9</b>",
+     "explain": "<p>雅思各科 1-9 分，0.5 分一档。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "A类与G类"
+     ],
+     "stem": "雅思学术类简称______类，培训类简称______类。",
+     "options": [],
+     "answer": "<b>A；G</b>",
+     "explain": "<p>A=Academic 留学学术；G=General Training 移民工作。</p>",
+     "kp": "📎 知识点：A类与G类"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "评分标准"
+     ],
+     "stem": "写作四维评分：任务回应、连贯与衔接、词汇资源、______。",
+     "options": [],
+     "answer": "<b>语法范围与准确性（GRA）</b>",
+     "explain": "<p>TR/CC/LR/GRA；口语在 GRA 基础上单列“发音”。</p>",
+     "kp": "📎 知识点：评分标准"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "雅思托福对照"
+     ],
+     "stem": "雅思 7.0 大约相当于托福______分区间。",
+     "options": [],
+     "answer": "<b>94-101</b>",
+     "explain": "<p>雅思 7.0≈托福 94-101；以官方对照表为准。</p>",
+     "kp": "📎 知识点：雅思托福对照"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "四科 6.5、7.0、7.5、8.0 的雅思总分为______。",
+     "options": [],
+     "answer": "<b>7.5</b>",
+     "explain": "<p>平均=(6.5+7+7.5+8)/4=7.25→0.5 档=<b>7.5</b>。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "A类与G类",
+      "托福iBT",
+      "评分标准"
+     ],
+     "stem": "结合自身情况简述：① A 类与 G 类雅思怎么选；② 雅思与托福怎么二选一；③ 为什么写作口语不能只练内容不练表达。",
+     "options": [],
+     "answer": "<p>① 留学/学术用途选 A 类，移民/工作选 G 类，以目标院校或移民局要求为准。② 看目标院校认可哪种：北美院校多收托福、英联邦多收雅思，多数学校两者都收——再结合自身习惯（打字快选托福/机考雅思，怕对着电脑说话选纸笔雅思）。③ 写作口语按 TR/CC/LR/GRA 四维评分，内容（TR）只占其一：论点好但句子全是简单句、词汇重复，LR/GRA 只能拿 5-6 分，总分上不去。</p>",
+     "explain": "<p>① 留学/学术用途选 A 类，移民/工作选 G 类，以目标院校或移民局要求为准。② 看目标院校认可哪种：北美院校多收托福、英联邦多收雅思，多数学校两者都收——再结合自身习惯（打字快选托福/机考雅思，怕对着电脑说话选纸笔雅思）。③ 写作口语按 TR/CC/LR/GRA 四维评分，内容（TR）只占其一：论点好但句子全是简单句、词汇重复，LR/GRA 只能拿 5-6 分，总分上不去。</p>",
+     "kp": "📎 知识点：A类与G类 · 托福iBT · 评分标准"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "解释雅思“四舍五入到 0.5 档”的规则，并计算 6.5、6.5、7.0、7.5 与 8.0、8.5、7.0、7.5 两组的总分。",
+     "options": [],
+     "answer": "<p>规则：总分=四科平均，按 0.5 分档就近取整（7.25 起进到 7.5；6.75 进到 7.0）。① (6.5+6.5+7+7.5)/4=6.875→<b>7.0</b>；② (8+8.5+7+7.5)/4=7.75→<b>8.0</b>。</p>",
+     "explain": "<p>规则：总分=四科平均，按 0.5 分档就近取整（7.25 起进到 7.5；6.75 进到 7.0）。① (6.5+6.5+7+7.5)/4=6.875→<b>7.0</b>；② (8+8.5+7+7.5)/4=7.75→<b>8.0</b>。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "评分标准"
+     ],
+     "stem": "说明口语评分的四个维度，并解释“流利度＞完美语法”的含义。",
+     "options": [],
+     "answer": "<p>口语四维：流利度与连贯性（FC）、词汇资源（LR）、语法范围与准确性（GRA）、发音（P）。含义：卡壳、沉默对 FC 打击最大，甚至比语法小错更致命；连续自然地表达+少量语法错误通常好于“憋出一句完美的话”。</p>",
+     "explain": "<p>口语四维：流利度与连贯性（FC）、词汇资源（LR）、语法范围与准确性（GRA）、发音（P）。含义：卡壳、沉默对 FC 打击最大，甚至比语法小错更致命；连续自然地表达+少量语法错误通常好于“憋出一句完美的话”。</p>",
+     "kp": "📎 知识点：评分标准"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "雅思9分制",
+      "雅思托福对照",
+      "评分标准"
+     ],
+     "stem": "你计划申请美国研究生（要求托福 95+），现模考雅思 6.5。论述：① 是否转考托福的决策逻辑；② 按四维评分诊断你英语四项的提分优先级；③ 目标分如何拆解。",
+     "options": [],
+     "answer": "<p>① 美国院校认可托福，若转考需评估差距：雅思 6.5≈托福 79-93，离 95 尚有距离，但托福机考+打字写作若适合你可转；否则继续雅思并按对照考更高分。② 四维诊断：阅读听力可冲 7.5（词汇+精听精读），写作口语 6.0 最弱（TR 易偏题、LR/GRA 不足）→提分优先级写作>口语>听力>阅读。③ 目标拆分：听说 7.5+读写 6.5 平均 7.0≈托福 94-101，覆盖 95 要求；按差距分配每周时间。</p>",
+     "explain": "<p>① 美国院校认可托福，若转考需评估差距：雅思 6.5≈托福 79-93，离 95 尚有距离，但托福机考+打字写作若适合你可转；否则继续雅思并按对照考更高分。② 四维诊断：阅读听力可冲 7.5（词汇+精听精读），写作口语 6.0 最弱（TR 易偏题、LR/GRA 不足）→提分优先级写作>口语>听力>阅读。③ 目标拆分：听说 7.5+读写 6.5 平均 7.0≈托福 94-101，覆盖 95 要求；按差距分配每周时间。</p>",
+     "kp": "📎 知识点：雅思9分制 · 雅思托福对照 · 评分标准"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "A类与G类",
+      "雅思9分制"
+     ],
+     "stem": "一位同学：目标院校（英国）要求雅思 A 类总分 7.0、单项不低于 6.5；其四科预估 7.5/7.5/6.0/6.5。① 该分数能否满足要求？② 若写作只有 5.5，总分与单项是否达标？③ 给出提升策略。",
+     "options": [],
+     "answer": "<p>① 平均=(7.5+7.5+6+6.5)/4=6.875→7.0，单项最低 6.0<6.5：总分达标但<b>写作 6.0 不满足单项 6.5</b>；② 写作 5.5 时总分=(7.5+7.5+5.5+6.5)/4=6.75→7.0，写作仍不达标，且 5.5 更危险；③ 策略：写作专攻 TR（立场+切题）与 GRA（复杂句），找批改，2 周把 5.5 提到 6.5；口语保持 6.5 并冲 7.0 补足。</p>",
+     "explain": "<p>① 平均=(7.5+7.5+6+6.5)/4=6.875→7.0，单项最低 6.0<6.5：总分达标但<b>写作 6.0 不满足单项 6.5</b>；② 写作 5.5 时总分=(7.5+7.5+5.5+6.5)/4=6.75→7.0，写作仍不达标，且 5.5 更危险；③ 策略：写作专攻 TR（立场+切题）与 GRA（复杂句），找批改，2 周把 5.5 提到 6.5；口语保持 6.5 并冲 7.0 补足。</p>",
+     "kp": "📎 知识点：A类与G类 · 雅思9分制"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "听力",
+   "hint": "本章知识清单：Section 分布、同义替换、信号词、地图题、精听、多选题与匹配题。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "Section分布",
+    "同义替换",
+    "信号词",
+    "地图题",
+    "精听",
+    "选择题技巧"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "题目“at any time”对应原文“24/7”，这种现象叫（　）。",
+     "options": [
+      "A. 信号词",
+      "B. 同义替换",
+      "C. 地图题",
+      "D. 精听"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>同义替换=题目与原文意思相同说法不同，是听力核心考点。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Section分布"
+     ],
+     "stem": "雅思听力 Section 1 的内容通常是（　）。",
+     "options": [
+      "A. 学术讲座",
+      "B. 日常对话（租房/订票等）",
+      "C. 学术讨论",
+      "D. 新闻播报"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Section 1=日常对话（电话/订票/租房），以填空为主。</p>",
+     "kp": "📎 知识点：Section分布"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "信号词"
+     ],
+     "stem": "听力中“I'd love to go to the beach, but the weather forecast says rain”中，答案通常在（　）。",
+     "options": [
+      "A. but 之前",
+      "B. but 之后",
+      "C. 句首",
+      "D. 无规律"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>转折词 but/however 后往往是真实答案（想去但去不成）。</p>",
+     "kp": "📎 知识点：信号词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "地图题"
+     ],
+     "stem": "地图题做题的关键是（　）。",
+     "options": [
+      "A. 背熟地图",
+      "B. 抓参照点+方位词",
+      "C. 只听数字",
+      "D. 猜答案"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>地图题靠“参照点+方向+方位词”（opposite/next to/on the corner）定位答案。</p>",
+     "kp": "📎 知识点：地图题"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "精听"
+     ],
+     "stem": "下列属于有效精听训练的是（　）。",
+     "options": [
+      "A. 连续听 10 段不核对",
+      "B. 裸听→看文本→跟读→复听",
+      "C. 只做听写不复习",
+      "D. 只刷题不对答案"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>精听四步：裸听→看原文→跟读→复听，并做错题归类；泛听不核对效果很差。</p>",
+     "kp": "📎 知识点：精听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "选择题技巧"
+     ],
+     "stem": "听力选择题（单选）的核心策略是（　）。",
+     "options": [
+      "A. 边听边读每个选项",
+      "B. 先读题干圈关键词，听时抓替换与转折",
+      "C. 凭感觉选",
+      "D. 只听后一句"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>提前读题圈关键词，听音时抓同义替换与信号词，尤其注意转折后的修正。</p>",
+     "kp": "📎 知识点：选择题技巧"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "听力原文说“the workshop is free of charge”，题目问费用，正确理解是（　）。",
+     "options": [
+      "A. 需要付费",
+      "B. 免费",
+      "C. 价格未知",
+      "D. 半价"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>free of charge=免费的，与 free 同义替换；听时抓住核心名词+否定词。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "信号词"
+     ],
+     "stem": "原文“We usually meet on Mondays, but next week we'll switch to Tuesday”中，下周见面时间是（　）。",
+     "options": [
+      "A. Monday",
+      "B. Tuesday",
+      "C. 不确定",
+      "D. 每天"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>转折后才是真相：通常周一，但下周改为周二。</p>",
+     "kp": "📎 知识点：信号词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "精听"
+     ],
+     "stem": "听力错题归类时，“听到了 but 没识别替换词”应归为（　）。",
+     "options": [
+      "A. 拼写错误",
+      "B. 同义替换没识别",
+      "C. 超时",
+      "D. 语法错误"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>错题按类型归类（听错/拼错/替换没认出/没听到），替换问题是最高频项。</p>",
+     "kp": "📎 知识点：精听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "Section分布"
+     ],
+     "stem": "Section 3（学术讨论）最常见的题型是（　）。",
+     "options": [
+      "A. 填空为主",
+      "B. 多选与匹配",
+      "C. 只有单选",
+      "D. 地图题"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Section 3=师生学术讨论：单选/多选/匹配题居多；Section 4 以填空为主。</p>",
+     "kp": "📎 知识点：Section分布"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "Section 1 常见于日常对话，答案词常被______包裹。",
+     "options": [],
+     "answer": "<b>同义替换</b>",
+     "explain": "<p>听懂替换=听力的核心能力；答案词多为原文原词。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "精听"
+     ],
+     "stem": "精听四步：裸听→看原文→______→复听。",
+     "options": [],
+     "answer": "<b>跟读</b>",
+     "explain": "<p>跟读帮助校正发音与连读，是精听承上启下的一步。</p>",
+     "kp": "📎 知识点：精听"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "地图题"
+     ],
+     "stem": "原文“The café is on the corner, opposite the main entrance”中，参照点是______。",
+     "options": [],
+     "answer": "<b>main entrance（正门）</b>",
+     "explain": "<p>地图题以参照点为锚，再按方位词定位。</p>",
+     "kp": "📎 知识点：地图题"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "信号词"
+     ],
+     "stem": "信号词中提示“正确答案在转折之后”的是______类词。",
+     "options": [],
+     "answer": "<b>转折（but/however/although）</b>",
+     "explain": "<p>转折后常是真实答案，前文常是干扰。</p>",
+     "kp": "📎 知识点：信号词"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "Section分布"
+     ],
+     "stem": "雅思听力共______个 Section、______道题。",
+     "options": [],
+     "answer": "<b>4；40</b>",
+     "explain": "<p>4 个 Section 40 题，约 30 分钟（含誊写）。</p>",
+     "kp": "📎 知识点：Section分布"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "选择题技巧"
+     ],
+     "stem": "听力多选题出现 “A and also B” 结构时，通常说明答案是______。",
+     "options": [],
+     "answer": "<b>A 和 B 都要选（并列信息）</b>",
+     "explain": "<p>多选题要抓并列连词与列举；“and also”提示多项成立。</p>",
+     "kp": "📎 知识点：选择题技巧"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "Section分布",
+      "信号词",
+      "精听"
+     ],
+     "stem": "简述雅思听力的四种 Section 特点，并说明“精听”相比“泛听”为什么提分更快。",
+     "options": [],
+     "answer": "<p>Section 1 日常对话（填空为主：电话/订票/租房）；Section 2 独白（单选/地图）；Section 3 学术讨论（多选/匹配）；Section 4 学术讲座（填空）。精听提分快的原因：把“听不懂”具体化为替换词没认出/连读没听清/拼写错误三类，逐一补漏；泛听只是在重复“没听懂”的循环，错误模式没有被纠正。</p>",
+     "explain": "<p>Section 1 日常对话（填空为主：电话/订票/租房）；Section 2 独白（单选/地图）；Section 3 学术讨论（多选/匹配）；Section 4 学术讲座（填空）。精听提分快的原因：把“听不懂”具体化为替换词没认出/连读没听清/拼写错误三类，逐一补漏；泛听只是在重复“没听懂”的循环，错误模式没有被纠正。</p>",
+     "kp": "📎 知识点：Section分布 · 信号词 · 精听"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "同义替换",
+      "信号词"
+     ],
+     "stem": "以“I'd love to go to the beach, but the weather forecast says rain”为例，说明听力解题中信号词与同义替换如何配合。",
+     "options": [],
+     "answer": "<p>先听到 but 判断“真实答案在后”，再处理同义替换：the weather forecast says rain=will rain/not suitable；两者配合定位正确答案（不去海滩）。信号词解决“答案在哪”，替换解决“答案是什么”。</p>",
+     "explain": "<p>先听到 but 判断“真实答案在后”，再处理同义替换：the weather forecast says rain=will rain/not suitable；两者配合定位正确答案（不去海滩）。信号词解决“答案在哪”，替换解决“答案是什么”。</p>",
+     "kp": "📎 知识点：同义替换 · 信号词"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "地图题"
+     ],
+     "stem": "以“图书馆在正门对面的角落、咖啡馆在书店隔壁”为例，说明地图题答题步骤（提前看图→抓参照→记方位词）。",
+     "options": [],
+     "answer": "<p>① 提前看地图：记住已有地标（entrance/exit/已给名称）与方位结构；② 听音时以参照点为锚：听到“on the corner, opposite the main entrance”即锁定正门对面的角落；③ 记方位词表：opposite/next to/behind/beside/on the left of；不确定时先记缩写，誊写时补全。</p>",
+     "explain": "<p>① 提前看地图：记住已有地标（entrance/exit/已给名称）与方位结构；② 听音时以参照点为锚：听到“on the corner, opposite the main entrance”即锁定正门对面的角落；③ 记方位词表：opposite/next to/behind/beside/on the left of；不确定时先记缩写，誊写时补全。</p>",
+     "kp": "📎 知识点：地图题"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "精听",
+      "同义替换",
+      "信号词"
+     ],
+     "stem": "设计一个“2 周听力从 6.0 到 6.5”的精听训练计划（每日流程、材料选择、错题本使用、复盘节点）。",
+     "options": [],
+     "answer": "<p>① 材料：前 3 天用 BBC 6 Minute English（语速适中、话题日常），后 11 天用剑桥真题 Section 1-2 精听；② 每日流程：裸听做题（25 分钟）→看文本核对（10 分钟）→跟读模仿（15 分钟）→复听验证（10 分钟）→错题本记录（5 分钟）；③ 错题本按“替换没认出/连读没听清/拼写错误/漏听”四类归类，每日统计占比；④ 复盘：每 3 天看一次错题占比，若替换类>50% 则加练替换词专项，若拼写类高则补单词拼写；第 14 天做整套模考验证。</p>",
+     "explain": "<p>① 材料：前 3 天用 BBC 6 Minute English（语速适中、话题日常），后 11 天用剑桥真题 Section 1-2 精听；② 每日流程：裸听做题（25 分钟）→看文本核对（10 分钟）→跟读模仿（15 分钟）→复听验证（10 分钟）→错题本记录（5 分钟）；③ 错题本按“替换没认出/连读没听清/拼写错误/漏听”四类归类，每日统计占比；④ 复盘：每 3 天看一次错题占比，若替换类>50% 则加练替换词专项，若拼写类高则补单词拼写；第 14 天做整套模考验证。</p>",
+     "kp": "📎 知识点：精听 · 同义替换 · 信号词"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "同义替换",
+      "信号词",
+      "Section分布"
+     ],
+     "stem": "你听到一段租房对话（Section 1）：原文提到“the flat is near the station—about five minutes on foot; rent is 800 per month, but if you pay six months in advance you get a 10% discount”。① 说出租金相关考点与替换词；② 若题目问“优惠后的半年租金”，写出计算。",
+     "options": [],
+     "answer": "<p>① 考点：near the station≈close to the station；five minutes on foot=walking distance；10% discount=10% off/reduced by 10%；② 优惠后月租=800×90%=720，半年=720×6=<b>4320</b>（若按原价半年 4800 打九折同样结果）。</p>",
+     "explain": "<p>① 考点：near the station≈close to the station；five minutes on foot=walking distance；10% discount=10% off/reduced by 10%；② 优惠后月租=800×90%=720，半年=720×6=<b>4320</b>（若按原价半年 4800 打九折同样结果）。</p>",
+     "kp": "📎 知识点：同义替换 · 信号词 · Section分布"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "阅读",
+   "hint": "本章知识清单：Heading 题、判断题三态、定位词、同义替换、时间管理、匹配题。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "Heading题",
+    "判断题三态",
+    "定位词",
+    "同义替换",
+    "时间管理",
+    "匹配题"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Heading题"
+     ],
+     "stem": "Heading 题（段落小标题）做题关键是（　）。",
+     "options": [
+      "A. 逐词翻译",
+      "B. 抓段落主题句与高频词",
+      "C. 只看数字",
+      "D. 先做判断题"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Heading 题看段落大意：主题句（段首/段尾）+高频词，不抠细节。</p>",
+     "kp": "📎 知识点：Heading题"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "判断题三态"
+     ],
+     "stem": "原文“All students must wear uniforms.”，题目“Teachers also wear uniforms.”，答案应为（　）。",
+     "options": [
+      "A. TRUE",
+      "B. FALSE",
+      "C. NOT GIVEN",
+      "D. 无法作答"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>原文只讲学生，没提教师——不是矛盾而是“没提”，答案 NOT GIVEN。</p>",
+     "kp": "📎 知识点：判断题三态"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "定位词"
+     ],
+     "stem": "最适合作为定位词的是（　）。",
+     "options": [
+      "A. 常见动词",
+      "B. 数字、专有名词、时间",
+      "C. 介词",
+      "D. 虚词"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>定位词=原文中不易变形的词：数字、专有名词、大写、时间。</p>",
+     "kp": "📎 知识点：定位词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "原文“the government subsidized solar panels”，题目“solar panels received financial support from the state”，考点是（　）。",
+     "options": [
+      "A. 定位词变形",
+      "B. 同义替换（subsidized=financial support）",
+      "C. 判断题",
+      "D. 图表题"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>subsidized→financial support 是典型同义替换；阅读约七成考点都是替换。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "时间管理"
+     ],
+     "stem": "雅思阅读每篇建议控制在（　）。",
+     "options": [
+      "A. 15 分钟",
+      "B. 20 分钟",
+      "C. 30 分钟",
+      "D. 45 分钟"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>3 篇 60 分钟，每篇 20 分钟：读题 2 分+做题 15 分+检查 3 分。</p>",
+     "kp": "📎 知识点：时间管理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "匹配题"
+     ],
+     "stem": "人名-观点匹配题的做法是（　）。",
+     "options": [
+      "A. 先读全文",
+      "B. 圈人名定位，读其前后观点句",
+      "C. 只看段首",
+      "D. 猜答案"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>匹配题用专名（人名）定位，再读该人前后 1-2 句找观点，注意被替换表述。</p>",
+     "kp": "📎 知识点：匹配题"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "判断题三态"
+     ],
+     "stem": "原文“Some animals hibernate in winter.”，题目“All animals hibernate.”应为（　）。",
+     "options": [
+      "A. TRUE",
+      "B. FALSE",
+      "C. NOT GIVEN",
+      "D. 无解"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>原文“有些动物冬眠”，题目“所有动物冬眠”——明确矛盾→FALSE。</p>",
+     "kp": "📎 知识点：判断题三态"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "原文 “a sharp rise”，题目 “a dramatic increase”，体现了（　）。",
+     "options": [
+      "A. 词性转换",
+      "B. 同义替换（近义词）",
+      "C. 概括化",
+      "D. 定位变形"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>sharp=dramatic、rise=increase 均为近义词替换。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "Heading题"
+     ],
+     "stem": "一段反复出现 cost/expense/budget，Heading 应选（　）。",
+     "options": [
+      "A. 某工厂地址",
+      "B. 项目的财务负担",
+      "C. 具体数字",
+      "D. 人名"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Heading 看高频词概括大意：“财务负担”对应该段反复出现的成本类词。</p>",
+     "kp": "📎 知识点：Heading题"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "时间管理"
+     ],
+     "stem": "阅读中一道题卡了 2 分钟，最佳做法是（　）。",
+     "options": [
+      "A. 继续硬做",
+      "B. 标记后跳过，做完再回",
+      "C. 直接放弃该题",
+      "D. 重读全文"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>卡住超过 1 分钟先跳过标记，做完其他题再回来，防止一题拖垮整篇。</p>",
+     "kp": "📎 知识点：时间管理"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "判断题三态"
+     ],
+     "stem": "判断题三态为 TRUE、FALSE 与______。",
+     "options": [],
+     "answer": "<b>NOT GIVEN</b>",
+     "explain": "<p>原文明确支持=T，明确矛盾=F，原文没提/无法推断=NG。</p>",
+     "kp": "📎 知识点：判断题三态"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "时间管理"
+     ],
+     "stem": "雅思阅读每篇建议控制在______分钟内。",
+     "options": [],
+     "answer": "<b>20</b>",
+     "explain": "<p>3 篇 60 分钟：读题 2 分+定位做题 15 分+检查 3 分。</p>",
+     "kp": "📎 知识点：时间管理"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "定位词"
+     ],
+     "stem": "定位词应优先选择______（类型）词。",
+     "options": [],
+     "answer": "<b>数字/专有名词/时间/大写</b>",
+     "explain": "<p>这类词在原文几乎不变形，扫描最快。</p>",
+     "kp": "📎 知识点：定位词"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "Heading题"
+     ],
+     "stem": "Heading 题的核心是抓每段的______。",
+     "options": [],
+     "answer": "<b>主题句（topic sentence）</b>",
+     "explain": "<p>主题句通常在段首或段尾；配合高频词确认大意。</p>",
+     "kp": "📎 知识点：Heading题"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "同义替换的三种常见形式：近义词、词性转换、______。",
+     "options": [],
+     "answer": "<b>概括化（具体↔抽象）</b>",
+     "explain": "<p>如具体名词↔上位概念（solar panels↔renewable energy）。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "匹配题"
+     ],
+     "stem": "句尾匹配题（sentence endings）应先用______定位到句子主干，再去选项找替换。",
+     "options": [],
+     "answer": "<b>句首信息（主语/专名）</b>",
+     "explain": "<p>先定位主干句，再比对选项中的同义替换。</p>",
+     "kp": "📎 知识点：匹配题"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "Heading题",
+      "判断题三态",
+      "定位词",
+      "同义替换"
+     ],
+     "stem": "以一篇“动物行为研究”文章为例，说明你拿到阅读文章后的完整做题流程（读题→定位→判断→时间管理），并说明 FALSE 与 NOT GIVEN 的判断口诀。",
+     "options": [],
+     "answer": "<p>流程：① 先读题干圈定位词（数字/专名/大写）；② 按定位词扫读原文，段落精读 2-3 句；③ 细节题先做（填空/判断/匹配），Heading 主旨题后做；④ 每篇控 20 分钟，超时标记跳过。判断口诀：<b>“说得对=T，说得反=F，没说到=NG”</b>——注意“说得反”要原文明确矛盾，只是“没提”一律 NG。</p>",
+     "explain": "<p>流程：① 先读题干圈定位词（数字/专名/大写）；② 按定位词扫读原文，段落精读 2-3 句；③ 细节题先做（填空/判断/匹配），Heading 主旨题后做；④ 每篇控 20 分钟，超时标记跳过。判断口诀：<b>“说得对=T，说得反=F，没说到=NG”</b>——注意“说得反”要原文明确矛盾，只是“没提”一律 NG。</p>",
+     "kp": "📎 知识点：Heading题 · 判断题三态 · 定位词 · 同义替换"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "定位词",
+      "同义替换"
+     ],
+     "stem": "以“原文 The government subsidized solar panels / 题目 solar panels received financial support from the state”为例，说明定位与同义替换如何配合解题。",
+     "options": [],
+     "answer": "<p>先用题目中的稳定词（solar panels、state/government）定位到原文段落，再在定位句附近找替换关系：subsidized=received financial support；确认语义一致后作答。定位解决“在哪找”，替换解决“找到后怎么认”。</p>",
+     "explain": "<p>先用题目中的稳定词（solar panels、state/government）定位到原文段落，再在定位句附近找替换关系：subsidized=received financial support；确认语义一致后作答。定位解决“在哪找”，替换解决“找到后怎么认”。</p>",
+     "kp": "📎 知识点：定位词 · 同义替换"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "判断题三态"
+     ],
+     "stem": "分别给出 TRUE、FALSE、NOT GIVEN 各一个典型特征，并说明“NG 与 FALSE 的区别”为什么是判断题最大失分点。",
+     "options": [],
+     "answer": "<p>① TRUE=原文明确支持（词或义）；② FALSE=原文明确矛盾（否定、数字冲突、范围冲突）；③ NG=原文未提及或无法由原文推出。NG 与 FALSE 区别：FALSE 一定有“原文明确说了与之相反”，NG 只是“没说到”——考生常把没说到误判为 FALSE，因为潜意识用常识补全，脱离原文判断。</p>",
+     "explain": "<p>① TRUE=原文明确支持（词或义）；② FALSE=原文明确矛盾（否定、数字冲突、范围冲突）；③ NG=原文未提及或无法由原文推出。NG 与 FALSE 区别：FALSE 一定有“原文明确说了与之相反”，NG 只是“没说到”——考生常把没说到误判为 FALSE，因为潜意识用常识补全，脱离原文判断。</p>",
+     "kp": "📎 知识点：判断题三态"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "时间管理",
+      "Heading题",
+      "匹配题"
+     ],
+     "stem": "设计一篇阅读（3 篇 60 分钟）的时间分配方案，并说明为什么“先细节后主旨”“卡题 1 分钟即跳”能显著提分。",
+     "options": [],
+     "answer": "<p>方案：第 1 篇 18 分钟（简单热身）、第 2 篇 20 分钟、第 3 篇 22 分钟（难文多留）。篇内：读题 2 分钟→填空/判断/匹配（细节）优先→Heading（主旨）最后 3 分钟→检查。提分逻辑：① 细节题定位明确、正确率稳定，先做保住基本盘；② Heading 需看全段，放在段意已熟的末尾做效率高；③ 卡题跳过的机会成本低——1 道 2 分题拖垮后面 4-5 题得不偿失。</p>",
+     "explain": "<p>方案：第 1 篇 18 分钟（简单热身）、第 2 篇 20 分钟、第 3 篇 22 分钟（难文多留）。篇内：读题 2 分钟→填空/判断/匹配（细节）优先→Heading（主旨）最后 3 分钟→检查。提分逻辑：① 细节题定位明确、正确率稳定，先做保住基本盘；② Heading 需看全段，放在段意已熟的末尾做效率高；③ 卡题跳过的机会成本低——1 道 2 分题拖垮后面 4-5 题得不偿失。</p>",
+     "kp": "📎 知识点：时间管理 · Heading题 · 匹配题"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "判断题三态",
+      "同义替换"
+     ],
+     "stem": "原文：The railway reached the remote valley in 1920, which made local timber exports possible on a large scale. 判断以下三题：① The valley had no railway before 1920. ② Timber became the region's main export. ③ The railway was built mainly for military purposes.",
+     "options": [],
+     "answer": "<p>① <b>TRUE</b>（1920 年才通铁路→此前无铁路）；② <b>NOT GIVEN</b>（原文只说使木材大规模出口成为可能，未说“主要出口”）；③ <b>NOT GIVEN</b>（未提修建目的，只有 on a large scale=大规模替换点）。</p>",
+     "explain": "<p>① <b>TRUE</b>（1920 年才通铁路→此前无铁路）；② <b>NOT GIVEN</b>（原文只说使木材大规模出口成为可能，未说“主要出口”）；③ <b>NOT GIVEN</b>（未提修建目的，只有 on a large scale=大规模替换点）。</p>",
+     "kp": "📎 知识点：判断题三态 · 同义替换"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "写作",
+   "hint": "本章知识清单：Task1/2 结构、任务回应、连贯衔接、图表作文、词汇资源、语法资源。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "Task1与Task2",
+    "任务回应",
+    "连贯与衔接",
+    "图表作文",
+    "词汇资源",
+    "语法资源"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Task1与Task2"
+     ],
+     "stem": "写作 Task 1 要求（　）。",
+     "options": [
+      "A. 发表个人观点",
+      "B. 描述图表数据",
+      "C. 写故事",
+      "D. 只写原因"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Task 1 描述图表（150 词+），只描述不解释原因、不发表观点；Task 2 才是议论文。</p>",
+     "kp": "📎 知识点：Task1与Task2"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Task1与Task2"
+     ],
+     "stem": "Task 2 议论文的最低字数是（　）。",
+     "options": [
+      "A. 100 词",
+      "B. 150 词",
+      "C. 250 词",
+      "D. 400 词"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>Task 1≥150 词、Task 2≥250 词；建议 Task 2 写 270-300 词。</p>",
+     "kp": "📎 知识点：Task1与Task2"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "任务回应"
+     ],
+     "stem": "题目问“是否同意免费大学教育”，你写满一篇“教育的重要性”却没回应“免费”，主要扣（　）分。",
+     "options": [
+      "A. TR 任务回应",
+      "B. GRA 语法",
+      "C. CC 连贯",
+      "D. LR 词汇"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>没回应题目核心=TR 分低；TR 是写作第一评分标准。</p>",
+     "kp": "📎 知识点：任务回应"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "连贯与衔接"
+     ],
+     "stem": "“每段一个主题句+段间连接词”主要提升（　）。",
+     "options": [
+      "A. 任务回应",
+      "B. 连贯与衔接（CC）",
+      "C. 词汇资源",
+      "D. 语法"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>CC=coherence（逻辑顺）+cohesion（连接自然）：主题句+过渡词是核心。</p>",
+     "kp": "📎 知识点：连贯与衔接"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "图表作文"
+     ],
+     "stem": "Task 1 图表作文中不应该出现的是（　）。",
+     "options": [
+      "A. 趋势描述",
+      "B. 数据对比",
+      "C. 个人观点与原因",
+      "D. 总结段"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>Task 1 只描述不解释原因、不发表观点。</p>",
+     "kp": "📎 知识点：图表作文"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "词汇资源"
+     ],
+     "stem": "全文反复使用 “important” 会拉低（　）维度的分数。",
+     "options": [
+      "A. TR",
+      "B. CC",
+      "C. LR",
+      "D. GRA"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>LR=词汇资源：同义替换避免重复，用 crucial/vital/significant 等。</p>",
+     "kp": "📎 知识点：词汇资源"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "任务回应"
+     ],
+     "stem": "Task 2 结论段的最佳写法是（　）。",
+     "options": [
+      "A. 提出新论点",
+      "B. 重申立场并总结主要论据",
+      "C. 只写一句话",
+      "D. 重复引言"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>结论=重申立场+概括论据，不引入新观点；有助于 CC 与 TR。</p>",
+     "kp": "📎 知识点：任务回应"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "连贯与衔接"
+     ],
+     "stem": "下列连接词中表“举例”的是（　）。",
+     "options": [
+      "A. however",
+      "B. for instance",
+      "C. as a result",
+      "D. in contrast"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>for instance=举例；however/in contrast=转折对比；as a result=因果。</p>",
+     "kp": "📎 知识点：连贯与衔接"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "图表作文"
+     ],
+     "stem": "柱状图显示销量“先升后降”，最合适的描述是（　）。",
+     "options": [
+      "A. remained stable",
+      "B. rose steadily then declined",
+      "C. fluctuated wildly",
+      "D. plummeted"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>rose then declined 准确描述先升后降；remained stable=平稳；plummeted=暴跌。</p>",
+     "kp": "📎 知识点：图表作文"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "语法资源"
+     ],
+     "stem": "GRA（语法范围与准确性）得高分的关键是（　）。",
+     "options": [
+      "A. 全部用复杂长句",
+      "B. 复杂句与简单句搭配且无低级错误",
+      "C. 避免从句",
+      "D. 只写简单句"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>GRA=范围与准确性平衡：会用从句/复合句，且时态语态主谓一致不犯错。</p>",
+     "kp": "📎 知识点：语法资源"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Task1与Task2"
+     ],
+     "stem": "Task 1 最低______词，Task 2 最低______词。",
+     "options": [],
+     "answer": "<b>150；250</b>",
+     "explain": "<p>字数不足直接拉低 TR 分；建议 Task 2 写 270-300 词。</p>",
+     "kp": "📎 知识点：Task1与Task2"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "任务回应"
+     ],
+     "stem": "写作评分第一标准是______。",
+     "options": [],
+     "answer": "<b>任务回应（TR）</b>",
+     "explain": "<p>TR=完全回应题目、立场明确、论点切题。</p>",
+     "kp": "📎 知识点：任务回应"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "连贯与衔接"
+     ],
+     "stem": "CC 包括 coherence（______）与 cohesion（______）两层。",
+     "options": [],
+     "answer": "<b>逻辑连贯；衔接自然</b>",
+     "explain": "<p>coherence=段落与论点逻辑顺；cohesion=连接词与指代自然。</p>",
+     "kp": "📎 知识点：连贯与衔接"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "图表作文"
+     ],
+     "stem": "描述数据“大幅增长”可用 surge/______等词。",
+     "options": [],
+     "answer": "<b>rocket/soar/jump</b>",
+     "explain": "<p>增长类：rise/increase/grow/surge/soar；下降类：fall/drop/decline/plummet。</p>",
+     "kp": "📎 知识点：图表作文"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "词汇资源"
+     ],
+     "stem": "“make a decision”是正确的______搭配（collocation）。",
+     "options": [],
+     "answer": "<b>动宾</b>",
+     "explain": "<p>固定搭配要地道：make a decision，do harm，pay attention to。</p>",
+     "kp": "📎 知识点：词汇资源"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "任务回应"
+     ],
+     "stem": "Task 2 的标准结构为：引言（立场）→______→结论。",
+     "options": [],
+     "answer": "<b>主体两段（论点+例证）</b>",
+     "explain": "<p>主体段每段一个中心论点+例证，是高分作文骨架。</p>",
+     "kp": "📎 知识点：任务回应"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "任务回应",
+      "连贯与衔接",
+      "图表作文",
+      "词汇资源"
+     ],
+     "stem": "以“柱状图：中英两国 2015-2020 手机销量”为例，写出 Task 1 作文的三段结构与每段 2 个关键句式；并说明如何避免 LR 扣分。",
+     "options": [],
+     "answer": "<p>结构：① 总起句改写题目（The chart shows how smartphone sales changed in China and the UK from 2015 to 2020）；② 分项描述（UK sales rose steadily from 10m to 20m, while China's figures surged from 40m to 90m）；③ 总结对比（Overall, China's sales grew far faster and remained significantly higher）。LR 技巧：避免重复“增长”——rise/increase/grow/surge 换用；用 while/whereas/compared with 表对比；搭配准确如“show a sharp increase”而非“make a sharp increase”。</p>",
+     "explain": "<p>结构：① 总起句改写题目（The chart shows how smartphone sales changed in China and the UK from 2015 to 2020）；② 分项描述（UK sales rose steadily from 10m to 20m, while China's figures surged from 40m to 90m）；③ 总结对比（Overall, China's sales grew far faster and remained significantly higher）。LR 技巧：避免重复“增长”——rise/increase/grow/surge 换用；用 while/whereas/compared with 表对比；搭配准确如“show a sharp increase”而非“make a sharp increase”。</p>",
+     "kp": "📎 知识点：任务回应 · 连贯与衔接 · 图表作文 · 词汇资源"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "任务回应"
+     ],
+     "stem": "题目“Some people think that children should start school at an earlier age, while others disagree.” 请写出你的立场句与两个主体论点（各一句话），说明如何确保 TR 达标。",
+     "options": [],
+     "answer": "<p>示例立场：“While early schooling has certain benefits, I believe children should start school at the age of seven.”；论点一：早期入学利于培养社交与规则意识；论点二：晚入学保护儿童身心发展与家庭亲子时间。TR 达标要点：① 立场句直接回应“是否同意/哪方占优”；② 每个主体论点都紧扣题目要素（school age 与 children 的利弊），不引入无关话题；③ 结尾重申立场。</p>",
+     "explain": "<p>示例立场：“While early schooling has certain benefits, I believe children should start school at the age of seven.”；论点一：早期入学利于培养社交与规则意识；论点二：晚入学保护儿童身心发展与家庭亲子时间。TR 达标要点：① 立场句直接回应“是否同意/哪方占优”；② 每个主体论点都紧扣题目要素（school age 与 children 的利弊），不引入无关话题；③ 结尾重申立场。</p>",
+     "kp": "📎 知识点：任务回应"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "连贯与衔接"
+     ],
+     "stem": "改写下面两句，加入连接词使其衔接自然：“Studying abroad is expensive. It offers valuable cultural experience.”",
+     "options": [],
+     "answer": "<p>示例：“Although studying abroad is expensive, it offers valuable cultural experience.” 或 “Studying abroad is expensive; however, it offers valuable cultural experience.”——用 although/however 表让步转折，语义从“贵”过渡到“值得”。</p>",
+     "explain": "<p>示例：“Although studying abroad is expensive, it offers valuable cultural experience.” 或 “Studying abroad is expensive; however, it offers valuable cultural experience.”——用 although/however 表让步转折，语义从“贵”过渡到“值得”。</p>",
+     "kp": "📎 知识点：连贯与衔接"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "任务回应",
+      "连贯与衔接",
+      "词汇资源",
+      "语法资源"
+     ],
+     "stem": "以“The advantages of working from home outweigh its disadvantages”为题，写出一篇 Task 2 的完整提纲（立场、两主体论点、例证、结论），并标注每段的 CC 手段与 2 个 LR 亮点词。",
+     "options": [],
+     "answer": "<p>提纲：① 引言：立场=同意利大于弊（改述题目+表态）；② 主体 1：效率与灵活性（work-life balance、commuting eliminated；例：节省通勤 2 小时/自主安排）；③ 主体 2：组织成本下降（office costs reduced、access to global talent；例：企业节省租金）；让步句：社交隔离风险，但视频会议缓解；④ 结论：重申立场+展望。CC 手段：however/moreover/as a result；LR 亮点：flexible arrangements、cost efficiency、social isolation、hybrid model。</p>",
+     "explain": "<p>提纲：① 引言：立场=同意利大于弊（改述题目+表态）；② 主体 1：效率与灵活性（work-life balance、commuting eliminated；例：节省通勤 2 小时/自主安排）；③ 主体 2：组织成本下降（office costs reduced、access to global talent；例：企业节省租金）；让步句：社交隔离风险，但视频会议缓解；④ 结论：重申立场+展望。CC 手段：however/moreover/as a result；LR 亮点：flexible arrangements、cost efficiency、social isolation、hybrid model。</p>",
+     "kp": "📎 知识点：任务回应 · 连贯与衔接 · 词汇资源 · 语法资源"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "图表作文"
+     ],
+     "stem": "给出一组数据：2015 年电商销售额中国 4000 亿、美国 3500 亿；2020 年中国 16000 亿、美国 7500 亿。写一段 80 词的 Task 1 描述（含总起、趋势、对比、总结）。",
+     "options": [],
+     "answer": "<p>示例：The bar chart compares e-commerce sales in China and the US between 2015 and 2020. China's sales grew dramatically, from 400 billion to 1.6 trillion yuan, while the US market rose more modestly, from 350 billion to 750 billion. As a result, the gap between the two countries widened considerably. Overall, China overtook the US and maintained a much faster growth rate over the period.（约 75 词，覆盖总起/趋势/对比/总结）</p>",
+     "explain": "<p>示例：The bar chart compares e-commerce sales in China and the US between 2015 and 2020. China's sales grew dramatically, from 400 billion to 1.6 trillion yuan, while the US market rose more modestly, from 350 billion to 750 billion. As a result, the gap between the two countries widened considerably. Overall, China overtook the US and maintained a much faster growth rate over the period.（约 75 词，覆盖总起/趋势/对比/总结）</p>",
+     "kp": "📎 知识点：图表作文"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "口语",
+   "hint": "本章知识清单：三部分结构、话题卡、流利度、Part3 深入讨论、发音、词汇与语法。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "口语三部分",
+    "话题卡",
+    "流利度与连贯性",
+    "Part3讨论",
+    "发音",
+    "口语词汇语法"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "话题卡"
+     ],
+     "stem": "雅思口语 Part 2 的答题形式是（　）。",
+     "options": [
+      "A. 朗读短文",
+      "B. 抽话题卡讲 1-2 分钟",
+      "C. 小组讨论",
+      "D. 听写"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Part 2=话题卡（Cue Card）：1 分钟准备、讲 1-2 分钟，按四个提示点展开。</p>",
+     "kp": "📎 知识点：话题卡"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "口语三部分"
+     ],
+     "stem": "雅思口语三部分的时长分配是（　）。",
+     "options": [
+      "A. 各 5 分钟",
+      "B. P1 4-5 分 + P2 3-4 分 + P3 4-5 分",
+      "C. 只有 P2",
+      "D. P3 最长 10 分钟"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>总时长 11-14 分钟：Part 1 日常问答、Part 2 话题卡、Part 3 深入讨论。</p>",
+     "kp": "📎 知识点：口语三部分"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "流利度与连贯性"
+     ],
+     "stem": "想不出词时，下面哪种处理更有利于分数（　）。",
+     "options": [
+      "A. 沉默 5 秒",
+      "B. 用 well/let me think 自然过渡",
+      "C. 直接说中文",
+      "D. 反复说同一个词"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>用填充语争取思考时间、保持流利度，比长时间卡壳分数高。</p>",
+     "kp": "📎 知识点：流利度与连贯性"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "Part3讨论"
+     ],
+     "stem": "Part 3 的特点是（　）。",
+     "options": [
+      "A. 日常寒暄",
+      "B. 就 Part 2 主题深入抽象讨论",
+      "C. 朗读绕口令",
+      "D. 听歌复述"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Part 3=就 Part 2 主题的抽象讨论（观点/对比/举例），考批判性思维。</p>",
+     "kp": "📎 知识点：Part3讨论"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "发音"
+     ],
+     "stem": "“record”名词读 /ˈrekɔːd/、动词读 /rɪˈkɔːd/，这属于发音评分中的（　）。",
+     "options": [
+      "A. 重音",
+      "B. 语调",
+      "C. 语速",
+      "D. 内容"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>词重音/句重音是发音（P）评分维度；重音错位影响可懂度。</p>",
+     "kp": "📎 知识点：发音"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "口语词汇语法"
+     ],
+     "stem": "口语表达“I'm good at...”比“I can...”更优的原因是（　）。",
+     "options": [
+      "A. 更长",
+      "B. 词汇资源（LR）更丰富地道",
+      "C. 语法更复杂",
+      "D. 发音更简单"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>be good at/excel in 等替换 can，体现 LR 广度。</p>",
+     "kp": "📎 知识点：口语词汇语法"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "话题卡"
+     ],
+     "stem": "话题卡四个提示点都讲完后还剩 30 秒，最佳处理是（　）。",
+     "options": [
+      "A. 停下来等考官",
+      "B. 补充感受或例子细节",
+      "C. 突然转到新话题",
+      "D. 背诵另一张卡"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>讲满时间=FC 加分：补充“为什么难忘/例子细节/对比”自然延展。</p>",
+     "kp": "📎 知识点：话题卡"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "Part3讨论"
+     ],
+     "stem": "Part 3 被问“Do you think tourism has more benefits than drawbacks?” 高分回答结构是（　）。",
+     "options": [
+      "A. 只答 yes/no",
+      "B. 分点+对比+总结",
+      "C. 讲一个故事",
+      "D. 反问考官"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>on one hand…on the other hand…overall 的结构展示批判性思维与连贯性。</p>",
+     "kp": "📎 知识点：Part3讨论"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "发音"
+     ],
+     "stem": "提升可懂度（intelligibility）最关键的是（　）。",
+     "options": [
+      "A. 追求英音",
+      "B. 重音与元音准确",
+      "C. 语速飞快",
+      "D. 背诵复杂词"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>可懂度=重音、元音、语调清晰；不要求口音，但要让人听懂。</p>",
+     "kp": "📎 知识点：发音"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "流利度与连贯性"
+     ],
+     "stem": "口语录音自评时，发现“每个答案只有 2-3 句且频繁卡壳”，最应训练（　）。",
+     "options": [
+      "A. 语法书",
+      "B. 扩展技巧（5W1H+例子）与填充语",
+      "C. 背单词表",
+      "D. 听力"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>扩展技巧（what/why/when/where/how+例子）+填充语争取时间，直接提升 FC。</p>",
+     "kp": "📎 知识点：流利度与连贯性"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "话题卡"
+     ],
+     "stem": "Part 2 的准备时间是______分钟。",
+     "options": [],
+     "answer": "<b>1</b>",
+     "explain": "<p>拿到话题卡后有 1 分钟准备（可列提纲），然后讲 1-2 分钟。</p>",
+     "kp": "📎 知识点：话题卡"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "口语三部分"
+     ],
+     "stem": "口语三部分为 Part 1 日常问答、Part 2 ______、Part 3 深入讨论。",
+     "options": [],
+     "answer": "<b>话题卡（个人陈述）</b>",
+     "explain": "<p>Part 2 也叫 long turn/individual long run。</p>",
+     "kp": "📎 知识点：口语三部分"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "流利度与连贯性"
+     ],
+     "stem": "口语四维评分：流利度与连贯性、词汇资源、语法范围与准确性、______。",
+     "options": [],
+     "answer": "<b>发音（Pronunciation）</b>",
+     "explain": "<p>写作四维是 TR/CC/LR/GRA；口语把“发音”单列为第四维。</p>",
+     "kp": "📎 知识点：流利度与连贯性"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "Part3讨论"
+     ],
+     "stem": "Part 3 高分要素：分点论证、______、举例。",
+     "options": [],
+     "answer": "<b>对比（对比不同群体/时代/角度）</b>",
+     "explain": "<p>对比（年轻人 vs 老人、过去 vs 现在）展示思维广度。</p>",
+     "kp": "📎 知识点：Part3讨论"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "发音"
+     ],
+     "stem": "发音评分看重的三要素：重音、______、语调。",
+     "options": [],
+     "answer": "<b>连读（音准）</b>",
+     "explain": "<p>重音、连读、语调共同决定可懂度。</p>",
+     "kp": "📎 知识点：发音"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "口语词汇语法"
+     ],
+     "stem": "Part 1 回答“家乡”话题时，用______结构可自然讲到 3-4 句。",
+     "options": [],
+     "answer": "<b>直接回答+原因+细节（如提到地标/食物/天气）</b>",
+     "explain": "<p>扩展：先答，再给原因，再补细节/例子，避免 1 句完。</p>",
+     "kp": "📎 知识点：口语词汇语法"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "话题卡",
+      "流利度与连贯性",
+      "Part3讨论"
+     ],
+     "stem": "拿到话题卡“Describe a book you recently read”，请写出：① 1 分钟准备的提纲（4 个提示点）；② 开头与结尾各一句；③ 如何把 Part 2 的内容延续到 Part 3 的深入讨论。",
+     "options": [],
+     "answer": "<p>① 提纲：书名与作者→怎么知道这本书→讲了什么（情节/主题）→为什么喜欢/它对你的影响；② 开头：“I'd like to talk about a book called X, which I read about two months ago.”；结尾：“So overall, this book changed the way I think about Y, and that's why it impressed me.”；③ Part 3 衔接：考官问“Do people read less nowadays?”，用 Part 2 的例子作答（“As I mentioned, I started reading more when I found the right book...”）+ 分点对比（纸质书 vs 电子书、年轻人 vs 老人）。</p>",
+     "explain": "<p>① 提纲：书名与作者→怎么知道这本书→讲了什么（情节/主题）→为什么喜欢/它对你的影响；② 开头：“I'd like to talk about a book called X, which I read about two months ago.”；结尾：“So overall, this book changed the way I think about Y, and that's why it impressed me.”；③ Part 3 衔接：考官问“Do people read less nowadays?”，用 Part 2 的例子作答（“As I mentioned, I started reading more when I found the right book...”）+ 分点对比（纸质书 vs 电子书、年轻人 vs 老人）。</p>",
+     "kp": "📎 知识点：话题卡 · 流利度与连贯性 · Part3讨论"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "流利度与连贯性",
+      "发音"
+     ],
+     "stem": "说明“思考填充语”的使用场景与注意事项（何时用、别过量），并列出 4 个常用填充语。",
+     "options": [],
+     "answer": "<p>场景：听到问题需要组织答案时、一时想不起词时；作用：争取思考时间、保持语流不断。注意：每个答案最多用 1-2 次，过量会显得不自信。常用：Well… / Actually… / Let me think about that… / That's a good question…（再加一个 So, in my view…）。</p>",
+     "explain": "<p>场景：听到问题需要组织答案时、一时想不起词时；作用：争取思考时间、保持语流不断。注意：每个答案最多用 1-2 次，过量会显得不自信。常用：Well… / Actually… / Let me think about that… / That's a good question…（再加一个 So, in my view…）。</p>",
+     "kp": "📎 知识点：流利度与连贯性 · 发音"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "口语词汇语法"
+     ],
+     "stem": "把下面“口语化但单调”的回答改写得更地道丰富：“I like sports. I can play basketball. It's good.”",
+     "options": [],
+     "answer": "<p>示例：“I'm really into sports, especially basketball — I've been playing it since high school. It keeps me fit and, more importantly, it's a great way to unwind after a busy day.” 亮点：be into/exercise regularly/keep fit/unwind；用 especially/more importantly 连接。</p>",
+     "explain": "<p>示例：“I'm really into sports, especially basketball — I've been playing it since high school. It keeps me fit and, more importantly, it's a great way to unwind after a busy day.” 亮点：be into/exercise regularly/keep fit/unwind；用 especially/more importantly 连接。</p>",
+     "kp": "📎 知识点：口语词汇语法"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "话题卡",
+      "Part3讨论",
+      "评分标准"
+     ],
+     "stem": "设计一套“口语 5.5→6.5”的 4 周训练方案（每日任务、话题卡练习、录音自评按四维打分、Part 3 专项），并说明四维中应优先补哪一维。",
+     "options": [],
+     "answer": "<p>方案：① 第 1-2 周：每日 1 张话题卡按提纲讲满 2 分钟并录音；自评按 FC/LR/GRA/P 四维打分（每维 0-2 分）；记录卡壳次数与填充语使用；② 第 3 周：Part 3 专项——每日 5 个抽象问题用“分点+对比+举例”结构作答；③ 第 4 周：整套模拟（P1+P2+P3）录音复盘。优先补：若自评显示 LR 最低（重复词多），先背替换表达并强制使用；若 FC 最低，先练填充语与扩展结构——通常 5.5 的瓶颈是“句子短+卡壳”，FC 优先。</p>",
+     "explain": "<p>方案：① 第 1-2 周：每日 1 张话题卡按提纲讲满 2 分钟并录音；自评按 FC/LR/GRA/P 四维打分（每维 0-2 分）；记录卡壳次数与填充语使用；② 第 3 周：Part 3 专项——每日 5 个抽象问题用“分点+对比+举例”结构作答；③ 第 4 周：整套模拟（P1+P2+P3）录音复盘。优先补：若自评显示 LR 最低（重复词多），先背替换表达并强制使用；若 FC 最低，先练填充语与扩展结构——通常 5.5 的瓶颈是“句子短+卡壳”，FC 优先。</p>",
+     "kp": "📎 知识点：话题卡 · Part3讨论 · 评分标准"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "口语三部分",
+      "Part3讨论"
+     ],
+     "stem": "模拟一次口语：Part 1 被问“Do you like your hometown?”；Part 3 被追问“Why do many young people move to big cities?”。分别给出参考答案（每部分 3-4 句，含替换词与连接词）。",
+     "options": [],
+     "answer": "<p>Part 1：“Yes, I'm quite fond of my hometown — it's a medium-sized city with a relaxed pace of life. The food is fantastic and people are friendly, though it may not have as many job opportunities as the capital.”；Part 3：“I think the main reason is career opportunities — big cities offer far more jobs in tech and finance. Besides, young people are drawn by better education and public services. On the other hand, the cost of living is a major drawback, so it's a trade-off between prospects and pressure.”</p>",
+     "explain": "<p>Part 1：“Yes, I'm quite fond of my hometown — it's a medium-sized city with a relaxed pace of life. The food is fantastic and people are friendly, though it may not have as many job opportunities as the capital.”；Part 3：“I think the main reason is career opportunities — big cities offer far more jobs in tech and finance. Besides, young people are drawn by better education and public services. On the other hand, the cost of living is a major drawback, so it's a trade-off between prospects and pressure.”</p>",
+     "kp": "📎 知识点：口语三部分 · Part3讨论"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "备考规划与综合策略",
+   "hint": "本章知识清单：目标分拆解、错题本、真题精刷、机考与纸笔、词汇规划、模考策略。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "目标分拆解",
+    "错题本",
+    "真题精刷",
+    "机考与纸笔",
+    "词汇规划",
+    "模考策略"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "目标分拆解"
+     ],
+     "stem": "目标总分 7.0，听说读写强弱不同，合理的做法是（　）。",
+     "options": [
+      "A. 四科平均用力",
+      "B. 按差距分配时间，弱科多练",
+      "C. 只练最弱一科",
+      "D. 只刷真题不复习"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>目标分拆解：定四科目标分，按差距分配学习时间。</p>",
+     "kp": "📎 知识点：目标分拆解"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "错题本"
+     ],
+     "stem": "错题本最有价值的使用方式是（　）。",
+     "options": [
+      "A. 只记录题目",
+      "B. 按错误类型归类并安排专项训练",
+      "C. 抄答案",
+      "D. 考前才看"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>错题本的价值在于归类（替换没认出/拼写错/定位错/超时）→ 针对性补漏。</p>",
+     "kp": "📎 知识点：错题本"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "真题精刷"
+     ],
+     "stem": "关于真题使用，最有效的是（　）。",
+     "options": [
+      "A. 一天刷 5 套只对答案",
+      "B. 精刷：对答案→看解析→背替换→重听重读",
+      "C. 只看新题不看旧题",
+      "D. 跳过听力文本"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>精刷 5 套>泛刷 20 套：每套吃透（解析+替换词+错题归类）。</p>",
+     "kp": "📎 知识点：真题精刷"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "机考与纸笔"
+     ],
+     "stem": "雅思机考相对纸笔的优势是（　）。",
+     "options": [
+      "A. 口语不用考",
+      "B. 出分更快、阅读可高亮",
+      "C. 听力不用听",
+      "D. 无优势"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>机考：出分快（3-5 天）、阅读高亮、写作打字快者占优。</p>",
+     "kp": "📎 知识点：机考与纸笔"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "词汇规划"
+     ],
+     "stem": "雅思 7 分的词汇量目标约为（　）。",
+     "options": [
+      "A. 3000 词",
+      "B. 5000 词",
+      "C. 7000-8000 词",
+      "D. 15000 词"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>6 分约 5000-6000 词；7 分约 7000-8000 词。</p>",
+     "kp": "📎 知识点：词汇规划"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "模考策略"
+     ],
+     "stem": "临近考试的最后两周，最有效的做法是（　）。",
+     "options": [
+      "A. 狂做新题",
+      "B. 整套计时模考+复习错题本",
+      "C. 只背单词",
+      "D. 停止学习"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>最后两周：整套计时模考练节奏+复习错题本与替换词，不再大量开新题。</p>",
+     "kp": "📎 知识点：模考策略"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "目标分拆解"
+     ],
+     "stem": "当前模考 6.0（听 6.5/读 6.0/写 5.5/口 5.5），8 周目标 7.0，最合理的四科时间分配是（　）。",
+     "options": [
+      "A. 四科 25%",
+      "B. 写作口语各 30%，听读各 20%",
+      "C. 只练阅读",
+      "D. 只练听力"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>按差距分配：写作口语（弱，各 1.5 分差距）占 60%，听读占 40%。</p>",
+     "kp": "📎 知识点：目标分拆解"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "真题精刷"
+     ],
+     "stem": "剑桥真题的正确使用顺序是（　）。",
+     "options": [
+      "A. 从新到旧，前 8 套分题型、后 4 套整套模考",
+      "B. 从旧到新全部整套",
+      "C. 只做最新的",
+      "D. 乱序"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>前面套数分题型精练熟悉套路，最后 4 套整套计时模考。</p>",
+     "kp": "📎 知识点：真题精刷"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "错题本"
+     ],
+     "stem": "错题本记录“听力 3 次把 answer 拼错”，这属于（　）类错误。",
+     "options": [
+      "A. 替换没认出",
+      "B. 拼写错误",
+      "C. 定位错",
+      "D. 超时"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>拼写类：听对了但写错（单复数、拼写）——归类后专练高频拼写词。</p>",
+     "kp": "📎 知识点：错题本"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "模考策略"
+     ],
+     "stem": "整套模考后复盘的首要动作是（　）。",
+     "options": [
+      "A. 直接扔掉",
+      "B. 逐题对答案并按四科统计错题类型",
+      "C. 只看总分",
+      "D. 重做一遍"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>复盘=按科目+错误类型统计，找到下一阶段主攻点。</p>",
+     "kp": "📎 知识点：模考策略"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "机考与纸笔"
+     ],
+     "stem": "雅思两种考试形式为机考与______。",
+     "options": [],
+     "answer": "<b>纸笔</b>",
+     "explain": "<p>机考=电脑答题（出分快、写作打字）；纸笔=传统填涂手写；口语均为真人对话。</p>",
+     "kp": "📎 知识点：机考与纸笔"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "目标分拆解"
+     ],
+     "stem": "雅思 7 分对应的词汇量目标约为______词。",
+     "options": [],
+     "answer": "<b>7000-8000</b>",
+     "explain": "<p>6 分约 5000-6000 词；7 分约 7000-8000 词。</p>",
+     "kp": "📎 知识点：目标分拆解"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "错题本"
+     ],
+     "stem": "错题本按______归类，再安排专项训练。",
+     "options": [],
+     "answer": "<b>错误类型</b>",
+     "explain": "<p>四科分别归类：替换/拼写/定位/超时等。</p>",
+     "kp": "📎 知识点：错题本"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "词汇规划"
+     ],
+     "stem": "背单词建议按______曲线安排复习间隔。",
+     "options": [],
+     "answer": "<b>艾宾浩斯遗忘</b>",
+     "explain": "<p>新词+旧词复习比例 1:2，间隔 1/3/7/15 天复习。</p>",
+     "kp": "📎 知识点：词汇规划"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "真题精刷"
+     ],
+     "stem": "精刷一套题的四步：对答案→看解析→______→重听/重读。",
+     "options": [],
+     "answer": "<b>背替换词（记错题本）</b>",
+     "explain": "<p>精刷=吃透替换与错误，而非只对答案。</p>",
+     "kp": "📎 知识点：真题精刷"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "模考策略"
+     ],
+     "stem": "模考环境应尽量______（真实/宽松），以训练考场心态。",
+     "options": [],
+     "answer": "<b>贴近真实</b>",
+     "explain": "<p>计时、安静、一次完成，模拟真实节奏。</p>",
+     "kp": "📎 知识点：模考策略"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "目标分拆解",
+      "错题本",
+      "真题精刷"
+     ],
+     "stem": "简述“目标分→四科分→周计划→日任务”的备考框架，并说明错题本在整个框架中的位置。",
+     "options": [],
+     "answer": "<p>框架：① 目标总分（如 7.0）→ 按强弱拆四科目标（读 7.5/听 7.0/写 6.5/口 6.5）；② 按差距分配每周各科时长（弱科 60%）；③ 周计划落到每日任务（词汇 X 词+听力精听 1 段+阅读 1 篇+写作 1 段+口语 1 卡）；④ 错题本贯穿全程：每次练习的错题按类型记录，每周日统计占比，决定下周专项方向——它是“计划修正”的数据源。</p>",
+     "explain": "<p>框架：① 目标总分（如 7.0）→ 按强弱拆四科目标（读 7.5/听 7.0/写 6.5/口 6.5）；② 按差距分配每周各科时长（弱科 60%）；③ 周计划落到每日任务（词汇 X 词+听力精听 1 段+阅读 1 篇+写作 1 段+口语 1 卡）；④ 错题本贯穿全程：每次练习的错题按类型记录，每周日统计占比，决定下周专项方向——它是“计划修正”的数据源。</p>",
+     "kp": "📎 知识点：目标分拆解 · 错题本 · 真题精刷"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "机考与纸笔"
+     ],
+     "stem": "比较雅思机考与纸笔的差异（答题界面、写作、出分、口语），并给出选择建议。",
+     "options": [],
+     "answer": "<p>差异：① 答题：机考听力戴耳机、阅读可高亮复制；纸笔可划线；② 写作：机考打字（打字快占优、字数易控），纸笔手写；③ 出分：机考 3-5 天，纸笔约 13 天；④ 口语：两者都是真人对话。建议：打字快、想快出分、怕字迹潦草→机考；习惯涂卡手写、阅读喜欢纸面划线→纸笔。</p>",
+     "explain": "<p>差异：① 答题：机考听力戴耳机、阅读可高亮复制；纸笔可划线；② 写作：机考打字（打字快占优、字数易控），纸笔手写；③ 出分：机考 3-5 天，纸笔约 13 天；④ 口语：两者都是真人对话。建议：打字快、想快出分、怕字迹潦草→机考；习惯涂卡手写、阅读喜欢纸面划线→纸笔。</p>",
+     "kp": "📎 知识点：机考与纸笔"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "词汇规划"
+     ],
+     "stem": "说明“每天新词+复习旧词 1:2”的意义，并给出 8 周 3000 词差距的每日新词量。",
+     "options": [],
+     "answer": "<p>意义：按遗忘曲线，复习旧词防遗忘，新词输入才有净增量；只背不复习≈白背。计算：3000 词÷56 天≈<b>54 词/天</b>（建议 50 新词+100 复习）。</p>",
+     "explain": "<p>意义：按遗忘曲线，复习旧词防遗忘，新词输入才有净增量；只背不复习≈白背。计算：3000 词÷56 天≈<b>54 词/天</b>（建议 50 新词+100 复习）。</p>",
+     "kp": "📎 知识点：词汇规划"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "目标分拆解",
+      "错题本",
+      "真题精刷",
+      "模考策略"
+     ],
+     "stem": "现在是考前 8 周，目标 7.0（当前模考 6.0，听力 6.5/阅读 6.0/写作 5.5/口语 5.5）。请制定一份周计划：每阶段做什么、真题怎么分配、错题本如何使用、最后两周如何模考。",
+     "options": [],
+     "answer": "<p>① 第 1-2 周（打基础）：每天 2 小时——词汇 8000 计划启动（新词 50+复习 100）；听力每天精听 1 段 BBC；写作背 Task2 结构与 20 个替换词；口语 Part1 高频题过一遍。② 第 3-4 周（题型突破）：剑桥 13-14 分题型精练；错题本按四科归类（听力替换/阅读 NG 误判/写作 TR 偏题/口语卡壳），每周日专项补漏。③ 第 5-6 周（整套模考）：剑桥 15-16 整套计时；作文找人批改；口语 Part2 话题卡每天 1 张录音回听。④ 第 7-8 周（冲刺）：剑桥 17-18 严格计时模考，机考模拟软件练操作；只复习错题本与替换词，不再做新题；调整作息。写作口语弱→每天占 60% 时间，符合“按差距分配”。</p>",
+     "explain": "<p>① 第 1-2 周（打基础）：每天 2 小时——词汇 8000 计划启动（新词 50+复习 100）；听力每天精听 1 段 BBC；写作背 Task2 结构与 20 个替换词；口语 Part1 高频题过一遍。② 第 3-4 周（题型突破）：剑桥 13-14 分题型精练；错题本按四科归类（听力替换/阅读 NG 误判/写作 TR 偏题/口语卡壳），每周日专项补漏。③ 第 5-6 周（整套模考）：剑桥 15-16 整套计时；作文找人批改；口语 Part2 话题卡每天 1 张录音回听。④ 第 7-8 周（冲刺）：剑桥 17-18 严格计时模考，机考模拟软件练操作；只复习错题本与替换词，不再做新题；调整作息。写作口语弱→每天占 60% 时间，符合“按差距分配”。</p>",
+     "kp": "📎 知识点：目标分拆解 · 错题本 · 真题精刷 · 模考策略"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "目标分拆解",
+      "机考与纸笔"
+     ],
+     "stem": "你每天可用 2 小时、距离考试 6 周，目标 6.5（当前 5.5，四科 5.5/6.0/5.0/5.5）。① 拆解四科目标与时间；② 制定一周样例时间表；③ 说明选择机考还是纸笔。",
+     "options": [],
+     "answer": "<p>① 目标：读 6.5/听 6.0/写 5.5/口 6.0（平均 6.0→6.5 需总分拉高，更合理是读听 6.5 为主）——按差距：写作最弱（5.0）占 35% 时间，口语 25%，听读各 20%；② 样例：周一（写作 40 分结构+批改+听力 30 分精听+词汇 30 分）；周二（口语 30 分话题卡+阅读 40 分+写作 30 分）；周三~周六循环；周日整套模考+复盘；③ 打字快、想快出分→机考；不习惯机考写作→纸笔。当前水平 5.5 建议先机考模拟软件练手再定。</p>",
+     "explain": "<p>① 目标：读 6.5/听 6.0/写 5.5/口 6.0（平均 6.0→6.5 需总分拉高，更合理是读听 6.5 为主）——按差距：写作最弱（5.0）占 35% 时间，口语 25%，听读各 20%；② 样例：周一（写作 40 分结构+批改+听力 30 分精听+词汇 30 分）；周二（口语 30 分话题卡+阅读 40 分+写作 30 分）；周三~周六循环；周日整套模考+复盘；③ 打字快、想快出分→机考；不习惯机考写作→纸笔。当前水平 5.5 建议先机考模拟软件练手再定。</p>",
+     "kp": "📎 知识点：目标分拆解 · 机考与纸笔"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "雅思/托福 · 模拟卷（一）",
+   "hint": "覆盖全书六章核心知识点：选择 8 + 填空 4 + 简答 2 + 论述 2，满分 100 分，建议 60 分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "雅思9分制"
+     ],
+     "stem": "雅思单科满分是（　）。",
+     "options": [
+      "A. 7 分",
+      "B. 9 分",
+      "C. 30 分",
+      "D. 120 分"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>雅思单科 1-9 分；120 分是托福总分。</p>",
+     "kp": "📎 知识点：雅思9分制"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "同义替换"
+     ],
+     "stem": "题目“students can use the library at any time”对应原文“the library is open 24/7”，考点是（　）。",
+     "options": [
+      "A. 同义替换",
+      "B. 地图题",
+      "C. 判断题",
+      "D. 语法"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>at any time↔24/7 为同义替换，是听读核心考点。</p>",
+     "kp": "📎 知识点：同义替换"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "判断题三态"
+     ],
+     "stem": "原文“Some animals hibernate in winter.”，题目“All animals hibernate.”应为（　）。",
+     "options": [
+      "A. TRUE",
+      "B. FALSE",
+      "C. NOT GIVEN",
+      "D. 无解"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>原文“有些动物冬眠”，题目“所有动物冬眠”——明确矛盾→FALSE。</p>",
+     "kp": "📎 知识点：判断题三态"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "任务回应"
+     ],
+     "stem": "Task 1 图表作文中不应该出现的是（　）。",
+     "options": [
+      "A. 趋势描述",
+      "B. 数据对比",
+      "C. 个人观点与原因",
+      "D. 总结段"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>Task 1 只描述不解释原因、不发表观点。</p>",
+     "kp": "📎 知识点：任务回应"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "流利度与连贯性"
+     ],
+     "stem": "口语 Part 1 的核心是（　）。",
+     "options": [
+      "A. 讲长故事",
+      "B. 自然流畅地回答日常问题",
+      "C. 背诵范文",
+      "D. 使用复杂从句"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Part 1 是日常问答，重自然交流与流利度。</p>",
+     "kp": "📎 知识点：流利度与连贯性"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "目标分拆解"
+     ],
+     "stem": "模考 6.0 目标 7.0 时，时间分配的正确逻辑是（　）。",
+     "options": [
+      "A. 四科平均",
+      "B. 按四科差距分配，弱科多练",
+      "C. 只练强科",
+      "D. 只刷题"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>目标分拆解：弱科多分时间，差距最大者优先。</p>",
+     "kp": "📎 知识点：目标分拆解"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "雅思托福对照"
+     ],
+     "stem": "雅思 7.0 大约相当于托福（　）。",
+     "options": [
+      "A. 79-93",
+      "B. 94-101",
+      "C. 102-109",
+      "D. 110 以上"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>雅思 7.0≈托福 94-101；6.5≈79-93。</p>",
+     "kp": "📎 知识点：雅思托福对照"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "话题卡"
+     ],
+     "stem": "话题卡四提示点讲完还剩 30 秒，应（　）。",
+     "options": [
+      "A. 停下等考官",
+      "B. 补充感受与例子",
+      "C. 换话题",
+      "D. 背诵范文"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>补充细节讲满时间，提升 FC 与内容充实度。</p>",
+     "kp": "📎 知识点：话题卡"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "A类与G类"
+     ],
+     "stem": "留学申请应报考______类雅思。",
+     "options": [],
+     "answer": "<b>A（学术类）</b>",
+     "explain": "<p>A 类用于留学/学术；G 类用于移民/工作。</p>",
+     "kp": "📎 知识点：A类与G类"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "错题本"
+     ],
+     "stem": "错题本的核心价值是______归类→针对性训练。",
+     "options": [],
+     "answer": "<b>按错误类型</b>",
+     "explain": "<p>如替换没认出/拼写错/定位错/超时，分类后逐个击破。</p>",
+     "kp": "📎 知识点：错题本"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "话题卡"
+     ],
+     "stem": "口语 Part 2 准备 1 分钟、讲述______分钟。",
+     "options": [],
+     "answer": "<b>1-2</b>",
+     "explain": "<p>按四个提示点各讲 2-3 句+开头结尾。</p>",
+     "kp": "📎 知识点：话题卡"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "评分标准"
+     ],
+     "stem": "写作四维：TR、CC、LR、______。",
+     "options": [],
+     "answer": "<b>GRA（语法范围与准确性）</b>",
+     "explain": "<p>四维平衡才能上 6.5+；口语第四维是发音。</p>",
+     "kp": "📎 知识点：评分标准"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "评分标准",
+      "任务回应"
+     ],
+     "stem": "简述写作与口语四维评分标准，并说明“TR 偏题”为什么是最致命的失分点。",
+     "options": [],
+     "answer": "<p>写作/口语四维：任务回应（TR）、连贯与衔接（CC）、词汇资源（LR）、语法范围与准确性（GRA，口语另有发音）。TR 是“是否回答了题目”的总纲：偏题=论点再多也白写，其他三维再好也只能拿低分；反之 TR 好、表达平平至少能拿 6。</p>",
+     "explain": "<p>写作/口语四维：任务回应（TR）、连贯与衔接（CC）、词汇资源（LR）、语法范围与准确性（GRA，口语另有发音）。TR 是“是否回答了题目”的总纲：偏题=论点再多也白写，其他三维再好也只能拿低分；反之 TR 好、表达平平至少能拿 6。</p>",
+     "kp": "📎 知识点：评分标准 · 任务回应"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "信号词",
+      "同义替换"
+     ],
+     "stem": "以“I'd love to go to the beach, but the weather forecast says rain”为例，说明信号词与同义替换在听力解题中的配合。",
+     "options": [],
+     "answer": "<p>but 提示真实答案在后；weather forecast says rain 是 will rain 的替换表达；两者配合确定“不去海滩”。信号词定位答案位置，替换确认答案语义。</p>",
+     "explain": "<p>but 提示真实答案在后；weather forecast says rain 是 will rain 的替换表达；两者配合确定“不去海滩”。信号词定位答案位置，替换确认答案语义。</p>",
+     "kp": "📎 知识点：信号词 · 同义替换"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 3 题",
+     "tags": [
+      "目标分拆解",
+      "真题精刷",
+      "机考与纸笔"
+     ],
+     "stem": "结合你的英语基础，论述：① 如何制定“目标总分→四科分→周计划”的备考路径；② 为什么精刷优于泛刷；③ 机考与纸笔如何选择。",
+     "options": [],
+     "answer": "<p>① 先定目标（如 7.0），按强弱定四科目标（阅读 7.5/听力 7.0/写作 6.5/口语 6.5），按差距分配每周时间（弱科 60%），词汇目标同步拆到每天。② 精刷把一套题吃透：解析+替换词+错题归类，错误模式被系统纠正；泛刷重复错误，边际收益趋零。③ 打字快、想要快出分选机考；习惯手写、怕盯屏选纸笔；口语都是真人，区别只在读写。</p>",
+     "explain": "<p>① 先定目标（如 7.0），按强弱定四科目标（阅读 7.5/听力 7.0/写作 6.5/口语 6.5），按差距分配每周时间（弱科 60%），词汇目标同步拆到每天。② 精刷把一套题吃透：解析+替换词+错题归类，错误模式被系统纠正；泛刷重复错误，边际收益趋零。③ 打字快、想要快出分选机考；习惯手写、怕盯屏选纸笔；口语都是真人，区别只在读写。</p>",
+     "kp": "📎 知识点：目标分拆解 · 真题精刷 · 机考与纸笔"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "话题卡",
+      "Part3讨论",
+      "评分标准"
+     ],
+     "stem": "为话题卡“Describe a memorable trip”写出完整答题方案（提纲、开头结尾、Part 3 两个追问的回答思路），并说明按四维如何自评改进。",
+     "options": [],
+     "answer": "<p>① 提纲：地点时间→和谁怎么去→印象最深的事→为什么难忘；② 开头：“I'd like to talk about a trip to Chengdu last summer, which was my first long trip with friends.”；结尾：“Overall, that trip taught me the value of stepping out of my comfort zone, which is why I still remember it vividly.”；③ Part 3 追问一“旅行意义”：分点（开阔视野/缓解压力/文化体验）；追问二“独自旅行 vs 结伴”：对比（自由度 vs 分享感）；④ 自评：录音回放按 FC/LR/GRA/P 打分，记录卡壳与重复词，下周专项补最弱维。</p>",
+     "explain": "<p>① 提纲：地点时间→和谁怎么去→印象最深的事→为什么难忘；② 开头：“I'd like to talk about a trip to Chengdu last summer, which was my first long trip with friends.”；结尾：“Overall, that trip taught me the value of stepping out of my comfort zone, which is why I still remember it vividly.”；③ Part 3 追问一“旅行意义”：分点（开阔视野/缓解压力/文化体验）；追问二“独自旅行 vs 结伴”：对比（自由度 vs 分享感）；④ 自评：录音回放按 FC/LR/GRA/P 打分，记录卡壳与重复词，下周专项补最弱维。</p>",
+     "kp": "📎 知识点：话题卡 · Part3讨论 · 评分标准"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "雅思/托福 · 模拟卷（二）",
+   "hint": "覆盖全书六章核心知识点：选择 8 + 填空 4 + 简答 2 + 论述 2，满分 100 分，建议 60 分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "托福iBT"
+     ],
+     "stem": "托福 iBT 口语的考试形式是（　）。",
+     "options": [
+      "A. 真人对话",
+      "B. 对着电脑录音",
+      "C. 电话口试",
+      "D. 无口语"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>托福口语全程机考对着电脑录音；雅思口语是真人对话。</p>",
+     "kp": "📎 知识点：托福iBT"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "信号词"
+     ],
+     "stem": "听力答案常出现在（　）之后。",
+     "options": [
+      "A. but/however 转折",
+      "B. 开头寒暄",
+      "C. 例子之前",
+      "D. 题目复述"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>转折词后常是真实答案（“想去但下雨→不去”）。</p>",
+     "kp": "📎 知识点：信号词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Heading题"
+     ],
+     "stem": "段落反复出现 cost/budget/expense，Heading 应选（　）。",
+     "options": [
+      "A. 某家工厂的地址",
+      "B. 项目的财务负担",
+      "C. 具体数字",
+      "D. 人名"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Heading 看高频词概括大意：“财务负担”对应该段反复出现的成本词。</p>",
+     "kp": "📎 知识点：Heading题"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "连贯与衔接"
+     ],
+     "stem": "“每段一个主题句”主要服务于（　）。",
+     "options": [
+      "A. 词汇多样",
+      "B. 连贯与衔接",
+      "C. 语法复杂",
+      "D. 字数凑数"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>主题句+过渡词=CC（连贯与衔接）的核心手段。</p>",
+     "kp": "📎 知识点：连贯与衔接"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "机考与纸笔"
+     ],
+     "stem": "雅思机考与纸笔的相同点是（　）。",
+     "options": [
+      "A. 口语都真人对话",
+      "B. 都不可高亮",
+      "C. 出分速度相同",
+      "D. 写作都必须打字"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>两种形式的听说口试均为人机/真人组合——口语都是真人考官；读写形式不同。</p>",
+     "kp": "📎 知识点：机考与纸笔"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "精听"
+     ],
+     "stem": "精听与泛听的本质区别是（　）。",
+     "options": [
+      "A. 音量大小",
+      "B. 是否逐句吃透并复盘错误",
+      "C. 时长长短",
+      "D. 材料新旧"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>精听=逐句听懂+错误归类；泛听=无反馈循环。</p>",
+     "kp": "📎 知识点：精听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "语法资源"
+     ],
+     "stem": "GRA 得高分的关键组合是（　）。",
+     "options": [
+      "A. 全是长难句",
+      "B. 复杂句+简单句搭配且无低级错误",
+      "C. 全用简单句",
+      "D. 避免从句"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>范围（会用从句复合句）+准确性（无低级错误）平衡。</p>",
+     "kp": "📎 知识点：语法资源"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "模考策略"
+     ],
+     "stem": "考前最后两周最不该做的是（　）。",
+     "options": [
+      "A. 整套计时模考",
+      "B. 大量开新题",
+      "C. 复习错题本",
+      "D. 调整作息"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>最后两周以模考+复盘错题为主，开新题边际收益低。</p>",
+     "kp": "📎 知识点：模考策略"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "精听"
+     ],
+     "stem": "精听四步：裸听→看原文→______→复听。",
+     "options": [],
+     "answer": "<b>跟读</b>",
+     "explain": "<p>跟读校正发音连读，是精听关键一环。</p>",
+     "kp": "📎 知识点：精听"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "定位词"
+     ],
+     "stem": "阅读中“1830s”“Professor Lin”属于______词。",
+     "options": [],
+     "answer": "<b>定位</b>",
+     "explain": "<p>数字/专名/大写不易变形，用于快速定位段落。</p>",
+     "kp": "📎 知识点：定位词"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "真题精刷"
+     ],
+     "stem": "剑桥真题应从______（新/旧）往______（新/旧）刷，后 4 套整套计时模考。",
+     "options": [],
+     "answer": "<b>旧；新</b>",
+     "explain": "<p>前面套数分题型精练，最后 4 套当模考（新题更接近当前难度）。</p>",
+     "kp": "📎 知识点：真题精刷"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "口语三部分"
+     ],
+     "stem": "Part 3 高分三要素：分点论证、______、举例。",
+     "options": [],
+     "answer": "<b>对比</b>",
+     "explain": "<p>对比不同群体/时代/角度，展示批判性思维。</p>",
+     "kp": "📎 知识点：口语三部分"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "同义替换",
+      "定位词"
+     ],
+     "stem": "以“原文 The government subsidized solar panels / 题目 solar panels received financial support from the state”为例，说明阅读解题中定位与同义替换如何配合。",
+     "options": [],
+     "answer": "<p>先用题目中的稳定词（solar panels、government/state）定位到原文段落，再在定位句附近找替换关系：subsidized=received financial support、government=state；确认语义一致后作答。定位解决“在哪找”，替换解决“找到后怎么认”。</p>",
+     "explain": "<p>先用题目中的稳定词（solar panels、government/state）定位到原文段落，再在定位句附近找替换关系：subsidized=received financial support、government=state；确认语义一致后作答。定位解决“在哪找”，替换解决“找到后怎么认”。</p>",
+     "kp": "📎 知识点：同义替换 · 定位词"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "词汇规划"
+     ],
+     "stem": "说明“新词+复习旧词 1:2”的背词法及其背后的记忆原理。",
+     "options": [],
+     "answer": "<p>原理：艾宾浩斯遗忘曲线——新学内容在 1/3/7/15 天快速遗忘，需在遗忘临界点复习；复习 1 个旧词比新学 1 个词更划算（边际收益高）。操作：每天 50 新词+100 旧词复习（1:2），用间隔复习表打卡。</p>",
+     "explain": "<p>原理：艾宾浩斯遗忘曲线——新学内容在 1/3/7/15 天快速遗忘，需在遗忘临界点复习；复习 1 个旧词比新学 1 个词更划算（边际收益高）。操作：每天 50 新词+100 旧词复习（1:2），用间隔复习表打卡。</p>",
+     "kp": "📎 知识点：词汇规划"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 3 题",
+     "tags": [
+      "话题卡",
+      "Part3讨论",
+      "评分标准"
+     ],
+     "stem": "模拟一次口语备考：① 为话题卡“Describe a memorable trip”写 1 分钟提纲；② 写出开头句与一个含“对比”的 Part 3 回答；③ 说明你在练习中如何利用四维评分给自己打分改进。",
+     "options": [],
+     "answer": "<p>① 提纲：地点与时间→和谁/怎么去→印象最深的事→为什么难忘；② 开头：“I'd like to talk about a trip to Chengdu last summer, which was my first long trip with friends.”；Part 3 对比示例：“Compared with travelling alone, group trips are more about shared experience, while solo trips give you more freedom to change plans.”；③ 自评：录音回听按四维打分——流利度（卡壳次数）、词汇（替换是否多样）、语法（时态错误）、发音（重音错位），记录最低维度重点补练。</p>",
+     "explain": "<p>① 提纲：地点与时间→和谁/怎么去→印象最深的事→为什么难忘；② 开头：“I'd like to talk about a trip to Chengdu last summer, which was my first long trip with friends.”；Part 3 对比示例：“Compared with travelling alone, group trips are more about shared experience, while solo trips give you more freedom to change plans.”；③ 自评：录音回听按四维打分——流利度（卡壳次数）、词汇（替换是否多样）、语法（时态错误）、发音（重音错位），记录最低维度重点补练。</p>",
+     "kp": "📎 知识点：话题卡 · Part3讨论 · 评分标准"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "目标分拆解",
+      "错题本",
+      "真题精刷"
+     ],
+     "stem": "为一位“模考 6.0、目标 7.0、8 周备考”的同学设计周计划，并说明错题本如何驱动计划修正。",
+     "options": [],
+     "answer": "<p>① 1-2 周基础：词汇新 50+复习 100、听力精听 BBC、写作背结构替换词、口语 Part1 过题；② 3-4 周题型突破：剑桥 13-14 分题型精练+每周日按四科归类错题统计占比；③ 5-6 周模考：剑桥 15-16 整套计时+作文批改+话题卡录音；④ 7-8 周冲刺：剑桥 17-18 严格计时+只复习错题本。错题本驱动：若某周“阅读 NG 误判”占 60%，下周加练判断题专项；若“听力拼写”高，背高频拼写词——计划跟着数据走。</p>",
+     "explain": "<p>① 1-2 周基础：词汇新 50+复习 100、听力精听 BBC、写作背结构替换词、口语 Part1 过题；② 3-4 周题型突破：剑桥 13-14 分题型精练+每周日按四科归类错题统计占比；③ 5-6 周模考：剑桥 15-16 整套计时+作文批改+话题卡录音；④ 7-8 周冲刺：剑桥 17-18 严格计时+只复习错题本。错题本驱动：若某周“阅读 NG 误判”占 60%，下周加练判断题专项；若“听力拼写”高，背高频拼写词——计划跟着数据走。</p>",
+     "kp": "📎 知识点：目标分拆解 · 错题本 · 真题精刷"
+    }
+   ]
+  }
+ ]
+}
