@@ -473,6 +473,33 @@ main { max-width: 1100px; margin: 0 auto; padding: 22px 18px 60px; }
   padding: 9px 14px;
   font-size: 14.5px;
 }
+
+/* 作答交互：选项可点选、提交判分 */
+.ex-opt { cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.ex-opt:hover { border-color: var(--primary-strong); }
+.ex-opt.is-selected { background: var(--primary-soft); border-color: var(--primary-strong); font-weight: 600; }
+.ex-opt.correct { background: var(--green-soft); border-color: var(--green); color: var(--green); font-weight: 700; }
+.ex-opt.wrong { background: var(--red-soft); border-color: var(--red); color: var(--red); text-decoration: line-through; }
+.ex-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.ex-actions button {
+  border: 1.5px solid var(--card-border); background: var(--bg-soft); color: var(--text);
+  border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all .15s ease;
+}
+.ex-actions button:hover { background: var(--primary-soft); border-color: var(--primary-strong); }
+.ex-card.is-right { border-color: var(--green); }
+.ex-card.is-wrong { border-color: var(--red); }
+.ex-card.shake { animation: qshake .4s ease; border-color: var(--red); }
+@keyframes qshake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.ans-toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 14px; }
+.ans-toolbar button {
+  border: 1.5px solid var(--primary-strong); background: var(--primary); color: #4A3311;
+  border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+  transition: all .15s ease;
+}
+.ans-toolbar button:hover { background: var(--primary-strong); color: #fff; }
+.tb-note { font-size: 12.5px; color: var(--muted); }
+.blank[data-ans] { min-width: 90px; display: inline-block; border-bottom: 2px dashed var(--primary-strong); }
 .ex-fill { margin-top: 10px; font-size: 14.5px; }
 .ex-fill .blank {
   display: inline-block; min-width: 90px;
