@@ -5,9 +5,9 @@
 > 本站课程清单依据杭电卓越学院经管类实验班**公开培养方案**整理，教材为公开渠道常用教材参考，习题为学习站自编练习。最新培养方案以教务系统与课堂要求为准。
 > 📋 课程清单完整性审计报告（对照培养方案逐项核对，含缺失课程与候选待定项）：见 **[AUDIT.md](AUDIT.md)**。
 
-## 课程清单（35 门 · 5 类）
+## 课程清单（56 门 · 5 类）
 
-### 数理编程（8 门）
+### 数理编程（14 门）
 
 | 课程 | 入口 |
 | --- | --- |
@@ -19,8 +19,14 @@
 | Python 程序设计（经管类编程基础） | `index.html#course/python` |
 | 人工智能导论（通识） | `index.html#course/rengongzhineng` |
 | C 语言程序设计（补充/兴趣课程） | `index.html#course/c-yuyan` |
+| 计量经济学 | `index.html#course/jiliangjingjixue` |
+| 金融编程基础 | `index.html#course/jinrongbianchengjichu` |
+| 离散数学 | `index.html#course/lisanshuxue` |
+| 数据结构 | `index.html#course/shujujiegou` |
+| 计算机网络 | `index.html#course/jisuanjiwangluo` |
+| 大数据分析方法与应用 | `index.html#course/dashujufenxi` |
 
-### 经管核心（11 门）
+### 经管核心（26 门）
 
 | 课程 | 入口 |
 | --- | --- |
@@ -35,6 +41,21 @@
 | 公司金融 | `index.html#course/gongsijinrong` |
 | 统计学（乙） | `index.html#course/tongjixue` |
 | 经济法 | `index.html#course/jingjifa` |
+| 税法 | `index.html#course/shuifa` |
+| 会计信息系统 | `index.html#course/kuaijixinxixitong` |
+| 成本管理会计 | `index.html#course/chengbenguanlikuaiji` |
+| 财务管理 | `index.html#course/caiwuguanli` |
+| 高级财务管理 | `index.html#course/gaojicaiwuguanli` |
+| 财务会计 | `index.html#course/caiwukuaiji` |
+| 审计学 | `index.html#course/shenjixue` |
+| 计算机审计 | `index.html#course/jisuanjishenji` |
+| 国际金融 | `index.html#course/guojijinrong` |
+| 金融工程学 | `index.html#course/jinronggongcheng` |
+| 商业银行管理 | `index.html#course/shangyeyinxingguanli` |
+| 管理信息系统 | `index.html#course/guanlixinxixitong` |
+| Web应用开发技术 | `index.html#course/webyingyongkaifa` |
+| ERP系统原理 | `index.html#course/ERPxitongyuanli` |
+| 商务智能 | `index.html#course/shangwuzhineng` |
 
 ### 思政通识（7 门）
 
@@ -73,6 +94,15 @@
 2. **知识点讲义**：按章节/模块组织的讲义，每个专有名词配「通俗解释 + 具体例子」（如边际成本给出完整计算示例）；数学类课程另附公式速查卡片。
 3. **分章练习**：按章节逐章出题，每章含选择题 / 填空题 / 大题（该章不适用的题型已说明），覆盖该章全部知识点，难度由易到难；每题含答案、详细解析与知识点标签。
 4. **模拟套卷**：全书综合模拟卷（每门 2 套），题型参照真实考试，覆盖各章核心知识点；每套独立成卷，附完整答案与详细解析，每题标注对应知识点。
+
+## 2026-10-17 更新记录
+
+- 🆕 批量新增 21 门专业课：对照 2017 级经管类实验班培养方案教学进程表，补齐 5 个重点专业（会计学 / 财务管理 / 审计学 / 金融学 / 信息管理与信息系统）的**学科必修 + 专业必修**全部缺口；选修、通识选修、个性化课程、实践教学环节按约定不做。
+  - 会计 / 财管 / 审计方向 7 门：税法、会计信息系统、成本管理会计、财务管理、审计学、高级财务管理、计算机审计；
+  - 金融学方向 6 门：计量经济学、国际金融、金融编程基础、财务会计、金融工程学、商业银行管理；
+  - 信管方向 8 门：离散数学、数据结构、计算机网络、管理信息系统、Web应用开发技术、ERP系统原理、商务智能、大数据分析方法与应用。
+- 每门均按 **158 题** 标准制作（6 章 × 每章 10 选择 + 6 填空 + 5 大题，另 2 套全书模拟卷各 16 题），含教材（公开渠道查证 / 参考口径）、公开课（MOOC + B 站 + 抖音真实链接）、章节化知识点讲义（专有名词配通俗解释 + 例子）、公式速查、分章练习、模拟套卷；每题含答案、详细解析与知识点标签。
+- 全站课程总数更新为 **56 门 · 5 类**，总题量 5604 道。
 
 ## 2026-10-16 更新记录
 

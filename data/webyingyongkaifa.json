@@ -1,0 +1,2861 @@
+{
+ "id": "webyingyongkaifa",
+ "name": "Web应用开发技术",
+ "emoji": "🌐",
+ "category": "经管核心",
+ "desc": "信息管理与信息系统专业核心课：从 HTML/CSS/JavaScript 三大件入手，系统讲授网页结构、CSS 布局、JavaScript 编程、前后端交互（HTTP/AJAX/Fetch）、Vue/React 框架概念与项目部署——是信管学生做企业信息系统前端的入门必修课。",
+ "meta": [
+  "经管核心课程",
+  "信管专业必修",
+  "2学分·第4学期",
+  "含上机实验",
+  "以教务系统最新版培养方案为准"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考",
+   "title": "《网页设计与制作（HTML5+CSS3+JavaScript）》（第4版）",
+   "pub": "高等教育出版社 · “十四五”职业教育国家规划教材",
+   "note": "公开渠道未查到杭电卓越学院官方指定教材，以下为常用教材参考；本书模块化讲解 HTML5 标签、CSS3 样式与 JavaScript，与本课程章节高度对应。"
+  },
+  {
+   "role": "参考教材",
+   "title": "《HTML5+CSS3网页设计任务教程》（第2版）",
+   "pub": "汤佳、陈晓男 主编 · 高等教育出版社",
+   "note": "任务驱动、案例丰富，配套中国大学MOOC《移动Web开发》课程使用，适合上机实践。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "B站",
+   "name": "【尚硅谷】前端HTML5视频：HTML&CSS核心基础（103集实战教学）",
+   "desc": "尚硅谷经典前端入门课，从浏览器原理讲起，覆盖HTML标签、CSS选择器、盒模型、Flex布局，适合第1-2章配套学习",
+   "url": "https://www.bilibili.com/video/BV1bW411K7PH"
+  },
+  {
+   "platform": "B站",
+   "name": "黑马程序员JavaScript基础语法-DOM-BOM-ES6（500多集）",
+   "desc": "pink老师主讲，JS语法、DOM操作、事件、ES6全覆盖，对应第3章",
+   "url": "https://www.bilibili.com/video/BV17y4y1J7L1"
+  },
+  {
+   "platform": "抖音",
+   "name": "一分钟教你学会前端三剑客：HTML、CSS、JS",
+   "desc": "60秒速览三剑客关系，手把手做一个登录页，适合建立整体认知",
+   "url": "https://www.iesdouyin.com/share/video/7532666424809147706"
+  },
+  {
+   "platform": "抖音",
+   "name": "AI全栈开发之JavaScript零基础入门教程",
+   "desc": "面向零基础，从VS Code创建index.html讲到变量与控制台输出",
+   "url": "https://www.iesdouyin.com/share/video/7369140127001562379"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《移动Web开发》无锡科技职业学院",
+   "desc": "国家精品在线课程，HTML5+CSS3+移动布局系统讲授，配套高教社教材",
+   "url": "https://www.icourse163.org/course/202002-1450840211"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>尚硅谷HTML&CSS 103集对应第1-2章；黑马JS 500集对应第3章DOM与事件；黑马移动web教程对应第2章布局与第6章项目实践；抖音短视频用于快速建立“三剑客”整体印象；MOOC用于系统补课。学习路线：先HTML结构，再CSS样式，再JS交互，最后学框架与部署。",
+ "modules": [
+  {
+   "index": "一",
+   "title": "Web基础与HTML文档结构",
+   "sub": "网页是怎么跑起来的：浏览器、服务器、URL，以及HTML标签如何搭出网页骨架。",
+   "sections": [
+    {
+     "h4": "1. Web工作原理与开发环境",
+     "body": "B/S架构：浏览器（客户端）通过HTTP向服务器请求页面。URL=协议+域名+路径。开发工具：VS Code + 浏览器开发者工具（F12）。"
+    },
+    {
+     "h4": "2. HTML文档结构与常用标签",
+     "body": "&lt;!DOCTYPE html&gt;声明、&lt;html&gt;&lt;head&gt;&lt;body&gt;三层结构。常用标签：标题h1-h6、段落p、链接a、图片img、列表ul/li、表格table、容器div/span。表单form与input系列。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "B/S架构",
+     "plain": "浏览器/服务器架构：用户只要有<b>浏览器</b>就能用系统，不用装客户端软件；所有程序放在服务器上，升级只升服务器。",
+     "example": "打开浏览器访问淘宝=B/S架构；装在电脑里的微信桌面版=C/S架构。"
+    },
+    {
+     "name": "HTML（超文本标记语言）",
+     "plain": "网页的<b>骨架语言</b>：不是编程语言，而是用成对标签（如&lt;p&gt;段落&lt;/p&gt;）把内容“标记”出来，浏览器认得这些标签就会排版显示。",
+     "example": "&lt;h1&gt;你好&lt;/h1&gt;显示一个大标题；&lt;img src=\"logo.png\"&gt;插入一张图片。"
+    },
+    {
+     "name": "URL（统一资源定位符）",
+     "plain": "网页的<b>地址</b>：协议(https)://域名(www.hdu.edu.cn)/路径(/news)。浏览器靠它找到服务器上的资源。",
+     "example": "https://www.hdu.edu.cn/index.html 中，https是协议，www.hdu.edu.cn是服务器，index.html是要取的文件。"
+    },
+    {
+     "name": "表单 form",
+     "plain": "网页上<b>收集用户输入</b>的区域：输入框、密码框、单选、复选、下拉、提交按钮都装在&lt;form&gt;里，填完点提交把数据发给服务器。",
+     "example": "登录页的“账号”“密码”输入框和“登录”按钮就是一个表单；input type=\"text\"是文本框，type=\"password\"是密码框，type=\"submit\"是提交按钮。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "CSS样式与页面布局",
+   "sub": "给骨架“化妆”与排版：选择器选元素、盒模型算尺寸、Flex做弹性布局。",
+   "sections": [
+    {
+     "h4": "1. CSS基础与选择器",
+     "body": "CSS=层叠样式表，控制颜色、字体、间距。选择器：标签选择器、类选择器（.class）、id选择器（#id）、后代选择器。三种引入方式：行内、内部、外部（link）。"
+    },
+    {
+     "h4": "2. 盒模型与布局",
+     "body": "每个元素都是一个盒子：内容content+内边距padding+边框border+外边距margin。display分块级/行内/行内块。Flex弹性布局：justify-content与align-items控制主轴/交叉轴对齐。position定位：static/relative/absolute/fixed。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "CSS盒模型",
+     "plain": "把每个HTML元素看成一个<b>盒子</b>：最里是内容，往外依次是内边距、边框、外边距。设置宽高默认只算内容区。",
+     "example": "一个div设width:200px、padding:20px、border:1px，则它实际占的宽度比200px大——这就是盒模型计算。"
+    },
+    {
+     "name": "类选择器与id选择器",
+     "plain": "<b>类选择器</b>用.开头（.box），可重复用在多个元素上；<b>id选择器</b>用#开头（#nav），一个页面只能用一次。",
+     "example": "&lt;div class=\"box\"&gt;&lt;/div&gt;配CSS写.box{...}；&lt;div id=\"header\"&gt;配#header{...}。"
+    },
+    {
+     "name": "Flex弹性布局",
+     "plain": "父容器设display:flex后，子元素会<b>自动排成一行</b>，用justify-content控制水平对齐、align-items控制垂直对齐，告别float排版。",
+     "example": "导航栏logo在左、菜单居中、按钮在右：父容器display:flex; justify-content:space-between; 一秒搞定。"
+    },
+    {
+     "name": "定位 position",
+     "plain": "relative=相对自己原来位置偏移；absolute=相对最近的已定位父元素；fixed=相对浏览器窗口固定不动（如回到顶部按钮）。",
+     "example": "网站右下角“回到顶部”按钮用position:fixed; right:20px; bottom:20px; 滚动页面它也不动。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "JavaScript编程基础",
+   "sub": "让网页“动起来”：变量函数、操作DOM、响应事件。",
+   "sections": [
+    {
+     "h4": "1. JS语法与DOM",
+     "body": "JS是运行在浏览器的脚本语言。数据类型：number/string/boolean/undefined/null/object。变量let/const。函数声明与调用。DOM=文档对象模型，用document.querySelector选中元素，改其内容与样式。"
+    },
+    {
+     "h4": "2. 事件与BOM",
+     "body": "事件：onclick点击、oninput输入、onload加载。addEventListener绑定事件。BOM：window、location跳转、定时器setTimeout/setInterval。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "DOM（文档对象模型）",
+     "plain": "浏览器把HTML文档<b>变成一棵对象树</b>，JS可以顺着树找到任何元素并修改它——改文字、改样式、删节点、加节点都靠它。",
+     "example": "document.querySelector(\"#title\").innerText=\"新标题\" 就把id为title的元素文字改成“新标题”。"
+    },
+    {
+     "name": "事件监听",
+     "plain": "给元素<b>“挂上”一个动作</b>：用户点击/输入时自动执行一段JS。好比给门铃装感应器，有人按就响。",
+     "example": "btn.addEventListener(\"click\", function(){ alert(\"你点了按钮\"); }); 点按钮就弹框。"
+    },
+    {
+     "name": "let / const",
+     "plain": "<b>let</b>声明可变变量，<b>const</b>声明常量（不能重新赋值）。现代JS推荐优先用const，值要变才用let。",
+     "example": "const PI=3.14; 以后不能再改PI；let count=0; count=count+1; 计数器可以累加。"
+    },
+    {
+     "name": "定时器",
+     "plain": "<b>setTimeout</b>隔一段时间执行一次；<b>setInterval</b>每隔一段时间重复执行，做轮播图、倒计时靠它。",
+     "example": "setInterval(function(){ 轮播下一张 }, 3000); 每3秒自动切下一张轮播图。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "前后端数据交互",
+   "sub": "网页如何跟服务器“对话”：HTTP、表单提交、AJAX与Fetch取数据。",
+   "sections": [
+    {
+     "h4": "1. HTTP协议",
+     "body": "请求方法：GET（取数据）/POST（提交数据）。常见状态码：200成功、301/302重定向、404未找到、500服务器错误。请求报文=请求行+请求头+请求体。"
+    },
+    {
+     "h4": "2. AJAX与Fetch",
+     "body": "AJAX=不刷新整页异步取数据。XMLHttpRequest与现代Fetch API（Promise）。数据格式JSON。跨域受同源策略限制，需CORS。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "GET与POST",
+     "plain": "<b>GET</b>是“拿”数据，参数拼在URL上、可见、有长度限制；<b>POST</b>是“送”数据，参数放在请求体里、相对安全、适合密码和大表单。",
+     "example": "搜索框按关键词查结果=GET（网址上能看到?kw=手机）；登录提交账号密码=POST。"
+    },
+    {
+     "name": "AJAX",
+     "plain": "<b>局部刷新</b>技术：网页不整体重载，只悄悄跟服务器要一小块数据填进页面。像聊天框刚发消息立刻出现，不刷新整个页面。",
+     "example": "注册时输入用户名，下方立刻提示“该用户名已被占用”，页面没刷新——就是AJAX在后台查服务器。"
+    },
+    {
+     "name": "JSON",
+     "plain": "前后端通用的<b>数据交换格式</b>：用键值对{\"name\":\"张三\",\"age\":20}组织数据，轻量易读，几乎所有接口都返回JSON。",
+     "example": "{\"code\":200,\"data\":{\"id\":1,\"title\":\"公告\"}} 前端解析后取出title显示。"
+    },
+    {
+     "name": "跨域与CORS",
+     "plain": "浏览器<b>同源策略</b>：协议+域名+端口有一个不同就算跨域，默认禁止JS读取对方响应；服务器设置Access-Control-Allow-Origin响应头（CORS）即可放行。",
+     "example": "前端在a.com，接口在api.b.com，浏览器默认拦住；后端加上CORS响应头后才能正常取到数据。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "前端框架入门（Vue/React）",
+   "sub": "从手写DOM到组件化：MVVM思想、数据驱动视图、虚拟DOM。",
+   "sections": [
+    {
+     "h4": "1. Vue基础",
+     "body": "Vue采用MVVM：数据变→视图自动更新，不用手动操作DOM。指令：v-bind绑定属性、v-on绑定事件、v-if/v-for条件与循环、双向绑定v-model。"
+    },
+    {
+     "h4": "2. React与工程化概念",
+     "body": "React用组件与JSX，虚拟DOM提升更新效率。脚手架Vue CLI/Vite快速建项目，组件化把页面拆成可复用零件。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "MVVM",
+     "plain": "<b>数据驱动视图</b>：你只管改数据，框架自动把界面更新好，不用再写document.querySelector手动改DOM。Model数据↔View视图自动同步。",
+     "example": "Vue里data.count=0，模板写{{count}}；点按钮count++，页面数字自动变1，不用手动找元素改文字。"
+    },
+    {
+     "name": "v-model双向绑定",
+     "plain": "输入框和数据<b>双向绑定</b>：你打字→数据自动变；代码改数据→输入框内容自动变。",
+     "example": "&lt;input v-model=\"word\"&gt; 你在框里打“hello”，data.word立刻等于“hello”。"
+    },
+    {
+     "name": "组件化",
+     "plain": "把页面拆成一个个<b>可复用零件</b>：导航栏组件、按钮组件、卡片组件，拼起来就是整页，改一处处处生效。",
+     "example": "电商网站的商品卡片在首页、搜索页、购物车页重复出现——抽成一个GoodsCard组件，传不同数据渲染不同商品。"
+    },
+    {
+     "name": "虚拟DOM",
+     "plain": "框架在内存里建一棵<b>轻量的DOM影子树</b>，数据变了先比影子树，只把真正变化的部分更新到真实页面，比直接改真DOM快。",
+     "example": "列表1000条数据改了其中1条，虚拟DOM算出只更新那1条，而不是重绘整个列表。"
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "Web项目实践与部署",
+   "sub": "从本地代码到线上网站：目录规范、Git、部署上线与性能SEO。",
+   "sections": [
+    {
+     "h4": "1. 项目结构与Git",
+     "body": "规范目录：css/js/images独立文件夹，index.html入口。Git做版本管理：add→commit→push，推送到GitHub/Gitee。"
+    },
+    {
+     "h4": "2. 部署与优化",
+     "body": "静态网站可部署到服务器或托管平台（如GitHub Pages）。性能优化：图片压缩、CSS/JS压缩合并、缓存。SEO：语义化标签、title/meta description。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "Git版本控制",
+     "plain": "给代码拍<b>“时光快照”</b>：每次commit存一个版本，改错了能回退，多人协作各改各的分支再合并。",
+     "example": "git add . 把改动暂存，git commit -m “完成登录页” 存档，git push 传到远程仓库。"
+    },
+    {
+     "name": "静态部署",
+     "plain": "HTML/CSS/JS是<b>纯静态文件</b>，放到Web服务器（Nginx）或托管平台上，用户输入网址就能访问，不需要后端程序。",
+     "example": "把整个文件夹push到GitHub，开启GitHub Pages，几分钟后通过 xxx.github.io 就能公开访问。"
+    },
+    {
+     "name": "SEO（搜索引擎优化）",
+     "plain": "让网站<b>更容易被百度/谷歌搜到</b>：写好title和meta描述、用语义化标签（h1/article）、图片加alt文字。",
+     "example": "&lt;title&gt;杭州电子科技大学&lt;/title&gt;和&lt;meta name=\"description\" content=\"...\"&gt;就是给搜索引擎看的摘要。"
+    },
+    {
+     "name": "浏览器缓存",
+     "plain": "浏览器把CSS/JS/图片<b>存在本地</b>，下次访问同一网站直接用本地副本，不重复下载，打开更快。",
+     "example": "第一次打开网站加载了logo.png，第二次访问logo直接从本地读，省流量又快。"
+    }
+   ]
+  }
+ ],
+ "formulas": [
+  {
+   "title": "盒模型实际宽度",
+   "math": "\\text{实际宽度} = \\text{content} + 2 \\times \\text{padding} + 2 \\times \\text{border}",
+   "note": "box-sizing:border-box时width直接包含padding与border，布局更直观。"
+  },
+  {
+   "title": "HTTP状态码速记",
+   "math": "2xx成功 · 3xx重定向 · 4xx客户端错误 · 5xx服务器错误",
+   "note": "200=OK，404=Not Found，500=Internal Server Error。"
+  },
+  {
+   "title": "页面响应时间",
+   "math": "\\text{TTFB} = \\text{服务器处理时间} + \\text{网络往返时间(RTT)}",
+   "note": "TTFB越小首屏越快；优化方向=减少请求数+压缩资源。"
+  }
+ ],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "Web基础与HTML文档结构",
+   "hint": "本章知识清单：B/S架构、URL组成、HTML文档三层结构、常用标签、表单与input、开发环境。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "B/S与C/S架构",
+    "URL与HTTP",
+    "HTML文档结构",
+    "常用HTML标签",
+    "表单与input",
+    "开发环境"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "B/S与C/S架构"
+     ],
+     "stem": "下列属于B/S架构特点的是（　）。",
+     "options": [
+      "A. 必须安装专门客户端软件",
+      "B. 通过浏览器访问、无需安装客户端",
+      "C. 数据只能存在本机",
+      "D. 只能单机使用"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>B/S=浏览器/服务器，用户用浏览器即可访问系统，程序部署在服务器端。</p>",
+     "kp": "📎 知识点：B/S与C/S架构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HTML文档结构"
+     ],
+     "stem": "HTML文档的根标签是（　）。",
+     "options": [
+      "A. &lt;head&gt;",
+      "B. &lt;body&gt;",
+      "C. &lt;html&gt;",
+      "D. &lt;title&gt;"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>&lt;html&gt;是根元素，内部包含&lt;head&gt;（元信息）和&lt;body&gt;（可见内容）。</p>",
+     "kp": "📎 知识点：HTML文档结构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "常用HTML标签"
+     ],
+     "stem": "在网页中插入图片应使用的标签是（　）。",
+     "options": [
+      "A. &lt;link&gt;",
+      "B. &lt;img&gt;",
+      "C. &lt;pic&gt;",
+      "D. &lt;image&gt;"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>&lt;img src=\"图片路径\" alt=\"描述\"&gt;用于插入图片，src指定路径。</p>",
+     "kp": "📎 知识点：常用HTML标签"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "URL与HTTP"
+     ],
+     "stem": "URL “https://www.hdu.edu.cn/news/index.html” 中，资源路径部分是（　）。",
+     "options": [
+      "A. https",
+      "B. www.hdu.edu.cn",
+      "C. /news/index.html",
+      "D. 无法判断"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>协议https+域名www.hdu.edu.cn+路径/news/index.html；路径定位具体资源。</p>",
+     "kp": "📎 知识点：URL与HTTP"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "密码输入框应使用input的type值为（　）。",
+     "options": [
+      "A. text",
+      "B. password",
+      "C. secret",
+      "D. pwd"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>type=\"password\"输入内容显示为掩码圆点。</p>",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "常用HTML标签"
+     ],
+     "stem": "下列标签中属于块级元素、独占一行的是（　）。",
+     "options": [
+      "A. &lt;span&gt;",
+      "B. &lt;a&gt;",
+      "C. &lt;div&gt;",
+      "D. &lt;img&gt;"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>&lt;div&gt;是块级元素独占一行；span/a/img是行内元素。</p>",
+     "kp": "📎 知识点：常用HTML标签"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "让用户从多个选项中<b>只能选一个</b>，应使用（　）。",
+     "options": [
+      "A. type=\"checkbox\"",
+      "B. type=\"radio\"",
+      "C. type=\"text\"",
+      "D. type=\"file\""
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>radio单选（同组name相同互斥）；checkbox可多选。</p>",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "HTML文档结构"
+     ],
+     "stem": "&lt;!DOCTYPE html&gt;的作用是（　）。",
+     "options": [
+      "A. 声明这是HTML5文档，告知浏览器按标准模式渲染",
+      "B. 设置网页编码",
+      "C. 引入外部CSS",
+      "D. 定义网页标题"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>DOCTYPE声明文档类型，触发浏览器标准盒模型渲染模式，必须放在文档最顶部。</p>",
+     "kp": "📎 知识点：HTML文档结构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "URL与HTTP"
+     ],
+     "stem": "浏览器与Web服务器之间传输网页默认使用的协议是（　）。",
+     "options": [
+      "A. FTP",
+      "B. HTTP/HTTPS",
+      "C. SMTP",
+      "D. SSH"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>HTTP超文本传输协议用于浏览器与服务器间请求响应；HTTPS是加密版本。</p>",
+     "kp": "📎 知识点：URL与HTTP"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "开发环境"
+     ],
+     "stem": "在浏览器中打开开发者工具调试网页的快捷键通常是（　）。",
+     "options": [
+      "A. F1",
+      "B. F12",
+      "C. F5",
+      "D. Esc"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>F12打开开发者工具，可查看Elements/Console/Network等面板调试网页。</p>",
+     "kp": "📎 知识点：开发环境"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "HTML文档结构"
+     ],
+     "stem": "HTML文档分为&lt;head&gt;头部和______主体两大部分。",
+     "options": [],
+     "answer": "<b>&lt;body&gt;</b>",
+     "explain": "<p>head放元信息（编码、标题、引入文件），body放用户可见内容。</p>",
+     "kp": "📎 知识点：HTML文档结构"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "表单提交按钮使用&lt;input type=\"______\"&gt;。",
+     "options": [],
+     "answer": "<b>submit</b>",
+     "explain": "<p>submit触发表单提交；button只是普通按钮需JS处理。</p>",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "常用HTML标签"
+     ],
+     "stem": "超链接标签&lt;a&gt;通过______属性指定跳转地址。",
+     "options": [],
+     "answer": "<b>href</b>",
+     "explain": "<p>&lt;a href=\"https://...\"&gt;文字&lt;/a&gt;；target=\"_blank\"在新标签页打开。</p>",
+     "kp": "📎 知识点：常用HTML标签"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "URL与HTTP"
+     ],
+     "stem": "URL一般由协议、域名和______三部分组成。",
+     "options": [],
+     "answer": "<b>路径（资源路径）</b>",
+     "explain": "<p>https协议://域名/路径?参数，路径定位服务器上的具体文件。</p>",
+     "kp": "📎 知识点：URL与HTTP"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "B/S与C/S架构"
+     ],
+     "stem": "用户需要安装客户端软件才能使用的系统属于______架构。",
+     "options": [],
+     "answer": "<b>C/S（客户端/服务器）</b>",
+     "explain": "<p>C/S要装客户端；B/S用浏览器即可，维护升级在服务器。</p>",
+     "kp": "📎 知识点：B/S与C/S架构"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "表单中用于多行文本输入的标签是______。",
+     "options": [],
+     "answer": "<b>&lt;textarea&gt;</b>",
+     "explain": "<p>&lt;textarea rows cols&gt;多行文本域，区别于单行input text。</p>",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "HTML文档结构"
+     ],
+     "stem": "简述一个标准HTML5文档的基本结构，并说明&lt;head&gt;与&lt;body&gt;各放什么内容。",
+     "options": [],
+     "answer": "<p>结构：&lt;!DOCTYPE html&gt;→&lt;html&gt;→&lt;head&gt;（&lt;meta charset&gt;、&lt;title&gt;、引入CSS/JS）+&lt;body&gt;（可见的标题、段落、图片、表单等）。head不显示在页面正文，body是用户看到的全部内容。</p>",
+     "explain": "<p>结构：&lt;!DOCTYPE html&gt;→&lt;html&gt;→&lt;head&gt;（&lt;meta charset&gt;、&lt;title&gt;、引入CSS/JS）+&lt;body&gt;（可见的标题、段落、图片、表单等）。head不显示在页面正文，body是用户看到的全部内容。</p>",
+     "kp": "📎 知识点：HTML文档结构"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "B/S与C/S架构"
+     ],
+     "stem": "比较B/S与C/S架构的优缺点，并举例说明。",
+     "options": [],
+     "answer": "<p>B/S优点：免安装、跨平台、升级只动服务器；缺点：依赖网络、体验略逊。如网页版邮箱。C/S优点：性能好、功能强、可离线；缺点：要安装升级、跨平台差。如PC版QQ。</p>",
+     "explain": "<p>B/S优点：免安装、跨平台、升级只动服务器；缺点：依赖网络、体验略逊。如网页版邮箱。C/S优点：性能好、功能强、可离线；缺点：要安装升级、跨平台差。如PC版QQ。</p>",
+     "kp": "📎 知识点：B/S与C/S架构"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "列举至少5种input的type取值及其用途。",
+     "options": [],
+     "answer": "<p>text文本框；password密码框；radio单选；checkbox复选；submit提交按钮；reset重置；file文件上传；date日期；number数字。同组radio用相同name实现互斥。</p>",
+     "explain": "<p>text文本框；password密码框；radio单选；checkbox复选；submit提交按钮；reset重置；file文件上传；date日期；number数字。同组radio用相同name实现互斥。</p>",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "HTML文档结构",
+      "表单与input"
+     ],
+     "stem": "用HTML写出一个登录表单：含“账号”文本框、“密码”密码框、“记住我”复选框、“登录”提交按钮，要求表单以POST方式提交到/login。",
+     "options": [],
+     "answer": "<p>&lt;form action=\"/login\" method=\"post\"&gt;<br>账号：&lt;input type=\"text\" name=\"username\"&gt;&lt;br&gt;<br>密码：&lt;input type=\"password\" name=\"pwd\"&gt;&lt;br&gt;<br>&lt;input type=\"checkbox\" name=\"remember\"&gt;记住我&lt;br&gt;<br>&lt;input type=\"submit\" value=\"登录\"&gt;<br>&lt;/form&gt;。name属性是后端取数据的依据。</p>",
+     "explain": "<p>&lt;form action=\"/login\" method=\"post\"&gt;<br>账号：&lt;input type=\"text\" name=\"username\"&gt;&lt;br&gt;<br>密码：&lt;input type=\"password\" name=\"pwd\"&gt;&lt;br&gt;<br>&lt;input type=\"checkbox\" name=\"remember\"&gt;记住我&lt;br&gt;<br>&lt;input type=\"submit\" value=\"登录\"&gt;<br>&lt;/form&gt;。name属性是后端取数据的依据。</p>",
+     "kp": "📎 知识点：HTML文档结构 · 表单与input"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "URL与HTTP",
+      "开发环境"
+     ],
+     "stem": "用户在浏览器地址栏输入https://www.hdu.edu.cn/index.html并回车，描述从输入到页面显示的完整过程。",
+     "options": [],
+     "answer": "<p>① 浏览器解析URL得到协议https、域名、路径；② DNS把域名解析成服务器IP；③ 浏览器与服务器建立TCP连接并发送HTTP请求；④ 服务器找到index.html返回响应（状态码200）；⑤ 浏览器下载HTML并解析渲染；⑥ 如遇CSS/JS/图片再发新请求。整个过程可用F12开发者工具的Network面板观察。</p>",
+     "explain": "<p>① 浏览器解析URL得到协议https、域名、路径；② DNS把域名解析成服务器IP；③ 浏览器与服务器建立TCP连接并发送HTTP请求；④ 服务器找到index.html返回响应（状态码200）；⑤ 浏览器下载HTML并解析渲染；⑥ 如遇CSS/JS/图片再发新请求。整个过程可用F12开发者工具的Network面板观察。</p>",
+     "kp": "📎 知识点：URL与HTTP · 开发环境"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "CSS样式与页面布局",
+   "hint": "本章知识清单：CSS引入方式、选择器、盒模型、块级行内元素、Flex布局、position定位。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "CSS引入方式",
+    "CSS选择器",
+    "盒模型",
+    "块级与行内元素",
+    "Flex布局",
+    "position定位"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "CSS选择器"
+     ],
+     "stem": "选择所有class为box的元素，正确写法是（　）。",
+     "options": [
+      "A. #box{ }",
+      "B. .box{ }",
+      "C. box{ }",
+      "D. *box{ }"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>类选择器.开头；id选择器#开头；标签选择器直接写标签名。</p>",
+     "kp": "📎 知识点：CSS选择器"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "盒模型"
+     ],
+     "stem": "CSS盒模型从内到外的正确顺序是（　）。",
+     "options": [
+      "A. border→padding→content→margin",
+      "B. content→padding→border→margin",
+      "C. margin→content→padding→border",
+      "D. content→border→padding→margin"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>内容content→内边距padding→边框border→外边距margin。</p",
+     "kp": "📎 知识点：盒模型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "CSS引入方式"
+     ],
+     "stem": "在HTML中引入外部样式表style.css，正确写法是（　）。",
+     "options": [
+      "A. &lt;style src=\"style.css\"&gt;",
+      "B. &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;",
+      "C. &lt;css href=\"style.css\"&gt;",
+      "D. @import \"style\" 写在body里"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>&lt;link rel=\"stylesheet\" href=\"...\"&gt;写在head中引入外部CSS。</p>",
+     "kp": "📎 知识点：CSS引入方式"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "块级与行内元素"
+     ],
+     "stem": "下列属于行内元素的是（　）。",
+     "options": [
+      "A. &lt;div&gt;",
+      "B. &lt;p&gt;",
+      "C. &lt;span&gt;",
+      "D. &lt;h1&gt;"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>span行内不换行；div/p/h1块级独占一行。</p>",
+     "kp": "📎 知识点：块级与行内元素"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "Flex布局"
+     ],
+     "stem": "父容器设置display:flex后，控制子元素在主轴方向对齐的属性是（　）。",
+     "options": [
+      "A. align-items",
+      "B. justify-content",
+      "C. flex-wrap",
+      "D. text-align"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>justify-content管主轴对齐；align-items管交叉轴对齐。</p>",
+     "kp": "📎 知识点：Flex布局"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "position定位"
+     ],
+     "stem": "使元素相对浏览器窗口固定、滚动时不动的定位方式是（　）。",
+     "options": [
+      "A. relative",
+      "B. absolute",
+      "C. fixed",
+      "D. static"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>fixed相对视口固定；absolute相对最近定位祖先；relative相对自身原位置。</p>",
+     "kp": "📎 知识点：position定位"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "CSS选择器"
+     ],
+     "stem": "选中id为nav的元素，选择器写法是（　）。",
+     "options": [
+      "A. .nav",
+      "B. #nav",
+      "C. nav",
+      "D. *nav"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>id选择器用#；id全页唯一。</p>",
+     "kp": "📎 知识点：CSS选择器"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "盒模型"
+     ],
+     "stem": "某div设width:200px、padding:20px、border:1px solid，box-sizing默认content-box时，元素实际占宽（　）。",
+     "options": [
+      "A. 200px",
+      "B. 240px",
+      "C. 242px",
+      "D. 202px"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>content-box下实际宽=200+20×2+1×2=<b>242px</b>；若box-sizing:border-box则总宽才是200px。</p>",
+     "kp": "📎 知识点：盒模型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "Flex布局"
+     ],
+     "stem": "想让Flex子元素两端对齐（左右贴边、中间均分），应设（　）。",
+     "options": [
+      "A. justify-content:center",
+      "B. justify-content:space-between",
+      "C. justify-content:space-around",
+      "D. align-items:center"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>space-between首尾贴边、间距均分；space-around每个元素两侧间距相等。</p>",
+     "kp": "📎 知识点：Flex布局"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "position定位"
+     ],
+     "stem": "position:absolute的元素，其定位参考物是（　）。",
+     "options": [
+      "A. 浏览器窗口",
+      "B. 文档原位置",
+      "C. 最近的已定位祖先元素",
+      "D. 父元素body"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>absolute相对最近的position非static祖先；找不到才相对初始包含块。</p>",
+     "kp": "📎 知识点：position定位"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "盒模型"
+     ],
+     "stem": "元素边框与内容之间的间距称为______。",
+     "options": [],
+     "answer": "<b>内边距（padding）</b>",
+     "explain": "<p>padding内容与边框间；margin边框外与其他元素间距。</p>",
+     "kp": "📎 知识点：盒模型"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Flex布局"
+     ],
+     "stem": "开启弹性布局，父元素需设置display:______。",
+     "options": [],
+     "answer": "<b>flex</b>",
+     "explain": "<p>display:flex使子元素沿主轴排列。</p>",
+     "kp": "📎 知识点：Flex布局"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "CSS选择器"
+     ],
+     "stem": "CSS三种引入方式：行内样式、内部样式表和______样式表。",
+     "options": [],
+     "answer": "<b>外部（外部链接）</b>",
+     "explain": "<p>外部样式表用link引入，多页面复用，最常用。</p>",
+     "kp": "📎 知识点：CSS选择器"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "position定位"
+     ],
+     "stem": "position______表示相对元素原来的位置偏移，且不脱离文档流。",
+     "options": [],
+     "answer": "<b>relative</b>",
+     "explain": "<p>relative保留原位置再偏移；absolute/fixed脱离文档流。</p>",
+     "kp": "📎 知识点：position定位"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "块级与行内元素"
+     ],
+     "stem": "把行内元素span设置为块级显示，应设display:______。",
+     "options": [],
+     "answer": "<b>block</b>",
+     "explain": "<p>display:block块级；inline行内；inline-block行内块（可设宽高）。</p>",
+     "kp": "📎 知识点：块级与行内元素"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "盒模型"
+     ],
+     "stem": "设置box-sizing:______后，width会包含padding和border，尺寸更好算。",
+     "options": [],
+     "answer": "<b>border-box</b>",
+     "explain": "<p>border-box怪异盒模型：总宽=width，padding/border向内挤压内容区。</p>",
+     "kp": "📎 知识点：盒模型"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "CSS选择器"
+     ],
+     "stem": "简述标签选择器、类选择器、id选择器的区别与使用场景。",
+     "options": [],
+     "answer": "<p>标签选择器选中全部某标签（如p{ }），适合全局统一；类选择器.xxx可复用、多元素共用，最灵活；id选择器#xxx全页唯一，用于布局骨架（如#header）。优先级：id&gt;类&gt;标签。</p>",
+     "explain": "<p>标签选择器选中全部某标签（如p{ }），适合全局统一；类选择器.xxx可复用、多元素共用，最灵活；id选择器#xxx全页唯一，用于布局骨架（如#header）。优先级：id&gt;类&gt;标签。</p>",
+     "kp": "📎 知识点：CSS选择器"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "盒模型"
+     ],
+     "stem": "画出并说明CSS标准盒模型的四个部分，以及margin与padding的区别。",
+     "options": [],
+     "answer": "<p>由内到外content内容、padding内边距、border边框、margin外边距。padding是边框内部留白（背景色覆盖），margin是边框外部与相邻元素的距离（透明）。</p>",
+     "explain": "<p>由内到外content内容、padding内边距、border边框、margin外边距。padding是边框内部留白（背景色覆盖），margin是边框外部与相邻元素的距离（透明）。</p>",
+     "kp": "📎 知识点：盒模型"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Flex布局"
+     ],
+     "stem": "用Flex实现：一个导航栏里logo居左、菜单居中、按钮居右。写出关键CSS。",
+     "options": [],
+     "answer": "<p>.nav{display:flex; justify-content:space-between; align-items:center;} 三个子元素logo、菜单、按钮会自动分占左中右。align-items:center保证垂直居中。</p>",
+     "explain": "<p>.nav{display:flex; justify-content:space-between; align-items:center;} 三个子元素logo、菜单、按钮会自动分占左中右。align-items:center保证垂直居中。</p>",
+     "kp": "📎 知识点：Flex布局"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "position定位",
+      "盒模型"
+     ],
+     "stem": "要做一个网站右下角“回到顶部”按钮，无论页面怎么滚动都固定在距右20px、距底20px。写出关键CSS。",
+     "options": [],
+     "answer": "<p>.backtop{position:fixed; right:20px; bottom:20px; width:50px; height:50px;} fixed相对视口定位，脱离文档流，滚动不影响位置。</p>",
+     "explain": "<p>.backtop{position:fixed; right:20px; bottom:20px; width:50px; height:50px;} fixed相对视口定位，脱离文档流，滚动不影响位置。</p>",
+     "kp": "📎 知识点：position定位 · 盒模型"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "Flex布局",
+      "块级与行内元素"
+     ],
+     "stem": "用HTML+CSS实现一个两行三列的卡片网格：每行3张卡片、卡片间距20px、自适应换行。写出结构与样式思路。",
+     "options": [],
+     "answer": "<p>容器.card-list{display:flex; flex-wrap:wrap; gap:20px;}；卡片.card{width:calc((100% - 40px)/3);}。flex-wrap:wrap允许换行，gap控制间距，calc算出每列宽度。卡片内部可用flex做图文排版。</p>",
+     "explain": "<p>容器.card-list{display:flex; flex-wrap:wrap; gap:20px;}；卡片.card{width:calc((100% - 40px)/3);}。flex-wrap:wrap允许换行，gap控制间距，calc算出每列宽度。卡片内部可用flex做图文排版。</p>",
+     "kp": "📎 知识点：Flex布局 · 块级与行内元素"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "JavaScript编程基础",
+   "hint": "本章知识清单：数据类型、变量let/const、函数、DOM选取与修改、事件监听、BOM与定时器。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "JS数据类型",
+    "变量与函数",
+    "DOM操作",
+    "事件监听",
+    "BOM对象",
+    "定时器"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "变量与函数"
+     ],
+     "stem": "声明一个不能重新赋值的常量，应使用（　）。",
+     "options": [
+      "A. var",
+      "B. let",
+      "C. const",
+      "D. static"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>const声明常量不可重新赋值；let可变；var已不推荐。</p>",
+     "kp": "📎 知识点：变量与函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "选中页面中id为title的元素，正确写法是（　）。",
+     "options": [
+      "A. document.getElement(\"title\")",
+      "B. document.querySelector(\"#title\")",
+      "C. #title",
+      "D. document.search(\".title\")"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>querySelector支持CSS选择器；id用#title。</p>",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "JS数据类型"
+     ],
+     "stem": "下列不属于JS基本数据类型的是（　）。",
+     "options": [
+      "A. string",
+      "B. number",
+      "C. boolean",
+      "D. array"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>基本类型string/number/boolean/undefined/null/symbol；array是object引用类型。</p>",
+     "kp": "📎 知识点：JS数据类型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "事件监听"
+     ],
+     "stem": "给按钮btn绑定点击事件的正确写法是（　）。",
+     "options": [
+      "A. btn.onClick = fn",
+      "B. btn.addEventListener(\"click\", fn)",
+      "C. btn.click = fn",
+      "D. btn.listen(\"onclick\")"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>addEventListener(事件名, 处理函数)；事件名不带on，如click。</p>",
+     "kp": "📎 知识点：事件监听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "修改某元素显示的文字内容，应使用属性（　）。",
+     "options": [
+      "A. href",
+      "B. innerText",
+      "C. src",
+      "D. class"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>innerText改纯文本；innerHTML可解析HTML标签。</p>",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "定时器"
+     ],
+     "stem": "每隔3秒重复执行一次某函数，应使用（　）。",
+     "options": [
+      "A. setTimeout(fn,3000)",
+      "B. setInterval(fn,3000)",
+      "C. setTimer(fn,3)",
+      "D. repeat(fn,3000)"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>setInterval重复执行；setTimeout只执行一次。</p>",
+     "kp": "📎 知识点：定时器"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "BOM对象"
+     ],
+     "stem": "让网页跳转到另一个网址，应使用（　）。",
+     "options": [
+      "A. location.href=\"url\"",
+      "B. window.go(\"url\")",
+      "C. document.url",
+      "D. history.back()"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>location.href赋值即跳转；history.back()返回上一页。</p>",
+     "kp": "📎 知识点：BOM对象"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "变量与函数"
+     ],
+     "stem": "关于let与const，下列说法正确的是（　）。",
+     "options": [
+      "A. const声明的对象其内部属性也不能改",
+      "B. const声明后不能重新赋值，但对象属性可以改",
+      "C. let没有块级作用域",
+      "D. var与let完全相同"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>const保证绑定不变（不重新赋值），但对象内部属性仍可修改；let有块级作用域。</p>",
+     "kp": "📎 知识点：变量与函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "事件监听"
+     ],
+     "stem": "事件委托的主要优点是（　）。",
+     "options": [
+      "A. 代码更短",
+      "B. 动态新增的子元素也能响应事件，且减少绑定数量",
+      "C. 提高安全性",
+      "D. 让事件冒泡消失"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>把子元素事件绑在父元素上利用冒泡触发，后插入的元素自动生效，性能更好。</p>",
+     "kp": "📎 知识点：事件监听"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "向列表ul末尾追加一个新li元素，正确流程是（　）。",
+     "options": [
+      "A. 直接ul.innerHTML=newli",
+      "B. createElement创建li→设置内容→appendChild追加到ul",
+      "C. ul.add(li)",
+      "D. ul.insert(newli)"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>document.createElement创建节点，设内容，父节点appendChild追加。</p>",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "在浏览器控制台输出调试信息常用______函数。",
+     "options": [],
+     "answer": "<b>console.log</b>",
+     "explain": "<p>F12 Console面板看输出，前端调试最常用。</p>",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "事件监听"
+     ],
+     "stem": "鼠标点击事件的事件名是______。",
+     "options": [],
+     "answer": "<b>click</b>",
+     "explain": "<p>addEventListener(\"click\",...)；输入事件input，加载事件load。</p>",
+     "kp": "📎 知识点：事件监听"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "定时器"
+     ],
+     "stem": "只在3秒后执行一次的函数用______。",
+     "options": [],
+     "answer": "<b>setTimeout</b>",
+     "explain": "<p>setTimeout(fn,3000)延迟一次；clearTimeout可取消。</p>",
+     "kp": "📎 知识点：定时器"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "变量与函数"
+     ],
+     "stem": "JS中声明函数的两种常用方式：函数声明和______函数表达式。",
+     "options": [],
+     "answer": "<b>匿名（箭头）</b>",
+     "explain": "<p>function fn(){}或const fn=()=&gt;{}；箭头函数是ES6写法。</p>",
+     "kp": "📎 知识点：变量与函数"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "BOM对象"
+     ],
+     "stem": "浏览器窗口对象在JS中用______表示。",
+     "options": [],
+     "answer": "<b>window</b>",
+     "explain": "<p>window是全局对象，location/navigator/history都是它的属性。</p>",
+     "kp": "📎 知识点：BOM对象"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "获取元素并读取其输入框当前值，应使用input元素的______属性。",
+     "options": [],
+     "answer": "<b>value</b>",
+     "explain": "<p>input.value读/写输入值；textContent/innerText读元素文本。</p>",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "简述DOM是什么，并写出用JS修改id为price元素文字为“99元”的代码。",
+     "options": [],
+     "answer": "<p>DOM是浏览器把HTML解析成的对象树，JS通过它操作页面。代码：document.querySelector(\"#price\").innerText=\"99元\";。</p>",
+     "explain": "<p>DOM是浏览器把HTML解析成的对象树，JS通过它操作页面。代码：document.querySelector(\"#price\").innerText=\"99元\";。</p>",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "事件监听"
+     ],
+     "stem": "解释事件冒泡，并说明事件委托为什么能处理动态新增元素。",
+     "options": [],
+     "answer": "<p>事件冒泡：子元素触发的事件会逐层向上冒泡到父元素。事件委托把监听绑在父元素上，冒泡时统一判断target处理；后动态插入的子元素事件同样会冒泡到父元素，因此无需重新绑定。</p>",
+     "explain": "<p>事件冒泡：子元素触发的事件会逐层向上冒泡到父元素。事件委托把监听绑在父元素上，冒泡时统一判断target处理；后动态插入的子元素事件同样会冒泡到父元素，因此无需重新绑定。</p>",
+     "kp": "📎 知识点：事件监听"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "变量与函数"
+     ],
+     "stem": "比较var、let、const的区别。",
+     "options": [],
+     "answer": "<p>var函数作用域、可重复声明、有变量提升；let块级作用域、不可重复声明、暂存死区；const块级作用域、声明即赋值、不可重新赋值。现代代码优先const，需变值用let，基本不用var。</p>",
+     "explain": "<p>var函数作用域、可重复声明、有变量提升；let块级作用域、不可重复声明、暂存死区；const块级作用域、声明即赋值、不可重新赋值。现代代码优先const，需变值用let，基本不用var。</p>",
+     "kp": "📎 知识点：变量与函数"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "DOM操作",
+      "事件监听"
+     ],
+     "stem": "写一段JS：点击“加1”按钮时，页面计数器数字加1并显示。给出HTML与JS。",
+     "options": [],
+     "answer": "<p>HTML：&lt;span id=\"num\"&gt;0&lt;/span&gt;&lt;button id=\"add\"&gt;加1&lt;/button&gt;<br>JS：let count=0; document.querySelector(\"#add\").addEventListener(\"click\",()=&gt;{ count++; document.querySelector(\"#num\").innerText=count; });</p>",
+     "explain": "<p>HTML：&lt;span id=\"num\"&gt;0&lt;/span&gt;&lt;button id=\"add\"&gt;加1&lt;/button&gt;<br>JS：let count=0; document.querySelector(\"#add\").addEventListener(\"click\",()=&gt;{ count++; document.querySelector(\"#num\").innerText=count; });</p>",
+     "kp": "📎 知识点：DOM操作 · 事件监听"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "定时器",
+      "DOM操作"
+     ],
+     "stem": "用JS做一个60秒倒计时：数字每秒减1，到0时显示“开始”并停止计时。写出思路与关键代码。",
+     "options": [],
+     "answer": "<p>let t=60; const timer=setInterval(()=&gt;{ t--; 显示t; if(t&lt;=0){ clearInterval(timer); 显示\"开始\"; } },1000); setInterval每秒触发，clearInterval停止；注意先判断再减或初始显示60。</p",
+     "explain": "<p>let t=60; const timer=setInterval(()=&gt;{ t--; 显示t; if(t&lt;=0){ clearInterval(timer); 显示\"开始\"; } },1000); setInterval每秒触发，clearInterval停止；注意先判断再减或初始显示60。</p",
+     "kp": "📎 知识点：定时器 · DOM操作"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "前后端数据交互",
+   "hint": "本章知识清单：GET/POST、HTTP状态码、表单提交、AJAX、Fetch/Promise、JSON、跨域CORS。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "GET与POST",
+    "HTTP状态码",
+    "表单提交",
+    "AJAX",
+    "Fetch与Promise",
+    "JSON",
+    "跨域CORS"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "GET与POST"
+     ],
+     "stem": "从服务器<b>获取</b>数据应使用的HTTP方法是（　）。",
+     "options": [
+      "A. POST",
+      "B. GET",
+      "C. PUT",
+      "D. DELETE"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>GET取数据、参数在URL；POST提交数据、参数在请求体。</p>",
+     "kp": "📎 知识点：GET与POST"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HTTP状态码"
+     ],
+     "stem": "请求成功返回的状态码是（　）。",
+     "options": [
+      "A. 404",
+      "B. 500",
+      "C. 200",
+      "D. 301"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>200 OK成功；404未找到；500服务器错误；301永久重定向。</p>",
+     "kp": "📎 知识点：HTTP状态码"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "JSON"
+     ],
+     "stem": "JSON数据{\"name\":\"张三\"}中，表示姓名的键是（　）。",
+     "options": [
+      "A. 张三",
+      "B. name",
+      "C. :",
+      "D. {}"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>键值对“键:值”，name是键，张三是值。</p>",
+     "kp": "📎 知识点：JSON"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "HTTP状态码"
+     ],
+     "stem": "浏览器请求的资源不存在，服务器返回（　）。",
+     "options": [
+      "A. 200",
+      "B. 301",
+      "C. 404",
+      "D. 500"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>404 Not Found资源不存在；500是服务器内部错误。</p>",
+     "kp": "📎 知识点：HTTP状态码"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "AJAX"
+     ],
+     "stem": "AJAX技术的核心特点是（　）。",
+     "options": [
+      "A. 必须刷新整个页面",
+      "B. 异步局部更新页面数据",
+      "C. 只能提交表单",
+      "D. 不需要服务器"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>AJAX异步请求，不刷新整页即可局部更新，如用户名即时校验。</p>",
+     "kp": "📎 知识点：AJAX"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "Fetch与Promise"
+     ],
+     "stem": "现代Fetch API返回的是（　）。",
+     "options": [
+      "A. 普通数据",
+      "B. Promise对象",
+      "C. XML",
+      "D. 字符串"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>fetch返回Promise，用.then()或await处理响应。</p>",
+     "kp": "📎 知识点：Fetch与Promise"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "GET与POST"
+     ],
+     "stem": "关于POST，下列说法正确的是（　）。",
+     "options": [
+      "A. 参数显示在URL中",
+      "B. 数据放在请求体中，相对适合提交敏感信息",
+      "C. 有长度限制",
+      "D. 只能用来查数据"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>POST数据在请求体、不暴露在URL、无明显长度限制，适合登录密码。</p",
+     "kp": "📎 知识点：GET与POST"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "跨域CORS"
+     ],
+     "stem": "浏览器阻止跨域请求读取响应，这种安全策略称为（　）。",
+     "options": [
+      "A. 同源策略",
+      "B. 缓存策略",
+      "C. 加密策略",
+      "D. 路由策略"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>同源策略：协议+域名+端口一致才允许读取响应，否则跨域被拦。</p>",
+     "kp": "📎 知识点：跨域CORS"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "跨域CORS"
+     ],
+     "stem": "服务器允许跨域访问，应设置的响应头是（　）。",
+     "options": [
+      "A. Content-Type",
+      "B. Access-Control-Allow-Origin",
+      "C. Set-Cookie",
+      "D. Authorization"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>CORS通过Access-Control-Allow-Origin响应头放行指定来源。</p>",
+     "kp": "📎 知识点：跨域CORS"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "Fetch与Promise"
+     ],
+     "stem": "用fetch获取JSON数据后，解析响应体应调用（　）。",
+     "options": [
+      "A. response.text()",
+      "B. response.json()",
+      "C. response.parse()",
+      "D. response.data()"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>res.json()把响应体解析成JS对象；res.text()得到文本。</p>",
+     "kp": "📎 知识点：Fetch与Promise"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "HTTP状态码"
+     ],
+     "stem": "4xx状态码表示______端错误，5xx表示服务器端错误。",
+     "options": [],
+     "answer": "<b>客户（客户端）</b>",
+     "explain": "<p>4xx客户端错误（如404）；5xx服务端错误（如500）。</p>",
+     "kp": "📎 知识点：HTTP状态码"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "JSON"
+     ],
+     "stem": "把JSON字符串解析成JS对象用JSON.______()。",
+     "options": [],
+     "answer": "<b>parse</b>",
+     "explain": "<p>JSON.parse字符串→对象；JSON.stringify对象→字符串。</p>",
+     "kp": "📎 知识点：JSON"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "AJAX"
+     ],
+     "stem": "AJAX的英文全称是Asynchronous ______ and XML。",
+     "options": [],
+     "answer": "<b>JavaScript</b>",
+     "explain": "<p>异步JavaScript与XML，现多用JSON格式。</p>",
+     "kp": "📎 知识点：AJAX"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "跨域CORS"
+     ],
+     "stem": "协议、域名、______三者完全相同称为同源。",
+     "options": [],
+     "answer": "<b>端口</b>",
+     "explain": "<p>任一不同即跨域；localhost:80与localhost:8080也跨域。</p>",
+     "kp": "📎 知识点：跨域CORS"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "表单提交"
+     ],
+     "stem": "form标签的______属性指定数据提交到哪个服务器地址。",
+     "options": [],
+     "answer": "<b>action</b>",
+     "explain": "<p>action提交地址；method指定get/post。</p>",
+     "kp": "📎 知识点：表单提交"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "Fetch与Promise"
+     ],
+     "stem": "使用async函数等待fetch结果，应在请求前加______关键字。",
+     "options": [],
+     "answer": "<b>await</b>",
+     "explain": "<p>await fetch(...)等Promise完成；await只能在async函数内。</p>",
+     "kp": "📎 知识点：Fetch与Promise"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "GET与POST"
+     ],
+     "stem": "比较GET与POST的区别（参数位置、安全性、用途）。",
+     "options": [],
+     "answer": "<p>GET参数在URL查询串、可见、有长度限制、用于查数据；POST参数在请求体、不暴露、无明显长度限制、用于提交表单/敏感数据。登录用POST，搜索用GET。</p>",
+     "explain": "<p>GET参数在URL查询串、可见、有长度限制、用于查数据；POST参数在请求体、不暴露、无明显长度限制、用于提交表单/敏感数据。登录用POST，搜索用GET。</p>",
+     "kp": "📎 知识点：GET与POST"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "HTTP状态码"
+     ],
+     "stem": "说明200、301、404、500四类状态码的含义。",
+     "options": [],
+     "answer": "<p>200成功；301永久重定向；404请求资源不存在；500服务器内部错误。排错：F12 Network看状态码，4开头查前端URL，5开头查后端日志。</p>",
+     "explain": "<p>200成功；301永久重定向；404请求资源不存在；500服务器内部错误。排错：F12 Network看状态码，4开头查前端URL，5开头查后端日志。</p>",
+     "kp": "📎 知识点：HTTP状态码"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "跨域CORS"
+     ],
+     "stem": "什么是跨域？为什么会出现？常见解决办法是什么？",
+     "options": [],
+     "answer": "<p>浏览器同源策略限制：协议/域名/端口任一不同，JS默认读不到响应。解决：后端配置CORS响应头（最常用）、JSONP（GET）、后端代理服务器转发。</p>",
+     "explain": "<p>浏览器同源策略限制：协议/域名/端口任一不同，JS默认读不到响应。解决：后端配置CORS响应头（最常用）、JSONP（GET）、后端代理服务器转发。</p>",
+     "kp": "📎 知识点：跨域CORS"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "Fetch与Promise",
+      "JSON"
+     ],
+     "stem": "用fetch向/api/news发GET请求，拿到JSON后把标题显示到页面。写出关键代码。",
+     "options": [],
+     "answer": "<p>fetch(\"/api/news\").then(res=&gt;res.json()).then(data=&gt;{ document.querySelector(\"#news\").innerText=data.title; }).catch(err=&gt;console.error(err)); 或async/await写法。</p>",
+     "explain": "<p>fetch(\"/api/news\").then(res=&gt;res.json()).then(data=&gt;{ document.querySelector(\"#news\").innerText=data.title; }).catch(err=&gt;console.error(err)); 或async/await写法。</p>",
+     "kp": "📎 知识点：Fetch与Promise · JSON"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "AJAX",
+      "表单提交",
+      "跨域CORS"
+     ],
+     "stem": "注册页面输入用户名后，不刷新页面即时提示“可用/已占用”。描述技术方案，并说明可能遇到的跨域问题如何解决。",
+     "options": [],
+     "answer": "<p>方案：给输入框绑input事件→防抖后用fetch(/api/check?name=xxx)异步请求→后端返回{available:true/false}→前端在输入框下方提示。这就是AJAX局部刷新。跨域：前端a.com、接口api.b.com时浏览器拦截，需后端设置Access-Control-Allow-Origin放行，或通过同源代理转发。</p>",
+     "explain": "<p>方案：给输入框绑input事件→防抖后用fetch(/api/check?name=xxx)异步请求→后端返回{available:true/false}→前端在输入框下方提示。这就是AJAX局部刷新。跨域：前端a.com、接口api.b.com时浏览器拦截，需后端设置Access-Control-Allow-Origin放行，或通过同源代理转发。</p>",
+     "kp": "📎 知识点：AJAX · 表单提交 · 跨域CORS"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "前端框架入门（Vue/React）",
+   "hint": "本章知识清单：MVVM思想、Vue指令v-bind/v-on/v-model/v-for/v-if、组件化、虚拟DOM、脚手架Vite。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "MVVM思想",
+    "Vue指令",
+    "双向绑定v-model",
+    "组件化",
+    "虚拟DOM",
+    "脚手架工程化"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "MVVM思想"
+     ],
+     "stem": "Vue采用的设计思想是（　）。",
+     "options": [
+      "A. MVC，手动操作DOM",
+      "B. MVVM，数据驱动视图",
+      "C. 面向对象",
+      "D. 函数式编程"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>MVVM：改数据→视图自动更新，无需手动操作DOM。</p",
+     "kp": "📎 知识点：MVVM思想"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "Vue中循环渲染列表应使用的指令是（　）。",
+     "options": [
+      "A. v-if",
+      "B. v-for",
+      "C. v-show",
+      "D. v-bind"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>v-for循环渲染；v-if条件渲染；v-show切换显示隐藏。</p>",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "双向绑定v-model"
+     ],
+     "stem": "实现表单输入与数据双向绑定的指令是（　）。",
+     "options": [
+      "A. v-bind",
+      "B. v-on",
+      "C. v-model",
+      "D. v-text"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>v-model双向绑定；v-bind绑属性；v-on绑事件。</p",
+     "kp": "📎 知识点：双向绑定v-model"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "v-bind:src简写为（　）。",
+     "options": [
+      "A. :src",
+      "B. @src",
+      "C. #src",
+      "D. {{src}}"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>v-bind简写:；v-on简写@。:src动态绑定图片地址。</p>",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "组件化"
+     ],
+     "stem": "关于组件化，下列说法错误的是（　）。",
+     "options": [
+      "A. 组件可复用",
+      "B. 组件把UI拆成独立模块",
+      "C. 组件之间不能传数据",
+      "D. 一个页面由多个组件拼装"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>组件间通过props父子传数据；组件可复用、拼装成页面。</p",
+     "kp": "📎 知识点：组件化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "虚拟DOM"
+     ],
+     "stem": "虚拟DOM的主要作用是（　）。",
+     "options": [
+      "A. 让页面更好看",
+      "B. 减少真实DOM操作、提高更新性能",
+      "C. 替代CSS",
+      "D. 做路由"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>虚拟DOM在内存比对差异，只更新变化部分，性能优于直接操作真DOM。</p",
+     "kp": "📎 知识点：虚拟DOM"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "v-on:click简写为（　）。",
+     "options": [
+      "A. :click",
+      "B. @click",
+      "C. #click",
+      "D. click"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>v-on简写@；@click=\"handler\"绑定点击。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "v-if与v-show的区别是（　）。",
+     "options": [
+      "A. 完全相同",
+      "B. v-if真正销毁/重建DOM，v-show只切换CSS显示",
+      "C. v-show性能差",
+      "D. v-if用于列表"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>v-if条件不满足时不渲染DOM（切换开销大）；v-show始终渲染只改display（频繁切换用v-show）。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "MVVM思想"
+     ],
+     "stem": "MVVM中视图自动随数据更新，这种机制叫（　）。",
+     "options": [
+      "A. 双向绑定/响应式",
+      "B. 编译",
+      "C. 路由",
+      "D. 打包"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>响应式系统：数据变化触发视图更新；v-model是双向绑定。</p",
+     "kp": "📎 知识点：MVVM思想"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "脚手架工程化"
+     ],
+     "stem": "现代Vue项目常用的脚手架/构建工具是（　）。",
+     "options": [
+      "A. WebStorm",
+      "B. Vite（或Vue CLI）",
+      "C. Photoshop",
+      "D. Navicat"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Vite是新一代构建工具，启动快；Vue CLI为旧脚手架。</p",
+     "kp": "📎 知识点：脚手架工程化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "双向绑定v-model"
+     ],
+     "stem": "input输入框与数据双向绑定使用指令______。",
+     "options": [],
+     "answer": "<b>v-model</b>",
+     "explain": "<p>打字更新数据，改数据更新输入框。</p",
+     "kp": "📎 知识点：双向绑定v-model"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "Vue模板中显示数据的双大括号写法是______。",
+     "options": [],
+     "answer": "<b>{{变量名}}</b>",
+     "explain": "<p>{{count}}插值表达式，数据变化自动更新。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "组件化"
+     ],
+     "stem": "父组件向子组件传数据通过______属性。",
+     "options": [],
+     "answer": "<b>props</b>",
+     "explain": "<p>props父传子；子组件用emit事件通知父组件。</p",
+     "kp": "📎 知识点：组件化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "MVVM思想"
+     ],
+     "stem": "MVVM中M表示Model数据，V表示View视图，VM表示______。",
+     "options": [],
+     "answer": "<b>ViewModel</b>",
+     "explain": "<p>ViewModel连接数据与视图，自动同步两边。</p",
+     "kp": "📎 知识点：MVVM思想"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "虚拟DOM"
+     ],
+     "stem": "React框架使用______DOM来提升页面更新效率。",
+     "options": [],
+     "answer": "<b>虚拟</b>",
+     "explain": "<p>内存中的DOM影子树，diff后最小化更新真实DOM。</p",
+     "kp": "📎 知识点：虚拟DOM"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "v-for渲染列表时，建议为每项绑定唯一______属性以提高diff效率。",
+     "options": [],
+     "answer": "<b>key</b>",
+     "explain": "<p>:key=\"item.id\"帮助框架识别节点，避免列表错乱。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "MVVM思想"
+     ],
+     "stem": "什么是MVVM？相比原生JS手动操作DOM有什么优势？",
+     "options": [],
+     "answer": "<p>MVVM把页面抽象成数据(Model)、视图(View)、连接层(ViewModel)。开发者只改数据，ViewModel自动更新视图，省去大量document.querySelector和事件绑定，代码更清晰、易维护。</p>",
+     "explain": "<p>MVVM把页面抽象成数据(Model)、视图(View)、连接层(ViewModel)。开发者只改数据，ViewModel自动更新视图，省去大量document.querySelector和事件绑定，代码更清晰、易维护。</p>",
+     "kp": "📎 知识点：MVVM思想"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "说明v-if、v-show、v-for、v-model各自用途。",
+     "options": [],
+     "answer": "<p>v-if条件渲染（不满足则不渲染DOM）；v-show切换CSS显示隐藏；v-for循环列表；v-model表单双向绑定。</p",
+     "explain": "<p>v-if条件渲染（不满足则不渲染DOM）；v-show切换CSS显示隐藏；v-for循环列表；v-model表单双向绑定。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "组件化"
+     ],
+     "stem": "什么是组件化开发？举一个电商网站中可复用组件的例子。",
+     "options": [],
+     "answer": "<p>把页面拆成独立、可复用的UI零件（按钮、卡片、导航），通过props传数据拼装。例：商品卡片组件GoodsCard在首页、搜索页、购物车复用，传不同商品数据渲染。</p",
+     "explain": "<p>把页面拆成独立、可复用的UI零件（按钮、卡片、导航），通过props传数据拼装。例：商品卡片组件GoodsCard在首页、搜索页、购物车复用，传不同商品数据渲染。</p",
+     "kp": "📎 知识点：组件化"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "Vue指令",
+      "双向绑定v-model"
+     ],
+     "stem": "用Vue写一个搜索框：输入内容实时显示在下方“你输入了：xxx”。写出模板关键代码。",
+     "options": [],
+     "answer": "<p>&lt;input v-model=\"kw\" placeholder=\"搜索\"&gt;<br>&lt;p&gt;你输入了：{{ kw }}&lt;/p&gt;<br>data(){return{ kw:\"\" }}。v-model把输入与kw双向绑定，插值{{kw}}实时显示。</p",
+     "explain": "<p>&lt;input v-model=\"kw\" placeholder=\"搜索\"&gt;<br>&lt;p&gt;你输入了：{{ kw }}&lt;/p&gt;<br>data(){return{ kw:\"\" }}。v-model把输入与kw双向绑定，插值{{kw}}实时显示。</p",
+     "kp": "📎 知识点：Vue指令 · 双向绑定v-model"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "组件化",
+      "虚拟DOM"
+     ],
+     "stem": "以商品列表为例，说明如何用组件化+虚拟DOM思想组织代码，并对比原生JS直接操作DOM的差异。",
+     "options": [],
+     "answer": "<p>组织：把单个商品抽成GoodsItem组件，父组件用v-for遍历商品数组传:item渲染；数据变化（如点赞数+1）由响应式系统更新。虚拟DOM在内存diff后只更新变化的那一项。差异：原生JS要自己找元素、改文字、绑事件，100个商品写100遍；组件化+虚拟DOM只改数据，框架高效更新DOM。</p",
+     "explain": "<p>组织：把单个商品抽成GoodsItem组件，父组件用v-for遍历商品数组传:item渲染；数据变化（如点赞数+1）由响应式系统更新。虚拟DOM在内存diff后只更新变化的那一项。差异：原生JS要自己找元素、改文字、绑事件，100个商品写100遍；组件化+虚拟DOM只改数据，框架高效更新DOM。</p",
+     "kp": "📎 知识点：组件化 · 虚拟DOM"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "Web项目实践与部署",
+   "hint": "本章知识清单：项目目录结构、Git版本管理、响应式布局、部署上线、性能优化、SEO。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "项目目录结构",
+    "Git版本管理",
+    "响应式布局",
+    "网站部署",
+    "性能优化",
+    "SEO"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "项目目录结构"
+     ],
+     "stem": "规范的前端项目通常把CSS、JS、图片分别放在（　）。",
+     "options": [
+      "A. 全部放根目录",
+      "B. css/、js/、images/等独立文件夹",
+      "C. 放在桌面上",
+      "D. 混在HTML里"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>分目录管理：css、js、images统一存放，index.html为入口。</p",
+     "kp": "📎 知识点：项目目录结构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Git版本管理"
+     ],
+     "stem": "把本地代码提交到远程仓库的常用命令组合是（　）。",
+     "options": [
+      "A. open/save",
+      "B. add→commit→push",
+      "C. copy→paste",
+      "D. run→debug"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>git add暂存→git commit存档→git push推送远程。</p",
+     "kp": "📎 知识点：Git版本管理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "SEO"
+     ],
+     "stem": "写在网页&lt;head&gt;里、给搜索引擎看的标题标签是（　）。",
+     "options": [
+      "A. &lt;h1&gt;",
+      "B. &lt;title&gt;",
+      "C. &lt;headline&gt;",
+      "D. &lt;seo&gt;"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>&lt;title&gt;是浏览器标签页标题，也是搜索结果显示的标题。</p",
+     "kp": "📎 知识点：SEO"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "响应式布局"
+     ],
+     "stem": "让页面在手机和电脑上自动适配，常用技术是（　）。",
+     "options": [
+      "A. 固定像素写死",
+      "B. 媒体查询@media与弹性单位rem/vw",
+      "C. 只能做两个版本",
+      "D. 用Flash"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>媒体查询按屏幕宽度切换样式；rem/vw随屏幕缩放。</p",
+     "kp": "📎 知识点：响应式布局"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "网站部署"
+     ],
+     "stem": "静态网站部署后，用户通过什么访问（　）。",
+     "options": [
+      "A. 必须装客户端",
+      "B. 浏览器输入域名/地址访问",
+      "C. 只能本机访问",
+      "D. 发送邮件"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>静态文件放Web服务器，浏览器通过域名或IP访问。</p",
+     "kp": "📎 知识点：网站部署"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "性能优化"
+     ],
+     "stem": "下列不利于网页加载速度的做法是（　）。",
+     "options": [
+      "A. 压缩图片",
+      "B. 合并压缩CSS/JS",
+      "C. 加载超大未压缩图片",
+      "D. 开启缓存"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>大图拖慢首屏；应压缩图片、合并资源、利用缓存。</p",
+     "kp": "📎 知识点：性能优化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "Git版本管理"
+     ],
+     "stem": "git commit -m \"xxx\" 中的-m作用是（　）。",
+     "options": [
+      "A. 推送代码",
+      "B. 填写本次提交的说明信息",
+      "C. 创建分支",
+      "D. 删除文件"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>-m后写提交说明，便于回溯每次改了什么。</p",
+     "kp": "📎 知识点：Git版本管理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "响应式布局"
+     ],
+     "stem": "媒体查询@media screen and (max-width:768px)表示（　）。",
+     "options": [
+      "A. 屏幕宽度大于768px生效",
+      "B. 屏幕宽度小于等于768px（手机）时生效",
+      "C. 打印时生效",
+      "D. 所有屏幕生效"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>max-width:768px匹配窄屏手机，在此范围内写移动端样式。</p",
+     "kp": "📎 知识点：响应式布局"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "性能优化"
+     ],
+     "stem": "浏览器缓存静态资源的好处是（　）。",
+     "options": [
+      "A. 页面永不更新",
+      "B. 二次访问不重复下载、加载更快",
+      "C. 更安全",
+      "D. 节省服务器电费"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>缓存让CSS/JS/图片本地复用，二次访问更快。</p",
+     "kp": "📎 知识点：性能优化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "SEO"
+     ],
+     "stem": "图片标签中为搜索引擎和无障碍用户加说明的属性是（　）。",
+     "options": [
+      "A. title",
+      "B. alt",
+      "C. src",
+      "D. class"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>alt是图片替代文本，图片加载失败或读屏时显示，也利于SEO。</p",
+     "kp": "📎 知识点：SEO"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "项目目录结构"
+     ],
+     "stem": "网站默认入口文件名通常是______.html。",
+     "options": [],
+     "answer": "<b>index</b>",
+     "explain": "<p>访问域名时服务器默认返回index.html。</p",
+     "kp": "📎 知识点：项目目录结构"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Git版本管理"
+     ],
+     "stem": "把改动暂存到Git暂存区的命令是git______。",
+     "options": [],
+     "answer": "<b>add</b>",
+     "explain": "<p>git add .暂存全部改动，再commit。</p",
+     "kp": "📎 知识点：Git版本管理"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "响应式布局"
+     ],
+     "stem": "CSS中按屏幕宽度应用不同样式的规则叫______查询。",
+     "options": [],
+     "answer": "<b>媒体（@media）</b>",
+     "explain": "<p>@media写断点样式，实现手机/平板/电脑适配。</p",
+     "kp": "📎 知识点：响应式布局"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "性能优化"
+     ],
+     "stem": "衡量服务器响应快慢的首字节时间简称______。",
+     "options": [],
+     "answer": "<b>TTFB</b>",
+     "explain": "<p>Time To First Byte，越小首屏越快。</p",
+     "kp": "📎 知识点：性能优化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "SEO"
+     ],
+     "stem": "&lt;head&gt;中用meta标签写网页摘要，name属性值为______。",
+     "options": [],
+     "answer": "<b>description</b>",
+     "explain": "<p>&lt;meta name=\"description\" content=\"...\"&gt;搜索结果摘要。</p",
+     "kp": "📎 知识点：SEO"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "网站部署"
+     ],
+     "stem": "常用的开源Web服务器软件，用于托管静态网站的是______。",
+     "options": [],
+     "answer": "<b>Nginx</b>",
+     "explain": "<p>Nginx高性能Web服务器；静态文件也可用Apache、GitHub Pages托管。</p",
+     "kp": "📎 知识点：网站部署"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "项目目录结构"
+     ],
+     "stem": "简述一个规范的静态网站项目目录应如何组织。",
+     "options": [],
+     "answer": "<p>根目录放index.html入口；css/放样式表；js/放脚本；images/放图片；可再有assets/统一管理资源。命名语义化、小写连字符，便于维护。</p",
+     "explain": "<p>根目录放index.html入口；css/放样式表；js/放脚本；images/放图片；可再有assets/统一管理资源。命名语义化、小写连字符，便于维护。</p",
+     "kp": "📎 知识点：项目目录结构"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "Git版本管理"
+     ],
+     "stem": "写出从修改代码到推送到远程仓库的完整Git命令流程。",
+     "options": [],
+     "answer": "<p>git status看改动→git add .暂存→git commit -m \"说明\"存档→git push origin main推送远程。首次需git clone克隆、git remote添加远程地址。</p",
+     "explain": "<p>git status看改动→git add .暂存→git commit -m \"说明\"存档→git push origin main推送远程。首次需git clone克隆、git remote添加远程地址。</p",
+     "kp": "📎 知识点：Git版本管理"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "性能优化"
+     ],
+     "stem": "列举至少3条提升网页加载速度的常用措施。",
+     "options": [],
+     "answer": "<p>压缩并合并CSS/JS；压缩图片用WebP、适当尺寸；开启浏览器缓存；懒加载长页面图片；减少HTTP请求数；CDN加速静态资源。</p",
+     "explain": "<p>压缩并合并CSS/JS；压缩图片用WebP、适当尺寸；开启浏览器缓存；懒加载长页面图片；减少HTTP请求数；CDN加速静态资源。</p",
+     "kp": "📎 知识点：性能优化"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "响应式布局"
+     ],
+     "stem": "写出一段媒体查询：屏幕宽度≤768px时，导航栏竖排、字号改为14px。",
+     "options": [],
+     "answer": "<p>@media screen and (max-width:768px){ .nav{flex-direction:column;} body{font-size:14px;} }。大屏默认横排，窄屏断点切换为竖排小字号。</p",
+     "explain": "<p>@media screen and (max-width:768px){ .nav{flex-direction:column;} body{font-size:14px;} }。大屏默认横排，窄屏断点切换为竖排小字号。</p",
+     "kp": "📎 知识点：响应式布局"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "网站部署",
+      "SEO",
+      "性能优化"
+     ],
+     "stem": "你写好了一个企业官网静态站，描述从本地到公网可访问的完整流程，以及上线后做SEO和性能优化要做哪些事。",
+     "options": [],
+     "answer": "<p>流程：本地用VS Code完成index.html+css+js+images→git提交推送到远程→部署到服务器（Nginx配置站点根目录指向项目文件夹）或开启GitHub Pages→绑定域名、配置HTTPS→浏览器输入域名访问。SEO：写好title、meta description，用语义化标签，图片加alt，提交搜索引擎。性能：压缩图片、合并资源、开缓存、上CDN。</p",
+     "explain": "<p>流程：本地用VS Code完成index.html+css+js+images→git提交推送到远程→部署到服务器（Nginx配置站点根目录指向项目文件夹）或开启GitHub Pages→绑定域名、配置HTTPS→浏览器输入域名访问。SEO：写好title、meta description，用语义化标签，图片加alt，提交搜索引擎。性能：压缩图片、合并资源、开缓存、上CDN。</p",
+     "kp": "📎 知识点：网站部署 · SEO · 性能优化"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "Web应用开发技术 · 模拟卷（一）",
+   "hint": "覆盖全书六章：选择8+填空4+简答2+应用1+综合1，满分100分，建议100分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "HTML文档结构"
+     ],
+     "stem": "HTML文档头部与主体的根标签是（　）。",
+     "options": [
+      "A. &lt;head&gt;",
+      "B. &lt;body&gt;",
+      "C. &lt;html&gt;",
+      "D. &lt;div&gt;"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>&lt;html&gt;根元素包含head和body。</p",
+     "kp": "📎 知识点：HTML文档结构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "CSS选择器"
+     ],
+     "stem": "选中class为nav的元素用（　）。",
+     "options": [
+      "A. #nav",
+      "B. .nav",
+      "C. nav",
+      "D. *nav"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>类选择器.；id用#。</p",
+     "kp": "📎 知识点：CSS选择器"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "盒模型"
+     ],
+     "stem": "盒模型从内到外正确顺序是（　）。",
+     "options": [
+      "A. padding→content→border→margin",
+      "B. content→padding→border→margin",
+      "C. content→border→padding→margin",
+      "D. margin→padding→content"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>内容→内边距→边框→外边距。</p",
+     "kp": "📎 知识点：盒模型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "修改元素文字内容用（　）。",
+     "options": [
+      "A. innerText",
+      "B. href",
+      "C. src",
+      "D. alt"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>innerText改文本；innerHTML可含标签。</p",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "GET与POST"
+     ],
+     "stem": "登录提交账号密码应使用（　）。",
+     "options": [
+      "A. GET",
+      "B. POST",
+      "C. PUT",
+      "D. DELETE"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>敏感数据用POST，参数在请求体不暴露。</p",
+     "kp": "📎 知识点：GET与POST"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "Vue双向绑定指令是（　）。",
+     "options": [
+      "A. v-bind",
+      "B. v-on",
+      "C. v-model",
+      "D. v-for"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>v-model双向绑定表单。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "跨域CORS"
+     ],
+     "stem": "浏览器同源策略中，判断同源的要素不包括（　）。",
+     "options": [
+      "A. 协议",
+      "B. 域名",
+      "C. 端口",
+      "D. 网页标题"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>协议+域名+端口三者一致才同源。</p",
+     "kp": "📎 知识点：跨域CORS"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "position定位"
+     ],
+     "stem": "相对浏览器窗口固定的定位是（　）。",
+     "options": [
+      "A. relative",
+      "B. absolute",
+      "C. fixed",
+      "D. static"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>fixed相对视口固定不动。</p",
+     "kp": "📎 知识点：position定位"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "密码框input的type值为______。",
+     "options": [],
+     "answer": "<b>password</b>",
+     "explain": "<p>显示掩码圆点。</p",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "HTTP状态码"
+     ],
+     "stem": "请求成功返回状态码______。",
+     "options": [],
+     "answer": "<b>200</b>",
+     "explain": "<p>200 OK；404未找到；500服务器错误。</p",
+     "kp": "📎 知识点：HTTP状态码"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "定时器"
+     ],
+     "stem": "每隔3秒重复执行用______。",
+     "options": [],
+     "answer": "<b>setInterval</b>",
+     "explain": "<p>setTimeout只执行一次。</p",
+     "kp": "📎 知识点：定时器"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "Git版本管理"
+     ],
+     "stem": "把改动提交存档的命令是git______ -m \"说明\"。",
+     "options": [],
+     "answer": "<b>commit</b>",
+     "explain": "<p>add暂存→commit存档→push推送。</p",
+     "kp": "📎 知识点：Git版本管理"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "Flex布局"
+     ],
+     "stem": "简述Flex布局中justify-content与align-items的作用。",
+     "options": [],
+     "answer": "<p>justify-content控制主轴方向对齐（flex-start/center/space-between等）；align-items控制交叉轴对齐。父容器display:flex后配合使用实现水平垂直居中。</p",
+     "explain": "<p>justify-content控制主轴方向对齐（flex-start/center/space-between等）；align-items控制交叉轴对齐。父容器display:flex后配合使用实现水平垂直居中。</p",
+     "kp": "📎 知识点：Flex布局"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "AJAX"
+     ],
+     "stem": "什么是AJAX？举一个生活中的例子。",
+     "options": [],
+     "answer": "<p>异步局部刷新技术：不重载整页，悄悄跟服务器取数据局部更新。例：注册时输入用户名即时提示“已被占用”，页面没刷新。</p",
+     "explain": "<p>异步局部刷新技术：不重载整页，悄悄跟服务器取数据局部更新。例：注册时输入用户名即时提示“已被占用”，页面没刷新。</p",
+     "kp": "📎 知识点：AJAX"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": [
+      "DOM操作",
+      "事件监听"
+     ],
+     "stem": "写JS实现点击按钮把h1标题改为“Hello Web”。",
+     "options": [],
+     "answer": "<p>HTML：&lt;h1 id=\"t\"&gt;旧标题&lt;/h1&gt;&lt;button id=\"btn\"&gt;改标题&lt;/button&gt;<br>JS：document.querySelector(\"#btn\").addEventListener(\"click\",()=&gt;{ document.querySelector(\"#t\").innerText=\"Hello Web\"; });</p",
+     "explain": "<p>HTML：&lt;h1 id=\"t\"&gt;旧标题&lt;/h1&gt;&lt;button id=\"btn\"&gt;改标题&lt;/button&gt;<br>JS：document.querySelector(\"#btn\").addEventListener(\"click\",()=&gt;{ document.querySelector(\"#t\").innerText=\"Hello Web\"; });</p",
+     "kp": "📎 知识点：DOM操作 · 事件监听"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "前后端交互",
+      "跨域CORS"
+     ],
+     "stem": "前端页面要从/api/user获取JSON并显示用户名，描述完整流程及跨域注意事项。",
+     "options": [],
+     "answer": "<p>fetch(\"/api/user\").then(r=&gt;r.json()).then(d=&gt;显示d.name)；若接口与前端不同源，浏览器因同源策略拦截，需后端配置Access-Control-Allow-Origin放行或同源代理。可用F12 Network面板观察请求状态码与响应。</p",
+     "explain": "<p>fetch(\"/api/user\").then(r=&gt;r.json()).then(d=&gt;显示d.name)；若接口与前端不同源，浏览器因同源策略拦截，需后端配置Access-Control-Allow-Origin放行或同源代理。可用F12 Network面板观察请求状态码与响应。</p",
+     "kp": "📎 知识点：前后端交互 · 跨域CORS"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "Web应用开发技术 · 模拟卷（二）",
+   "hint": "覆盖全书六章：选择8+填空4+简答2+应用1+综合1，满分100分，建议100分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "B/S与C/S架构"
+     ],
+     "stem": "用浏览器访问的系统属于（　）架构。",
+     "options": [
+      "A. C/S",
+      "B. B/S",
+      "C. 单机",
+      "D. 主机"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>B/S浏览器/服务器，免装客户端。</p",
+     "kp": "📎 知识点：B/S与C/S架构"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "常用HTML标签"
+     ],
+     "stem": "插入图片的标签是（　）。",
+     "options": [
+      "A. &lt;img&gt;",
+      "B. &lt;pic&gt;",
+      "C. &lt;image&gt;",
+      "D. &lt;link&gt;"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>&lt;img src alt&gt;插入图片。</p",
+     "kp": "📎 知识点：常用HTML标签"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "块级与行内元素"
+     ],
+     "stem": "下列是行内元素的是（　）。",
+     "options": [
+      "A. &lt;div&gt;",
+      "B. &lt;p&gt;",
+      "C. &lt;span&gt;",
+      "D. &lt;h1&gt;"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>span行内不换行。</p",
+     "kp": "📎 知识点：块级与行内元素"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "变量与函数"
+     ],
+     "stem": "声明不可重新赋值的常量用（　）。",
+     "options": [
+      "A. var",
+      "B. let",
+      "C. const",
+      "D. int"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>const常量；let可变。</p",
+     "kp": "📎 知识点：变量与函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "JSON"
+     ],
+     "stem": "把JS对象转成JSON字符串用（　）。",
+     "options": [
+      "A. JSON.parse",
+      "B. JSON.stringify",
+      "C. JSON.to",
+      "D. JSON.object"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>stringify对象→字符串；parse字符串→对象。</p",
+     "kp": "📎 知识点：JSON"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "MVVM思想"
+     ],
+     "stem": "Vue数据变视图自动更新称为（　）。",
+     "options": [
+      "A. 手动渲染",
+      "B. 数据驱动视图（响应式）",
+      "C. 编译",
+      "D. 路由"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>MVVM响应式自动同步视图。</p",
+     "kp": "📎 知识点：MVVM思想"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "HTTP状态码"
+     ],
+     "stem": "服务器内部错误状态码是（　）。",
+     "options": [
+      "A. 200",
+      "B. 404",
+      "C. 500",
+      "D. 301"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>500服务端错误；404资源不存在。</p",
+     "kp": "📎 知识点：HTTP状态码"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "响应式布局"
+     ],
+     "stem": "媒体查询max-width:768px匹配的是（　）。",
+     "options": [
+      "A. 宽屏电脑",
+      "B. 手机窄屏",
+      "C. 打印",
+      "D. 所有设备"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>≤768px为手机端样式断点。</p",
+     "kp": "📎 知识点：响应式布局"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "HTML文档结构"
+     ],
+     "stem": "网页标题写在&lt;______&gt;标签里。",
+     "options": [],
+     "answer": "<b>title</b>",
+     "explain": "<p>&lt;title&gt;在head中，显示在浏览器标签页。</p",
+     "kp": "📎 知识点：HTML文档结构"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "DOM操作"
+     ],
+     "stem": "按CSS选择器选取元素用document.______。",
+     "options": [],
+     "answer": "<b>querySelector</b>",
+     "explain": "<p>querySelector第一个；querySelectorAll全部。</p",
+     "kp": "📎 知识点：DOM操作"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Vue指令"
+     ],
+     "stem": "v-on:click可简写为______。",
+     "options": [],
+     "answer": "<b>@click</b>",
+     "explain": "<p>v-bind简写:；v-on简写@。</p",
+     "kp": "📎 知识点：Vue指令"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "性能优化"
+     ],
+     "stem": "衡量首字节响应时间的英文缩写是______。",
+     "options": [],
+     "answer": "<b>TTFB</b>",
+     "explain": "<p>Time To First Byte。</p",
+     "kp": "📎 知识点：性能优化"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "GET与POST"
+     ],
+     "stem": "比较GET与POST的区别。",
+     "options": [],
+     "answer": "<p>GET参数在URL、可见、用于查数据；POST参数在请求体、不暴露、用于提交敏感数据。登录用POST，搜索用GET。</p",
+     "explain": "<p>GET参数在URL、可见、用于查数据；POST参数在请求体、不暴露、用于提交敏感数据。登录用POST，搜索用GET。</p",
+     "kp": "📎 知识点：GET与POST"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "组件化"
+     ],
+     "stem": "什么是组件化开发？",
+     "options": [],
+     "answer": "<p>把UI拆成可复用独立组件（按钮、卡片、导航），通过props传数据拼装成页面，提高复用性与可维护性。</p",
+     "explain": "<p>把UI拆成可复用独立组件（按钮、卡片、导航），通过props传数据拼装成页面，提高复用性与可维护性。</p",
+     "kp": "📎 知识点：组件化"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": [
+      "表单与input"
+     ],
+     "stem": "用HTML写一个搜索表单：文本框name=kw、提交按钮“搜索”，GET提交到/search。",
+     "options": [],
+     "answer": "<p>&lt;form action=\"/search\" method=\"get\"&gt;<br>&lt;input type=\"text\" name=\"kw\"&gt;<br>&lt;input type=\"submit\" value=\"搜索\"&gt;<br>&lt;/form&gt;</p",
+     "explain": "<p>&lt;form action=\"/search\" method=\"get\"&gt;<br>&lt;input type=\"text\" name=\"kw\"&gt;<br>&lt;input type=\"submit\" value=\"搜索\"&gt;<br>&lt;/form&gt;</p",
+     "kp": "📎 知识点：表单与input"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "网站部署",
+      "SEO"
+     ],
+     "stem": "描述一个静态网站从本地开发到公网访问的流程，并说明SEO要做什么。",
+     "options": [],
+     "answer": "<p>本地完成index.html+css+js→git提交推送→部署到Nginx或GitHub Pages→绑定域名、配HTTPS→公网访问。SEO：写好title与meta description、用语义化标签、图片加alt、提交搜索引擎收录。</p",
+     "explain": "<p>本地完成index.html+css+js→git提交推送→部署到Nginx或GitHub Pages→绑定域名、配HTTPS→公网访问。SEO：写好title与meta description、用语义化标签、图片加alt、提交搜索引擎收录。</p",
+     "kp": "📎 知识点：网站部署 · SEO"
+    }
+   ]
+  }
+ ]
+}

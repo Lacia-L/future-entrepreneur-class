@@ -1,0 +1,2897 @@
+{
+ "id": "jinrongbianchengjichu",
+ "name": "金融编程基础",
+ "emoji": "🐍",
+ "category": "数理编程",
+ "desc": "金融学学科必修课：用 Python 处理金融数据——从语法与数据结构出发，掌握 NumPy/Pandas 数据清洗、收益率与风险计算、简单策略回测与可视化，为量化投资与金融数据分析打牢编程底座。",
+ "meta": [
+  "数理编程课程",
+  "金融学学科必修",
+  "2 学分 · 第 3 学期",
+  "以教务系统最新版培养方案为准"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考",
+   "title": "《Python 金融分析》（或《基于 Python 的金融分析与风险管理》）",
+   "pub": "机械工业出版社",
+   "note": "公开渠道未查到杭电官方指定教材，以下为常用教材参考；该书按“金融市场环境→时间价值→收益率风险→组合→回测”组织，与本课程章节一致。"
+  },
+  {
+   "role": "编程基础教材",
+   "title": "《Python 数据分析与展示》",
+   "pub": "嵩天 等编著 · 高等教育出版社",
+   "note": "国家级 MOOC 配套教材，NumPy/Matplotlib/Pandas 三件套讲得系统。"
+  },
+  {
+   "role": "财经数据教材",
+   "title": "《财经大数据分析——以 Python 为工具》",
+   "pub": "中央财经大学教学团队 · 高等教育出版社",
+   "note": "配套中央财经大学 MOOC，数据清洗、分组、可视化贴合财经场景。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "中国大学MOOC",
+   "name": "《Python 与财经大数据分析基础》中央财经大学",
+   "desc": "财经场景：数据创建/清洗/筛选/合并/分组/统计/可视化/爬虫",
+   "url": "https://www.icourse163.org/course/CUFE-1470430193"
+  },
+  {
+   "platform": "中国大学MOOC",
+   "name": "《Python 数据分析与展示》（嵩天团队）",
+   "desc": "NumPy→Matplotlib→Pandas 三件套系统课，国家精品",
+   "url": "https://www.icourse163.org/course/detail.htm?cid=1001870002"
+  },
+  {
+   "platform": "B站",
+   "name": "【金融量化分析】Python 做金融量化分析全套教程",
+   "desc": "Series/DataFrame/pandas 常用函数/简易回测框架/历史数据获取",
+   "url": "https://www.bilibili.com/video/BV1i14y1E7Jj/"
+  },
+  {
+   "platform": "抖音",
+   "name": "《零基础 Python 量化代码逐行详解》（次日涨跌幅计算）",
+   "desc": "用收盘价差分算次日收益率的最简代码",
+   "url": "https://www.iesdouyin.com/share/video/7429589935587396879"
+  },
+  {
+   "platform": "抖音",
+   "name": "《Python 读取股票数据并绘制 K 线图》",
+   "desc": "akshare/tushare 取数 + mplfinance 画 K 线实操",
+   "url": "https://www.iesdouyin.com/share/video/7060520282615762190"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>央财 MOOC 按数据分析全流程组织（创建→清洗→合并→分组→可视化），与本课程第 3、4 章对应；嵩天团队课程补 NumPy/Matplotlib 语法；B 站全套教程把 pandas 函数与回测框架串起来；抖音短视频适合“先看会一行代码”再回来动手敲。本课程必须边看边在 Jupyter 里跑代码。",
+ "modules": [
+  {
+   "index": "一",
+   "title": "Python 基础语法与数据结构",
+   "sub": "编程地基：变量、列表字典、条件循环与函数。",
+   "sections": [
+    {
+     "h4": "1. 语法与控制流",
+     "body": "Python 用缩进组织代码。常用类型：int/float/str/bool；控制流：if-elif-else、for、while；函数 def。金融场景：批量算收益率、循环遍历持仓。"
+    },
+    {
+     "h4": "2. 核心数据结构",
+     "body": "<b>列表 list</b>（有序可改）、<b>字典 dict</b>（键值对）、元组 tuple（不可改）、集合 set（去重）。字典天然表达“股票代码→价格”的映射。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "列表 list",
+     "plain": "<b>有序、可修改的一串东西</b>，用方括号 [ ]。好比排队取号的队伍，能插队、能删人。",
+     "example": "prices=[10.5, 11.2, 10.8]：prices[0] 取第一个价；append(12.0) 追加。"
+    },
+    {
+     "name": "字典 dict",
+     "plain": "<b>“名字→内容”的对照表</b>，用花括号 {'代码': 价格}。查东西不靠位置靠名字。",
+     "example": "quote={'600519': 1680, '000001': 12.5}：quote['600519'] 直接查茅台价。"
+    },
+    {
+     "name": "列表推导式",
+     "plain": "<b>一行生成新列表</b>的简洁写法 [x**2 for x in data]。金融里批量算收益率很好用。",
+     "example": "r=[(prices[i]-prices[i-1])/prices[i-1] for i in range(1,len(prices))]：一行算完逐日收益率。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "NumPy 与向量化计算",
+   "sub": "金融计算的引擎：ndarray 一次对整组数做运算。",
+   "sections": [
+    {
+     "h4": "1. ndarray 数组",
+     "body": "NumPy 的核心是 <b>ndarray</b>：同类型多维数组。优势：向量化运算快、无 Python 循环。np.array([1,2,3]) 创建。"
+    },
+    {
+     "h4": "2. 常用运算",
+     "body": "逐元素运算 a*2；统计 mean/std/max；线性代数 np.dot、矩阵运算。金融：用数组批量算收益与波动率。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "向量化运算",
+     "plain": "<b>不写循环，直接对整组数加减乘除</b>。数组里每个元素同时被算，快且简洁。",
+     "example": "prices 是数组，r=(prices[1:]-prices[:-1])/prices[:-1]：一行算出全部逐日收益。"
+    },
+    {
+     "name": "ndarray",
+     "plain": "NumPy 的<b>多维数组对象</b>，所有元素同类型。比 Python list 快几十倍，金融大数据全靠它。",
+     "example": "import numpy as np; a=np.array([10,20,30]); a.mean()=20。"
+    },
+    {
+     "name": "广播 broadcast",
+     "plain": "<b>不同形状的数组自动“对齐”再运算</b>。标量和数组、向量和矩阵都能直接算。",
+     "example": "a=np.array([1,2,3])，a*2→[2,4,6]：标量 2 自动广播到每个元素。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "Pandas 金融数据处理",
+   "sub": "金融表格的瑞士军刀：Series 与 DataFrame。",
+   "sections": [
+    {
+     "h4": "1. Series 与 DataFrame",
+     "body": "<b>Series</b>=带索引的一维列；<b>DataFrame</b>=带行列索引的二维表（像 Excel）。read_csv 读数据，head/info 查看。"
+    },
+    {
+     "h4": "2. 数据清洗与整理",
+     "body": "缺失值 dropna/fillna；排序 sort_values；分组 groupby；合并 merge/concat；日期索引 datetime。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "DataFrame",
+     "plain": "<b>带行名列名的二维表格</b>，像 Excel 工作表。金融数据（日期×股票）天然是它。",
+     "example": "df 有 columns=['open','close','volume']，df['close'] 取收盘价列。"
+    },
+    {
+     "name": "缺失值处理",
+     "plain": "数据里的空值 NaN：<b>dropna() 丢掉、fillna() 填上</b>。金融数据常按前值填充（ffill）。",
+     "example": "停牌那天没成交价：df['close'].ffill() 用前一交易日价格补上。"
+    },
+    {
+     "name": "groupby 分组聚合",
+     "plain": "<b>“按某列分组再分别统计”</b>。比如按股票代码分组算各自的平均收益。",
+     "example": "df.groupby('code')['ret'].mean()：每只股票各自的平均收益率。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "金融数据获取与清洗",
+   "sub": "从哪里取数、怎么把脏数据洗干净。",
+   "sections": [
+    {
+     "h4": "1. 数据来源",
+     "body": "tushare/akshare 取 A 股行情；yfinance 取美股；read_csv/read_excel 读本地。交易日历对齐。"
+    },
+    {
+     "h4": "2. 清洗流程",
+     "body": "① 重复值去重 drop_duplicates；② 缺失值处理；③ 类型转换（日期 to_datetime）；④ 异常值检查；⑤ 按日期排序对齐。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "tushare / akshare",
+     "plain": "<b>取 A 股行情的 Python 库</b>：几行代码拉出历史 K 线、财务报表。",
+     "example": "import tushare as ts; ts.get_k_data('600519', start='2024-01-01') 直接得茅台日线。"
+    },
+    {
+     "name": "数据清洗 pipeline",
+     "plain": "取到的原始数据<b>先洗后用</b>：去重→补缺失→转日期类型→排序对齐。脏数据进、模型一定错。",
+     "example": "合并两只股票行情时按日期 inner join，缺失日 ffill，再按日期升序排列。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "收益率与风险计算",
+   "sub": "金融量化的第一组公式：怎么算赚了多少、波动多大。",
+   "sections": [
+    {
+     "h4": "1. 收益率",
+     "body": "单期收益 \\(r_t=P_t/P_{t-1}-1\\)；对数收益 \\(r_t=\\ln(P_t/P_{t-1})\\)；累计收益连乘；年化收益与年化波动率 \\(\\sigma\\sqrt{252}\\)。"
+    },
+    {
+     "h4": "2. 风险指标",
+     "body": "波动率=收益率标准差；最大回撤=净值从峰到谷的最大跌幅；夏普比率=(年化收益−无风险利率)/年化波动率。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "单期简单收益率",
+     "plain": "<b>(今天价−昨天价)/昨天价</b>。最常用的日收益率。",
+     "example": "昨收 10 元、今收 10.5 元：r=(10.5−10)/10=5%。"
+    },
+    {
+     "name": "对数收益率",
+     "plain": "<b>ln(今天价/昨天价)</b>。优点：多天对数收益直接相加=累计收益，算组合很方便。",
+     "example": "r=ln(10.5/10)≈0.0488（4.88%）；两天对数收益相加=两天累计对数收益。"
+    },
+    {
+     "name": "最大回撤",
+     "plain": "<b>净值从历史最高点跌到后续最低点的最大跌幅</b>。衡量“最惨亏多少”。",
+     "example": "净值先涨到 1.5、后跌到 1.2：回撤=(1.2−1.5)/1.5=−20%。"
+    },
+    {
+     "name": "夏普比率",
+     "plain": "<b>每承担一单位风险换来多少超额收益</b>。越高策略越好。=(年化收益−无风险利率)/年化波动率。",
+     "example": "年化 15%、无风险 3%、波动率 10%：夏普=(15−3)/10=1.2。"
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "简单策略回测与可视化",
+   "sub": "用历史数据验证一个交易规则好不好。",
+   "sections": [
+    {
+     "h4": "1. 策略回测",
+     "body": "双均线策略：5 日均线上穿 20 日均线买入、下穿卖出。用历史信号×下期收益模拟净值曲线。"
+    },
+    {
+     "h4": "2. 可视化",
+     "body": "Matplotlib/pandas.plot 画价格曲线、净值曲线、回撤图。回测看总收益、年化、最大回撤、夏普。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "双均线策略",
+     "plain": "<b>短均线上穿长均线=金叉买入，下穿=死叉卖出</b>。最经典的入门趋势策略。",
+     "example": "MA5 上穿 MA20 当天买入持有，下穿 MA20 卖出空仓。"
+    },
+    {
+     "name": "回测 backtest",
+     "plain": "<b>在历史数据上模拟跑一遍策略</b>，看如果当时按规则操作能赚多少。注意：历史好≠未来好。",
+     "example": "用 2020-2025 日线模拟双均线：净值从 1 涨到 1.8、最大回撤 15%。"
+    },
+    {
+     "name": "净值曲线",
+     "plain": "<b>把初始资金 1 元按策略收益滚出来的曲线</b>。1→1.5 就是赚 50%。",
+     "example": "每天净值=昨日净值×(1+当日策略收益)，plot 出来就是净值曲线。"
+    }
+   ]
+  }
+ ],
+ "formulas": [
+  {
+   "title": "单期简单收益率",
+   "math": "\\(r_t = \\dfrac{P_t - P_{t-1}}{P_{t-1}} = \\dfrac{P_t}{P_{t-1}} - 1\\)",
+   "note": "最常用的日收益率定义。"
+  },
+  {
+   "title": "对数收益率",
+   "math": "\\(r_t^{log} = \\ln \\dfrac{P_t}{P_{t-1}}\\)",
+   "note": "多期对数收益可直接相加。"
+  },
+  {
+   "title": "多期累计收益",
+   "math": "\\(R_T = \\prod_{i=1}^{n}(1+r_i) - 1\\)",
+   "note": "逐期收益连乘减 1。"
+  },
+  {
+   "title": "算术平均收益率",
+   "math": "\\(\\bar r = \\dfrac{1}{n}\\sum_{i=1}^{n} r_i\\)",
+   "note": "日收益率的简单平均。"
+  },
+  {
+   "title": "几何平均收益率",
+   "math": "\\(\\bar r_g = \\left[\\prod_{i=1}^{n}(1+r_i)\\right]^{1/n} - 1\\)",
+   "note": "真实复合增长，≤算术平均。"
+  },
+  {
+   "title": "年化收益率",
+   "math": "\\(R_{ann} = (1+\\bar r)^{252} - 1\\)",
+   "note": "按 252 个交易日把日收益年化。"
+  },
+  {
+   "title": "收益率方差与波动率",
+   "math": "\\(\\sigma^2 = \\dfrac{1}{n-1}\\sum (r_i-\\bar r)^2\\)，\\(\\sigma=\\sqrt{\\sigma^2}\\)",
+   "note": "波动率=收益率标准差。"
+  },
+  {
+   "title": "年化波动率",
+   "math": "\\(\\sigma_{ann} = \\sigma \\times \\sqrt{252}\\)",
+   "note": "日波动率乘 √252 年化。"
+  },
+  {
+   "title": "夏普比率",
+   "math": "\\(SR = \\dfrac{R_{ann} - R_f}{\\sigma_{ann}}\\)",
+   "note": "每单位风险的超额收益，越高越好。"
+  },
+  {
+   "title": "复利终值",
+   "math": "\\(FV = PV(1+r)^n\\)",
+   "note": "现值 PV 按利率 r 复利 n 期。"
+  },
+  {
+   "title": "现值（折现）",
+   "math": "\\(PV = \\dfrac{FV}{(1+r)^n}\\)",
+   "note": "未来现金流折现到今天。"
+  },
+  {
+   "title": "最大回撤",
+   "math": "\\(MDD = \\max_{t}\\dfrac{Peak_t - V_t}{Peak_t}\\)",
+   "note": "净值从历史峰到后续谷的最大跌幅。"
+  }
+ ],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "Python 基础语法与数据结构",
+   "hint": "本章知识清单：变量与类型、条件循环、函数、列表/字典/元组、列表推导式。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "Python 基本类型",
+    "条件与循环",
+    "函数定义",
+    "列表 list",
+    "字典 dict",
+    "列表推导式"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "列表 list"
+     ],
+     "stem": "Python 中列表的表示符号是（　）。",
+     "options": [
+      "A. {}",
+      "B. []",
+      "C. ()",
+      "D. <>"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>列表用方括号 []；字典用 {}；元组用 ()。</p",
+     "kp": "📎 知识点：列表 list"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "字典 dict"
+     ],
+     "stem": "字典的特点是（　）。",
+     "options": [
+      "A. 有序不可改",
+      "B. 键值对映射、按键查询",
+      "C. 只能存数字",
+      "D. 没有索引"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>字典={'键':值}，按键查找。</p",
+     "kp": "📎 知识点：字典 dict"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "函数定义"
+     ],
+     "stem": "Python 定义函数的关键字是（　）。",
+     "options": [
+      "A. function",
+      "B. def",
+      "C. func",
+      "D. define"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>def 函数名():。</p",
+     "kp": "📎 知识点：函数定义"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "列表 list"
+     ],
+     "stem": "列表 prices=[10.5,11.2,10.8]，prices[0] 的值是（　）。",
+     "options": [
+      "A. 11.2",
+      "B. 10.5",
+      "C. 10.8",
+      "D. 报错"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>索引从 0 开始，prices[0]=10.5。</p",
+     "kp": "📎 知识点：列表 list"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "字典 dict"
+     ],
+     "stem": "quote={'600519':1680}，quote['600519'] 得到（　）。",
+     "options": [
+      "A. '600519'",
+      "B. 1680",
+      "C. 报错",
+      "D. None"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>按键查值。</p",
+     "kp": "📎 知识点：字典 dict"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "列表推导式"
+     ],
+     "stem": "[x**2 for x in [1,2,3]] 的结果是（　）。",
+     "options": [
+      "A. [1,2,3]",
+      "B. [1,4,9]",
+      "C. [1,8,27]",
+      "D. [2,4,6]"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>每个元素平方。</p",
+     "kp": "📎 知识点：列表推导式"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "条件与循环"
+     ],
+     "stem": "遍历列表 prices 中每个元素，应使用（　）。",
+     "options": [
+      "A. if 语句",
+      "B. for 循环",
+      "C. def",
+      "D. import"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>for p in prices: 遍历。</p",
+     "kp": "📎 知识点：条件与循环"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "列表 list"
+     ],
+     "stem": "向列表末尾追加元素的方法是（　）。",
+     "options": [
+      "A. add()",
+      "B. append()",
+      "C. insert()",
+      "D. push()"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>list.append(x) 末尾追加。</p",
+     "kp": "📎 知识点：列表 list"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "Python 基本类型"
+     ],
+     "stem": "下列属于不可变类型的是（　）。",
+     "options": [
+      "A. 列表",
+      "B. 字典",
+      "C. 元组 tuple",
+      "D. 集合"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>元组创建后不能改；列表字典可变。</p",
+     "kp": "📎 知识点：Python 基本类型"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "列表推导式"
+     ],
+     "stem": "用列表推导式从 prices=[10,11,12] 生成 [9,10,11]，写法为（　）。",
+     "options": [
+      "A. [p-1 for p in prices]",
+      "B. [p+1 for p in prices]",
+      "C. [p for p in prices]",
+      "D. prices-1"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>每个元素减 1。</p",
+     "kp": "📎 知识点：列表推导式"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "列表 list"
+     ],
+     "stem": "Python 列表使用______括号表示。",
+     "options": [],
+     "answer": "<b>方（[ ]）</b>",
+     "explain": "<p>list 用 []。</p",
+     "kp": "📎 知识点：列表 list"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "函数定义"
+     ],
+     "stem": "Python 定义函数用关键字______。",
+     "options": [],
+     "answer": "<b>def</b>",
+     "explain": "<p>def f():。</p",
+     "kp": "📎 知识点：函数定义"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "字典 dict"
+     ],
+     "stem": "字典通过______查找对应的值。",
+     "options": [],
+     "answer": "<b>键（key）</b>",
+     "explain": "<p>d[key]→value。</p",
+     "kp": "📎 知识点：字典 dict"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "列表 list"
+     ],
+     "stem": "列表索引从______开始。",
+     "options": [],
+     "answer": "<b>0</b>",
+     "explain": "<p>第一个元素是 [0]。</p",
+     "kp": "📎 知识点：列表 list"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "条件与循环"
+     ],
+     "stem": "Python 用______组织代码块（而非大括号）。",
+     "options": [],
+     "answer": "<b>缩进</b>",
+     "explain": "<p>缩进是语法的一部分。</p",
+     "kp": "📎 知识点：条件与循环"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "列表推导式"
+     ],
+     "stem": "一行 [r for r in ...] 生成新列表的写法称为______。",
+     "options": [],
+     "answer": "<b>列表推导式</b>",
+     "explain": "<p>简洁高效。</p",
+     "kp": "📎 知识点：列表推导式"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "列表 list",
+      "字典 dict"
+     ],
+     "stem": "比较列表与字典的区别，并各举一个金融场景例子。",
+     "options": [],
+     "answer": "<p>列表：有序、按位置索引（下标）、元素可重复可改，如 prices=[10,11,12] 按顺序存收盘价。字典：键值对、按键查询、无序（3.7+ 保序），如 quote={'600519':1680} 按股票代码查价。</p",
+     "explain": "<p>列表：有序、按位置索引（下标）、元素可重复可改，如 prices=[10,11,12] 按顺序存收盘价。字典：键值对、按键查询、无序（3.7+ 保序），如 quote={'600519':1680} 按股票代码查价。</p",
+     "kp": "📎 知识点：列表 list · 字典 dict"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "函数定义"
+     ],
+     "stem": "为什么金融计算要封装成函数？写一个计算单期收益率的函数签名。",
+     "options": [],
+     "answer": "<p>封装：复用、可读、便于批量调用。函数签名：def simple_return(pt, pt_prev): return (pt - pt_prev)/pt_prev。以后算任何两天收益都调它。</p",
+     "explain": "<p>封装：复用、可读、便于批量调用。函数签名：def simple_return(pt, pt_prev): return (pt - pt_prev)/pt_prev。以后算任何两天收益都调它。</p",
+     "kp": "📎 知识点：函数定义"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "条件与循环"
+     ],
+     "stem": "说明 for 循环与 if 分支在金融批量计算中的作用。",
+     "options": [],
+     "answer": "<p>for 循环：遍历持仓/日期/股票批量处理，如对每个交易日算收益。if 分支：按条件决策，如 if ret&gt;0: print('上涨')；回测里 if 金叉就买入。</p",
+     "explain": "<p>for 循环：遍历持仓/日期/股票批量处理，如对每个交易日算收益。if 分支：按条件决策，如 if ret&gt;0: print('上涨')；回测里 if 金叉就买入。</p",
+     "kp": "📎 知识点：条件与循环"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "列表推导式"
+     ],
+     "stem": "为什么说列表推导式是金融数据批量处理的利器？举例。",
+     "options": [],
+     "answer": "<p>列表推导式把“遍历+变换+收集”压成一行，比普通 for 循环更短更快更易读。例：prices=[10,10.5,11,10.8]，returns=[(prices[i]-prices[i-1])/prices[i-1] for i in range(1,len(prices))]：一行算出全部日收益，无需手动 append。</p",
+     "explain": "<p>列表推导式把“遍历+变换+收集”压成一行，比普通 for 循环更短更快更易读。例：prices=[10,10.5,11,10.8]，returns=[(prices[i]-prices[i-1])/prices[i-1] for i in range(1,len(prices))]：一行算出全部日收益，无需手动 append。</p",
+     "kp": "📎 知识点：列表推导式"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "列表 list",
+      "列表推导式"
+     ],
+     "stem": "给定收盘价列表 prices=[20, 21, 20.5, 22]。① 用列表推导式计算每日简单收益率列表；② 用字典存 {'600519': 20} 风格的报价。",
+     "options": [],
+     "answer": "<p>① returns=[(prices[i]-prices[i-1])/prices[i-1] for i in range(1,len(prices))]=[(21-20)/20, (20.5-21)/21, (22-20.5)/20.5]=[<b>0.05, −0.0238, 0.0732</b>]；② quote={'600519': prices} 或 {'收盘价列表': prices}。</p",
+     "explain": "<p>① returns=[(prices[i]-prices[i-1])/prices[i-1] for i in range(1,len(prices))]=[(21-20)/20, (20.5-21)/21, (22-20.5)/20.5]=[<b>0.05, −0.0238, 0.0732</b>]；② quote={'600519': prices} 或 {'收盘价列表': prices}。</p",
+     "kp": "📎 知识点：列表 list · 列表推导式"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "NumPy 与向量化计算",
+   "hint": "本章知识清单：ndarray 创建、向量化运算、广播、统计函数、矩阵运算。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "ndarray 创建",
+    "向量化运算",
+    "广播机制",
+    "统计函数",
+    "矩阵运算"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "ndarray 创建"
+     ],
+     "stem": "导入 NumPy 的标准写法是（　）。",
+     "options": [
+      "A. import numpy",
+      "B. import numpy as np",
+      "C. import np",
+      "D. from numpy"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>惯例 import numpy as np。</p",
+     "kp": "📎 知识点：ndarray 创建"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "向量化运算"
+     ],
+     "stem": "np.array([1,2,3])*2 的结果是（　）。",
+     "options": [
+      "A. [2,2,2]",
+      "B. [2,4,6]",
+      "C. [1,2,3]×2",
+      "D. 报错"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>逐元素乘 2。</p",
+     "kp": "📎 知识点：向量化运算"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "求数组平均值的函数是（　）。",
+     "options": [
+      "A. np.sum",
+      "B. np.mean",
+      "C. np.max",
+      "D. np.abs"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>np.mean() 求均值。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "广播机制"
+     ],
+     "stem": "np.array([1,2,3])+5 的结果是（　）。",
+     "options": [
+      "A. [6,7,8]",
+      "B. [1,2,3]",
+      "C. [5,5,5]",
+      "D. 报错"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>标量 5 广播到每个元素。</p",
+     "kp": "📎 知识点：广播机制"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "求收益率标准差的函数是（　）。",
+     "options": [
+      "A. np.var 再开方 或 np.std",
+      "B. np.mean",
+      "C. np.median",
+      "D. np.cumsum"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>np.std() 直接求标准差。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "向量化运算"
+     ],
+     "stem": "用 NumPy 算逐日收益 r=(p[1:]-p[:-1])/p[:-1] 相比 for 循环的优势是（　）。",
+     "options": [
+      "A. 更慢",
+      "B. 更快且代码简洁",
+      "C. 只能算两个数",
+      "D. 需要手动写索引"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>向量化底层 C 实现，快几十倍。</p",
+     "kp": "📎 知识点：向量化运算"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "矩阵运算"
+     ],
+     "stem": "矩阵乘法的函数是（　）。",
+     "options": [
+      "A. np.multiply",
+      "B. np.dot 或 @",
+      "C. *",
+      "D. np.outer"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>np.dot(A,B) 或 A@B 做矩阵乘法；* 是逐元素乘。</p",
+     "kp": "📎 知识点：矩阵运算"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "ndarray 创建"
+     ],
+     "stem": "np.array([1,2,3]).dtype 是（　）。",
+     "options": [
+      "A. float64",
+      "B. int64",
+      "C. str",
+      "D. object"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>整数列表默认 int64。</p",
+     "kp": "📎 知识点：ndarray 创建"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "np.array([−1,2,−3,4]).std() 得到（　）。",
+     "options": [
+      "A. 一个正数",
+      "B. 负数",
+      "C. 0",
+      "D. 虚数"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>标准差=方差开方，恒非负。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "广播机制"
+     ],
+     "stem": "形状 (3,1) 的列向量与形状 (3,) 的行向量相加，结果形状是（　）。",
+     "options": [
+      "A. 报错",
+      "B. (3,3)",
+      "C. (3,)",
+      "D. (1,1)"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>广播自动对齐成 (3,3)。</p",
+     "kp": "📎 知识点：广播机制"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "ndarray 创建"
+     ],
+     "stem": "创建数组用 np.______([...])。",
+     "options": [],
+     "answer": "<b>array</b>",
+     "explain": "<p>np.array。</p",
+     "kp": "📎 知识点：ndarray 创建"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "求数组最大值用 np.______。",
+     "options": [],
+     "answer": "<b>max</b>",
+     "explain": "<p>np.max。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "向量化运算"
+     ],
+     "stem": "直接对整组数做运算而不写循环称为______运算。",
+     "options": [],
+     "answer": "<b>向量化</b>",
+     "explain": "<p>NumPy 的核心优势。</p",
+     "kp": "📎 知识点：向量化运算"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "收益率标准差（波动率）用 np.______ 求。",
+     "options": [],
+     "answer": "<b>std</b>",
+     "explain": "<p>np.std(returns)。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "矩阵运算"
+     ],
+     "stem": "矩阵乘法用 np.______ 或 @ 运算符。",
+     "options": [],
+     "answer": "<b>dot</b>",
+     "explain": "<p>np.dot(A,B)。</p",
+     "kp": "📎 知识点：矩阵运算"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "广播机制"
+     ],
+     "stem": "不同形状数组自动对齐再运算的机制称为______。",
+     "options": [],
+     "answer": "<b>广播（broadcast）</b>",
+     "explain": "<p>标量与数组也能运算。</p",
+     "kp": "📎 知识点：广播机制"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "向量化运算"
+     ],
+     "stem": "p=np.array([10,10.5,11])。写出用 NumPy 一行算逐日简单收益率的表达式。",
+     "options": [],
+     "answer": "<p>r=(p[1:]-p[:-1])/p[:-1]=(0.5/10, 0.5/10.5)=[<b>0.05, 0.0476</b>]。</p",
+     "explain": "<p>r=(p[1:]-p[:-1])/p[:-1]=(0.5/10, 0.5/10.5)=[<b>0.05, 0.0476</b>]。</p",
+     "kp": "📎 知识点：向量化运算"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "r=np.array([0.05, −0.02, 0.03, 0.01])。① 平均收益；② 收益率标准差。",
+     "options": [],
+     "answer": "<p>① mean=(0.05−0.02+0.03+0.01)/4=<b>0.0175</b>；② 方差=[(0.05−0.0175)²+(−0.02−0.0175)²+(0.03−0.0175)²+(0.01−0.0175)²]/3≈0.000892，std≈<b>0.0299</b>。</p",
+     "explain": "<p>① mean=(0.05−0.02+0.03+0.01)/4=<b>0.0175</b>；② 方差=[(0.05−0.0175)²+(−0.02−0.0175)²+(0.03−0.0175)²+(0.01−0.0175)²]/3≈0.000892，std≈<b>0.0299</b>。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "广播机制"
+     ],
+     "stem": "p=np.array([100,200,300])。① p*0.9 得多少？② 说明广播作用。",
+     "options": [],
+     "answer": "<p>① [90,180,270]；② 标量 0.9 广播到每个元素，等价于每个价格打九折，无需写循环。</p",
+     "explain": "<p>① [90,180,270]；② 标量 0.9 广播到每个元素，等价于每个价格打九折，无需写循环。</p",
+     "kp": "📎 知识点：广播机制"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "统计函数"
+     ],
+     "stem": "已知日收益率 r，写 NumPy 表达式算年化波动率（一年 252 交易日）。",
+     "options": [],
+     "answer": "<p>sigma_ann = r.std() * np.sqrt(252)。日波动率乘 √252 年化。</p",
+     "explain": "<p>sigma_ann = r.std() * np.sqrt(252)。日波动率乘 √252 年化。</p",
+     "kp": "📎 知识点：统计函数"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "矩阵运算",
+      "向量化运算"
+     ],
+     "stem": "组合权重 w=[0.4,0.6]，两只资产收益 r=[0.05,0.03]。① 用 np.dot 算组合收益；② 说明为什么向量化比循环好。",
+     "options": [],
+     "answer": "<p>① 组合收益=w·r=0.4×0.05+0.6×0.03=<b>0.038（3.8%）</b>；② 向量化一行完成、底层 C 实现更快、代码短不易错，组合资产多时优势明显。</p",
+     "explain": "<p>① 组合收益=w·r=0.4×0.05+0.6×0.03=<b>0.038（3.8%）</b>；② 向量化一行完成、底层 C 实现更快、代码短不易错，组合资产多时优势明显。</p",
+     "kp": "📎 知识点：矩阵运算 · 向量化运算"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "Pandas 金融数据处理",
+   "hint": "本章知识清单：Series/DataFrame、读取数据、缺失值处理、排序、groupby 分组、merge 合并、日期索引。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "Series 与 DataFrame",
+    "数据读取",
+    "缺失值处理",
+    "groupby 分组",
+    "数据合并",
+    "日期索引"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Series 与 DataFrame"
+     ],
+     "stem": "Pandas 中带行索引的二维表格对象是（　）。",
+     "options": [
+      "A. Series",
+      "B. DataFrame",
+      "C. ndarray",
+      "D. dict"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>DataFrame=二维表；Series=一维列。</p",
+     "kp": "📎 知识点：Series 与 DataFrame"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "数据读取"
+     ],
+     "stem": "读取 CSV 文件的函数是（　）。",
+     "options": [
+      "A. pd.read_excel",
+      "B. pd.read_csv",
+      "C. pd.read_sql",
+      "D. pd.load"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>pd.read_csv('a.csv')。</p",
+     "kp": "📎 知识点：数据读取"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "缺失值处理"
+     ],
+     "stem": "丢弃含缺失值行的方法是（　）。",
+     "options": [
+      "A. fillna()",
+      "B. dropna()",
+      "C. drop()",
+      "D. isnull()"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>dropna() 丢缺失；fillna() 填充。</p",
+     "kp": "📎 知识点：缺失值处理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "groupby 分组"
+     ],
+     "stem": "df.groupby('code')['ret'].mean() 的作用是（　）。",
+     "options": [
+      "A. 全部求均值",
+      "B. 按股票代码分组各自求平均收益",
+      "C. 按日期分组",
+      "D. 排序"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>分组聚合：每只股票各自的 mean(ret)。</p",
+     "kp": "📎 知识点：groupby 分组"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "缺失值处理"
+     ],
+     "stem": "用前一交易日价格填充停牌缺失，应（　）。",
+     "options": [
+      "A. fillna(0)",
+      "B. ffill()（前值填充）",
+      "C. dropna()",
+      "D. 删除列"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>停牌价用前值补最合理。</p",
+     "kp": "📎 知识点：缺失值处理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "Series 与 DataFrame"
+     ],
+     "stem": "df['close'] 取出的是（　）。",
+     "options": [
+      "A. 一个 DataFrame",
+      "B. 一个 Series",
+      "C. 一个 list",
+      "D. 一个标量"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>取一列得到 Series。</p",
+     "kp": "📎 知识点：Series 与 DataFrame"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "数据合并"
+     ],
+     "stem": "按公共列合并两个表用（　）。",
+     "options": [
+      "A. pd.concat",
+      "B. pd.merge",
+      "C. pd.append",
+      "D. pd.join"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>pd.merge(df1, df2, on='date')。</p",
+     "kp": "📎 知识点：数据合并"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "日期索引"
+     ],
+     "stem": "把字符串列转成日期类型用（　）。",
+     "options": [
+      "A. pd.to_datetime",
+      "B. pd.date_range",
+      "C. pd.astype",
+      "D. pd.to_numeric"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>pd.to_datetime(df['date'])。</p",
+     "kp": "📎 知识点：日期索引"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "groupby 分组"
+     ],
+     "stem": "df.sort_values('close', ascending=False) 的作用是（　）。",
+     "options": [
+      "A. 按收盘价升序",
+      "B. 按收盘价降序",
+      "C. 按日期排序",
+      "D. 分组"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>ascending=False=降序。</p",
+     "kp": "📎 知识点：groupby 分组"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "缺失值处理"
+     ],
+     "stem": "df.isnull().sum() 的作用是（　）。",
+     "options": [
+      "A. 总行数",
+      "B. 每列缺失值个数",
+      "C. 平均值",
+      "D. 重复行数"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>先 isnull 布尔矩阵，再 sum 按列计数。</p",
+     "kp": "📎 知识点：缺失值处理"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Series 与 DataFrame"
+     ],
+     "stem": "Pandas 一维带索引的对象称为______。",
+     "options": [],
+     "answer": "<b>Series</b>",
+     "explain": "<p>二维是 DataFrame。</p",
+     "kp": "📎 知识点：Series 与 DataFrame"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "数据读取"
+     ],
+     "stem": "读取 Excel 文件用 pd.read______。",
+     "options": [],
+     "answer": "<b>_excel</b>",
+     "explain": "<p>pd.read_excel。</p",
+     "kp": "📎 知识点：数据读取"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "缺失值处理"
+     ],
+     "stem": "填充缺失值用______()。",
+     "options": [],
+     "answer": "<b>fillna</b>",
+     "explain": "<p>fillna(0) 或 ffill()。</p",
+     "kp": "📎 知识点：缺失值处理"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "groupby 分组"
+     ],
+     "stem": "按某列分组再聚合用 df.______。",
+     "options": [],
+     "answer": "<b>groupby</b>",
+     "explain": "<p>groupby('code')。</p",
+     "kp": "📎 知识点：groupby 分组"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "数据合并"
+     ],
+     "stem": "按公共列合并两表用 pd.______。",
+     "options": [],
+     "answer": "<b>merge</b>",
+     "explain": "<p>merge(df1,df2,on=...)。</p",
+     "kp": "📎 知识点：数据合并"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "日期索引"
+     ],
+     "stem": "字符串转日期用 pd.to______。",
+     "options": [],
+     "answer": "<b>_datetime</b>",
+     "explain": "<p>pd.to_datetime。</p",
+     "kp": "📎 知识点：日期索引"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "Series 与 DataFrame"
+     ],
+     "stem": "说明 Series 与 DataFrame 的关系。",
+     "options": [],
+     "answer": "<p>Series 是一维带索引的序列（像一列）；DataFrame 是二维表，由多列 Series 共享行索引组成。取 df['close'] 得到一个 Series。</p",
+     "explain": "<p>Series 是一维带索引的序列（像一列）；DataFrame 是二维表，由多列 Series 共享行索引组成。取 df['close'] 得到一个 Series。</p",
+     "kp": "📎 知识点：Series 与 DataFrame"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "缺失值处理"
+     ],
+     "stem": "金融数据缺失值一般有哪些处理方式？停牌价格宜用哪种？",
+     "options": [],
+     "answer": "<p>① dropna() 整行删除；② fillna(常数) 填充固定值；③ ffill() 前值填充；④ 插值。停牌期间无成交，价格宜用 ffill() 前值填充，保持序列连续。</p",
+     "explain": "<p>① dropna() 整行删除；② fillna(常数) 填充固定值；③ ffill() 前值填充；④ 插值。停牌期间无成交，价格宜用 ffill() 前值填充，保持序列连续。</p",
+     "kp": "📎 知识点：缺失值处理"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "groupby 分组"
+     ],
+     "stem": "举例说明 groupby 在多股票收益率统计中的用法。",
+     "options": [],
+     "answer": "<p>df 含 code、date、ret 三列：df.groupby('code')['ret'].mean() 得每只股票平均收益；.std() 得每只股票波动率；.describe() 得完整统计描述。</p",
+     "explain": "<p>df 含 code、date、ret 三列：df.groupby('code')['ret'].mean() 得每只股票平均收益；.std() 得每只股票波动率；.describe() 得完整统计描述。</p",
+     "kp": "📎 知识点：groupby 分组"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "日期索引",
+      "数据合并"
+     ],
+     "stem": "为什么金融分析必须把日期转成索引并对齐？",
+     "options": [],
+     "answer": "<p>① 按日期切片/重采样（日→周/月）需要日期索引；② 多股票合并时要按交易日对齐，避免错配（A 股停牌日与其他股票交易日错位）；③ 时间序列运算（shift、rolling）依赖有序日期索引。正确做法：to_datetime 转换→设为索引→sort_index→merge 时 how='inner' 对齐交易日。</p",
+     "explain": "<p>① 按日期切片/重采样（日→周/月）需要日期索引；② 多股票合并时要按交易日对齐，避免错配（A 股停牌日与其他股票交易日错位）；③ 时间序列运算（shift、rolling）依赖有序日期索引。正确做法：to_datetime 转换→设为索引→sort_index→merge 时 how='inner' 对齐交易日。</p",
+     "kp": "📎 知识点：日期索引 · 数据合并"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "groupby 分组",
+      "缺失值处理"
+     ],
+     "stem": "df 有列 code、date、close。① 写出“每只股票平均收盘价”的代码；② 写出“用前值填充 close 缺失”的代码。",
+     "options": [],
+     "answer": "<p>① df.groupby('code')['close'].mean()；② df['close'] = df['close'].ffill()（或 df['close'].fillna(method='ffill')）。</p",
+     "explain": "<p>① df.groupby('code')['close'].mean()；② df['close'] = df['close'].ffill()（或 df['close'].fillna(method='ffill')）。</p",
+     "kp": "📎 知识点：groupby 分组 · 缺失值处理"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "金融数据获取与清洗",
+   "hint": "本章知识清单：tushare/akshare 取数、read_csv、重复值、缺失值、类型转换、异常值、排序对齐。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "数据来源",
+    "去重",
+    "清洗流程",
+    "日期对齐",
+    "异常值"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "数据来源"
+     ],
+     "stem": "获取 A 股历史行情的常用 Python 库是（　）。",
+     "options": [
+      "A. tushare/akshare",
+      "B. requests 只能爬网页",
+      "C. pandas 本身不能取行情",
+      "D. matplotlib"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>tushare/akshare 专门提供 A 股数据接口。</p",
+     "kp": "📎 知识点：数据来源"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "去重"
+     ],
+     "stem": "去除重复行的方法是（　）。",
+     "options": [
+      "A. drop_duplicates()",
+      "B. dropna()",
+      "C. unique()",
+      "D. duplicated()"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>drop_duplicates() 删重复行。</p",
+     "kp": "📎 知识点：去重"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "清洗流程"
+     ],
+     "stem": "数据清洗的一般顺序是（　）。",
+     "options": [
+      "A. 先建模再清洗",
+      "B. 去重→缺失→类型→排序对齐",
+      "C. 直接画图",
+      "D. 只保留列"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>先洗后用。</p",
+     "kp": "📎 知识点：清洗流程"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "异常值"
+     ],
+     "stem": "收盘价出现 −100 元这种明显错误，属于（　）。",
+     "options": [
+      "A. 正常波动",
+      "B. 异常值需检查剔除",
+      "C. 缺失值",
+      "D. 重复值"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>负价格在股票中不可能，是异常数据。</p",
+     "kp": "📎 知识点：异常值"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "日期对齐"
+     ],
+     "stem": "合并两只股票行情时，应按（　）对齐。",
+     "options": [
+      "A. 行数",
+      "B. 交易日日期",
+      "C. 股票代码",
+      "D. 价格"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>按共同交易日 inner join。</p",
+     "kp": "📎 知识点：日期对齐"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "去重"
+     ],
+     "stem": "df.duplicated().sum() 得到（　）。",
+     "options": [
+      "A. 总行数",
+      "B. 重复行数",
+      "C. 缺失数",
+      "D. 列数"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>duplicated() 标记重复，sum 计数。</p",
+     "kp": "📎 知识点：去重"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "数据来源"
+     ],
+     "stem": "获取美股数据常用（　）。",
+     "options": [
+      "A. tushare",
+      "B. yfinance",
+      "C. akshare",
+      "D. baostock"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>yfinance 取美股；tushare/akshare 主 A 股。</p",
+     "kp": "📎 知识点：数据来源"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "清洗流程"
+     ],
+     "stem": "把收盘价列从字符串 '10.5' 转成浮点数用（　）。",
+     "options": [
+      "A. pd.to_datetime",
+      "B. astype(float) 或 pd.to_numeric",
+      "C. groupby",
+      "D. merge"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>pd.to_numeric 更稳妥（自动处理异常）。</p",
+     "kp": "📎 知识点：清洗流程"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "日期对齐"
+     ],
+     "stem": "df.sort_index() 的作用是（　）。",
+     "options": [
+      "A. 按列名排序",
+      "B. 按行索引（日期）排序",
+      "C. 删行",
+      "D. 分组"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>设日期索引后 sort_index 按时间排。</p",
+     "kp": "📎 知识点：日期对齐"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "异常值"
+     ],
+     "stem": "用 3σ 原则识别异常值是指（　）。",
+     "options": [
+      "A. 超过均值±3 倍标准差视为异常",
+      "B. 价格小于 3",
+      "C. 收益率 3%",
+      "D. 删前 3 行"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>均值±3σ 外的数据视为异常。</p",
+     "kp": "📎 知识点：异常值"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "去重"
+     ],
+     "stem": "删除重复行用 drop_______()。",
+     "options": [],
+     "answer": "<b>duplicates</b>",
+     "explain": "<p>drop_duplicates。</p",
+     "kp": "📎 知识点：去重"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "数据来源"
+     ],
+     "stem": "获取美股历史行情常用的库是______。",
+     "options": [],
+     "answer": "<b>yfinance</b>",
+     "explain": "<p>A 股用 tushare/akshare。</p",
+     "kp": "📎 知识点：数据来源"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "清洗流程"
+     ],
+     "stem": "合并行情表前要按______对齐交易日。",
+     "options": [],
+     "answer": "<b>日期（索引）</b>",
+     "explain": "<p>避免错配。</p",
+     "kp": "📎 知识点：清洗流程"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "异常值"
+     ],
+     "stem": "识别异常值常用均值±______ 倍标准差准则。",
+     "options": [],
+     "answer": "<b>3</b>",
+     "explain": "<p>3σ 原则。</p",
+     "kp": "📎 知识点：异常值"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "日期对齐"
+     ],
+     "stem": "设日期为索引后按时间排序用 sort_______()。",
+     "options": [],
+     "answer": "<b>index</b>",
+     "explain": "<p>sort_index。</p",
+     "kp": "📎 知识点：日期对齐"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "清洗流程"
+     ],
+     "stem": "把字符串价格转数值用 pd.to______。",
+     "options": [],
+     "answer": "<b>_numeric</b>",
+     "explain": "<p>pd.to_numeric。</p",
+     "kp": "📎 知识点：清洗流程"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "数据来源"
+     ],
+     "stem": "列举获取 A 股/美股行情的 Python 方式。",
+     "options": [],
+     "answer": "<p>A 股：tushare、akshare、baostock；美股：yfinance；本地：pd.read_csv/read_excel。任选其一或组合。</p",
+     "explain": "<p>A 股：tushare、akshare、baostock；美股：yfinance；本地：pd.read_csv/read_excel。任选其一或组合。</p",
+     "kp": "📎 知识点：数据来源"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "清洗流程"
+     ],
+     "stem": "简述金融数据清洗完整流程。",
+     "options": [],
+     "answer": "<p>① 取数；② drop_duplicates 去重；③ 缺失值处理（ffill/fillna/dropna）；④ to_datetime 转日期、to_numeric 转数值；⑤ 异常值检查（3σ/绘图）；⑥ 按日期排序对齐。</p",
+     "explain": "<p>① 取数；② drop_duplicates 去重；③ 缺失值处理（ffill/fillna/dropna）；④ to_datetime 转日期、to_numeric 转数值；⑤ 异常值检查（3σ/绘图）；⑥ 按日期排序对齐。</p",
+     "kp": "📎 知识点：清洗流程"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "日期对齐"
+     ],
+     "stem": "为什么多股票合并必须按交易日 inner join？",
+     "options": [],
+     "answer": "<p>各股票交易日历不同（停牌、上市退市日期不一），若按行号硬拼会把 A 的 1 月 2 日和 B 的 1 月 3 日错配。按日期 inner join 只保留共同交易日，后续收益计算才不会张冠李戴。</p",
+     "explain": "<p>各股票交易日历不同（停牌、上市退市日期不一），若按行号硬拼会把 A 的 1 月 2 日和 B 的 1 月 3 日错配。按日期 inner join 只保留共同交易日，后续收益计算才不会张冠李戴。</p",
+     "kp": "📎 知识点：日期对齐"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "异常值",
+      "清洗流程"
+     ],
+     "stem": "为什么说“垃圾进、垃圾出”（GIGO）？异常值不清洗会怎样？",
+     "options": [],
+     "answer": "<p>模型结论完全由输入数据质量决定。异常值不清洗：① 均值/波动率被极端值拉偏，风险指标失真；② 回归与回测被个别错误数据带偏；③ 触发虚假信号。例：某条 −100 元的错误数据会算出 −1000% 的假收益，让策略回测结果荒谬。</p",
+     "explain": "<p>模型结论完全由输入数据质量决定。异常值不清洗：① 均值/波动率被极端值拉偏，风险指标失真；② 回归与回测被个别错误数据带偏；③ 触发虚假信号。例：某条 −100 元的错误数据会算出 −1000% 的假收益，让策略回测结果荒谬。</p",
+     "kp": "📎 知识点：异常值 · 清洗流程"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "去重",
+      "缺失值处理"
+     ],
+     "stem": "df 含 date、close 两列。写出清洗代码：① 去重；② close 缺失前值填充；③ close 转数值；④ 按 date 排序。",
+     "options": [],
+     "answer": "<p>df = df.drop_duplicates()；df['close'] = df['close'].ffill()；df['close'] = pd.to_numeric(df['close'], errors='coerce')；df = df.sort_values('date')。</p",
+     "explain": "<p>df = df.drop_duplicates()；df['close'] = df['close'].ffill()；df['close'] = pd.to_numeric(df['close'], errors='coerce')；df = df.sort_values('date')。</p",
+     "kp": "📎 知识点：去重 · 缺失值处理"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "收益率与风险计算",
+   "hint": "本章知识清单：简单/对数收益率、累计收益、算术/几何平均、年化收益、波动率、夏普比率、最大回撤。10 选择 + 6 填空 + 5 计算大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "简单收益率",
+    "对数收益率",
+    "累计收益",
+    "年化收益",
+    "波动率",
+    "夏普比率",
+    "最大回撤"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "简单收益率"
+     ],
+     "stem": "昨收 10 元、今收 10.5 元，日收益率为（　）。",
+     "options": [
+      "A. 5%",
+      "B. 4.88%",
+      "C. 0.5%",
+      "D. 10%"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>r=(10.5−10)/10=5%。</p",
+     "kp": "📎 知识点：简单收益率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "对数收益率"
+     ],
+     "stem": "对数收益率的优点是（　）。",
+     "options": [
+      "A. 永远为正",
+      "B. 多期可直接相加",
+      "C. 不需要价格",
+      "D. 等于简单收益"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>对数收益相加=累计对数收益。</p",
+     "kp": "📎 知识点：对数收益率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "波动率"
+     ],
+     "stem": "波动率是收益率的（　）。",
+     "options": [
+      "A. 均值",
+      "B. 标准差",
+      "C. 最大值",
+      "D. 中位数"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>波动率=收益率标准差。</p",
+     "kp": "📎 知识点：波动率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "累计收益"
+     ],
+     "stem": "两年收益 10%、20%，累计收益为（　）。",
+     "options": [
+      "A. 30%",
+      "B. 32%",
+      "C. 20%",
+      "D. 21%"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>(1.1×1.2)−1=1.32−1=32%。</p",
+     "kp": "📎 知识点：累计收益"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "年化收益"
+     ],
+     "stem": "日收益年化乘（　）。",
+     "options": [
+      "A. 12",
+      "B. 252",
+      "C. 365",
+      "D. 52"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>一年约 252 个交易日。</p",
+     "kp": "📎 知识点：年化收益"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "夏普比率"
+     ],
+     "stem": "夏普比率衡量的是（　）。",
+     "options": [
+      "A. 总收益",
+      "B. 每单位风险的超额收益",
+      "C. 波动率",
+      "D. 回撤"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>SR=(年化收益−无风险)/年化波动率。</p",
+     "kp": "📎 知识点：夏普比率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "最大回撤"
+     ],
+     "stem": "净值从 1.5 跌到 1.2，回撤为（　）。",
+     "options": [
+      "A. −20%",
+      "B. −30%",
+      "C. −15%",
+      "D. −25%"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>(1.2−1.5)/1.5=−20%。</p",
+     "kp": "📎 知识点：最大回撤"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "年化收益"
+     ],
+     "stem": "日波动率 1%，年化波动率约为（　）。",
+     "options": [
+      "A. 1%",
+      "B. √252≈15.9%",
+      "C. 252%",
+      "D. 12%"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>σ×√252=1%×15.87≈15.9%。</p",
+     "kp": "📎 知识点：年化收益"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "夏普比率"
+     ],
+     "stem": "年化收益 15%、无风险 3%、波动率 10%，夏普比率为（　）。",
+     "options": [
+      "A. 1.2",
+      "B. 5",
+      "C. 0.8",
+      "D. 1.5"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>(15−3)/10=1.2。</p",
+     "kp": "📎 知识点：夏普比率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "对数收益率"
+     ],
+     "stem": "P0=100、P1=110，对数收益率为（　）。",
+     "options": [
+      "A. 10%",
+      "B. ln(1.1)≈9.53%",
+      "C. 9.09%",
+      "D. 11%"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>r=ln(110/100)=ln(1.1)≈0.0953。</p",
+     "kp": "📎 知识点：对数收益率"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "简单收益率"
+     ],
+     "stem": "日收益率=(今收−昨收)÷______。",
+     "options": [],
+     "answer": "<b>昨收</b>",
+     "explain": "<p>r=(Pt−Pt−1)/Pt−1。</p",
+     "kp": "📎 知识点：简单收益率"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "波动率"
+     ],
+     "stem": "波动率=收益率的______。",
+     "options": [],
+     "answer": "<b>标准差</b>",
+     "explain": "<p>np.std(returns)。</p",
+     "kp": "📎 知识点：波动率"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "累计收益"
+     ],
+     "stem": "多期累计收益=各期(1+r)______ 再减 1。",
+     "options": [],
+     "answer": "<b>连乘（相乘）</b>",
+     "explain": "<p>∏(1+ri)−1。</p",
+     "kp": "📎 知识点：累计收益"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "年化收益"
+     ],
+     "stem": "年化波动率=日波动率×______。",
+     "options": [],
+     "answer": "<b>√252</b>",
+     "explain": "<p>乘 √252。</p",
+     "kp": "📎 知识点：年化收益"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "最大回撤"
+     ],
+     "stem": "最大回撤衡量净值从历史______到后续最低点的最大跌幅。",
+     "options": [],
+     "answer": "<b>最高点（峰）</b>",
+     "explain": "<p>Peak→Trough。</p",
+     "kp": "📎 知识点：最大回撤"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "夏普比率"
+     ],
+     "stem": "夏普比率=(年化收益−______)÷年化波动率。",
+     "options": [],
+     "answer": "<b>无风险利率</b>",
+     "explain": "<p>超额收益除以风险。</p",
+     "kp": "📎 知识点：夏普比率"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "简单收益率"
+     ],
+     "stem": "收盘价 [10, 10.5, 11.025]。算每日简单收益率。",
+     "options": [],
+     "answer": "<p>r1=(10.5−10)/10=<b>5%</b>；r2=(11.025−10.5)/10.5=<b>5%</b>。</p",
+     "explain": "<p>r1=(10.5−10)/10=<b>5%</b>；r2=(11.025−10.5)/10.5=<b>5%</b>。</p",
+     "kp": "📎 知识点：简单收益率"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "累计收益",
+      "对数收益率"
+     ],
+     "stem": "三期价格 100、110、121。① 各期对数收益率；② 累计对数收益率与累计简单收益率。",
+     "options": [],
+     "answer": "<p>① r1=ln(110/100)=9.53%；r2=ln(121/110)=9.53%；② 累计对数=9.53%+9.53%=<b>19.06%</b>；累计简单=(1.1×1.1)−1=<b>21%</b>。</p",
+     "explain": "<p>① r1=ln(110/100)=9.53%；r2=ln(121/110)=9.53%；② 累计对数=9.53%+9.53%=<b>19.06%</b>；累计简单=(1.1×1.1)−1=<b>21%</b>。</p",
+     "kp": "📎 知识点：累计收益 · 对数收益率"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "年化收益"
+     ],
+     "stem": "日平均收益率 0.05%，一年 252 交易日。年化收益率约为多少？",
+     "options": [],
+     "answer": "<p>R_ann=(1+0.0005)^252−1≈<b>13.3%</b>。</p",
+     "explain": "<p>R_ann=(1+0.0005)^252−1≈<b>13.3%</b>。</p",
+     "kp": "📎 知识点：年化收益"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "夏普比率",
+      "波动率"
+     ],
+     "stem": "策略日波动率 1%、年化收益 18%、无风险 3%。① 年化波动率；② 夏普比率。",
+     "options": [],
+     "answer": "<p>① σ_ann=1%×√252≈<b>15.87%</b>；② SR=(18−3)/15.87≈<b>0.95</b>。</p",
+     "explain": "<p>① σ_ann=1%×√252≈<b>15.87%</b>；② SR=(18−3)/15.87≈<b>0.95</b>。</p",
+     "kp": "📎 知识点：夏普比率 · 波动率"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "最大回撤"
+     ],
+     "stem": "净值序列 [1.0, 1.2, 1.5, 1.3, 1.6, 1.1]。求最大回撤。",
+     "options": [],
+     "answer": "<p>逐段：峰 1.5→谷 1.3：(1.3−1.5)/1.5=−13.3%；峰 1.6→谷 1.1：(1.1−1.6)/1.6=−31.25%。最大回撤=<b>−31.25%</b>。</p",
+     "explain": "<p>逐段：峰 1.5→谷 1.3：(1.3−1.5)/1.5=−13.3%；峰 1.6→谷 1.1：(1.1−1.6)/1.6=−31.25%。最大回撤=<b>−31.25%</b>。</p",
+     "kp": "📎 知识点：最大回撤"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "简单策略回测与可视化",
+   "hint": "本章知识清单：双均线策略、信号生成、净值曲线、回测指标、Matplotlib 画图。10 选择 + 6 填空 + 5 大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "双均线策略",
+    "交易信号",
+    "净值曲线",
+    "回测指标",
+    "可视化"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "双均线策略"
+     ],
+     "stem": "双均线策略买入信号是（　）。",
+     "options": [
+      "A. 短均线下穿长均线",
+      "B. 短均线上穿长均线（金叉）",
+      "C. 价格最高",
+      "D. 成交量最大"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>金叉买、死叉卖。</p",
+     "kp": "📎 知识点：双均线策略"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "净值曲线"
+     ],
+     "stem": "初始净值 1，策略收益 10% 后净值为（　）。",
+     "options": [
+      "A. 1.1",
+      "B. 0.1",
+      "C. 1",
+      "D. 10"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>净值=1×(1+10%)=1.1。</p",
+     "kp": "📎 知识点：净值曲线"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "可视化"
+     ],
+     "stem": "画折线图常用 Matplotlib 的（　）。",
+     "options": [
+      "A. plt.plot",
+      "B. plt.bar",
+      "C. plt.pie",
+      "D. plt.scatter 只散点"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>plot 画折线（净值曲线）。</p",
+     "kp": "📎 知识点：可视化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "交易信号"
+     ],
+     "stem": "回测中 position=1 表示（　）。",
+     "options": [
+      "A. 空仓",
+      "B. 持仓",
+      "C. 买入信号",
+      "D. 卖出"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>1=持仓、0=空仓。</p",
+     "kp": "📎 知识点：交易信号"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "回测指标"
+     ],
+     "stem": "回测报告不包括（　）。",
+     "options": [
+      "A. 总收益",
+      "B. 最大回撤",
+      "C. 夏普比率",
+      "D. 公司员工数"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>回测看收益/回撤/夏普/胜率。</p",
+     "kp": "📎 知识点：回测指标"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "双均线策略"
+     ],
+     "stem": "5 日均线上穿 20 日均线称为（　）。",
+     "options": [
+      "A. 死叉",
+      "B. 金叉",
+      "C. 顶背离",
+      "D. 缩量"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>金叉=买入信号。</p",
+     "kp": "📎 知识点：双均线策略"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "净值曲线"
+     ],
+     "stem": "策略日收益序列为 r，净值曲线计算方式为（　）。",
+     "options": [
+      "A. 累加 r",
+      "B. 累乘 (1+r)",
+      "C. 平均 r",
+      "D. 平方 r"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>净值=∏(1+ri)。</p",
+     "kp": "📎 知识点：净值曲线"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "回测指标"
+     ],
+     "stem": "回测过拟合是指（　）。",
+     "options": [
+      "A. 历史收益高、未来失效",
+      "B. 代码错误",
+      "C. 数据太少",
+      "D. 画图太复杂"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>历史好≠未来好，过度拟合噪声。</p",
+     "kp": "📎 知识点：回测指标"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "交易信号"
+     ],
+     "stem": "回测通常用 t 日信号驱动（　）收益，避免未来函数。",
+     "options": [
+      "A. t 日",
+      "B. t+1 日",
+      "C. t−1 日",
+      "D. 任意"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>今天信号明天才成交，不能用当天信号赚当天收益（未来函数）。</p",
+     "kp": "📎 知识点：交易信号"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "可视化"
+     ],
+     "stem": "pandas 直接画 Series 曲线用（　）。",
+     "options": [
+      "A. s.plot()",
+      "B. s.bar()",
+      "C. s.pie()",
+      "D. s.hist 只有直方图"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>df.plot() 一键画图。</p",
+     "kp": "📎 知识点：可视化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "双均线策略"
+     ],
+     "stem": "短均线上穿长均线称为______。",
+     "options": [],
+     "answer": "<b>金叉</b>",
+     "explain": "<p>买入信号。</p",
+     "kp": "📎 知识点：双均线策略"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "净值曲线"
+     ],
+     "stem": "初始净值通常设为______。",
+     "options": [],
+     "answer": "<b>1</b>",
+     "explain": "<p>1 元滚出来的曲线。</p",
+     "kp": "📎 知识点：净值曲线"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "交易信号"
+     ],
+     "stem": "position=______ 表示空仓。",
+     "options": [],
+     "answer": "<b>0</b>",
+     "explain": "<p>1=持仓。</p",
+     "kp": "📎 知识点：交易信号"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "净值曲线"
+     ],
+     "stem": "净值=∏(1+______)。",
+     "options": [],
+     "answer": "<b>当日策略收益</b>",
+     "explain": "<p>累乘滚动。</p",
+     "kp": "📎 知识点：净值曲线"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "回测指标"
+     ],
+     "stem": "回测三大指标：总收益、最大______、夏普比率。",
+     "options": [],
+     "answer": "<b>回撤</b>",
+     "explain": "<p>收益+风险+性价比。</p",
+     "kp": "📎 知识点：回测指标"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "交易信号"
+     ],
+     "stem": "为避免未来函数，t 日信号应驱动______日收益。",
+     "options": [],
+     "answer": "<b>t+1（次日）</b>",
+     "explain": "<p>信号当晚才知道，次日才能交易。</p",
+     "kp": "📎 知识点：交易信号"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "双均线策略"
+     ],
+     "stem": "简述双均线策略的交易规则。",
+     "options": [],
+     "answer": "<p>计算短期均线 MA5 与长期均线 MA20。当 MA5 上穿 MA20（金叉）买入并持有；当 MA5 下穿 MA20（死叉）卖出空仓。最简单的趋势跟踪策略。</p",
+     "explain": "<p>计算短期均线 MA5 与长期均线 MA20。当 MA5 上穿 MA20（金叉）买入并持有；当 MA5 下穿 MA20（死叉）卖出空仓。最简单的趋势跟踪策略。</p",
+     "kp": "📎 知识点：双均线策略"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "回测指标"
+     ],
+     "stem": "回测报告应包含哪些核心指标？",
+     "options": [],
+     "answer": "<p>① 累计/年化收益；② 年化波动率；③ 最大回撤；④ 夏普比率；⑤ 胜率与交易次数。收益看赚多少、回撤看最惨亏多少、夏普看性价比。</p",
+     "explain": "<p>① 累计/年化收益；② 年化波动率；③ 最大回撤；④ 夏普比率；⑤ 胜率与交易次数。收益看赚多少、回撤看最惨亏多少、夏普看性价比。</p",
+     "kp": "📎 知识点：回测指标"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "可视化"
+     ],
+     "stem": "净值曲线与回撤图各看什么？",
+     "options": [],
+     "answer": "<p>净值曲线：策略长期增长轨迹，与基准对比。回撤图：净值每次从峰到谷的跌幅曲线，直观展示最惨时期。</p",
+     "explain": "<p>净值曲线：策略长期增长轨迹，与基准对比。回撤图：净值每次从峰到谷的跌幅曲线，直观展示最惨时期。</p",
+     "kp": "📎 知识点：可视化"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "回测指标",
+      "交易信号"
+     ],
+     "stem": "为什么回测历史表现好不代表未来好？举例说明未来函数与过拟合。",
+     "options": [],
+     "answer": "<p>① 过拟合：参数（如 5/20 日均线）在历史上反复试到最优，拟合了噪声，换一段数据就失效；② 未来函数：用 t 日收盘价当天信号算当天收益，实际当天收盘后才能知道信号，属于偷看未来；③ 幸存者偏差与交易成本未计。例：金叉策略在牛市回测大涨，震荡市频繁打脸。务必用 t 日信号×t+1 收益并扣除手续费滑点。</p",
+     "explain": "<p>① 过拟合：参数（如 5/20 日均线）在历史上反复试到最优，拟合了噪声，换一段数据就失效；② 未来函数：用 t 日收盘价当天信号算当天收益，实际当天收盘后才能知道信号，属于偷看未来；③ 幸存者偏差与交易成本未计。例：金叉策略在牛市回测大涨，震荡市频繁打脸。务必用 t 日信号×t+1 收益并扣除手续费滑点。</p",
+     "kp": "📎 知识点：回测指标 · 交易信号"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "双均线策略",
+      "净值曲线"
+     ],
+     "stem": "某策略日收益 [0.02, −0.01, 0.03, 0.01]，初始净值 1。① 算每日净值；② 累计收益。",
+     "options": [],
+     "answer": "<p>① 净值：1.0→1.02→1.0098→1.0397→<b>1.0501</b>；② 累计收益=1.0501−1=<b>5.01%</b>。</p",
+     "explain": "<p>① 净值：1.0→1.02→1.0098→1.0397→<b>1.0501</b>；② 累计收益=1.0501−1=<b>5.01%</b>。</p",
+     "kp": "📎 知识点：双均线策略 · 净值曲线"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "金融编程基础 · 模拟卷（一）",
+   "hint": "覆盖全书六章：选择 10 + 填空 3 + 计算/简答 3 = 16 题，满分 100 分，建议 100 分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "列表 list"
+     ],
+     "stem": "Python 列表用（　）表示。",
+     "options": [
+      "A. {}",
+      "B. []",
+      "C. ()",
+      "D. <>"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>列表 []。</p",
+     "kp": "📎 知识点：列表 list"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "ndarray 创建"
+     ],
+     "stem": "import numpy 的惯例是（　）。",
+     "options": [
+      "A. import np",
+      "B. import numpy as np",
+      "C. import numpy",
+      "D. np = numpy"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>as np。</p",
+     "kp": "📎 知识点：ndarray 创建"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "简单收益率"
+     ],
+     "stem": "昨收 10、今收 10.5，收益率（　）。",
+     "options": [
+      "A. 5%",
+      "B. 4.88%",
+      "C. 0.5%",
+      "D. 10%"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>(10.5−10)/10=5%。</p",
+     "kp": "📎 知识点：简单收益率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "Series 与 DataFrame"
+     ],
+     "stem": "Pandas 二维表格对象是（　）。",
+     "options": [
+      "A. Series",
+      "B. DataFrame",
+      "C. list",
+      "D. dict"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>DataFrame。</p",
+     "kp": "📎 知识点：Series 与 DataFrame"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "缺失值处理"
+     ],
+     "stem": "丢弃缺失行用（　）。",
+     "options": [
+      "A. fillna()",
+      "B. dropna()",
+      "C. merge()",
+      "D. sort()"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>dropna。</p",
+     "kp": "📎 知识点：缺失值处理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "累计收益"
+     ],
+     "stem": "两年 10%、20% 累计收益（　）。",
+     "options": [
+      "A. 30%",
+      "B. 32%",
+      "C. 21%",
+      "D. 20%"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>1.1×1.2−1=32%。</p",
+     "kp": "📎 知识点：累计收益"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "双均线策略"
+     ],
+     "stem": "金叉指（　）。",
+     "options": [
+      "A. 短均线下穿长均线",
+      "B. 短均线上穿长均线",
+      "C. 价格最高",
+      "D. 成交量放大"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>买入信号。</p",
+     "kp": "📎 知识点：双均线策略"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "夏普比率"
+     ],
+     "stem": "年化 15%、无风险 3%、波动率 10%，夏普（　）。",
+     "options": [
+      "A. 1.2",
+      "B. 5",
+      "C. 0.8",
+      "D. 1.5"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>(15−3)/10=1.2。</p",
+     "kp": "📎 知识点：夏普比率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "最大回撤"
+     ],
+     "stem": "净值 1.5→1.2 回撤（　）。",
+     "options": [
+      "A. −20%",
+      "B. −30%",
+      "C. −15%",
+      "D. −25%"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>(1.2−1.5)/1.5。</p",
+     "kp": "📎 知识点：最大回撤"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "交易信号"
+     ],
+     "stem": "回测避免未来函数应让 t 日信号驱动（　）收益。",
+     "options": [
+      "A. t 日",
+      "B. t+1 日",
+      "C. t−1 日",
+      "D. 任意"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>次日成交。</p",
+     "kp": "📎 知识点：交易信号"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "字典 dict"
+     ],
+     "stem": "字典通过______查找值。",
+     "options": [],
+     "answer": "<b>键（key）</b>",
+     "explain": "<p>d[key]。</p",
+     "kp": "📎 知识点：字典 dict"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "波动率"
+     ],
+     "stem": "波动率=收益率的______。",
+     "options": [],
+     "answer": "<b>标准差</b>",
+     "explain": "<p>np.std。</p",
+     "kp": "📎 知识点：波动率"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "数据读取"
+     ],
+     "stem": "读 CSV 用 pd.read______。",
+     "options": [],
+     "answer": "<b>_csv</b>",
+     "explain": "<p>read_csv。</p",
+     "kp": "📎 知识点：数据读取"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "累计收益",
+      "最大回撤"
+     ],
+     "stem": "净值 [1.0,1.2,1.5,1.3,1.6,1.1]。① 累计收益；② 最大回撤。",
+     "options": [],
+     "answer": "<p>① 累计=1.1−1=<b>10%</b>；② 峰 1.6→谷 1.1：(1.1−1.6)/1.6=<b>−31.25%</b>。</p",
+     "explain": "<p>① 累计=1.1−1=<b>10%</b>；② 峰 1.6→谷 1.1：(1.1−1.6)/1.6=<b>−31.25%</b>。</p",
+     "kp": "📎 知识点：累计收益 · 最大回撤"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "夏普比率",
+      "年化收益"
+     ],
+     "stem": "日波动率 1%、年化收益 18%、无风险 3%。① 年化波动率；② 夏普。",
+     "options": [],
+     "answer": "<p>① 1%×√252≈<b>15.87%</b>；② (18−3)/15.87≈<b>0.95</b>。</p",
+     "explain": "<p>① 1%×√252≈<b>15.87%</b>；② (18−3)/15.87≈<b>0.95</b>。</p",
+     "kp": "📎 知识点：夏普比率 · 年化收益"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 3 题",
+     "tags": [
+      "回测指标",
+      "交易信号"
+     ],
+     "stem": "论述回测的常见陷阱。",
+     "options": [],
+     "answer": "<p>① 未来函数：用当天信号算当天收益；② 过拟合：参数反复试到最优只拟合历史；③ 未扣手续费滑点；④ 幸存者偏差。应对：t 日信号×t+1 收益、样本外检验、扣除成本。</p",
+     "explain": "<p>① 未来函数：用当天信号算当天收益；② 过拟合：参数反复试到最优只拟合历史；③ 未扣手续费滑点；④ 幸存者偏差。应对：t 日信号×t+1 收益、样本外检验、扣除成本。</p",
+     "kp": "📎 知识点：回测指标 · 交易信号"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "金融编程基础 · 模拟卷（二）",
+   "hint": "覆盖全书六章：选择 10 + 填空 3 + 计算/简答 3 = 16 题，满分 100 分，建议 100 分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "函数定义"
+     ],
+     "stem": "Python 定义函数的关键字是（　）。",
+     "options": [
+      "A. def",
+      "B. function",
+      "C. func",
+      "D. define"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>def。</p",
+     "kp": "📎 知识点：函数定义"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "向量化运算"
+     ],
+     "stem": "np.array([1,2,3])*2=（　）。",
+     "options": [
+      "A. [2,4,6]",
+      "B. [2,2,2]",
+      "C. [1,2,3]",
+      "D. 报错"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>逐元素乘。</p",
+     "kp": "📎 知识点：向量化运算"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "对数收益率"
+     ],
+     "stem": "P0=100、P1=110 对数收益（　）。",
+     "options": [
+      "A. 10%",
+      "B. ln(1.1)≈9.53%",
+      "C. 9.09%",
+      "D. 11%"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>ln(1.1)。</p",
+     "kp": "📎 知识点：对数收益率"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "groupby 分组"
+     ],
+     "stem": "df.groupby('code')['ret'].mean()=（　）。",
+     "options": [
+      "A. 全体平均",
+      "B. 按股票分组各自平均收益",
+      "C. 排序",
+      "D. 合并"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>分组聚合。</p",
+     "kp": "📎 知识点：groupby 分组"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "年化收益"
+     ],
+     "stem": "日波动 1% 年化约（　）。",
+     "options": [
+      "A. 1%",
+      "B. 15.9%",
+      "C. 252%",
+      "D. 12%"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>√252≈15.87。</p",
+     "kp": "📎 知识点：年化收益"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "数据来源"
+     ],
+     "stem": "取美股数据常用（　）。",
+     "options": [
+      "A. yfinance",
+      "B. tushare",
+      "C. akshare",
+      "D. baostock"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>yfinance。</p",
+     "kp": "📎 知识点：数据来源"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "净值曲线"
+     ],
+     "stem": "净值初始值（　）。",
+     "options": [
+      "A. 0",
+      "B. 1",
+      "C. 100",
+      "D. 任意"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>1 元起步。</p",
+     "kp": "📎 知识点：净值曲线"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "去重"
+     ],
+     "stem": "删重复行用（　）。",
+     "options": [
+      "A. drop_duplicates()",
+      "B. dropna()",
+      "C. unique()",
+      "D. duplicated()"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>drop_duplicates。</p",
+     "kp": "📎 知识点：去重"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "异常值"
+     ],
+     "stem": "3σ 原则是指（　）。",
+     "options": [
+      "A. 均值±3 标准差外视为异常",
+      "B. 价格小于 3",
+      "C. 删 3 行",
+      "D. 收益 3%"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>异常值识别。</p",
+     "kp": "📎 知识点：异常值"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "可视化"
+     ],
+     "stem": "画折线图用（　）。",
+     "options": [
+      "A. plt.plot",
+      "B. plt.bar",
+      "C. plt.pie",
+      "D. plt.scatter"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>plot。</p",
+     "kp": "📎 知识点：可视化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "列表推导式"
+     ],
+     "stem": "一行生成新列表的写法称为______。",
+     "options": [],
+     "answer": "<b>列表推导式</b>",
+     "explain": "<p>[f(x) for x in ...]。</p",
+     "kp": "📎 知识点：列表推导式"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "累计收益"
+     ],
+     "stem": "累计收益=∏(1+ri)______。",
+     "options": [],
+     "answer": "<b>−1</b>",
+     "explain": "<p>连乘减 1。</p",
+     "kp": "📎 知识点：累计收益"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "交易信号"
+     ],
+     "stem": "position=1 表示______。",
+     "options": [],
+     "answer": "<b>持仓</b>",
+     "explain": "<p>0=空仓。</p",
+     "kp": "📎 知识点：交易信号"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "简单收益率"
+     ],
+     "stem": "收盘价 [20,21,20.5,22]，算日收益率。",
+     "options": [],
+     "answer": "<p>(21−20)/20=<b>5%</b>；(20.5−21)/21=−<b>2.38%</b>；(22−20.5)/20.5=<b>7.32%</b>。</p",
+     "explain": "<p>(21−20)/20=<b>5%</b>；(20.5−21)/21=−<b>2.38%</b>；(22−20.5)/20.5=<b>7.32%</b>。</p",
+     "kp": "📎 知识点：简单收益率"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "夏普比率"
+     ],
+     "stem": "策略年化 20%、无风险 3%、年化波动 12%。夏普比率？",
+     "options": [],
+     "answer": "<p>(20−3)/12≈<b>1.42</b>。</p",
+     "explain": "<p>(20−3)/12≈<b>1.42</b>。</p",
+     "kp": "📎 知识点：夏普比率"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 3 题",
+     "tags": [
+      "清洗流程",
+      "日期对齐"
+     ],
+     "stem": "论述金融数据清洗流程与多股票合并为什么要按交易日对齐。",
+     "options": [],
+     "answer": "<p>流程：去重→缺失（ffill）→类型（to_datetime/to_numeric）→异常值检查→按日期排序。对齐原因：各股票交易日历不同（停牌/上市退市），按行号拼会错配；按日期 inner join 只留共同交易日，收益计算才正确。</p",
+     "explain": "<p>流程：去重→缺失（ffill）→类型（to_datetime/to_numeric）→异常值检查→按日期排序。对齐原因：各股票交易日历不同（停牌/上市退市），按行号拼会错配；按日期 inner join 只留共同交易日，收益计算才正确。</p",
+     "kp": "📎 知识点：清洗流程 · 日期对齐"
+    }
+   ]
+  }
+ ]
+}

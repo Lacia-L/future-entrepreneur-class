@@ -1,0 +1,2874 @@
+{
+ "id": "dashujufenxi",
+ "name": "大数据分析方法与应用",
+ "emoji": "🧮",
+ "category": "数理编程",
+ "desc": "信息管理与信息系统专业核心课：讲授大数据特征与Hadoop生态、HDFS/Hive/HBase存储、MapReduce与Spark分布式计算、描述统计与回归聚类等分析方法、文本与推荐技术，以及电商金融政务行业应用——是信管学生从样本统计走向海量数据处理的关键课。",
+ "meta": [
+  "数理编程课程",
+  "信管专业必修",
+  "3学分·第6学期",
+  "含上机实验",
+  "以教务系统最新版培养方案为准"
+ ],
+ "textbook": [
+  {
+   "role": "主教材参考",
+   "title": "《大数据技术原理与应用》（第3/4版）",
+   "pub": "林子雨 编著 · 人民邮电出版社",
+   "note": "公开渠道未查到杭电卓越学院官方指定教材，以下为常用教材参考；本书为国内高校使用最广的大数据入门教材（1000余所高校采用），系统覆盖Hadoop/HDFS/MapReduce/Hive/Spark与应用。"
+  },
+  {
+   "role": "参考教材",
+   "title": "《Spark编程基础（Scala版）》",
+   "pub": "林子雨、赖永炫、陶继平 编著 · 人民邮电出版社",
+   "note": "侧重Spark分布式计算上机实践，与主教材互补，配套国家精品MOOC。"
+  }
+ ],
+ "moocs": [
+  {
+   "platform": "中国大学MOOC",
+   "name": "《大数据技术原理与应用》厦门大学 林子雨",
+   "desc": "国家精品在线开放课程，配套林子雨教材，系统讲授Hadoop生态、MapReduce、Hive、Spark，零基础友好",
+   "url": "https://www.icourse163.org/course/XMU-1002335004"
+  },
+  {
+   "platform": "B站",
+   "name": "厦大林子雨主讲《大数据技术MapReduce》课堂实录",
+   "desc": "教材作者亲授MapReduce原理，权威对应第3章分布式计算",
+   "url": "https://www.bilibili.com/video/BV13fV2ziEAA"
+  },
+  {
+   "platform": "B站",
+   "name": "尚硅谷大数据之Hadoop（上）",
+   "desc": "从大数据概念到Hadoop集群搭建与HDFS实操，对应第1-2章",
+   "url": "https://www.bilibili.com/video/av32081351"
+  },
+  {
+   "platform": "抖音",
+   "name": "大数据处理揭秘：Apache Hadoop与Spark实战",
+   "desc": "通俗讲清HDFS分片冗余与MapReduce、Spark分工，快速建立生态认知",
+   "url": "https://www.iesdouyin.com/share/video/7348059668129778980"
+  }
+ ],
+ "callout": "<b>💡 公开课知识点归类：</b>厦大林子雨MOOC按“大数据概念→Hadoop架构→HDFS→MapReduce→Hive→Spark”系统展开，与教材章节一一对应；B站MapReduce实录专攻分布式计算原理；尚硅谷Hadoop课用于上机搭建；抖音短视频快速建立生态全貌。学习重点：先理解“为什么要分布式”，再掌握Map/Shuffle/Reduce与Spark RDD。",
+ "modules": [
+  {
+   "index": "一",
+   "title": "大数据概述与Hadoop生态",
+   "sub": "什么是大数据：4V特征与Hadoop为什么诞生。",
+   "sections": [
+    {
+     "h4": "1. 大数据特征",
+     "body": "4V：规模Volume、速度Velocity、多样Variety、价值Value。传统数据库存不下算不动，催生分布式。"
+    },
+    {
+     "h4": "2. Hadoop生态",
+     "body": "Hadoop=HDFS（分布式存储）+MapReduce（分布式计算）+YARN（资源调度）。生态：Hive数据仓库、HBase NoSQL数据库、Spark计算引擎、Flink流计算。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "大数据4V",
+     "plain": "<b>Volume规模大</b>（TB/PB级）、<b>Velocity速度快</b>（实时流入）、<b>Variety类型多</b>（文本图片日志）、<b>Value价值密度低</b>（海量里淘一点规律）。",
+     "example": "淘宝一天几亿条浏览日志=规模大；要实时推荐=速度快；含文字图片视频=类型杂；大部分是噪音但能挖出购物规律。"
+    },
+    {
+     "name": "HDFS",
+     "plain": "<b>分布式文件系统</b>：把大文件切成块，分散存在多台机器上，每份存3个副本，一台坏了数据不丢。",
+     "example": "1TB文件切成128MB块，分散存到10台机器，每块3副本，某台硬盘坏了仍能读。"
+    },
+    {
+     "name": "MapReduce",
+     "plain": "<b>分而治之</b>的编程模型：Map阶段把数据拆分处理，Reduce阶段汇总结果，自动跑在集群上。",
+     "example": "统计单词数：Map把每行拆出(word,1)，Reduce把相同word的1相加。"
+    },
+    {
+     "name": "Spark",
+     "plain": "比MapReduce快的计算引擎，中间结果放<b>内存</b>而不是反复写磁盘，适合迭代计算和实时分析。",
+     "example": "机器学习要反复读数据，MapReduce每步写磁盘很慢；Spark放内存，快10-100倍。"
+    }
+   ]
+  },
+  {
+   "index": "二",
+   "title": "数据采集与存储（Hive/HBase）",
+   "sub": "数据从哪来、怎么存：Hive仓库与HBase NoSQL。",
+   "sections": [
+    {
+     "h4": "1. 数据采集",
+     "body": "来源：业务数据库日志、爬虫、传感器。工具：Flume收集日志、Sqoop在关系库与HDFS间搬数。"
+    },
+    {
+     "h4": "2. 存储组件",
+     "body": "Hive=在HDFS上表结构的数据仓库，用类SQL(HiveQL)查询；HBase=海量随机读写的NoSQL列式数据库。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "Hive",
+     "plain": "架在HDFS上的<b>数据仓库</b>：把文件映射成表，用类SQL(HiveQL)查询，底层转成MapReduce/Spark任务。",
+     "example": "对TB级日志写一句SELECT count(*) GROUP BY day，Hive自动转成分布式任务跑完全集群。"
+    },
+    {
+     "name": "HBase",
+     "plain": "<b>海量、随机读写</b>的NoSQL列式数据库：支持百万级高并发点查，适合“按row key秒查某条记录”。",
+     "example": "电商按用户ID秒查最近订单详情，数据PB级，用HBase而非传统MySQL。"
+    },
+    {
+     "name": "Flume与Sqoop",
+     "plain": "<b>Flume</b>=收集日志数据流；<b>Sqoop</b>=在关系型数据库和HDFS之间批量搬数据。",
+     "example": "各服务器日志用Flume实时汇聚到HDFS；MySQL业务数据用Sqoop定期导入数仓。"
+    },
+    {
+     "name": "NoSQL",
+     "plain": "<b>非关系型</b>数据库：不强制表结构、可水平扩展，分键值、文档、列式、图数据库，应对多样海量数据。",
+     "example": "HBase列式、Redis键值、MongoDB文档，各管一类场景。"
+    }
+   ]
+  },
+  {
+   "index": "三",
+   "title": "分布式计算原理",
+   "sub": "Map/Shuffle/Reduce与Spark RDD：数据怎么被并行算完。",
+   "sections": [
+    {
+     "h4": "1. MapReduce流程",
+     "body": "Map分处理→Shuffle按key分组洗牌→Reduce汇总。作业自动容错、并行调度。"
+    },
+    {
+     "h4": "2. Spark RDD",
+     "body": "RDD=弹性分布式数据集，不可变、可分区并行计算；血缘(lineage)记依赖以便容错。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "Shuffle",
+     "plain": "Map输出后<b>按key重新分组</b>，把相同key送到同一个Reducer，是最耗IO的环节。",
+     "example": "统计单词时，把所有(word,1)按word分堆：所有“hello”送到同一个Reducer相加。"
+    },
+    {
+     "name": "RDD",
+     "plain": "<b>弹性分布式数据集</b>：Spark的核心抽象，一组可分区并行处理、可重建的数据集合。",
+     "example": "textFile读日志→map拆分单词→reduceByKey计数，一串变换构成RDD血缘链。"
+    },
+    {
+     "name": "数据本地化",
+     "plain": "计算任务<b>移动到数据所在节点</b>执行，而不是把数据搬来搬去，减少网络传输。",
+     "example": "哪台机器存了数据块，计算就派到哪台机器跑，省网络带宽。"
+    },
+    {
+     "name": "容错机制",
+     "plain": "靠<b>副本和血缘(lineage)</b>：某节点坏了，按记录的依赖关系重新计算丢失分区，不用备份全部数据。",
+     "example": "某台机器宕机，Spark沿RDD血缘重算它负责的分区即可恢复。"
+    }
+   ]
+  },
+  {
+   "index": "四",
+   "title": "数据分析方法",
+   "sub": "从数据中算规律：描述统计、回归、聚类。",
+   "sections": [
+    {
+     "h4": "1. 描述统计",
+     "body": "均值、方差、标准差、相关系数，先用数字概括数据分布与关系。"
+    },
+    {
+     "h4": "2. 建模方法",
+     "body": "回归预测数值（最小二乘）；聚类分群（K-Means）；相似度计算（余弦/欧氏距离）用于推荐。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "均值与方差",
+     "plain": "<b>均值</b>=平均水平；<b>方差/标准差</b>=数据离散程度，越大越分散。",
+     "example": "两班平均分都是80，A班标准差5（整齐），B班标准差20（两极分化）。"
+    },
+    {
+     "name": "相关系数",
+     "plain": "衡量两变量<b>线性相关方向与程度</b>，取值[-1,1]：正、负或不相关。",
+     "example": "广告投入与销售额相关系数0.8强正相关；气温与羽绒服销量负相关。"
+    },
+    {
+     "name": "回归分析",
+     "plain": "用一条线/面<b>拟合</b>数据，预测数值（如用广告费预测销售额），最小二乘使误差平方和最小。",
+     "example": "用历史(广告费,销售额)拟合y=ax+b，新广告费代入预测销售额。"
+    },
+    {
+     "name": "K-Means聚类",
+     "plain": "先定K个中心，把样本划给最近中心，再移动中心，迭代到稳定，自动分出K群。",
+     "example": "把顾客按消费行为聚成3群：高价值、普通、沉睡，差异化营销。"
+    }
+   ]
+  },
+  {
+   "index": "五",
+   "title": "文本分析与推荐系统",
+   "sub": "让机器读文本、猜喜好：TF-IDF与协同过滤。",
+   "sections": [
+    {
+     "h4": "1. 文本分析",
+     "body": "分词→向量化(TF-IDF)→聚类/分类；词云与情感分析。"
+    },
+    {
+     "h4": "2. 推荐系统",
+     "body": "协同过滤：基于用户/物品相似度推荐；向量相似度计算是基础。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "TF-IDF",
+     "plain": "<b>词的重要性</b>：一个词在本文档出现多(TF)、但在所有文档中少见(IDF高)，就越能代表本文档。",
+     "example": "“理财”在一篇基金文章出现多次、在全网少见→TF-IDF高，是关键词；“的”到处都是→权重低。"
+    },
+    {
+     "name": "余弦相似度",
+     "plain": "把文本/用户表示成向量，用<b>夹角余弦</b>衡量相似程度，越接近1越像。",
+     "example": "两篇影评向量夹角余弦0.9→内容很相似；推荐系统据此找相似用户。"
+    },
+    {
+     "name": "协同过滤",
+     "plain": "<b>“跟你口味相似的人喜欢什么，就推给你”</b>：基于用户或物品的相似度做推荐。",
+     "example": "买过A书的人很多也买B书→给买A书的人推B书。"
+    },
+    {
+     "name": "欧氏距离",
+     "plain": "把样本看成空间点，用<b>直线距离</b>衡量相似性，距离越近越像。",
+     "example": "两个用户的消费向量在多维空间里距离近→兴趣相似。"
+    }
+   ]
+  },
+  {
+   "index": "六",
+   "title": "数据可视化与行业应用",
+   "sub": "结果怎么看、用在哪：可视化与电商金融政务落地。",
+   "sections": [
+    {
+     "h4": "1. 数据可视化",
+     "body": "大屏、仪表盘、ECharts；把分析结果图形化辅助决策。"
+    },
+    {
+     "h4": "2. 行业应用",
+     "body": "电商（推荐、用户分群）、金融（风控反欺诈）、政务（城市治理、疫情分析）。"
+    }
+   ],
+   "terms": [
+    {
+     "name": "数据可视化大屏",
+     "plain": "把关键指标和图表拼成<b>大尺寸看板</b>，实时展示全局态势，常用于指挥中心。",
+     "example": "城市大脑大屏实时显示交通流量、污染源、疫情趋势。"
+    },
+    {
+     "name": "电商大数据应用",
+     "plain": "用户画像、个性化推荐、销量预测、精准营销，提升转化与复购。",
+     "example": "淘宝首页“猜你喜欢”=协同过滤推荐；大促备货=销量预测。"
+    },
+    {
+     "name": "金融风控",
+     "plain": "用交易行为数据<b>识别异常</b>：异地大额、短时间多次转账→触发反欺诈预警。",
+     "example": "凌晨在境外刷大额消费，模型判断盗卡风险，临时冻结并短信核实。"
+    },
+    {
+     "name": "数据伦理",
+     "plain": "大数据使用要<b>保护隐私、合法合规、防止歧视</b>，不能滥用个人数据。",
+     "example": "用户数据脱敏后再分析，算法不能因性别地域歧视，遵循数据安全法。"
+    }
+   ]
+  }
+ ],
+ "formulas": [
+  {
+   "title": "均值",
+   "math": "\\bar x = \\dfrac{1}{n}\\sum_{i=1}^{n} x_i",
+   "note": "反映数据平均水平。"
+  },
+  {
+   "title": "方差与标准差",
+   "math": "s^2 = \\dfrac{1}{n-1}\\sum_{i=1}^{n}(x_i-\\bar x)^2;\\quad s=\\sqrt{s^2}",
+   "note": "衡量数据离散程度，越大越分散。"
+  },
+  {
+   "title": "皮尔逊相关系数",
+   "math": "r = \\dfrac{\\sum (x_i-\\bar x)(y_i-\\bar y)}{\\sqrt{\\sum (x_i-\\bar x)^2}\\sqrt{\\sum (y_i-\\bar y)^2}}",
+   "note": "取值[-1,1]，衡量线性相关程度与方向。"
+  },
+  {
+   "title": "最小二乘回归线斜率",
+   "math": "\\hat\\beta_1 = \\dfrac{\\sum (x_i-\\bar x)(y_i-\\bar y)}{\\sum (x_i-\\bar x)^2}",
+   "note": "使预测误差平方和最小的拟合直线斜率。"
+  },
+  {
+   "title": "欧氏距离",
+   "math": "d(x,y)=\\sqrt{\\sum_{i=1}^{k}(x_i-y_i)^2}",
+   "note": "多维向量直线距离，越近越相似。"
+  },
+  {
+   "title": "余弦相似度",
+   "math": "\\cos\\theta = \\dfrac{x \\cdot y}{\\|x\\|\\,\\|y\\|} = \\dfrac{\\sum x_i y_i}{\\sqrt{\\sum x_i^2}\\sqrt{\\sum y_i^2}}",
+   "note": "衡量方向相似性，取值[-1,1]，文本/推荐常用。"
+  },
+  {
+   "title": "TF-IDF权重",
+   "math": "w_{i,j} = TF_{i,j} \\times \\log\\dfrac{N}{n_i}",
+   "note": "词频高且在全部文档中少见则权重高。"
+  },
+  {
+   "title": "MapReduce单词计数",
+   "math": "\\text{Map: } (word,1);\\quad \\text{Reduce: } (word,\\sum 1)",
+   "note": "Map拆分计数，Shuffle按词分组，Reduce求和。"
+  },
+  {
+   "title": "K-Means质心更新",
+   "math": "c_k = \\dfrac{1}{|S_k|}\\sum_{x_i \\in S_k} x_i",
+   "note": "每类样本均值作为新中心，迭代到收敛。"
+  },
+  {
+   "title": "数据规模估算",
+   "math": "\\text{总存储} \\approx \\text{日均数据量} \\times 365 \\times \\text{副本数(3)}",
+   "note": "HDFS三副本，规划存储容量时要乘3。"
+  }
+ ],
+ "chapters": [
+  {
+   "chapter": "第一章",
+   "title": "大数据概述与Hadoop生态",
+   "hint": "本章知识清单：4V特征、Hadoop组成、HDFS、MapReduce、YARN、Spark生态。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "大数据4V",
+    "Hadoop组成",
+    "HDFS",
+    "MapReduce",
+    "YARN",
+    "Spark生态"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "大数据4V"
+     ],
+     "stem": "下列不属于大数据4V特征的是（　）。",
+     "options": [
+      "A. Volume规模",
+      "B. Velocity速度",
+      "C. Variety多样",
+      "D. Version版本"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>4V=Volume/Velocity/Variety/Value，没有Version。</p>",
+     "kp": "📎 知识点：大数据4V"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "Hadoop组成"
+     ],
+     "stem": "Hadoop的两大核心是（　）。",
+     "options": [
+      "A. HDFS与MapReduce",
+      "B. MySQL与Redis",
+      "C. Excel与Word",
+      "D. Java与Python"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Hadoop=分布式存储HDFS+分布式计算MapReduce+资源调度YARN。</p>",
+     "kp": "📎 知识点：Hadoop组成"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "HDFS"
+     ],
+     "stem": "HDFS中文件块默认存储几个副本（　）。",
+     "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 10"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>默认3副本，保证一台损坏数据不丢。</p>",
+     "kp": "📎 知识点：HDFS"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "MapReduce"
+     ],
+     "stem": "MapReduce计算过程的两个阶段是（　）。",
+     "options": [
+      "A. Map和Reduce",
+      "B. 读和写",
+      "C. 编译和运行",
+      "D. 上传和下载"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Map分处理、Reduce汇总，中间Shuffle分组。</p>",
+     "kp": "📎 知识点：MapReduce"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "Spark生态"
+     ],
+     "stem": "Spark比MapReduce快的主要原因是（　）。",
+     "options": [
+      "A. 用内存存储中间结果",
+      "B. 磁盘更大",
+      "C. 网络更快",
+      "D. 数据更少"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Spark中间结果放内存，避免反复读写磁盘。</p>",
+     "kp": "📎 知识点：Spark生态"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "YARN"
+     ],
+     "stem": "Hadoop中负责资源调度的组件是（　）。",
+     "options": [
+      "A. HDFS",
+      "B. YARN",
+      "C. Hive",
+      "D. HBase"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>YARN统一管理集群CPU内存资源。</p>",
+     "kp": "📎 知识点：YARN"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "HDFS"
+     ],
+     "stem": "HDFS适合存储（　）。",
+     "options": [
+      "A. 小量频繁随机修改的文件",
+      "B. 海量大文件、一次写入多次读取",
+      "C. 正在编辑的文档",
+      "D. 操作系统"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>HDFS面向大文件批量分析，不适合频繁随机改。</p>",
+     "kp": "📎 知识点：HDFS"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "大数据4V"
+     ],
+     "stem": "“海量数据中价值密度低，需挖掘”对应4V中的（　）。",
+     "options": [
+      "A. Volume",
+      "B. Velocity",
+      "C. Variety",
+      "D. Value"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>Value价值密度低但总体价值大。</p>",
+     "kp": "📎 知识点：大数据4V"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "MapReduce"
+     ],
+     "stem": "统计海量文件中单词出现次数，Map阶段输出（　）。",
+     "options": [
+      "A. (word,总数)",
+      "B. (word,1)",
+      "C. (1,word)",
+      "D. 空"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Map拆出每个词记(word,1)，Reduce再按词求和。</p>",
+     "kp": "📎 知识点：MapReduce"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "Hadoop组成"
+     ],
+     "stem": "为什么大数据要用分布式而非单机（　）。",
+     "options": [
+      "A. 单机存不下算不动海量数据，需多机并行",
+      "B. 单机太贵",
+      "C. 没有原因",
+      "D. 单机不能联网"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>数据量超单机能力，分布式横向扩展。</p>",
+     "kp": "📎 知识点：Hadoop组成"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "大数据4V"
+     ],
+     "stem": "大数据4V指规模、速度、多样和______。",
+     "options": [],
+     "answer": "<b>价值（Value）</b>",
+     "explain": "<p>价值密度低。</p>",
+     "kp": "📎 知识点：大数据4V"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HDFS"
+     ],
+     "stem": "HDFS的中文是分布式______系统。",
+     "options": [],
+     "answer": "<b>文件（存储）</b>",
+     "explain": "<p>Hadoop Distributed File System。</p>",
+     "kp": "📎 知识点：HDFS"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "MapReduce"
+     ],
+     "stem": "MapReduce中Map输出后按key分组的过程称为______。",
+     "options": [],
+     "answer": "<b>Shuffle（洗牌）</b>",
+     "explain": "<p>相同key送到同一Reducer。</p>",
+     "kp": "📎 知识点：MapReduce"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "YARN"
+     ],
+     "stem": "Hadoop中负责集群资源管理与调度的是______。",
+     "options": [],
+     "answer": "<b>YARN</b>",
+     "explain": "<p>Yet Another Resource Negotiator。</p>",
+     "kp": "📎 知识点：YARN"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "Spark生态"
+     ],
+     "stem": "Spark中间结果主要存在______中，因此更快。",
+     "options": [],
+     "answer": "<b>内存</b>",
+     "explain": "<p>区别于MapReduce写磁盘。</p>",
+     "kp": "📎 知识点：Spark生态"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "HDFS"
+     ],
+     "stem": "HDFS把大文件切分成固定大小的______存储。",
+     "options": [],
+     "answer": "<b>块（Block）</b>",
+     "explain": "<p>默认128MB一块，多副本存多机。</p>",
+     "kp": "📎 知识点：HDFS"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "大数据4V"
+     ],
+     "stem": "简述大数据的4V特征，各举一例。",
+     "options": [],
+     "answer": "<p>Volume规模大（TB/PB日志）、Velocity速度快（实时推荐流）、Variety类型多（文本图片视频）、Value价值密度低（海量中挖规律）。4V解释了为什么需要新技术。</p>",
+     "explain": "<p>Volume规模大（TB/PB日志）、Velocity速度快（实时推荐流）、Variety类型多（文本图片视频）、Value价值密度低（海量中挖规律）。4V解释了为什么需要新技术。</p>",
+     "kp": "📎 知识点：大数据4V"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "Hadoop组成"
+     ],
+     "stem": "Hadoop由哪几部分组成？各起什么作用？",
+     "options": [],
+     "answer": "<p>HDFS分布式存储：存海量文件多副本；MapReduce分布式计算：分而治之跑任务；YARN资源调度：管理集群CPU内存。三者构成Hadoop核心。</p>",
+     "explain": "<p>HDFS分布式存储：存海量文件多副本；MapReduce分布式计算：分而治之跑任务；YARN资源调度：管理集群CPU内存。三者构成Hadoop核心。</p>",
+     "kp": "📎 知识点：Hadoop组成"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Spark生态"
+     ],
+     "stem": "Spark为什么比MapReduce快？",
+     "options": [],
+     "answer": "<p>MapReduce每个阶段都把中间结果写磁盘，磁盘IO大；Spark把中间结果放内存，适合迭代计算和实时分析，通常快10-100倍，并提供RDD、Spark SQL等高层API。</p>",
+     "explain": "<p>MapReduce每个阶段都把中间结果写磁盘，磁盘IO大；Spark把中间结果放内存，适合迭代计算和实时分析，通常快10-100倍，并提供RDD、Spark SQL等高层API。</p>",
+     "kp": "📎 知识点：Spark生态"
+    },
+    {
+     "type": "论述题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "HDFS"
+     ],
+     "stem": "论述HDFS如何保证海量数据存储的可靠性。",
+     "options": [],
+     "answer": "<p>① 文件切块分散存储多台节点；② 每个块默认3副本分布在不同节点；③ NameNode监控节点健康，某DataNode宕机则在其他节点补副本；④ 计算任务移动到数据所在节点（数据本地化）减少网络。这使单机故障不影响整体可用性。</p>",
+     "explain": "<p>① 文件切块分散存储多台节点；② 每个块默认3副本分布在不同节点；③ NameNode监控节点健康，某DataNode宕机则在其他节点补副本；④ 计算任务移动到数据所在节点（数据本地化）减少网络。这使单机故障不影响整体可用性。</p>",
+     "kp": "📎 知识点：HDFS"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "MapReduce"
+     ],
+     "stem": "用MapReduce思想说明如何统计10亿行日志中每个IP出现的次数。",
+     "options": [],
+     "answer": "<p>① Map阶段：每台机器读本地日志行，输出(ip,1)；② Shuffle：按ip分组，相同IP送到同一Reducer；③ Reduce：对每个ip把所有1相加得总数。整个过程自动并行跑在集群上，故障自动重算。</p>",
+     "explain": "<p>① Map阶段：每台机器读本地日志行，输出(ip,1)；② Shuffle：按ip分组，相同IP送到同一Reducer；③ Reduce：对每个ip把所有1相加得总数。整个过程自动并行跑在集群上，故障自动重算。</p>",
+     "kp": "📎 知识点：MapReduce"
+    }
+   ]
+  },
+  {
+   "chapter": "第二章",
+   "title": "数据采集与存储（Hive/HBase）",
+   "hint": "本章知识清单：数据来源、Flume/Sqoop采集、Hive数据仓库、HBase NoSQL、NoSQL特点。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "数据来源",
+    "Flume与Sqoop",
+    "Hive",
+    "HBase",
+    "NoSQL"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "Hive在HDFS之上提供的能力是（　）。",
+     "options": [
+      "A. 类SQL查询数据",
+      "B. 操作系统",
+      "C. 杀毒",
+      "D. 画图"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Hive把文件映射成表，用HiveQL查询。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HBase"
+     ],
+     "stem": "HBase属于（　）。",
+     "options": [
+      "A. 关系型数据库",
+      "B. NoSQL列式数据库",
+      "C. Excel",
+      "D. 操作系统"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>HBase海量随机读写NoSQL。</p>",
+     "kp": "📎 知识点：HBase"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "Flume与Sqoop"
+     ],
+     "stem": "用于在关系型数据库与HDFS之间批量搬数据的工具是（　）。",
+     "options": [
+      "A. Flume",
+      "B. Sqoop",
+      "C. Hive",
+      "D. Spark"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Sqoop搬关系库↔HDFS；Flume收日志流。</p>",
+     "kp": "📎 知识点：Flume与Sqoop"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "NoSQL"
+     ],
+     "stem": "下列不属于NoSQL特点的是（　）。",
+     "options": [
+      "A. 模式灵活",
+      "B. 可水平扩展",
+      "C. 严格要求固定表结构",
+      "D. 应对海量多样数据"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>NoSQL弱化固定模式，这是它与关系库的区别。</p>",
+     "kp": "📎 知识点：NoSQL"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "HBase"
+     ],
+     "stem": "HBase最适合的场景是（　）。",
+     "options": [
+      "A. 按row key海量数据随机点查",
+      "B. 复杂多表join报表",
+      "C. 编辑Word",
+      "D. 发邮件"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>HBase高并发点查；复杂分析用Hive/Spark。</p>",
+     "kp": "📎 知识点：HBase"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "Flume与Sqoop"
+     ],
+     "stem": "收集各服务器实时日志流到HDFS的工具是（　）。",
+     "options": [
+      "A. Flume",
+      "B. Sqoop",
+      "C. MySQL",
+      "D. Git"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Flume日志采集。</p>",
+     "kp": "📎 知识点：Flume与Sqoop"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "HiveQL查询底层会被转换为（　）。",
+     "options": [
+      "A. Word文档",
+      "B. MapReduce/Spark等分布式任务",
+      "C. 图片",
+      "D. 网页"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Hive把SQL翻译成分布式计算任务执行。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "关于Hive，下列说法正确的是（　）。",
+     "options": [
+      "A. 它是在线低延迟事务库",
+      "B. 它是面向分析的数据仓库，适合批量查询",
+      "C. 它替代HDFS存储",
+      "D. 它不能用SQL"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Hive面向离线分析批量查询，不适合低延迟事务。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "NoSQL"
+     ],
+     "stem": "下列属于NoSQL数据库的是（　）。",
+     "options": [
+      "A. Oracle",
+      "B. MySQL",
+      "C. HBase/Redis/MongoDB",
+      "D. Excel"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>HBase列式、Redis键值、MongoDB文档。</p>",
+     "kp": "📎 知识点：NoSQL"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "数据来源"
+     ],
+     "stem": "下列不属于大数据来源的是（　）。",
+     "options": [
+      "A. 业务日志",
+      "B. 网页爬虫",
+      "C. 传感器",
+      "D. 内存里的临时变量"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>日志/爬虫/传感器都是；临时变量不是持久数据源。</p>",
+     "kp": "📎 知识点：数据来源"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "Hive是架在HDFS上的数据______。",
+     "options": [],
+     "answer": "<b>仓库</b>",
+     "explain": "<p>用HiveQL查询。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HBase"
+     ],
+     "stem": "HBase是面向海量随机读写的______SQL数据库。",
+     "options": [],
+     "answer": "<b>No</b>",
+     "explain": "<p>列式NoSQL。</p>",
+     "kp": "📎 知识点：HBase"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Flume与Sqoop"
+     ],
+     "stem": "收集日志数据流用______。",
+     "options": [],
+     "answer": "<b>Flume</b>",
+     "explain": "<p>Sqoop搬关系库。</p>",
+     "kp": "📎 知识点：Flume与Sqoop"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "NoSQL"
+     ],
+     "stem": "NoSQL的中文含义是______关系型数据库。",
+     "options": [],
+     "answer": "<b>非（不只是）</b>",
+     "explain": "<p>模式灵活、可扩展。</p>",
+     "kp": "📎 知识点：NoSQL"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "Hive使用的类SQL查询语言称为______。",
+     "options": [],
+     "answer": "<b>HiveQL</b>",
+     "explain": "<p>翻译为分布式任务。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "Flume与Sqoop"
+     ],
+     "stem": "在关系型数据库与HDFS之间批量传输数据的工具是______。",
+     "options": [],
+     "answer": "<b>Sqoop</b>",
+     "explain": "<p>SQL+Hadoop组合词。</p>",
+     "kp": "📎 知识点：Flume与Sqoop"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "什么是Hive？它有什么作用？",
+     "options": [],
+     "answer": "<p>Hive是架在HDFS上的数据仓库工具，把结构化文件映射成表，提供类SQL(HiveQL)查询，底层自动翻译成MapReduce/Spark任务。让不写Java的分析师用SQL就能查TB级数据。</p>",
+     "explain": "<p>Hive是架在HDFS上的数据仓库工具，把结构化文件映射成表，提供类SQL(HiveQL)查询，底层自动翻译成MapReduce/Spark任务。让不写Java的分析师用SQL就能查TB级数据。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "HBase"
+     ],
+     "stem": "HBase与传统关系型数据库有何区别？什么场景用HBase？",
+     "options": [],
+     "answer": "<p>HBase是NoSQL列式库，支持PB级海量数据、高并发随机读写、按row key点查，但不支持复杂join和事务。适合“按用户ID秒查海量订单”这类点查场景；复杂报表分析则用Hive/Spark。</p>",
+     "explain": "<p>HBase是NoSQL列式库，支持PB级海量数据、高并发随机读写、按row key点查，但不支持复杂join和事务。适合“按用户ID秒查海量订单”这类点查场景；复杂报表分析则用Hive/Spark。</p>",
+     "kp": "📎 知识点：HBase"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Flume与Sqoop"
+     ],
+     "stem": "Flume和Sqoop各用于什么数据采集场景？",
+     "options": [],
+     "answer": "<p>Flume用于实时收集各服务器日志流到HDFS；Sqoop用于在关系型数据库(MySQL/Oracle)与HDFS/Hive之间批量迁移数据。一个管日志流，一个管数据库批量搬运。</p>",
+     "explain": "<p>Flume用于实时收集各服务器日志流到HDFS；Sqoop用于在关系型数据库(MySQL/Oracle)与HDFS/Hive之间批量迁移数据。一个管日志流，一个管数据库批量搬运。</p>",
+     "kp": "📎 知识点：Flume与Sqoop"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "NoSQL"
+     ],
+     "stem": "电商要存PB级商品数据，支持按商品ID高并发秒查详情，同时要做月度销售分析。分别选什么存储组件？",
+     "options": [],
+     "answer": "<p>商品详情高并发点查用HBase；月度销售批量分析用Hive（跑HiveQL）。HBase负责在线随机读写，Hive负责离线分析，二者互补。</p>",
+     "explain": "<p>商品详情高并发点查用HBase；月度销售批量分析用Hive（跑HiveQL）。HBase负责在线随机读写，Hive负责离线分析，二者互补。</p>",
+     "kp": "📎 知识点：NoSQL"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "数据来源",
+      "Flume与Sqoop"
+     ],
+     "stem": "某企业有MySQL业务库和大量服务器日志，请描述把数据汇聚到HDFS做分析的流程。",
+     "options": [],
+     "answer": "<p>① MySQL业务数据用Sqoop定期批量导入HDFS；② 服务器实时日志用Flume采集到HDFS；③ 在Hive中建表映射这些数据；④ 用HiveQL/Spark做统计分析。形成“业务库+日志→HDFS→Hive→分析”的链路。</p>",
+     "explain": "<p>① MySQL业务数据用Sqoop定期批量导入HDFS；② 服务器实时日志用Flume采集到HDFS；③ 在Hive中建表映射这些数据；④ 用HiveQL/Spark做统计分析。形成“业务库+日志→HDFS→Hive→分析”的链路。</p>",
+     "kp": "📎 知识点：数据来源 · Flume与Sqoop"
+    }
+   ]
+  },
+  {
+   "chapter": "第三章",
+   "title": "分布式计算原理",
+   "hint": "本章知识清单：MapReduce流程、Shuffle、数据本地化、RDD、血缘容错。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "MapReduce流程",
+    "Shuffle",
+    "数据本地化",
+    "RDD",
+    "血缘容错"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "MapReduce计算的正确顺序是（　）。",
+     "options": [
+      "A. Reduce→Map→Shuffle",
+      "B. Map→Shuffle→Reduce",
+      "C. Shuffle→Reduce→Map",
+      "D. Map→Reduce→Shuffle"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Map分处理→Shuffle按key分组→Reduce汇总。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "RDD"
+     ],
+     "stem": "Spark的核心数据抽象是（　）。",
+     "options": [
+      "A. 链表",
+      "B. RDD弹性分布式数据集",
+      "C. 二叉树",
+      "D. 堆栈"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>RDD是Spark核心。</p>",
+     "kp": "📎 知识点：RDD"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "Shuffle"
+     ],
+     "stem": "MapReduce中最消耗IO的环节是（　）。",
+     "options": [
+      "A. Map读数据",
+      "B. Shuffle按key分组",
+      "C. Reduce输出",
+      "D. 启动JVM"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Shuffle涉及大量磁盘写和网络传输。</p>",
+     "kp": "📎 知识点：Shuffle"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "数据本地化"
+     ],
+     "stem": "“计算向数据移动”是指（　）。",
+     "options": [
+      "A. 把数据搬到计算节点",
+      "B. 计算任务调度到数据所在节点执行",
+      "C. 删除数据",
+      "D. 复制数据"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>移动计算比移动数据省网络。</p>",
+     "kp": "📎 知识点：数据本地化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "血缘容错"
+     ],
+     "stem": "Spark靠什么实现容错（　）。",
+     "options": [
+      "A. 定期全量备份",
+      "B. RDD血缘关系重算丢失分区",
+      "C. 复制每个文件10份",
+      "D. 人工修复"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>lineage记录依赖，坏了按血缘重算。</p>",
+     "kp": "📎 知识点：血缘容错"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "RDD"
+     ],
+     "stem": "关于RDD，下列说法错误的是（　）。",
+     "options": [
+      "A. 可分区并行计算",
+      "B. 不可变",
+      "C. 可记录血缘",
+      "D. 不能被重算"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>RDD可按血缘重算恢复，正是它的特点。</p>",
+     "kp": "📎 知识点：RDD"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "WordCount中Reduce阶段的任务是（　）。",
+     "options": [
+      "A. 把行拆成单词",
+      "B. 把相同单词的计数相加",
+      "C. 读文件",
+      "D. 排序文件名"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>Map拆词计数，Reduce按词求和。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "Shuffle"
+     ],
+     "stem": "Shuffle阶段把数据按key分组的目的是（　）。",
+     "options": [
+      "A. 让相同key进入同一个Reducer汇总",
+      "B. 加密数据",
+      "C. 压缩文件",
+      "D. 删除重复"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>不分组就没法跨节点汇总相同key。</p>",
+     "kp": "📎 知识点：Shuffle"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "数据本地化"
+     ],
+     "stem": "数据本地化能提升性能是因为（　）。",
+     "options": [
+      "A. 减少网络传输",
+      "B. 增加磁盘",
+      "C. 减少CPU",
+      "D. 内存变大"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>避免数据跨节点搬运。</p>",
+     "kp": "📎 知识点：数据本地化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "RDD"
+     ],
+     "stem": "RDD“弹性”主要体现在（　）。",
+     "options": [
+      "A. 可根据需要分区、容错重建",
+      "B. 能伸缩屏幕",
+      "C. 自动加密",
+      "D. 免费"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>弹性=可分区、可重算、可缓存。</p>",
+     "kp": "📎 知识点：RDD"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "MapReduce两个阶段是Map和______。",
+     "options": [],
+     "answer": "<b>Reduce</b>",
+     "explain": "<p>中间经Shuffle。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "RDD"
+     ],
+     "stem": "Spark核心抽象RDD的中文是弹性______数据集。",
+     "options": [],
+     "answer": "<b>分布式</b>",
+     "explain": "<p>Resilient Distributed Dataset。</p>",
+     "kp": "📎 知识点：RDD"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Shuffle"
+     ],
+     "stem": "Map输出后按______分组送到Reducer。",
+     "options": [],
+     "answer": "<b>key（键）</b>",
+     "explain": "<p>相同key同Reducer。</p>",
+     "kp": "📎 知识点：Shuffle"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "数据本地化"
+     ],
+     "stem": "计算任务调度到数据所在节点称为数据______。",
+     "options": [],
+     "answer": "<b>本地化</b>",
+     "explain": "<p>移动计算而非数据。</p>",
+     "kp": "📎 知识点：数据本地化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "血缘容错"
+     ],
+     "stem": "RDD记录依赖关系称为______。",
+     "options": [],
+     "answer": "<b>血缘（lineage）</b>",
+     "explain": "<p>据此重算丢失分区。</p>",
+     "kp": "📎 知识点：血缘容错"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "Map阶段把每行文本拆出(word,______)键值对。",
+     "options": [],
+     "answer": "<b>1</b>",
+     "explain": "<p>计数的单位。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "描述MapReduce处理WordCount的完整流程。",
+     "options": [],
+     "answer": "<p>① Map：各节点读本地文本，拆出每个词输出(word,1)；② Shuffle：按word分组，相同词送到同一Reducer；③ Reduce：对每个word把所有1相加得到词频。系统自动并行、容错。</p>",
+     "explain": "<p>① Map：各节点读本地文本，拆出每个词输出(word,1)；② Shuffle：按word分组，相同词送到同一Reducer；③ Reduce：对每个word把所有1相加得到词频。系统自动并行、容错。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "RDD"
+     ],
+     "stem": "什么是RDD？它有哪些特性？",
+     "options": [],
+     "answer": "<p>RDD是Spark的弹性分布式数据集：① 可分区并行计算；② 不可变，变换生成新RDD；③ 记录血缘依赖；④ 可缓存到内存；⑤ 节点故障可按血缘重算丢失分区。</p>",
+     "explain": "<p>RDD是Spark的弹性分布式数据集：① 可分区并行计算；② 不可变，变换生成新RDD；③ 记录血缘依赖；④ 可缓存到内存；⑤ 节点故障可按血缘重算丢失分区。</p>",
+     "kp": "📎 知识点：RDD"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "数据本地化"
+     ],
+     "stem": "什么是数据本地化？为什么重要？",
+     "options": [],
+     "answer": "<p>把计算任务调度到数据所在节点执行，而不是把数据搬到计算节点。因为网络传输远慢于本地读写，数据本地化可大幅减少网络IO、提升吞吐。</p>",
+     "explain": "<p>把计算任务调度到数据所在节点执行，而不是把数据搬到计算节点。因为网络传输远慢于本地读写，数据本地化可大幅减少网络IO、提升吞吐。</p>",
+     "kp": "📎 知识点：数据本地化"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "Shuffle"
+     ],
+     "stem": "统计海量访问日志中每个URL的PV，说明Map和Shuffle各做什么。",
+     "options": [],
+     "answer": "<p>Map：每行日志解析出URL，输出(url,1)；Shuffle：按url分组，相同URL的记录送到同一Reducer；Reducer：把1累加得该URL的PV。Shuffle保证相同URL聚到一起才能求和。</p",
+     "explain": "<p>Map：每行日志解析出URL，输出(url,1)；Shuffle：按url分组，相同URL的记录送到同一Reducer；Reducer：把1累加得该URL的PV。Shuffle保证相同URL聚到一起才能求和。</p",
+     "kp": "📎 知识点：Shuffle"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "血缘容错",
+      "RDD"
+     ],
+     "stem": "某Spark作业运行中一台节点宕机，系统如何恢复？这体现RDD什么特性？",
+     "options": [],
+     "answer": "<p>系统根据RDD血缘(lineage)找到该节点丢失分区依赖的上游数据，在其他存活节点重新计算该分区，而不用恢复整个数据集。体现RDD的弹性（可分区、可重算）与血统容错机制，避免全量备份的开销。</p",
+     "explain": "<p>系统根据RDD血缘(lineage)找到该节点丢失分区依赖的上游数据，在其他存活节点重新计算该分区，而不用恢复整个数据集。体现RDD的弹性（可分区、可重算）与血统容错机制，避免全量备份的开销。</p",
+     "kp": "📎 知识点：血缘容错 · RDD"
+    }
+   ]
+  },
+  {
+   "chapter": "第四章",
+   "title": "数据分析方法",
+   "hint": "本章知识清单：均值方差标准差、相关系数、回归最小二乘、K-Means聚类、相似度距离。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "均值方差标准差",
+    "相关系数",
+    "回归分析",
+    "K-Means聚类",
+    "相似度距离"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "衡量数据平均水平的统计量是（　）。",
+     "options": [
+      "A. 均值",
+      "B. 标准差",
+      "C. 最大值",
+      "D. 中位数"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>均值=平均水平；标准差=离散程度。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "相关系数"
+     ],
+     "stem": "相关系数取值范围是（　）。",
+     "options": [
+      "A. [0,1]",
+      "B. [-1,1]",
+      "C. [0,100]",
+      "D. 任意"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>r∈[-1,1]，正相关到负相关。</p>",
+     "kp": "📎 知识点：相关系数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "K-Means聚类"
+     ],
+     "stem": "K-Means属于（　）。",
+     "options": [
+      "A. 分类",
+      "B. 聚类",
+      "C. 回归",
+      "D. 排序"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>K-Means经典聚类。</p>",
+     "kp": "📎 知识点：K-Means聚类"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "两班平均分都是80，A班标准差5，B班标准差20，说明（　）。",
+     "options": [
+      "A. A班成绩更分散",
+      "B. B班成绩更分散",
+      "C. 两班一样",
+      "D. 无法判断"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>标准差越大越分散，B班两极分化。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "回归分析"
+     ],
+     "stem": "用广告费预测销售额，属于（　）。",
+     "options": [
+      "A. 分类",
+      "B. 回归",
+      "C. 聚类",
+      "D. 画图"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>预测连续数值=回归。</p>",
+     "kp": "📎 知识点：回归分析"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "相关系数"
+     ],
+     "stem": "广告投入与销售额相关系数0.8，说明（　）。",
+     "options": [
+      "A. 强正相关",
+      "B. 强负相关",
+      "C. 不相关",
+      "D. 完全无关"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>接近1=强正相关。</p>",
+     "kp": "📎 知识点：相关系数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "K-Means聚类"
+     ],
+     "stem": "K-Means中的K是指（　）。",
+     "options": [
+      "A. 数据条数",
+      "B. 要分成的簇数",
+      "C. 迭代次数",
+      "D. 机器数"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>K=预设簇个数。</p>",
+     "kp": "📎 知识点：K-Means聚类"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "相似度距离"
+     ],
+     "stem": "衡量两个用户向量相似性，常用（　）。",
+     "options": [
+      "A. 欧氏距离/余弦相似度",
+      "B. 均值",
+      "C. 中位数",
+      "D. 方差"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>距离/相似度衡量样本相近程度。</p>",
+     "kp": "📎 知识点：相似度距离"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "回归分析"
+     ],
+     "stem": "最小二乘法的目标是（　）。",
+     "options": [
+      "A. 让直线经过所有点",
+      "B. 使预测误差平方和最小",
+      "C. 让斜率最大",
+      "D. 使截距为0"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>最小二乘最小化残差平方和。</p>",
+     "kp": "📎 知识点：回归分析"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "K-Means聚类"
+     ],
+     "stem": "K-Means迭代停止的条件是（　）。",
+     "options": [
+      "A. 跑满100次",
+      "B. 质心不再明显移动、簇分配稳定",
+      "C. 数据用完",
+      "D. 随机停"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>质心收敛即停止。</p>",
+     "kp": "📎 知识点：K-Means聚类"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "衡量数据离散程度的是方差和______。",
+     "options": [],
+     "answer": "<b>标准差</b>",
+     "explain": "<p>标准差=方差开方。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "相关系数"
+     ],
+     "stem": "相关系数取值范围是[-1,______]。",
+     "options": [],
+     "answer": "<b>1</b>",
+     "explain": "<p>正到负相关。</p>",
+     "kp": "📎 知识点：相关系数"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "回归分析"
+     ],
+     "stem": "用一条直线拟合数据预测数值的方法称______回归。",
+     "options": [],
+     "answer": "<b>线性</b>",
+     "explain": "<p>最小二乘拟合。</p>",
+     "kp": "📎 知识点：回归分析"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "K-Means聚类"
+     ],
+     "stem": "K-Means先随机选K个______。",
+     "options": [],
+     "answer": "<b>质心（中心点）</b>",
+     "explain": "<p>迭代更新质心。</p>",
+     "kp": "📎 知识点：K-Means聚类"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "相似度距离"
+     ],
+     "stem": "多维样本之间的直线距离称______距离。",
+     "options": [],
+     "answer": "<b>欧氏</b>",
+     "explain": "<p>越近越相似。</p>",
+     "kp": "📎 知识点：相似度距离"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "相关系数"
+     ],
+     "stem": "相关系数为-0.9说明两变量______相关。",
+     "options": [],
+     "answer": "<b>强负</b>",
+     "explain": "<p>气温升、羽绒服销量降。</p>",
+     "kp": "📎 知识点：相关系数"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "均值和标准差分别说明数据什么特征？",
+     "options": [],
+     "answer": "<p>均值反映数据的平均水平/集中趋势；标准差（方差）反映数据围绕均值的离散程度，越大越分散。两者结合才能全面描述分布。</p>",
+     "explain": "<p>均值反映数据的平均水平/集中趋势；标准差（方差）反映数据围绕均值的离散程度，越大越分散。两者结合才能全面描述分布。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "相关系数"
+     ],
+     "stem": "相关系数r的含义是什么？r=0.8与r=-0.9各说明什么？",
+     "options": [],
+     "answer": "<p>r衡量两变量线性相关方向与程度，∈[-1,1]。r=0.8强正相关（同增同减）；r=-0.9强负相关（此增彼减）；r接近0几乎无线性相关。注意相关≠因果。</p>",
+     "explain": "<p>r衡量两变量线性相关方向与程度，∈[-1,1]。r=0.8强正相关（同增同减）；r=-0.9强负相关（此增彼减）；r接近0几乎无线性相关。注意相关≠因果。</p>",
+     "kp": "📎 知识点：相关系数"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "K-Means聚类"
+     ],
+     "stem": "简述K-Means的基本步骤。",
+     "options": [],
+     "answer": "<p>① 选定K；② 随机选K个初始质心；③ 把每个样本划给最近质心；④ 重新计算每类样本均值作为新质心；③④迭代到质心稳定。结果得到K个簇。</p>",
+     "explain": "<p>① 选定K；② 随机选K个初始质心；③ 把每个样本划给最近质心；④ 重新计算每类样本均值作为新质心；③④迭代到质心稳定。结果得到K个簇。</p>",
+     "kp": "📎 知识点：K-Means聚类"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "某组数据：2,4,4,6。求均值与样本方差（样本方差除以n-1）。",
+     "options": [],
+     "answer": "<p>均值=(2+4+4+6)/4=4；离均差平方和=(−2)²+0+0+2²=8；样本方差=8/(4−1)=<b>8/3≈2.67</b>；标准差≈1.63。</p>",
+     "explain": "<p>均值=(2+4+4+6)/4=4；离均差平方和=(−2)²+0+0+2²=8；样本方差=8/(4−1)=<b>8/3≈2.67</b>；标准差≈1.63。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "回归分析",
+      "相似度距离"
+     ],
+     "stem": "电商想用历史数据预测“广告费x”与“销售额y”的关系，并给相似用户推荐商品。说明分别用什么方法。",
+     "options": [],
+     "answer": "<p>预测广告费→销售额用线性回归（最小二乘拟合y=ax+b）；找相似用户推荐用相似度距离（欧氏距离或余弦相似度）计算用户向量远近，把相似用户喜欢的商品推过去。</p>",
+     "explain": "<p>预测广告费→销售额用线性回归（最小二乘拟合y=ax+b）；找相似用户推荐用相似度距离（欧氏距离或余弦相似度）计算用户向量远近，把相似用户喜欢的商品推过去。</p>",
+     "kp": "📎 知识点：回归分析 · 相似度距离"
+    }
+   ]
+  },
+  {
+   "chapter": "第五章",
+   "title": "文本分析与推荐系统",
+   "hint": "本章知识清单：TF-IDF、余弦相似度、欧氏距离、协同过滤、文本分词。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "文本分词",
+    "TF-IDF",
+    "余弦相似度",
+    "协同过滤",
+    "推荐系统"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "TF-IDF用于衡量（　）。",
+     "options": [
+      "A. 单词的重要性",
+      "B. 数据大小",
+      "C. 网络速度",
+      "D. 磁盘空间"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>TF-IDF=词频×逆文档频率。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "协同过滤"
+     ],
+     "stem": "“跟你相似的人喜欢什么就推给你”属于（　）。",
+     "options": [
+      "A. 协同过滤",
+      "B. 回归",
+      "C. 排序",
+      "D. 加密"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>协同过滤推荐。</p>",
+     "kp": "📎 知识点：协同过滤"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "余弦相似度"
+     ],
+     "stem": "余弦相似度取值范围是（　）。",
+     "options": [
+      "A. [0,1]",
+      "B. [-1,1]",
+      "C. [0,100]",
+      "D. 无限制"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>cosθ∈[-1,1]，越接近1越相似。</p>",
+     "kp": "📎 知识点：余弦相似度"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "“的、是”等常见停用词TF-IDF权重低，是因为（　）。",
+     "options": [
+      "A. TF太小",
+      "B. 在所有文档中都常见，IDF小",
+      "C. 词太长",
+      "D. 没有意义"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>IDF=log(N/出现文档数)，到处都出现则IDF→0。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "协同过滤"
+     ],
+     "stem": "协同过滤分为（　）。",
+     "options": [
+      "A. 基于用户和基于物品",
+      "B. 基于时间和空间",
+      "C. 在线和离线",
+      "D. 大与小"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>User-CF与Item-CF。</p>",
+     "kp": "📎 知识点：协同过滤"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "余弦相似度"
+     ],
+     "stem": "两篇文档向量夹角余弦为0.9，说明（　）。",
+     "options": [
+      "A. 内容很相似",
+      "B. 完全无关",
+      "C. 长度相同",
+      "D. 同一作者"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>越接近1方向越相似。</p>",
+     "kp": "📎 知识点：余弦相似度"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "文本分词"
+     ],
+     "stem": "中文文本分析第一步通常是（　）。",
+     "options": [
+      "A. 分词",
+      "B. 画图",
+      "C. 加密",
+      "D. 压缩"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>中文要先分词才能向量化。</p>",
+     "kp": "📎 知识点：文本分词"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "某词在一篇文章中出现很多次，但在全部文章中很少见，则该词（　）。",
+     "options": [
+      "A. TF-IDF高、是关键词",
+      "B. TF-IDF低",
+      "C. 无意义",
+      "D. 被删除"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>TF高×IDF高=重要关键词。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "协同过滤"
+     ],
+     "stem": "“买过A书的人很多也买B书，于是给买A的人推B”属于（　）。",
+     "options": [
+      "A. 基于物品的协同过滤",
+      "B. 回归",
+      "C. 聚类",
+      "D. 排序"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Item-CF基于物品共现。</p>",
+     "kp": "📎 知识点：协同过滤"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "余弦相似度"
+     ],
+     "stem": "余弦相似度相比欧氏距离的特点是（　）。",
+     "options": [
+      "A. 更关注方向而非绝对大小",
+      "B. 更关注长度",
+      "C. 只能用数字",
+      "D. 更慢"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>余弦看方向夹角，忽略向量模长差异。</p>",
+     "kp": "📎 知识点：余弦相似度"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "TF-IDF中TF指词______。",
+     "options": [],
+     "answer": "<b>频（频率）</b>",
+     "explain": "<p>IDF逆文档频率。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "协同过滤"
+     ],
+     "stem": "协同过滤分基于用户和基于______两种。",
+     "options": [],
+     "answer": "<b>物品（商品）</b>",
+     "explain": "<p>User-CF/Item-CF。</p>",
+     "kp": "📎 知识点：协同过滤"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "余弦相似度"
+     ],
+     "stem": "余弦相似度越接近______表示两向量越相似。",
+     "options": [],
+     "answer": "<b>1</b>",
+     "explain": "<p>夹角越小越像。</p>",
+     "kp": "📎 知识点：余弦相似度"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "文本分词"
+     ],
+     "stem": "中文文本分析第一步是______。",
+     "options": [],
+     "answer": "<b>分词</b>",
+     "explain": "<p>如jieba分词。</p>",
+     "kp": "📎 知识点：文本分词"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "推荐系统"
+     ],
+     "stem": "电商首页“猜你喜欢”主要用______过滤推荐。",
+     "options": [],
+     "answer": "<b>协同</b>",
+     "explain": "<p>基于用户/物品相似度。</p>",
+     "kp": "📎 知识点：推荐系统"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "逆文档频率IDF=log(N/______)。",
+     "options": [],
+     "answer": "<b>包含该词的文档数</b>",
+     "explain": "<p>越少见IDF越大。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "什么是TF-IDF？它如何衡量词的重要性？",
+     "options": [],
+     "answer": "<p>TF=词在本文档出现频率；IDF=log(N/包含该词文档数)，衡量词是否稀有。TF-IDF=TF×IDF：词在本文出现多、在全网少见，则权重大，是关键词；到处都有的停用词权重低。</p>",
+     "explain": "<p>TF=词在本文档出现频率；IDF=log(N/包含该词文档数)，衡量词是否稀有。TF-IDF=TF×IDF：词在本文出现多、在全网少见，则权重大，是关键词；到处都有的停用词权重低。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "协同过滤"
+     ],
+     "stem": "解释基于用户和基于物品的协同过滤。",
+     "options": [],
+     "answer": "<p>基于用户：找和你口味相似的用户，把他们喜欢的推给你；基于物品：买过A的人常买B，就给买A的人推B。核心都是用相似度矩阵做推荐。</p>",
+     "explain": "<p>基于用户：找和你口味相似的用户，把他们喜欢的推给你；基于物品：买过A的人常买B，就给买A的人推B。核心都是用相似度矩阵做推荐。</p>",
+     "kp": "📎 知识点：协同过滤"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "余弦相似度"
+     ],
+     "stem": "余弦相似度是怎么衡量文本相似的？",
+     "options": [],
+     "answer": "<p>把每篇文档表示成词频向量，计算两向量夹角余弦：越接近1方向越一致、内容越相似。相比欧氏距离，它更关注内容方向而不是长度差异，常用于文本和推荐。</p>",
+     "explain": "<p>把每篇文档表示成词频向量，计算两向量夹角余弦：越接近1方向越一致、内容越相似。相比欧氏距离，它更关注内容方向而不是长度差异，常用于文本和推荐。</p>",
+     "kp": "📎 知识点：余弦相似度"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "一篇基金文章中“理财”出现5次、“的”出现50次，但“理财”在1000篇文章中只20篇出现、“的”篇篇出现。哪个词TF-IDF更高？为什么？",
+     "options": [],
+     "answer": "<p>“理财”TF=5，IDF=log(1000/20)=log50大；“的”TF=50，但IDF=log(1000/1000)→0。故“理财”TF-IDF远高，是文章关键词；“的”是停用词权重≈0。</p>",
+     "explain": "<p>“理财”TF=5，IDF=log(1000/20)=log50大；“的”TF=50，但IDF=log(1000/1000)→0。故“理财”TF-IDF远高，是文章关键词；“的”是停用词权重≈0。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "推荐系统",
+      "协同过滤"
+     ],
+     "stem": "设计一个电商“猜你喜欢”推荐流程。",
+     "options": [],
+     "answer": "<p>① 收集用户浏览/购买行为构建用户-物品矩阵；② 计算物品相似度（共现）或用户相似度；③ 用Item-CF：买过A常买B就推B；④ 在线展示在首页。冷启动新用户用热门榜或属性相似度补充。</p>",
+     "explain": "<p>① 收集用户浏览/购买行为构建用户-物品矩阵；② 计算物品相似度（共现）或用户相似度；③ 用Item-CF：买过A常买B就推B；④ 在线展示在首页。冷启动新用户用热门榜或属性相似度补充。</p>",
+     "kp": "📎 知识点：推荐系统 · 协同过滤"
+    }
+   ]
+  },
+  {
+   "chapter": "第六章",
+   "title": "数据可视化与行业应用",
+   "hint": "本章知识清单：可视化大屏、ECharts、电商应用、金融风控、政务应用、数据伦理。10选择+6填空+5大题覆盖全部知识点。",
+   "knowledgePoints": [
+    "数据可视化",
+    "可视化大屏",
+    "电商应用",
+    "金融风控",
+    "政务应用",
+    "数据伦理"
+   ],
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "可视化大屏"
+     ],
+     "stem": "把关键指标拼成大尺寸实时看板称为（　）。",
+     "options": [
+      "A. 数据库",
+      "B. 数据可视化大屏",
+      "C. 源代码",
+      "D. 日志"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>大屏展示全局态势。</p>",
+     "kp": "📎 知识点：可视化大屏"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "金融风控"
+     ],
+     "stem": "大数据在金融中常用于（　）。",
+     "options": [
+      "A. 反欺诈风控",
+      "B. 排版",
+      "C. 杀毒",
+      "D. 做PPT"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>交易行为识别异常欺诈。</p>",
+     "kp": "📎 知识点：金融风控"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 3 题",
+     "tags": [
+      "数据伦理"
+     ],
+     "stem": "大数据使用必须（　）。",
+     "options": [
+      "A. 随意倒卖个人数据",
+      "B. 保护隐私、合法合规、防止歧视",
+      "C. 不做任何限制",
+      "D. 公开所有人信息"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>遵循数据安全法、隐私保护。</p>",
+     "kp": "📎 知识点：数据伦理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "电商应用"
+     ],
+     "stem": "淘宝“猜你喜欢”属于大数据在（　）的应用。",
+     "options": [
+      "A. 电商推荐",
+      "B. 金融风控",
+      "C. 医疗影像",
+      "D. 建筑设计"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>个性化推荐提升转化。</p>",
+     "kp": "📎 知识点：电商应用"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "数据可视化"
+     ],
+     "stem": "下列常用于做数据可视化的工具是（　）。",
+     "options": [
+      "A. ECharts",
+      "B. Photoshop",
+      "C. Word",
+      "D. 微信"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>ECharts开源可视化库。</p>",
+     "kp": "📎 知识点：数据可视化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "金融风控"
+     ],
+     "stem": "凌晨境外大额刷卡触发冻结，属于（　）。",
+     "options": [
+      "A. 反欺诈风控",
+      "B. 推荐系统",
+      "C. 聚类",
+      "D. 回归"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>异常行为识别。</p>",
+     "kp": "📎 知识点：金融风控"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 7 题",
+     "tags": [
+      "政务应用"
+     ],
+     "stem": "城市大脑实时显示交通与污染态势，属于大数据在（　）的应用。",
+     "options": [
+      "A. 政务城市治理",
+      "B. 电商",
+      "C. 游戏",
+      "D. 教育"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>智慧城市治理。</p>",
+     "kp": "📎 知识点：政务应用"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "数据伦理"
+     ],
+     "stem": "算法因用户性别/地域给出差别待遇，违反了数据伦理的（　）原则。",
+     "options": [
+      "A. 公平无歧视",
+      "B. 快速",
+      "C. 美观",
+      "D. 免费"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>防止算法歧视。</p>",
+     "kp": "📎 知识点：数据伦理"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 9 题",
+     "tags": [
+      "电商应用"
+     ],
+     "stem": "大促前预测销量以备货，属于大数据在电商的（　）应用。",
+     "options": [
+      "A. 销量预测与库存优化",
+      "B. 反欺诈",
+      "C. 看病",
+      "D. 导航"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>预测需求优化供应链。</p>",
+     "kp": "📎 知识点：电商应用"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 10 题",
+     "tags": [
+      "数据可视化"
+     ],
+     "stem": "可视化的主要目的是（　）。",
+     "options": [
+      "A. 让数据更好看",
+      "B. 辅助人理解数据规律、支持决策",
+      "C. 占满屏幕",
+      "D. 加密数据"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>可视化服务理解与决策。</p>",
+     "kp": "📎 知识点：数据可视化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "可视化大屏"
+     ],
+     "stem": "实时展示全局态势的大尺寸看板称可视化______。",
+     "options": [],
+     "answer": "<b>大屏</b>",
+     "explain": "<p>指挥中心常用。</p>",
+     "kp": "📎 知识点：可视化大屏"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "金融风控"
+     ],
+     "stem": "大数据在金融领域用于反______风控。",
+     "options": [],
+     "answer": "<b>欺诈</b>",
+     "explain": "<p>识别异常交易。</p>",
+     "kp": "📎 知识点：金融风控"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "电商应用"
+     ],
+     "stem": "电商个性化推荐常使用______过滤算法。",
+     "options": [],
+     "answer": "<b>协同</b>",
+     "explain": "<p>猜你喜欢。</p>",
+     "kp": "📎 知识点：电商应用"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "数据可视化"
+     ],
+     "stem": "常用开源可视化图表库是______。",
+     "options": [],
+     "answer": "<b>ECharts</b>",
+     "explain": "<p>百度开源。</p>",
+     "kp": "📎 知识点：数据可视化"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "政务应用"
+     ],
+     "stem": "大数据在政务领域用于城市______治理。",
+     "options": [],
+     "answer": "<b>智慧（大脑）</b>",
+     "explain": "<p>交通、环境、应急。</p>",
+     "kp": "📎 知识点：政务应用"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 6 题",
+     "tags": [
+      "数据伦理"
+     ],
+     "stem": "使用个人数据前应做______处理以保护隐私。",
+     "options": [],
+     "answer": "<b>脱敏</b>",
+     "explain": "<p>去除姓名手机号等。</p>",
+     "kp": "📎 知识点：数据伦理"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "可视化大屏"
+     ],
+     "stem": "什么是数据可视化大屏？它有什么价值？",
+     "options": [],
+     "answer": "<p>把关键KPI和图表拼在大尺寸看板上，实时汇聚展示全局态势（如城市交通、电商GMV）。价值：让管理者一眼看清整体状况、快速发现异常、辅助指挥决策。</p>",
+     "explain": "<p>把关键KPI和图表拼在大尺寸看板上，实时汇聚展示全局态势（如城市交通、电商GMV）。价值：让管理者一眼看清整体状况、快速发现异常、辅助指挥决策。</p>",
+     "kp": "📎 知识点：可视化大屏"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "金融风控"
+     ],
+     "stem": "大数据如何用于金融反欺诈？举例说明。",
+     "options": [],
+     "answer": "<p>用交易行为数据建模：异地登录、凌晨大额、短时间高频转账、与历史行为偏离等特征触发预警。例：用户平时在杭州小额消费，突然在境外刷大额，模型判断盗卡，临时冻结并短信核实。</p>",
+     "explain": "<p>用交易行为数据建模：异地登录、凌晨大额、短时间高频转账、与历史行为偏离等特征触发预警。例：用户平时在杭州小额消费，突然在境外刷大额，模型判断盗卡，临时冻结并短信核实。</p>",
+     "kp": "📎 知识点：金融风控"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "数据伦理"
+     ],
+     "stem": "大数据应用要注意哪些伦理问题？",
+     "options": [],
+     "answer": "<p>① 保护用户隐私，数据脱敏、合法收集；② 防止算法歧视（不因性别地域差别对待）；③ 数据安全、防止泄露滥用；④ 遵循数据安全法等法规。不能为了商业目的过度采集或倒卖个人数据。</p>",
+     "explain": "<p>① 保护用户隐私，数据脱敏、合法收集；② 防止算法歧视（不因性别地域差别对待）；③ 数据安全、防止泄露滥用；④ 遵循数据安全法等法规。不能为了商业目的过度采集或倒卖个人数据。</p>",
+     "kp": "📎 知识点：数据伦理"
+    },
+    {
+     "type": "应用题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "电商应用"
+     ],
+     "stem": "列举大数据在电商的至少3个应用场景。",
+     "options": [],
+     "answer": "<p>① 个性化推荐（猜你喜欢）；② 用户分群与精准营销；③ 销量预测优化备货库存；④ 欺诈订单识别；⑤ 动态定价。这些都提升转化与运营效率。</p>",
+     "explain": "<p>① 个性化推荐（猜你喜欢）；② 用户分群与精准营销；③ 销量预测优化备货库存；④ 欺诈订单识别；⑤ 动态定价。这些都提升转化与运营效率。</p>",
+     "kp": "📎 知识点：电商应用"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 5 题",
+     "tags": [
+      "政务应用",
+      "数据伦理"
+     ],
+     "stem": "某城市建“城市大脑”实时分析交通与公共安全。描述其技术链路，并指出需注意的伦理问题。",
+     "options": [],
+     "answer": "<p>链路：摄像头/传感器采集数据→Flume汇聚→HDFS/HBase存储→Spark实时计算拥堵与异常→可视化大屏展示→调度决策。伦理：车辆轨迹属于敏感个人信息，需脱敏、限定用途、数据最小化，避免监控滥用与歧视，符合数据安全法。</p>",
+     "explain": "<p>链路：摄像头/传感器采集数据→Flume汇聚→HDFS/HBase存储→Spark实时计算拥堵与异常→可视化大屏展示→调度决策。伦理：车辆轨迹属于敏感个人信息，需脱敏、限定用途、数据最小化，避免监控滥用与歧视，符合数据安全法。</p>",
+     "kp": "📎 知识点：政务应用 · 数据伦理"
+    }
+   ]
+  }
+ ],
+ "papers": [
+  {
+   "paper": "卷一",
+   "title": "大数据分析方法与应用 · 模拟卷（一）",
+   "hint": "覆盖全书六章：选择8+填空4+简答2+计算1+综合1，满分100分，建议100分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "大数据4V"
+     ],
+     "stem": "下列不属于4V的是（　）。",
+     "options": [
+      "A. Volume",
+      "B. Velocity",
+      "C. Variety",
+      "D. Version"
+     ],
+     "answer": "<b>D</b>",
+     "explain": "<p>4V无Version。</p>",
+     "kp": "📎 知识点：大数据4V"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HDFS"
+     ],
+     "stem": "HDFS默认存几个副本（　）。",
+     "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 5"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>3副本保证可靠。</p>",
+     "kp": "📎 知识点：HDFS"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "MapReduce计算顺序是（　）。",
+     "options": [
+      "A. Reduce→Map",
+      "B. Map→Shuffle→Reduce",
+      "C. Shuffle→Map",
+      "D. Map→Reduce"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>中间Shuffle分组。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "Hive"
+     ],
+     "stem": "Hive提供什么能力（　）。",
+     "options": [
+      "A. 类SQL查询",
+      "B. 杀毒",
+      "C. 制图",
+      "D. 操作系统"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>HiveQL查HDFS数据。</p>",
+     "kp": "📎 知识点：Hive"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "相关系数"
+     ],
+     "stem": "相关系数取值范围（　）。",
+     "options": [
+      "A. [0,1]",
+      "B. [-1,1]",
+      "C. [0,100]",
+      "D. 任意"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>∈[-1,1]。</p>",
+     "kp": "📎 知识点：相关系数"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "TF-IDF衡量（　）。",
+     "options": [
+      "A. 词的重要性",
+      "B. 磁盘大小",
+      "C. 网络速度",
+      "D. 数据条数"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>关键词权重。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "RDD"
+     ],
+     "stem": "Spark核心抽象是（　）。",
+     "options": [
+      "A. RDD",
+      "B. 链表",
+      "C. 堆栈",
+      "D. 二叉树"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>弹性分布式数据集。</p>",
+     "kp": "📎 知识点：RDD"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "协同过滤"
+     ],
+     "stem": "“相似用户喜欢什么推给你”是（　）。",
+     "options": [
+      "A. 协同过滤",
+      "B. 回归",
+      "C. 聚类",
+      "D. 排序"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>推荐算法。</p>",
+     "kp": "📎 知识点：协同过滤"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "Hadoop组成"
+     ],
+     "stem": "Hadoop两大核心是HDFS和______。",
+     "options": [],
+     "answer": "<b>MapReduce</b>",
+     "explain": "<p>加YARN调度。</p>",
+     "kp": "📎 知识点：Hadoop组成"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "Spark生态"
+     ],
+     "stem": "Spark中间结果存______中所以快。",
+     "options": [],
+     "answer": "<b>内存</b>",
+     "explain": "<p>区别于MapReduce写盘。</p>",
+     "kp": "📎 知识点：Spark生态"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "K-Means聚类"
+     ],
+     "stem": "K-Means中K指要分成的______数。",
+     "options": [],
+     "answer": "<b>簇（群）</b>",
+     "explain": "<p>预设簇个数。</p>",
+     "kp": "📎 知识点：K-Means聚类"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "数据伦理"
+     ],
+     "stem": "使用个人数据前应做______处理。",
+     "options": [],
+     "answer": "<b>脱敏</b>",
+     "explain": "<p>保护隐私。</p>",
+     "kp": "📎 知识点：数据伦理"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "MapReduce流程"
+     ],
+     "stem": "简述MapReduce处理WordCount流程。",
+     "options": [],
+     "answer": "<p>Map拆词输出(word,1)；Shuffle按词分组；Reduce按词求和得词频。自动并行容错。</p>",
+     "explain": "<p>Map拆词输出(word,1)；Shuffle按词分组；Reduce按词求和得词频。自动并行容错。</p>",
+     "kp": "📎 知识点：MapReduce流程"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "TF-IDF"
+     ],
+     "stem": "什么是TF-IDF？",
+     "options": [],
+     "answer": "<p>TF=词频，IDF=逆文档频率；TF×IDF衡量词在文档中的重要性，常见停用词权重低。</p>",
+     "explain": "<p>TF=词频，IDF=逆文档频率；TF×IDF衡量词在文档中的重要性，常见停用词权重低。</p>",
+     "kp": "📎 知识点：TF-IDF"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "数据2,4,4,6求均值与样本方差。",
+     "options": [],
+     "answer": "<p>均值=4；离均差平方和=4+0+0+4=8；样本方差=8/3≈2.67。</p>",
+     "explain": "<p>均值=4；离均差平方和=4+0+0+4=8；样本方差=8/3≈2.67。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "电商应用"
+     ],
+     "stem": "列举大数据在电商的3个应用场景。",
+     "options": [],
+     "answer": "<p>个性化推荐、用户分群精准营销、销量预测优化备货、欺诈订单识别。</p>",
+     "explain": "<p>个性化推荐、用户分群精准营销、销量预测优化备货、欺诈订单识别。</p>",
+     "kp": "📎 知识点：电商应用"
+    }
+   ]
+  },
+  {
+   "paper": "卷二",
+   "title": "大数据分析方法与应用 · 模拟卷（二）",
+   "hint": "覆盖全书六章：选择8+填空4+简答2+计算1+综合1，满分100分，建议100分钟。",
+   "questions": [
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "大数据4V"
+     ],
+     "stem": "海量数据中价值密度低对应4V中的（　）。",
+     "options": [
+      "A. Volume",
+      "B. Velocity",
+      "C. Value",
+      "D. Variety"
+     ],
+     "answer": "<b>C</b>",
+     "explain": "<p>Value。</p>",
+     "kp": "📎 知识点：大数据4V"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "easy",
+     "number": "第 2 题",
+     "tags": [
+      "HBase"
+     ],
+     "stem": "HBase属于（　）。",
+     "options": [
+      "A. 关系库",
+      "B. NoSQL列式库",
+      "C. Excel",
+      "D. 操作系统"
+     ],
+     "answer": "<b>B</b>",
+     "explain": "<p>海量点查。</p>",
+     "kp": "📎 知识点：HBase"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "Flume与Sqoop"
+     ],
+     "stem": "收集实时日志流用（　）。",
+     "options": [
+      "A. Flume",
+      "B. Sqoop",
+      "C. Git",
+      "D. MySQL"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>Flume日志采集。</p>",
+     "kp": "📎 知识点：Flume与Sqoop"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 4 题",
+     "tags": [
+      "数据本地化"
+     ],
+     "stem": "“计算向数据移动”目的是（　）。",
+     "options": [
+      "A. 减少网络传输",
+      "B. 增加磁盘",
+      "C. 加密",
+      "D. 删除数据"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>省网络IO。</p>",
+     "kp": "📎 知识点：数据本地化"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 5 题",
+     "tags": [
+      "回归分析"
+     ],
+     "stem": "用广告费预测销售额属于（　）。",
+     "options": [
+      "A. 回归",
+      "B. 分类",
+      "C. 聚类",
+      "D. 排序"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>预测连续值。</p>",
+     "kp": "📎 知识点：回归分析"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "mid",
+     "number": "第 6 题",
+     "tags": [
+      "余弦相似度"
+     ],
+     "stem": "余弦相似度越接近1表示（　）。",
+     "options": [
+      "A. 越相似",
+      "B. 越不同",
+      "C. 长度相同",
+      "D. 无意义"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>方向越一致。</p>",
+     "kp": "📎 知识点：余弦相似度"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 7 题",
+     "tags": [
+      "血缘容错"
+     ],
+     "stem": "Spark靠什么容错（　）。",
+     "options": [
+      "A. RDD血缘重算",
+      "B. 全量备份",
+      "C. 人工修",
+      "D. 多存10份"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>lineage重算丢失分区。</p>",
+     "kp": "📎 知识点：血缘容错"
+    },
+    {
+     "type": "选择题",
+     "difficulty": "hard",
+     "number": "第 8 题",
+     "tags": [
+      "金融风控"
+     ],
+     "stem": "凌晨境外大额刷卡触发冻结属于（　）。",
+     "options": [
+      "A. 反欺诈风控",
+      "B. 推荐",
+      "C. 聚类",
+      "D. 回归"
+     ],
+     "answer": "<b>A</b>",
+     "explain": "<p>异常识别。</p>",
+     "kp": "📎 知识点：金融风控"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "easy",
+     "number": "第 1 题",
+     "tags": [
+      "YARN"
+     ],
+     "stem": "Hadoop资源调度组件是______。",
+     "options": [],
+     "answer": "<b>YARN</b>",
+     "explain": "<p>管CPU内存。</p>",
+     "kp": "📎 知识点：YARN"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "Shuffle"
+     ],
+     "stem": "Map输出按key分组过程称______。",
+     "options": [],
+     "answer": "<b>Shuffle</b>",
+     "explain": "<p>最耗IO。</p>",
+     "kp": "📎 知识点：Shuffle"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "mid",
+     "number": "第 3 题",
+     "tags": [
+      "推荐系统"
+     ],
+     "stem": "电商“猜你喜欢”用______过滤。",
+     "options": [],
+     "answer": "<b>协同</b>",
+     "explain": "<p>User/Item-CF。</p>",
+     "kp": "📎 知识点：推荐系统"
+    },
+    {
+     "type": "填空题",
+     "difficulty": "hard",
+     "number": "第 4 题",
+     "tags": [
+      "数据可视化"
+     ],
+     "stem": "常用开源可视化图表库是______。",
+     "options": [],
+     "answer": "<b>ECharts</b>",
+     "explain": "<p>大屏常用。</p>",
+     "kp": "📎 知识点：数据可视化"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 1 题",
+     "tags": [
+      "Spark生态"
+     ],
+     "stem": "Spark为何比MapReduce快？",
+     "options": [],
+     "answer": "<p>中间结果放内存而非反复写磁盘，适合迭代与实时，快10-100倍。</p>",
+     "explain": "<p>中间结果放内存而非反复写磁盘，适合迭代与实时，快10-100倍。</p>",
+     "kp": "📎 知识点：Spark生态"
+    },
+    {
+     "type": "简答题",
+     "difficulty": "mid",
+     "number": "第 2 题",
+     "tags": [
+      "数据伦理"
+     ],
+     "stem": "大数据应用要注意哪些伦理？",
+     "options": [],
+     "answer": "<p>保护隐私脱敏、防止算法歧视、数据安全合法、遵循数据安全法，不滥用个人数据。</p>",
+     "explain": "<p>保护隐私脱敏、防止算法歧视、数据安全合法、遵循数据安全法，不滥用个人数据。</p>",
+     "kp": "📎 知识点：数据伦理"
+    },
+    {
+     "type": "计算题",
+     "difficulty": "hard",
+     "number": "第 1 题",
+     "tags": [
+      "均值方差标准差"
+     ],
+     "stem": "数据4,8,8,12求均值。",
+     "options": [],
+     "answer": "<p>均值=(4+8+8+12)/4=8。</p>",
+     "explain": "<p>均值=(4+8+8+12)/4=8。</p>",
+     "kp": "📎 知识点：均值方差标准差"
+    },
+    {
+     "type": "综合题",
+     "difficulty": "hard",
+     "number": "第 2 题",
+     "tags": [
+      "政务应用"
+     ],
+     "stem": "描述城市大脑技术链路及伦理注意点。",
+     "options": [],
+     "answer": "<p>传感器采集→Flume汇聚→HDFS/HBase存储→Spark实时计算→可视化大屏→调度。伦理：轨迹敏感需脱敏、限定用途、防止监控滥用与歧视。</p>",
+     "explain": "<p>传感器采集→Flume汇聚→HDFS/HBase存储→Spark实时计算→可视化大屏→调度。伦理：轨迹敏感需脱敏、限定用途、防止监控滥用与歧视。</p>",
+     "kp": "📎 知识点：政务应用"
+    }
+   ]
+  }
+ ]
+}
