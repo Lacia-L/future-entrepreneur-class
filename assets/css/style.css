@@ -542,6 +542,112 @@ body.dark .ans-label { color: #4A3311; }
 .exp-box p { margin: .45em 0; font-size: 14px; }
 .exp-box .kp-line { font-size: 12.5px; color: var(--text-soft); margin-top: 8px; }
 
+/* ---------- 填空输入框 ---------- */
+.fill-input {
+  display: inline-block;
+  min-width: 110px; max-width: 90%;
+  font-size: 14.5px; font-weight: 600; color: var(--text);
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed var(--primary-strong);
+  border-radius: 0;
+  padding: 2px 6px; margin: 0 2px;
+  outline: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+.fill-input:focus { border-bottom-style: solid; background: var(--primary-soft); }
+.fill-input.correct { border-bottom: 2px solid var(--green); color: var(--green); background: var(--green-soft); }
+.fill-input.wrong { border-bottom: 2px solid var(--red); color: var(--red); background: var(--red-soft); }
+.fill-input.revealed { border-bottom-style: solid; }
+
+/* ---------- 答题反馈弹卡 ---------- */
+#fxOverlay {
+  position: fixed; inset: 0; z-index: 999;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .35);
+  opacity: 0; visibility: hidden;
+  transition: opacity .22s ease, visibility .22s ease;
+}
+#fxOverlay.show { opacity: 1; visibility: visible; }
+.fx-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+  padding: 26px 44px;
+  text-align: center;
+  transform: scale(.82);
+  opacity: 0;
+  transition: transform .24s cubic-bezier(.34, 1.56, .64, 1), opacity .24s ease;
+  border: 2px solid var(--card-border);
+  max-width: min(88vw, 340px);
+}
+#fxOverlay.show .fx-card { transform: scale(1); opacity: 1; }
+.fx-emoji { font-size: 56px; line-height: 1.2; }
+.fx-text { margin-top: 12px; font-size: 17px; font-weight: 700; color: var(--text); }
+.fx-card.fx-ok { border-color: var(--green); }
+.fx-card.fx-no { border-color: var(--red); }
+
+/* ---------- 极速复习 ---------- */
+.expr-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+.map-node {
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  border-left: 5px solid var(--primary-strong);
+  border-radius: var(--radius-md);
+  padding: 13px 15px;
+}
+.map-no {
+  display: inline-block; font-size: 11.5px; font-weight: 700;
+  background: var(--primary-soft); color: var(--primary-strong);
+  border-radius: 999px; padding: 2px 9px; margin-bottom: 6px;
+}
+.map-node h4 { margin: 4px 0 6px; font-size: 15.5px; color: var(--text); }
+.map-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+.map-term {
+  display: inline-block; font-size: 12px;
+  background: var(--bg-soft); border: 1px solid var(--card-border);
+  border-radius: 999px; padding: 2px 8px; margin: 2px 4px 0 0;
+}
+
+/* ---------- 章节学习：每章练习区 ---------- */
+.chap-practice { margin: 6px 0 26px; padding: 16px 18px; background: var(--bg-soft); border-radius: var(--radius-lg); }
+.chap-practice .chap-title.inline { margin: 0 0 10px; }
+.chap-practice .ex-list { gap: 14px; }
+
+/* ---------- 教材定制框 ---------- */
+.book-custom {
+  margin-top: 18px;
+  border: 1.5px dashed var(--primary-strong);
+  background: var(--primary-soft);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+.book-custom h4 { margin: 0 0 6px; font-size: 15px; color: var(--primary-strong); }
+.book-custom .m-src { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.bc-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.bc-input {
+  flex: 1 1 260px; min-width: 0;
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 9px 13px; font-size: 14px; background: var(--card); color: var(--text);
+  outline: none;
+}
+.bc-input:focus { border-color: var(--primary-strong); }
+.bc-btn {
+  border: 1.5px solid var(--primary-strong); background: var(--primary); color: #4A3311;
+  border-radius: var(--radius-sm); padding: 9px 18px; font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: all .15s ease;
+}
+.bc-btn:hover { background: var(--primary-strong); color: #fff; }
+.bc-status { margin-top: 10px; font-size: 13.5px; font-weight: 600; }
+.bc-status.ok { color: var(--green); }
+.bc-status.warn { color: var(--red); }
+
 /* ---------- 公式卡片 ---------- */
 .formula-grid {
   display: grid;
