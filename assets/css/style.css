@@ -1058,6 +1058,27 @@ body.dark .ans-label { color: #4A3311; }
 }
 .match-empty { font-size: 14px; color: var(--text-soft); line-height: 1.7; }
 
+/* AI 解题区 */
+.ai-box { margin: 10px 0 14px; }
+.ai-btn {
+  width: 100%; border: none; cursor: pointer; border-radius: 14px;
+  padding: 11px 14px; font-size: 14px; font-weight: 700; letter-spacing: .3px;
+  color: #6b4a2b; background: linear-gradient(135deg, #ffe1a8, #ffd08a);
+  box-shadow: 0 4px 12px rgba(214, 158, 66, .22); transition: transform .15s ease, box-shadow .15s ease;
+}
+.ai-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(214, 158, 66, .28); }
+.ai-btn:disabled { opacity: .6; cursor: default; transform: none; }
+.ai-out {
+  margin-top: 10px; padding: 12px 14px; border-radius: 14px; background: #fffdf6;
+  border: 1px solid #f2e0bd; font-size: 14px; line-height: 1.75; color: #4a3a2a;
+}
+.ai-out.is-err { background: #fff3f3; border-color: #f6cccc; color: #a4443f; }
+.ai-out h4 { margin: 8px 0 4px; font-size: 14px; color: #b5761e; }
+.ai-out p { margin: 4px 0; overflow-wrap: anywhere; }
+.ai-head { font-weight: 700; color: #b5761e; margin-bottom: 4px; }
+.ai-loading { color: #8a6a3f; }
+.ai-out code { background: #f7edd6; padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+
 /* 公式不逐字折行（窄容器里 KaTeX 会一个符号一行，看起来像乱码） */
 .katex { white-space: nowrap; }
 .katex-display { overflow-x: auto; overflow-y: hidden; }

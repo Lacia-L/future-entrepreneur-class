@@ -163,6 +163,26 @@
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
   }
 
+  function escText(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  /* AI 返回的极简 Markdown → HTML（只认 ### 小标题与空行分段） */
+  function mdLite(s) {
+    var lines = String(s || '').split(/\r?\n/), out = [], buf = [];
+    function flush() {
+      if (buf.length) { out.push('<p>' + buf.join('<br>') + '</p>'); buf = []; }
+    }
+    lines.forEach(function (ln) {
+      var t = ln.trim();
+      if (/^#{2,4}\s+/.test(t)) { flush(); out.push('<h4>' + escText(t.replace(/^#{1,4}\s+/, '')) + '</h4>'); }
+      else if (!t) { flush(); }
+      else { buf.push(escText(t)); }
+    });
+    flush();
+    return out.join('');
+  }
+
   function paras(html) {
     if (!html) return '';
     if (html.indexOf('<p') > -1) return html;
@@ -759,6 +779,7 @@
     var textarea = document.getElementById('askText');
     var closeBtn = document.getElementById('askClose');
     var worker = null;
+    var lastRaw = '';
 
     function open() {
       modal.hidden = false;
@@ -882,15 +903,55 @@
 
     function showResults(raw, from) {
       var list = searchQuestions(raw);
+      lastRaw = raw;
       progress.hidden = true;
       if (!list.length) {
         resultEl.innerHTML = '<div class="ask-note">没找到对得上的题（来源：' + from + '）。识别到的文字：<b>' +
-          escAttr(raw).replace(/\n/g, ' ').substr(0, 180) + '</b><br>可以只截题目主干再试，或换用关键词搜。</div>';
+          escAttr(raw).replace(/\n/g, ' ').substr(0, 180) + '</b><br>可以只截题目主干再试，或换用关键词搜。</div>' +
+          '<div class="ai-box"><button class="ai-btn" id="aiSolve">AI 按板书规范解这道题</button><div class="ai-out" id="aiOut" hidden></div></div>';
+        renderMath(resultEl);
+        setupAIBtn();
         return;
       }
       resultEl.innerHTML = '<div class="ask-note">来源：' + from + ' · 命中 ' + list.length + ' 道相近题目，按匹配度排序。</div>' +
+        '<div class="ai-box"><button class="ai-btn" id="aiSolve">AI 按板书规范解这道题</button><div class="ai-out" id="aiOut" hidden></div></div>' +
         list.map(askCard).join('');
       renderMath(resultEl);
+      setupAIBtn();
+    }
+
+    function setupAIBtn() {
+      var btn = resultEl.querySelector('#aiSolve');
+      var out = resultEl.querySelector('#aiOut');
+      if (!btn || !out) return;
+      btn.addEventListener('click', function () {
+        var api = (localStorage.getItem('askApi') || 'http://127.0.0.1:8787').replace(/\/+$/, '');
+        btn.disabled = true;
+        out.hidden = false;
+        out.className = 'ai-out';
+        out.innerHTML = '<div class="ai-loading">AI 正在按老师的板书写法解题…（首次约 10–20 秒）</div>';
+        fetch(api + '/solve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: lastRaw, course: '', type: '' })
+        }).then(function (r) {
+          return r.json().then(function (d) {
+            if (!r.ok) throw new Error(d && d.error ? d.error : 'HTTP ' + r.status);
+            return d;
+          });
+        }).then(function (d) {
+          out.innerHTML = '<div class="ai-head">AI 解答 · ' + escText(d.model || 'deepseek') + ' · 按板书规范</div>' +
+            mdLite(d.answer || '');
+          renderMath(out);
+          btn.textContent = '重新解一次';
+          btn.disabled = false;
+        }).catch(function (e) {
+          out.className = 'ai-out is-err';
+          out.innerHTML = '连不上 AI 服务：' + escText(e.message) +
+            '<br>需要在电脑上先运行 <code>python ds_proxy.py</code>（端口 8787），手机访问时把服务发到公网才行。';
+          btn.disabled = false;
+        });
+      });
     }
   }
 
