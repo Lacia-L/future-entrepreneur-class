@@ -95,8 +95,11 @@
         <button id="askSearchText" class="ask-primary" type="button">用这段文字搜答案</button>
       </details>
       <details class="ask-ai-config">
-        <summary>AI 服务地址（换手机用时填 Worker 地址）</summary>
-        <input id="askApi" type="url" placeholder="https://你的worker.workers.dev">
+        <summary>AI 设置（填 DeepSeek Key 即可用，手机也能用）</summary>
+        <input id="askKey" type="password" autocomplete="off" placeholder="sk- 开头的 DeepSeek Key，只存在本机浏览器">
+        <button id="askKeySave" class="ask-primary" type="button">保存 Key</button>
+        <span id="askKeyState" class="ask-api-state"></span>
+        <input id="askApi" type="url" placeholder="可选：自建代理地址，不填则直连 DeepSeek">
         <button id="askApiSave" class="ask-primary" type="button">保存地址</button>
         <span id="askApiState" class="ask-api-state"></span>
       </details>

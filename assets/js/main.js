@@ -167,6 +167,83 @@
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  /* AI 解题的系统提示：严格照任课老师黑板板书 */
+  var ASK_SYSTEM = [
+    '你是杭州电子科技大学卓越学院"未来企业家班"（经管类）的助教，学生刘畅在复习。',
+    '学生把一道题发给你，你要严格按任课老师黑板板书的书写顺序与格式作答，答案要能直接抄到卷面上。',
+    '',
+    '总规则：先抄已知（把数据符号化）→ 再列式（先公式后代数）→ 逐步算（保留中间量）→ 最后用业务语言下结论。',
+    '',
+    '================ 运筹学·单纯形法（照老师板书） ================',
+    '每张表都按这个形状写，列顺序固定：',
+    '',
+    'Cj | 2 | 3 | 1 | 0 | 0',
+    '',
+    '| CB | XB | b | x1 | x2 | x3 | x4 | x5 | θi |',
+    '|---|---|---|---|---|---|---|---|---|',
+    '| 2 | x1 | 1 | **1** | 0 | -1 | 4/3 | -1/3 | — |',
+    '| 3 | x2 | 2 | 0 | **1** | 2 | -1/3 | 1/3 | — |',
+    '| σj = cj − zj | | | 0 | 0 | -3 | -5/3 | -1/3 | |',
+    '',
+    '要点：Cj 行单独写在表格上方；检验数是表格最后一行，第一格写 "σj = cj − zj"；',
+    '表前一句：第 k 次迭代，入基 x?（σ 最大），θ = min{…} = ?，出基 x?；主元用 ** ** 标粗；',
+    '达到最优后照板书逐行写：',
+    '此时全部 σj ≤ 0，达到最优',
+    '∴ x1 = 1，x2 = 2，x3 = 0',
+    'z = 2 + 6 = 8',
+    '∴ 甲生产 1，乙生产 2，丙不生产，利润最大',
+    '',
+    '================ 运筹学·运输问题（位势法，照老师板书） ================',
+    '① 产销平衡表：行 = 产地 A1…Am，列 = 销地 B1…Bn，每格写"运价/调运量"，最右列产量、最下行销量、右下角总量。',
+    '② 写"取 u1 = 0"，下面每行一条基格方程：u1+v3=4，u1+v4=11，u2+v1=2，u3+v3=3，u3+v4=5；接着一行给出全部解。',
+    '③ 逐个非基格写检验数：δ11 = c11 − (u1+v1) = 1 …（一行一个，全部列出）。',
+    '④ 判断句照板书：∵ δ24 = -1 < 0，∴ 此时还未达到最优解；非最优时给闭回路与调整后的调运量表（最多 2 次）。',
+    '⑤ 结论：最优调运方案（一张表）+ 最小运费 z = 数值（分项乘加写出来）。',
+    '',
+    '================ 其他题型 ================',
+    '选择题：第一句写"选 X"，再写依据 + 排除理由。计算题：已知 → 列式 → 代入计算 → 结论。',
+    '',
+    '输出格式：简体中文，Markdown，用 ### 小标题分段（### 已知 / ### 初始方案 / ### 位势法检验 / ### 调整 / ### 结论）。',
+    '所有行内公式用 \\( ... \\)；表格内不要放 \\( \\)，直接写纯文本数字与符号（如 x1、σ1、θ）。',
+    '公式只用常规 LaTeX（u_1、v_1、\\delta_{ij}、\\sigma_j、\\theta），禁止自造 \\u、\\v 这类命令。',
+    '不要编造题目没有的数据；题目残缺时先说明缺什么，再按最合理假设解并标注"假设"。',
+    '答案必须完整：位势、检验数、调整、结论一个都不能缺；全文控制在 1200 字以内。'
+  ].join('\n');
+
+  /* 直连 DeepSeek（Key 只存在本机 localStorage，不进网页源码） */
+  function solveDirect(text, key) {
+    return fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [{ role: 'system', content: ASK_SYSTEM }, { role: 'user', content: '题目：\n' + text.slice(0, 1500) }],
+        temperature: 0.2,
+        max_tokens: 4000
+      })
+    }).then(function (r) {
+      return r.json().then(function (d) {
+        if (!r.ok) throw new Error((d && d.error && d.error.message) || ('HTTP ' + r.status));
+        var c = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
+        if (!c) throw new Error('模型没有返回内容');
+        return { answer: c, model: d.model || 'deepseek-chat' };
+      });
+    });
+  }
+
+  function solveProxy(text, api) {
+    return fetch(api + '/solve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text, course: '', type: '' })
+    }).then(function (r) {
+      return r.json().then(function (d) {
+        if (!r.ok) throw new Error((d && d.error) || ('HTTP ' + r.status));
+        return d;
+      });
+    });
+  }
+
   /* AI 返回的极简 Markdown → HTML（### 小标题、空行分段、| 表格） */
   function mdLite(s) {
     s = String(s || '').replace(/\\\[([\s\S]*?)\\\]/g, function (_, inner) {
@@ -804,6 +881,9 @@
     var apiInput = document.getElementById('askApi');
     var apiSave = document.getElementById('askApiSave');
     var apiState = document.getElementById('askApiState');
+    var keyInput = document.getElementById('askKey');
+    var keySave = document.getElementById('askKeySave');
+    var keyState = document.getElementById('askKeyState');
     var worker = null;
     var lastRaw = '';
 
@@ -822,6 +902,18 @@
     }
 
     fab.addEventListener('click', open);
+    if (keyInput && keySave) {
+      var savedKey = localStorage.getItem('dsKey') || '';
+      if (savedKey) keyState.textContent = '已保存 Key（' + savedKey.slice(0, 6) + '…' + savedKey.slice(-4) + '）';
+      keySave.addEventListener('click', function () {
+        var k = keyInput.value.trim();
+        if (!k) { localStorage.removeItem('dsKey'); keyInput.value = ''; keyState.textContent = '已清空 Key'; return; }
+        if (!/^sk-/i.test(k)) { keyState.textContent = 'Key 一般以 sk- 开头，请检查'; return; }
+        localStorage.setItem('dsKey', k);
+        keyInput.value = '';
+        keyState.textContent = '已保存，之后点「AI 按板书规范解这道题」即可';
+      });
+    }
     if (apiInput && apiSave) {
       apiInput.value = localStorage.getItem('askApi') || '';
       apiSave.addEventListener('click', function () {
@@ -961,21 +1053,24 @@
       var out = resultEl.querySelector('#aiOut');
       if (!btn || !out) return;
       btn.addEventListener('click', function () {
-        var api = (localStorage.getItem('askApi') || 'http://127.0.0.1:8787').replace(/\/+$/, '');
+        var key = (localStorage.getItem('dsKey') || '').trim();
+        var api = (localStorage.getItem('askApi') || '').trim().replace(/\/+$/, '');
+        var req;
+        if (key) {
+          req = solveDirect(lastRaw, key);
+        } else if (api) {
+          req = solveProxy(lastRaw, api);
+        } else {
+          out.hidden = false;
+          out.className = 'ai-out is-err';
+          out.innerHTML = '还没配 AI。展开上面的「AI 设置」，把 DeepSeek Key 粘进去点保存，再重新搜一次即可。';
+          return;
+        }
         btn.disabled = true;
         out.hidden = false;
         out.className = 'ai-out';
-        out.innerHTML = '<div class="ai-loading">AI 正在按老师的板书写法解题…（首次约 10–20 秒）</div>';
-        fetch(api + '/solve', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: lastRaw, course: '', type: '' })
-        }).then(function (r) {
-          return r.json().then(function (d) {
-            if (!r.ok) throw new Error(d && d.error ? d.error : 'HTTP ' + r.status);
-            return d;
-          });
-        }).then(function (d) {
+        out.innerHTML = '<div class="ai-loading">AI 正在按老师的板书写法解题…（约 10–20 秒）</div>';
+        req.then(function (d) {
           out.innerHTML = '<div class="ai-head">AI 解答 · ' + escText(d.model || 'deepseek') + ' · 按板书规范</div>' +
             mdLite(d.answer || '');
           renderMath(out);
@@ -983,8 +1078,8 @@
           btn.disabled = false;
         }).catch(function (e) {
           out.className = 'ai-out is-err';
-          out.innerHTML = '连不上 AI 服务：' + escText(e.message) +
-            '<br>需要在电脑上先运行 <code>python ds_proxy.py</code>（端口 8787），手机访问时把服务发到公网才行。';
+          out.innerHTML = 'AI 调用失败：' + escText(e.message || '网络错误') +
+            '<br>常见原因：Key 填错或余额不足；手机端请确认已保存 Key，而不是填了 127.0.0.1 的代理地址。';
           btn.disabled = false;
         });
       });
