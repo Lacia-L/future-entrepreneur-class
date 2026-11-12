@@ -1070,7 +1070,7 @@ body.dark .ans-label { color: #4A3311; }
 .ai-btn:disabled { opacity: .6; cursor: default; transform: none; }
 .ai-out {
   margin-top: 10px; padding: 12px 14px; border-radius: 14px; background: #fffdf6;
-  border: 1px solid #f2e0bd; font-size: 14px; line-height: 1.75; color: #4a3a2a;
+  border: 1px solid #f2e0bd; font-size: 14px; line-height: 1.75; color: #4a3a2a; overflow-x: auto;
 }
 .ai-out.is-err { background: #fff3f3; border-color: #f6cccc; color: #a4443f; }
 .ai-out h4 { margin: 8px 0 4px; font-size: 14px; color: #b5761e; }
@@ -1078,6 +1078,17 @@ body.dark .ans-label { color: #4A3311; }
 .ai-head { font-weight: 700; color: #b5761e; margin-bottom: 4px; }
 .ai-loading { color: #8a6a3f; }
 .ai-out code { background: #f7edd6; padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+/* 单纯形表 / 产销平衡表 */
+.ai-table { margin: 8px 0 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.ai-table table {
+  border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums;
+  background: #fffdf7; min-width: 100%;
+}
+.ai-table th, .ai-table td {
+  border: 1px solid #e8d5b0; padding: 5px 8px; text-align: center; white-space: nowrap; color: #4a3a2a;
+}
+.ai-table th { background: #fdf1d6; font-weight: 700; }
+.ai-table tbody tr:nth-child(even) { background: #fffaf0; }
 
 /* 公式不逐字折行（窄容器里 KaTeX 会一个符号一行，看起来像乱码） */
 .katex { white-space: nowrap; }

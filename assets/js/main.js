@@ -167,19 +167,42 @@
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  /* AI 返回的极简 Markdown → HTML（只认 ### 小标题与空行分段） */
+  /* AI 返回的极简 Markdown → HTML（### 小标题、空行分段、| 表格） */
   function mdLite(s) {
-    var lines = String(s || '').split(/\r?\n/), out = [], buf = [];
-    function flush() {
+    s = String(s || '').replace(/\\\[([\s\S]*?)\\\]/g, function (_, inner) {
+      return '\\( ' + inner.replace(/\r?\n/g, ' ').trim() + ' \\)';
+    });
+    var lines = s.split(/\r?\n/), out = [], buf = [], tbl = [];
+    function flushP() {
       if (buf.length) { out.push('<p>' + buf.join('<br>') + '</p>'); buf = []; }
+    }
+    function cells(row) {
+      return row.replace(/^\s*\|/, '').replace(/\|\s*$/, '').split('|').map(function (c) { return c.trim(); });
+    }
+    function flushT() {
+      if (!tbl.length) return;
+      var rows = tbl.filter(function (r) { return !/^\s*\|?\s*:?-{2,}/.test(r); }).map(cells);
+      if (!rows.length) { tbl = []; return; }
+      var head = rows[0], body = rows.slice(1);
+      var html = '<div class="ai-table"><table><thead><tr>' +
+        head.map(function (c) { return '<th>' + escText(c) + '</th>'; }).join('') +
+        '</tr></thead><tbody>';
+      body.forEach(function (r) {
+        html += '<tr>' + r.map(function (c) { return '<td>' + escText(c) + '</td>'; }).join('') + '</tr>';
+      });
+      out.push(html + '</tbody></table></div>');
+      tbl = [];
     }
     lines.forEach(function (ln) {
       var t = ln.trim();
-      if (/^#{2,4}\s+/.test(t)) { flush(); out.push('<h4>' + escText(t.replace(/^#{1,4}\s+/, '')) + '</h4>'); }
-      else if (!t) { flush(); }
+      if (/^\|/.test(t)) { flushP(); tbl.push(t); return; }
+      flushT();
+      if (/^#{2,4}\s+/.test(t)) { flushP(); out.push('<h4>' + escText(t.replace(/^#{1,4}\s+/, '')) + '</h4>'); }
+      else if (!t) { flushP(); }
       else { buf.push(escText(t)); }
     });
-    flush();
+    flushP();
+    flushT();
     return out.join('');
   }
 
