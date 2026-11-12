@@ -94,6 +94,12 @@
         <textarea id="askText" rows="3" placeholder="把题目文字粘贴到这里，同样能搜"></textarea>
         <button id="askSearchText" class="ask-primary" type="button">用这段文字搜答案</button>
       </details>
+      <details class="ask-ai-config">
+        <summary>AI 服务地址（换手机用时填 Worker 地址）</summary>
+        <input id="askApi" type="url" placeholder="https://你的worker.workers.dev">
+        <button id="askApiSave" class="ask-primary" type="button">保存地址</button>
+        <span id="askApiState" class="ask-api-state"></span>
+      </details>
       <div class="ask-result" id="askResult"></div>
     </div>
   </div>

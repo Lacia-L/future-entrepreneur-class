@@ -979,6 +979,25 @@ body.dark .ans-label { color: #4A3311; }
   font: 14px/1.6 var(--font);
   resize: vertical;
 }
+.ask-ai-config { margin-top: 10px; }
+.ask-ai-config summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-soft);
+  padding: 6px 0;
+}
+.ask-ai-config input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font: 13px/1.5 var(--font);
+}
+.ask-ai-config input:focus { outline: none; border-color: var(--primary); }
+.ask-api-state { display: block; margin-top: 6px; font-size: 12.5px; color: var(--text-soft); }
 .ask-primary {
   margin-top: 10px;
   padding: 11px 20px;

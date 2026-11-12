@@ -801,6 +801,9 @@
     var manualBtn = document.getElementById('askSearchText');
     var textarea = document.getElementById('askText');
     var closeBtn = document.getElementById('askClose');
+    var apiInput = document.getElementById('askApi');
+    var apiSave = document.getElementById('askApiSave');
+    var apiState = document.getElementById('askApiState');
     var worker = null;
     var lastRaw = '';
 
@@ -819,6 +822,16 @@
     }
 
     fab.addEventListener('click', open);
+    if (apiInput && apiSave) {
+      apiInput.value = localStorage.getItem('askApi') || '';
+      apiSave.addEventListener('click', function () {
+        var v = apiInput.value.trim().replace(/\/+$/, '');
+        if (!v) { localStorage.removeItem('askApi'); apiState.textContent = '已清空，将用本机 127.0.0.1:8787'; return; }
+        if (!/^https?:\/\//i.test(v)) { apiState.textContent = '地址要以 http(s):// 开头'; return; }
+        localStorage.setItem('askApi', v);
+        apiState.textContent = '已保存：' + v;
+      });
+    }
     closeBtn.addEventListener('click', close);
     modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
