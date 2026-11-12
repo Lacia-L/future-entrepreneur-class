@@ -273,11 +273,35 @@
       '</div></div>';
   }
 
+  /* 学习通真实章节大纲 */
+  function sylBlock(s) {
+    if (!s || !s.outline || !s.outline.length) {
+      return '<div class="callout info"><b>📚 学习通章节：</b>该课程在平台上暂无建课章节（任课教师未上传章节目录），下列知识点按公开教材体系整理。</div>';
+    }
+    var nCh = s.outline.length, nPoint = 0;
+    var chs = s.outline.map(function (ch) {
+      nPoint += (ch.children || []).length;
+      var secs = (ch.children || []).map(function (sec) {
+        nPoint += (sec.items || []).length;
+        var items = (sec.items || []).length
+          ? '<div class="syl-items">' + sec.items.map(function (it) { return '<span class="syl-item">' + it + '</span>'; }).join('') + '</div>'
+          : '';
+        return '<div class="syl-sec"><span class="syl-sec-no">' + sec.no + '</span>' +
+          '<span class="syl-sec-title">' + sec.title + '</span>' + items + '</div>';
+      }).join('');
+      return '<div class="syl-ch"><h4><span class="syl-no">' + (ch.no || '') + '</span>' + ch.title + '</h4>' + secs + '</div>';
+    }).join('');
+    return '<div class="syl"><div class="syl-head">📚 学习通真实章节大纲' +
+      '<span class="syl-meta">' + nCh + ' 章 · ' + nPoint + ' 节/任务点</span></div>' + chs + '</div>';
+  }
+
   /* 章节学习：每章知识点后紧跟本章练习（模块与章节按顺序一一对应） */
   function panelKnowledge(c) {
     var mods = c.modules || [];
     var chs = c.chapters || [];
-    if (!mods.length) return '<div class="sec"><h2 class="sec-title">章节学习 <span class="sec-en">KNOWLEDGE & PRACTICE</span></h2>' + PENDING + '</div>';
+    var syl = sylBlock(c.syllabus);
+    if (!mods.length) return '<div class="sec"><h2 class="sec-title">章节学习 <span class="sec-en">KNOWLEDGE & PRACTICE</span></h2>' +
+      '<div class="sec-body">' + syl + PENDING + '</div></div>';
     var body = mods.map(function (mod, i) {
       var secs = (mod.sections || []).map(function (s) {
         var p = paras(s.body);
@@ -285,8 +309,9 @@
       }).join('');
       var terms = (mod.terms || []).map(function (t) {
         return '<div class="term-card"><div class="t-name">' + t.name + '</div>' +
-          '<p class="t-plain">' + t.plain + '</p>' +
-          '<p class="t-example">' + t.example + '</p></div>';
+          (t.official ? '<p class="t-official"><span class="t-tag">📖 官方定义</span>' + t.official + '</p>' : '') +
+          '<p class="t-plain"><span class="t-tag">🍼 通俗理解</span>' + t.plain + '</p>' +
+          '<p class="t-example"><span class="t-tag">🌰 举个栗子</span>' + t.example + '</p></div>';
       }).join('');
       var moduleHtml = '<article class="module"><div class="module-head">' +
         '<span class="mh-index">' + (mod.index || '') + '</span><h3>' + mod.title + '</h3>' +
@@ -305,8 +330,8 @@
       return moduleHtml + chHtml;
     }).join('');
     return '<div class="sec"><h2 class="sec-title">章节学习 <span class="sec-en">KNOWLEDGE & PRACTICE</span></h2>' +
-      '<p class="sec-hint">从零开始学：先读本章知识点（专有名词配通俗解释+例子），再做紧跟其后的本章练习（选择/填空/大题），学一章、练一章。</p>' +
-      '<div class="sec-body">' + body + '</div></div>';
+      '<p class="sec-hint">先看学习通真实章节大纲了解课程骨架；再读知识点（官方定义 + 通俗理解 + 例子），做完紧跟其后的本章练习。</p>' +
+      '<div class="sec-body">' + syl + body + '</div></div>';
   }
 
   function panelFormulas(c) {
