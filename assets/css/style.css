@@ -231,6 +231,8 @@ main { max-width: 1100px; margin: 0 auto; padding: 22px 18px 60px; }
 .course-head h1 { margin: 0; font-size: clamp(20px, 4vw, 26px); font-weight: 800; }
 .course-head .ch-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .course-head .ch-meta span { font-size: 12px; color: var(--text-soft); background: var(--bg-soft); border: 1px solid var(--card-border); border-radius: 999px; padding: 3px 10px; }
+.course-head .ch-meta .ch-badge { font-weight: 800; color: #8a5a00; background: #ffe9c7; border-color: #f0c987; }
+.course-head .ch-meta .ch-badge.inuse { color: #3f6b25; background: #e6f4dd; border-color: #b7d8a2; }
 .course-head .ch-desc { margin: 8px 0 0; color: var(--text-soft); font-size: 14px; }
 .course-head .ch-textbook {
   margin: 10px 0 0; padding: 8px 12px;

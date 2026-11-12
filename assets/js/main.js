@@ -31,8 +31,8 @@
   var emptyTip = document.getElementById('searchEmpty');
   var searchInput = document.getElementById('searchInput');
 
-  var CATS = [['shuli', '数理编程'], ['jingguan', '经管核心'], ['sizheng', '思政通识'],
-              ['chengzhang', '成长通识'], ['chuangye', '创业特色']];
+  var CATS = [['jingguan', '经管核心'], ['shuli', '数理编程'], ['chuangye', '创业特色'],
+              ['sizheng', '思政通识'], ['chengzhang', '成长通识'], ['tongyong', '通用参考']];
   function catSlug(name) {
     for (var i = 0; i < CATS.length; i++) if (CATS[i][1] === name) return CATS[i][0];
     return 'all';
@@ -274,8 +274,12 @@
   }
 
   /* 学习通真实章节大纲 */
-  function sylBlock(s) {
+  function sylBlock(c) {
+    var s = c.syllabus;
     if (!s || !s.outline || !s.outline.length) {
+      if (c.generic) {
+        return '<div class="callout info"><b>🔖 通用参考课程：</b>本课不在你的学习通课表内，按网上公开教材与大纲体系整理，供扩展学习。章节结构以所选教材为准。</div>';
+      }
       return '<div class="callout info"><b>📚 学习通章节：</b>该课程在平台上暂无建课章节（任课教师未上传章节目录），下列知识点按公开教材体系整理。</div>';
     }
     var nCh = s.outline.length, nPoint = 0;
@@ -299,7 +303,7 @@
   function panelKnowledge(c) {
     var mods = c.modules || [];
     var chs = c.chapters || [];
-    var syl = sylBlock(c.syllabus);
+    var syl = sylBlock(c);
     if (!mods.length) return '<div class="sec"><h2 class="sec-title">章节学习 <span class="sec-en">KNOWLEDGE & PRACTICE</span></h2>' +
       '<div class="sec-body">' + syl + PENDING + '</div></div>';
     var body = mods.map(function (mod, i) {
@@ -432,7 +436,8 @@
         '<a class="course-back" href="#home">← 返回课程列表</a>' +
         '<span class="card-emoji" aria-hidden="true">' + c.emoji + '</span>' +
         '<h1>' + c.name + '</h1>' +
-        '<div class="ch-meta">' + (c.meta || []).map(function (m) { return '<span>' + m + '</span>'; }).join('') + '</div>' +
+        '<div class="ch-meta">' + (c.generic ? '<span class="ch-badge">通用参考 · 非本人课表</span>' : '<span class="ch-badge inuse">学习通在修</span>') +
+        (c.meta || []).map(function (m) { return '<span>' + m + '</span>'; }).join('') + '</div>' +
         '<p class="ch-desc">' + (c.desc || '') + '</p>' +
       '</div>' +
       '<nav class="tab-nav" aria-label="课程内容页签">' +
