@@ -621,7 +621,281 @@
     backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
 
+  /* =========================================================
+     拍照搜答案：本地 OCR → 站内题库匹配 → 答案 + 书写步骤
+     ========================================================= */
+  var askIndex = null;
+
+  function normText(s) {
+    s = String(s || '').replace(/<[^>]+>/g, ' ');
+    s = s.replace(/\\\(|\\\)|\\\[|\\\]/g, ' ').replace(/[\\{}$^_]/g, ' ');
+    s = s.replace(/[\uFF01-\uFF5E]/g, function (ch) {
+      return String.fromCharCode(ch.charCodeAt(0) - 0xFEE0);
+    });
+    s = s.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, ' ');
+    return s.replace(/\s+/g, '').toLowerCase();
+  }
+
+  function bigrams(s) {
+    var set = {};
+    for (var i = 0; i < s.length - 1; i++) set[s.substr(i, 2)] = 1;
+    return set;
+  }
+
+  function buildAskIndex() {
+    if (askIndex) return askIndex;
+    askIndex = [];
+    COURSES.forEach(function (c) {
+      var pool = [];
+      (c.chapters || []).forEach(function (ch) { (ch.questions || []).forEach(function (q) { pool.push(q); }); });
+      (c.papers || []).forEach(function (p) { (p.questions || []).forEach(function (q) { pool.push(q); }); });
+      pool.forEach(function (q) {
+        var n = normText(q.stem || '');
+        if (n.length < 6) return;
+        var uniq = [];
+        var seen = {};
+        for (var i = 0; i < n.length; i++) {
+          if (!seen[n[i]]) { seen[n[i]] = 1; uniq.push(n[i]); }
+        }
+        askIndex.push({ c: c, q: q, n: n, bg: bigrams(n), chars: uniq });
+      });
+    });
+    return askIndex;
+  }
+
+  function searchQuestions(raw) {
+    var idx = buildAskIndex();
+    var t = normText(raw);
+    if (t.length < 4) return [];
+    var tb = bigrams(t);
+    var out = [];
+    for (var i = 0; i < idx.length; i++) {
+      var it = idx[i];
+      var keys = Object.keys(it.bg);
+      var hit = 0;
+      for (var k = 0; k < keys.length; k++) if (tb[keys[k]]) hit++;
+      var bgScore = hit / (keys.length || 1);
+      var cHit = 0;
+      for (var u = 0; u < it.chars.length; u++) if (t.indexOf(it.chars[u]) > -1) cHit++;
+      var cScore = cHit / (it.chars.length || 1);
+      var s = bgScore * 0.72 + cScore * 0.28;
+      var cname = normText(it.c.name);
+      if (cname.length > 3 && t.indexOf(cname) > -1) s += 0.12;
+      if (s >= 0.22) out.push({ it: it, s: s });
+    }
+    out.sort(function (a, b) { return b.s - a.s; });
+    var seenKey = {}, res = [];
+    for (var j = 0; j < out.length && res.length < 5; j++) {
+      var key = out[j].it.n.substr(0, 26);
+      if (seenKey[key]) continue;
+      seenKey[key] = 1;
+      res.push(out[j]);
+    }
+    return res;
+  }
+
+  function writeSteps(q) {
+    var type = q.type || '';
+    if (type.indexOf('选择') > -1) {
+      return [['审题', '圈出“最”“不正确”“首先”这类限定词，把题干压缩成一句判断，避免看漏反向要求。'],
+              ['比对', '逐项对照教材定义与公式，能定性排除的先划掉，剩下两项再算或再推。'],
+              ['写法', '先给结论再给理由：写“选 X。依据是……；A 与定义不符，因为……”，X 换成正确选项，不要只写一个字母。'],
+              ['回读', '落答案前再回读题干一遍，确认选项编号没抄错。']];
+    }
+    if (type.indexOf('填空') > -1) {
+      return [['定考点', '先判断空格考的是定义、公式还是具体数值，决定要不要写推导。'],
+              ['写原式', '公式类先写符号式（如 δij = cij − (ui + vj)），再代数字，不直接跳结果。'],
+              ['代数据', '代入已知量并统一单位；符号、下标要和题干一致。'],
+              ['落答案', '空格只填关键词或数值，不加解释；题干要求“说明”时另起一句。']];
+    }
+    if (type.indexOf('判断') > -1 || type.indexOf('论述') > -1 || type.indexOf('简答') > -1) {
+      return [['下判断', '第一句直接表态：正确/错误，或先给核心观点，不要铺垫。'],
+              ['给依据', '引教材定义、公式或条件，一条依据对应一层论证。'],
+              ['举反例', '判错时补一个反例；判对时补适用条件，防止以偏概全。'],
+              ['收结论', '最后一句回到题干表述，形成闭环。']];
+    }
+    return [['抄已知', '把题目数据符号化（如产量 ai、运价 cij、位势 ui 与 vj），需要时画出产销平衡表或单纯形表。'],
+            ['列式', '先写公式或定义式，再代数：如 Σaixij = bj、σj = Cj − Zj，不直接写中间结果。'],
+            ['逐步算', '每一步保留中间值，位势、检验数、θ 值要编号对齐，负检验数标出来。'],
+            ['下结论', '写出最优解与目标值，再用一句业务语言回答（如“甲生产 1，乙生产 2，丙不生产，利润最大”）。']];
+  }
+
+  function askCard(m) {
+    var it = m.it, q = it.q, c = it.c;
+    var scorePct = Math.round(Math.min(0.99, m.s) * 100);
+    var steps = writeSteps(q).map(function (s) {
+      return '<li><b>' + s[0] + '</b>：' + s[1] + '</li>';
+    }).join('');
+    var ans = (q.answer || '').trim();
+    var explain = (q.explain || '').replace(/<span class="ans-label">[^<]*<\/span>/g, '').trim();
+    return '<div class="match-card">' +
+      '<div class="match-top">' +
+        '<span class="match-course">' + c.name + '</span>' +
+        '<span>' + (q.type || '题目') + ' · ' + (DIFF[q.difficulty] || '易') + '</span>' +
+        '<span class="match-score">题干匹配 ' + scorePct + '%</span>' +
+      '</div>' +
+      '<p class="match-stem">' + (q.stem || '') + '</p>' +
+      (ans ? '<div class="match-ans"><b>标准答案：</b>' + ans + '</div>' : '') +
+      (explain ? '<div class="write-guide"><h5>解析</h5>' + paras(explain) + '</div>' : '') +
+      '<div class="write-guide"><h5>按老师板书要求的书写步骤</h5><ol>' + steps + '</ol></div>' +
+      '<a class="match-open" href="#course/' + c.id + '">进入「' + c.name + '」复习 →</a>' +
+    '</div>';
+  }
+
+  function setupAsk() {
+    var fab = document.getElementById('askFab');
+    var modal = document.getElementById('askModal');
+    if (!fab || !modal) return;
+    var drop = document.getElementById('askDrop');
+    var fileInput = document.getElementById('askFile');
+    var preview = document.getElementById('askPreview');
+    var imgEl = document.getElementById('askImg');
+    var progress = document.getElementById('askProgress');
+    var barEl = document.getElementById('askBar');
+    var statusEl = document.getElementById('askStatus');
+    var resultEl = document.getElementById('askResult');
+    var retake = document.getElementById('askRetake');
+    var manualBtn = document.getElementById('askSearchText');
+    var textarea = document.getElementById('askText');
+    var closeBtn = document.getElementById('askClose');
+    var worker = null;
+
+    function open() {
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+    function setStatus(pct, text) {
+      progress.hidden = false;
+      barEl.style.width = Math.round(pct * 100) + '%';
+      if (text) statusEl.textContent = text;
+    }
+
+    fab.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+
+    drop.addEventListener('click', function () { fileInput.click(); });
+    ['dragover', 'dragenter'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('is-over'); });
+    });
+    ['dragleave', 'drop'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('is-over'); });
+    });
+    drop.addEventListener('drop', function (e) {
+      var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (f) handleFile(f);
+    });
+    fileInput.addEventListener('change', function () {
+      var f = fileInput.files && fileInput.files[0];
+      if (f) handleFile(f);
+      fileInput.value = '';
+    });
+    retake.addEventListener('click', function () { fileInput.click(); });
+    manualBtn.addEventListener('click', function () {
+      var v = (textarea.value || '').trim();
+      if (v.length < 4) { statusEl.textContent = '题目文字太短，至少输入几个关键词'; progress.hidden = false; return; }
+      showResults(v, '手动输入');
+    });
+
+    function fileToDataURL(file) {
+      return new Promise(function (resolve, reject) {
+        var fr = new FileReader();
+        fr.onerror = function () { reject(new Error('读取图片失败')); };
+        fr.onload = function () {
+          var img = new Image();
+          img.onerror = function () { reject(new Error('图片无法解析')); };
+          img.onload = function () {
+            var max = 1600, w = img.width, h = img.height;
+            if (Math.max(w, h) > max) {
+              var k = max / Math.max(w, h);
+              w = Math.round(w * k); h = Math.round(h * k);
+            }
+            var cv = document.createElement('canvas');
+            cv.width = w; cv.height = h;
+            var ctx = cv.getContext('2d');
+            ctx.drawImage(img, 0, 0, w, h);
+            resolve(cv.toDataURL('image/jpeg', 0.85));
+          };
+          img.src = fr.result;
+        };
+        fr.readAsDataURL(file);
+      });
+    }
+
+    function loadTesseract() {
+      return new Promise(function (resolve, reject) {
+        if (window.Tesseract) return resolve(window.Tesseract);
+        var s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js';
+        s.onload = function () { window.Tesseract ? resolve(window.Tesseract) : reject(new Error('引擎未就绪')); };
+        s.onerror = function () { reject(new Error('识别引擎下载失败')); };
+        document.head.appendChild(s);
+      });
+    }
+
+    function handleFile(file) {
+      resultEl.innerHTML = '';
+      progress.hidden = false;
+      setStatus(0, '正在读取图片…');
+      fileToDataURL(file).then(function (url) {
+        preview.hidden = false;
+        imgEl.src = url;
+        drop.hidden = true;
+        setStatus(0.15, '正在加载识别引擎（首次约需几十秒，会缓存）…');
+        return loadTesseract().then(function (T) {
+          if (!worker) {
+            return T.createWorker('chi_sim+eng', 1, {
+              logger: function (m) {
+                if (m.status === 'recognizing text') setStatus(0.2 + (m.progress || 0) * 0.75, '正在识别文字… ' + Math.round((m.progress || 0) * 100) + '%');
+                else setStatus(0.2, '识别引擎准备中…');
+              }
+            }).then(function (w) {
+              worker = w;
+              return w;
+            });
+          }
+          return worker;
+        });
+      }).then(function (w) {
+        setStatus(0.95, '正在识别文字…');
+        return w.recognize(imgEl.src).then(function (r) {
+          var text = (r && r.data && r.data.text) || '';
+          setStatus(1, '识别完成，正在匹配题库…');
+          if (normText(text).length < 4) {
+            resultEl.innerHTML = '<div class="ask-note">这张图没识别出有效文字，可能是手写或光线太暗。换个角度重拍，或把题目文字粘贴到下面的手动输入框。</div>';
+            progress.hidden = true;
+            return;
+          }
+          showResults(text, '图片识别');
+        });
+      }).catch(function (err) {
+        progress.hidden = true;
+        resultEl.innerHTML = '<div class="ask-note">识别失败：' + (err && err.message ? err.message : '未知错误') +
+          '。<br>当前网络可能取不到识别引擎，改用下面的手动输入同样能搜。</div>';
+      });
+    }
+
+    function showResults(raw, from) {
+      var list = searchQuestions(raw);
+      progress.hidden = true;
+      if (!list.length) {
+        resultEl.innerHTML = '<div class="ask-note">没找到对得上的题（来源：' + from + '）。识别到的文字：<b>' +
+          escAttr(raw).replace(/\n/g, ' ').substr(0, 180) + '</b><br>可以只截题目主干再试，或换用关键词搜。</div>';
+        return;
+      }
+      resultEl.innerHTML = '<div class="ask-note">来源：' + from + ' · 命中 ' + list.length + ' 道相近题目，按匹配度排序。</div>' +
+        list.map(askCard).join('');
+      renderMath(resultEl);
+    }
+  }
+
   /* ---------- 启动 ---------- */
+  setupAsk();
   renderHome();
   route();
 })();

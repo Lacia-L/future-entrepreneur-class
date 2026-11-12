@@ -54,6 +54,50 @@
 
   <button id="backTop" class="backtop" type="button" title="回到顶部" aria-label="回到顶部">↑</button>
 
+  <!-- ===== 拍照搜答案 ===== -->
+  <button id="askFab" class="ask-fab" type="button" title="拍照搜答案" aria-label="拍照搜答案">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.7l1.2-1.7h5.2L14.8 6h3.7A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/>
+      <circle cx="12" cy="13" r="3.4"/>
+    </svg>
+    <span>搜答案</span>
+  </button>
+
+  <div id="askModal" class="ask-modal" hidden>
+    <div class="ask-sheet" role="dialog" aria-modal="true" aria-labelledby="askTitle">
+      <div class="ask-head">
+        <h2 id="askTitle">拍照搜答案</h2>
+        <button id="askClose" class="ask-close" type="button" aria-label="关闭">✕</button>
+      </div>
+      <p class="ask-hint">对着题目拍照或上传图片，本地识别文字后到站内题库里找题；命中即给标准答案 + 按老师板书要求的书写步骤。</p>
+      <div class="ask-drop" id="askDrop">
+        <input id="askFile" type="file" accept="image/*" capture="environment" hidden>
+        <div class="ask-drop-ico">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.6l1.2-1.7h5.4L15.9 6h1.6A2.5 2.5 0 0 1 20 8.5v9A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5z"/>
+            <circle cx="12" cy="13" r="3.3"/>
+          </svg>
+        </div>
+        <p class="ask-drop-main">点这里拍照 / 选图片</p>
+        <p class="ask-drop-sub">支持 JPG / PNG，印刷体效果最好</p>
+      </div>
+      <div class="ask-preview" id="askPreview" hidden>
+        <img id="askImg" alt="待识别的题目图片">
+        <button id="askRetake" class="ask-ghost" type="button">换一张</button>
+      </div>
+      <div class="ask-progress" id="askProgress" hidden>
+        <div class="ask-bar"><i id="askBar"></i></div>
+        <span id="askStatus">正在加载识别引擎…</span>
+      </div>
+      <details class="ask-manual">
+        <summary>识别不准？手动粘贴题目文字</summary>
+        <textarea id="askText" rows="3" placeholder="把题目文字粘贴到这里，同样能搜"></textarea>
+        <button id="askSearchText" class="ask-primary" type="button">用这段文字搜答案</button>
+      </details>
+      <div class="ask-result" id="askResult"></div>
+    </div>
+  </div>
+
   <script src="data/courses.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
