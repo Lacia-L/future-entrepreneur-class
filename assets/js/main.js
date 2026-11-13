@@ -1087,6 +1087,10 @@
   }
 
   /* ---------- 启动 ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t && t.classList && t.classList.contains('ans-img')) window.open(t.getAttribute('src'), '_blank');
+  });
   setupAsk();
   renderHome();
   route();

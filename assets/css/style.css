@@ -1118,3 +1118,45 @@ body.dark .ans-label { color: #4A3311; }
   .ask-fab { bottom: 70px; right: 12px; padding: 10px 13px; font-size: 13px; }
   .ask-sheet { padding: 15px 14px 22px; max-height: 92vh; }
 }
+/* ---------- 题目数据表 与 图片式答案 ---------- */
+.q-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 12px;
+  font-size: .92rem;
+  table-layout: fixed;
+  overflow-wrap: anywhere;
+}
+.q-table th, .q-table td {
+  border: 1px solid var(--card-border);
+  padding: 7px 6px;
+  text-align: center;
+  word-break: break-word;
+}
+.q-table th {
+  background: var(--primary-soft);
+  font-weight: 600;
+  color: var(--text);
+}
+.ans-img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  margin: 10px auto 8px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: #fff;
+  cursor: zoom-in;
+}
+.ans-tip {
+  font-size: .84rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin: 0 0 6px;
+}
+@media (max-width: 520px) {
+  .q-table { font-size: .82rem; }
+  .q-table th, .q-table td { padding: 6px 4px; }
+  .ans-img { border-radius: 12px; }
+}
